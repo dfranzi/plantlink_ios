@@ -1,0 +1,270 @@
+
+PlantLink API
+Base Url: http://www.plantlink.com/api/v1
+### Error Codes
+	Password is invalid
+	Password requirements
+	Username does not exists
+	Base Station does not exists
+	Base Station is registered to another user
+	Invalid input
+	Plant does not exist
+
+### Models
+User
+{
+	"email" : the users email
+	"phone" : the users phone
+	"name" : the users full name
+	"zip" : the users zip code
+	"email_alerts" : whether the user will receive email alerts
+	"text_alerts" : whether the user will receive text alerts
+	"push_alerts" : whether the user will receive text alerts ********
+} 
+
+Base Station
+{
+	"serial" : string representing the serial number of the base station
+}
+
+Soil 
+{
+	"key" : representing the unique identifying key of the soil
+	"name" : string representing the name of the soil type
+	"created" : int representing the time stamp when the soil type was created
+}
+
+Plant Type ********
+{
+	"key" : string representing the key of the plant type
+	"name" : string representing the name of the plant type
+}
+
+Valves
+{
+	"serial" : string representing the serial of the valve
+	"nickname" : string representing the nickname of the valve
+	"plant_key" : string representing the plant that it is attached to
+}
+
+Plant
+{
+	"color" : string representing hex value with the # of the plants user chosen color
+	"plant_type_key" : string representing the key of the plant type
+	"created " : int representing the timestamp when the plant was created
+	"active" : boolean whether or not the link is active
+	"id" : string representing the id of the plant
+	"valves_key" : an array of valve models
+	"name" : string representing the name of the plant
+	"soil_type_key" : string representing the key of the soil type of the plant
+	"measurement_cache" : most recent measurement models
+	"environment" : string of environment
+	"links_keys" : an array of link models
+}
+
+Plant Link Measurement Cache
+{
+	"battery" : float [0,100] representing battery percentage
+	"signal" : float [0,100] representing signal strenght
+	"moisture" : float [0,100] representing moisture level ********
+	"isHealthy" : boolean whether the plant is health or not
+}
+
+Plant Link Measurement
+{
+	"plant_key" : string representing the plant key
+	"created" : int representing the time when the plant measurement was recorded on the server
+	"battery" : float from [0,100] representing the battery left
+	"link_key" : string representing the key of the plank link
+	"moisture" : float from [0,100] representing the moisture level
+	"signal" : float from [0,100] representing the signal strength
+	"measurement" : float from [0,100] of a moisture value ********
+	"timestamp" : int representing the time when the plant measurement was taken
+}
+
+### Requests
+## All posts require parameters as JSON in the body
+
+#Authentication
+[GET] /user
+* User must be currently authenticated
+## Search API Return:
+{
+	"error": the request error
+	"response": a user model
+}
+
+[POST] /user
+* Registers a new user and sends activate email
+#Required
+	email : the email of the user to register
+	password : the password of the user to register
+	name : the name of the user to register
+	zip : the zip code of the user
+{
+	"error" : the response error
+	"response" : a user model
+}
+
+[GET] /auth
+* Basic HTTP Authentication
+{
+	"error" : the request error
+	"response" : the user model
+}
+
+[GET] /logout
+* Ends the current user's session
+{
+	"error" : the request error
+	"response" : none
+}
+
+[GET] /passwordReset
+* Sends a password reset email
+#Required (url parameter)
+	email : the email string to send the password reset to
+
+{
+	"error" : the request error
+	"response" : none
+}
+
+#Base Station
+[GET] /baseStations
+* Returns the current users base stations
+{
+	"error" : the request error
+	"response" : an array of base stations models
+}
+
+[POST] /baseStations
+* Registers a base station to a users account
+#Required
+	serial : the serial of the base station to register
+{
+	"error" : the request error
+	"response" : a base station model
+}
+
+[DELETE] /baseStations
+* Deletes the base station for a users account
+#Required (url parameter)
+	serial : the serial of the base station to remove
+
+#Soil Type
+[GET] /soilTypes
+* Returns all known soil types on the server
+{
+	"error" : the request error
+	"response" : an array of soil models
+
+}
+
+
+#Plant Type
+[GET] /plantTypes
+* Returns all known plant types on the server
+{
+	"error" : the request error
+	"response" : an array of plant models
+
+}
+
+
+#Plants
+[GET] /plants
+* Returns all the users registered plants
+{
+	"error" : the request error
+	"response" : an array of plant models
+}
+
+[POST] /plants
+* Adds a plant to the current user
+#Required
+	name : the nickname of the plant
+	plant_type : the type of the plant
+	soil_type : the type of soil the plant will be in
+#Optional
+	link_name : nickname of the link
+	link_serial : string of the serial link key
+
+{
+	"error" : the request error
+	"response" : the created plant model
+}
+
+
+[PUT] /plants ********
+* Edits a plant for the current user
+#Required (url parameter)
+	id : the plant id
+#Optional
+	name : the nickname of the plant
+	plant_type : the type of the plant
+	soil_type : the type of soil the plant will be in
+	link_name : nickname of the link
+	link_serial : string of the serial link key
+	color : hex string as a color
+{
+	"error" : the request error
+	"response" : the created plant model
+}
+
+[DELETE] /plants
+* Deletes a plant from the current user
+#Required (url parameter)
+	id : the plant id
+{
+	"error" : the request error
+	"response" : none
+}
+
+#Valves ********
+[GET] /valves
+* Returns all the users registered valves
+{
+	"error" : the request error
+	"response" : an array of valve models
+}
+
+[POST] /valve
+* Adds a valve to the current user
+????
+{
+	"error" : the request error
+	"response" : the created valve model
+}
+
+
+[PUT] /valves
+* Deletes a valve from the current user
+#Required (url parameter)
+	id : the valve id
+{
+	"error" : the request error
+	"response" : none
+}
+
+[DELETE] /valves 
+* Deletes a valve from the current user
+#Required (url parameter)
+	id : the valve id
+{
+	"error" : the request error
+	"response" : none
+}
+
+#Measurements
+* Returns the measurements of a plant for the current user
+[GET] /measurements
+#Required
+	plant_id : the plant id from which to gather measurements
+
+{
+	"error" : the request error
+	"response" : an array of measurement models
+}
+
+
