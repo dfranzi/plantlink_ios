@@ -25,6 +25,12 @@
 		6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BA217550B4C007234B6 /* PlantLinkTests.m */; };
 		6C972BC317554857007234B6 /* asphalt.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC217554857007234B6 /* asphalt.png */; };
 		6C972BC717554B44007234B6 /* green-med.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC617554B44007234B6 /* green-med.png */; };
+		6C972BEA17555A5D007234B6 /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BE917555A5D007234B6 /* AbstractModel.m */; };
+		6C972BEE17555A66007234B6 /* AbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BEC17555A66007234B6 /* AbstractRequest.m */; };
+		6C972BF217555A73007234B6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF117555A73007234B6 /* Reachability.m */; };
+		6C972BF517555B49007234B6 /* GeneralMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF417555B49007234B6 /* GeneralMethods.m */; };
+		6C972BF71755634C007234B6 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF61755634C007234B6 /* icon_57.png */; };
+		6C972BF91755634E007234B6 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF81755634E007234B6 /* icon_114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,17 @@
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
 		6C972BC217554857007234B6 /* asphalt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asphalt.png; path = Images/Patterns/asphalt.png; sourceTree = "<group>"; };
 		6C972BC617554B44007234B6 /* green-med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-med.png"; path = "Images/green-med.png"; sourceTree = "<group>"; };
+		6C972BE817555A5D007234B6 /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractModel.h; path = Classes/Models/Abstract/AbstractModel.h; sourceTree = "<group>"; };
+		6C972BE917555A5D007234B6 /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractModel.m; path = Classes/Models/Abstract/AbstractModel.m; sourceTree = "<group>"; };
+		6C972BEB17555A66007234B6 /* AbstractRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractRequest.h; path = Classes/Requests/Abstract/AbstractRequest.h; sourceTree = "<group>"; };
+		6C972BEC17555A66007234B6 /* AbstractRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractRequest.m; path = Classes/Requests/Abstract/AbstractRequest.m; sourceTree = "<group>"; };
+		6C972BED17555A66007234B6 /* AbstractRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractRequestProtocol.h; path = Classes/Requests/Abstract/AbstractRequestProtocol.h; sourceTree = "<group>"; };
+		6C972BF017555A73007234B6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Requests/Abstract/Reachability/Reachability.h; sourceTree = "<group>"; };
+		6C972BF117555A73007234B6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Requests/Abstract/Reachability/Reachability.m; sourceTree = "<group>"; };
+		6C972BF317555B49007234B6 /* GeneralMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralMethods.h; path = Classes/Constants/GeneralMethods/GeneralMethods.h; sourceTree = "<group>"; };
+		6C972BF417555B49007234B6 /* GeneralMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralMethods.m; path = Classes/Constants/GeneralMethods/GeneralMethods.m; sourceTree = "<group>"; };
+		6C972BF61755634C007234B6 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		6C972BF81755634E007234B6 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +107,8 @@
 		6C972B6217550B4B007234B6 = {
 			isa = PBXGroup;
 			children = (
+				6C972BF81755634E007234B6 /* icon_114.png */,
+				6C972BF61755634C007234B6 /* icon_57.png */,
 				6C972B7417550B4B007234B6 /* PlantLink */,
 				6C972B9B17550B4C007234B6 /* PlantLinkTests */,
 				6C972B6D17550B4B007234B6 /* Frameworks */,
@@ -338,6 +357,10 @@
 		6C972BD5175552C0007234B6 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				6C972BEB17555A66007234B6 /* AbstractRequest.h */,
+				6C972BEC17555A66007234B6 /* AbstractRequest.m */,
+				6C972BED17555A66007234B6 /* AbstractRequestProtocol.h */,
+				6C972BEF17555A69007234B6 /* Reachbility */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -408,6 +431,8 @@
 		6C972BDF17555301007234B6 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				6C972BE817555A5D007234B6 /* AbstractModel.h */,
+				6C972BE917555A5D007234B6 /* AbstractModel.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -415,6 +440,8 @@
 		6C972BE01755534A007234B6 /* GeneralMethods */ = {
 			isa = PBXGroup;
 			children = (
+				6C972BF317555B49007234B6 /* GeneralMethods.h */,
+				6C972BF417555B49007234B6 /* GeneralMethods.m */,
 			);
 			name = GeneralMethods;
 			sourceTree = "<group>";
@@ -466,6 +493,15 @@
 			children = (
 			);
 			name = Tour;
+			sourceTree = "<group>";
+		};
+		6C972BEF17555A69007234B6 /* Reachbility */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BF017555A73007234B6 /* Reachability.h */,
+				6C972BF117555A73007234B6 /* Reachability.m */,
+			);
+			name = Reachbility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,6 +584,8 @@
 				6C972B8B17550B4B007234B6 /* MainStoryboard_iPad.storyboard in Resources */,
 				6C972BC317554857007234B6 /* asphalt.png in Resources */,
 				6C972BC717554B44007234B6 /* green-med.png in Resources */,
+				6C972BF71755634C007234B6 /* icon_57.png in Resources */,
+				6C972BF91755634E007234B6 /* icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +630,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */,
+				6C972BEA17555A5D007234B6 /* AbstractModel.m in Sources */,
+				6C972BEE17555A66007234B6 /* AbstractRequest.m in Sources */,
+				6C972BF217555A73007234B6 /* Reachability.m in Sources */,
+				6C972BF517555B49007234B6 /* GeneralMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
