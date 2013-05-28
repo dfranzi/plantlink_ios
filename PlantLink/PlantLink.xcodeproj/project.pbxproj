@@ -18,12 +18,13 @@
 		6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8417550B4B007234B6 /* Default-568h@2x.png */; };
 		6C972B8817550B4B007234B6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8617550B4B007234B6 /* MainStoryboard_iPhone.storyboard */; };
 		6C972B8B17550B4B007234B6 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8917550B4B007234B6 /* MainStoryboard_iPad.storyboard */; };
-		6C972B8E17550B4B007234B6 /* PLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972B8D17550B4B007234B6 /* PLViewController.m */; };
 		6C972B9617550B4C007234B6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B9517550B4C007234B6 /* SenTestingKit.framework */; };
 		6C972B9717550B4C007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B9817550B4C007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972BA017550B4C007234B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B9E17550B4C007234B6 /* InfoPlist.strings */; };
 		6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BA217550B4C007234B6 /* PlantLinkTests.m */; };
+		6C972BC317554857007234B6 /* asphalt.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC217554857007234B6 /* asphalt.png */; };
+		6C972BC717554B44007234B6 /* green-med.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC617554B44007234B6 /* green-med.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +53,14 @@
 		6C972B8417550B4B007234B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6C972B8717550B4B007234B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		6C972B8A17550B4B007234B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		6C972B8C17550B4B007234B6 /* PLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLViewController.h; sourceTree = "<group>"; };
-		6C972B8D17550B4B007234B6 /* PLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLViewController.m; sourceTree = "<group>"; };
 		6C972B9417550B4C007234B6 /* PlantLinkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantLinkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C972B9517550B4C007234B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6C972B9D17550B4C007234B6 /* PlantLinkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlantLinkTests-Info.plist"; sourceTree = "<group>"; };
 		6C972B9F17550B4C007234B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C972BA117550B4C007234B6 /* PlantLinkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlantLinkTests.h; sourceTree = "<group>"; };
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
+		6C972BC217554857007234B6 /* asphalt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asphalt.png; path = Images/Patterns/asphalt.png; sourceTree = "<group>"; };
+		6C972BC617554B44007234B6 /* green-med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-med.png"; path = "Images/green-med.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,12 +120,17 @@
 		6C972B7417550B4B007234B6 /* PlantLink */ = {
 			isa = PBXGroup;
 			children = (
-				6C972B7D17550B4B007234B6 /* PLAppDelegate.h */,
-				6C972B7E17550B4B007234B6 /* PLAppDelegate.m */,
+				6C972BCC1755519A007234B6 /* Constants */,
+				6C972BCB17555198007234B6 /* Managers */,
+				6C972BCA17555196007234B6 /* Models */,
+				6C972BC917555194007234B6 /* Requests */,
+				6C972BC817555191007234B6 /* UIElements */,
+				6C972BB8175543BA007234B6 /* ViewControllers */,
 				6C972B8617550B4B007234B6 /* MainStoryboard_iPhone.storyboard */,
 				6C972B8917550B4B007234B6 /* MainStoryboard_iPad.storyboard */,
-				6C972B8C17550B4B007234B6 /* PLViewController.h */,
-				6C972B8D17550B4B007234B6 /* PLViewController.m */,
+				6C972B7D17550B4B007234B6 /* PLAppDelegate.h */,
+				6C972B7E17550B4B007234B6 /* PLAppDelegate.m */,
+				6C972BAC175540CB007234B6 /* Images */,
 				6C972B7517550B4B007234B6 /* Supporting Files */,
 			);
 			path = PlantLink;
@@ -161,6 +167,305 @@
 				6C972B9E17550B4C007234B6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C972BAC175540CB007234B6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BC617554B44007234B6 /* green-med.png */,
+				6C972BAD175540CF007234B6 /* Patterns */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6C972BAD175540CF007234B6 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BC217554857007234B6 /* asphalt.png */,
+			);
+			name = Patterns;
+			sourceTree = "<group>";
+		};
+		6C972BB8175543BA007234B6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BBB175543D7007234B6 /* Abstract */,
+				6C972BB9175543BD007234B6 /* iPhone */,
+				6C972BCD1755529F007234B6 /* iPad */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6C972BB9175543BD007234B6 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BBA175543C9007234B6 /* Home */,
+				6C972BE7175553E1007234B6 /* Tour */,
+				6C972BE6175553DF007234B6 /* Garden */,
+				6C972BE5175553DC007234B6 /* AddEditPlant */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		6C972BBA175543C9007234B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		6C972BBB175543D7007234B6 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		6C972BC817555191007234B6 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BE417555389007234B6 /* Buttons */,
+				6C972BE317555387007234B6 /* Cells */,
+				6C972BE217555385007234B6 /* TableViews */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
+		6C972BC917555194007234B6 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BD5175552C0007234B6 /* Abstract */,
+				6C972BD4175552BF007234B6 /* BaseStation */,
+				6C972BD3175552BD007234B6 /* Measurement */,
+				6C972BD2175552BB007234B6 /* Plant */,
+				6C972BD1175552B9007234B6 /* PlantType */,
+				6C972BD0175552B7007234B6 /* SoilType */,
+				6C972BCF175552B6007234B6 /* User */,
+				6C972BCE175552B4007234B6 /* Valve */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		6C972BCA17555196007234B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BDF17555301007234B6 /* Abstract */,
+				6C972BDE175552FF007234B6 /* BaseStation */,
+				6C972BDD175552FD007234B6 /* Plant */,
+				6C972BD7175552EE007234B6 /* PlantMeasurement */,
+				6C972BDC175552FB007234B6 /* PlantCacheMeasurement */,
+				6C972BDB175552F9007234B6 /* PlantType */,
+				6C972BDA175552F6007234B6 /* Soil */,
+				6C972BD9175552F2007234B6 /* SoilType */,
+				6C972BD8175552F0007234B6 /* User */,
+				6C972BD6175552EA007234B6 /* Valves */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6C972BCB17555198007234B6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BE11755535B007234B6 /* User */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		6C972BCC1755519A007234B6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BE01755534A007234B6 /* GeneralMethods */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		6C972BCD1755529F007234B6 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		6C972BCE175552B4007234B6 /* Valve */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Valve;
+			sourceTree = "<group>";
+		};
+		6C972BCF175552B6007234B6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		6C972BD0175552B7007234B6 /* SoilType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SoilType;
+			sourceTree = "<group>";
+		};
+		6C972BD1175552B9007234B6 /* PlantType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PlantType;
+			sourceTree = "<group>";
+		};
+		6C972BD2175552BB007234B6 /* Plant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Plant;
+			sourceTree = "<group>";
+		};
+		6C972BD3175552BD007234B6 /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Measurement;
+			sourceTree = "<group>";
+		};
+		6C972BD4175552BF007234B6 /* BaseStation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BaseStation;
+			sourceTree = "<group>";
+		};
+		6C972BD5175552C0007234B6 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		6C972BD6175552EA007234B6 /* Valves */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Valves;
+			sourceTree = "<group>";
+		};
+		6C972BD7175552EE007234B6 /* PlantMeasurement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PlantMeasurement;
+			sourceTree = "<group>";
+		};
+		6C972BD8175552F0007234B6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		6C972BD9175552F2007234B6 /* SoilType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SoilType;
+			sourceTree = "<group>";
+		};
+		6C972BDA175552F6007234B6 /* Soil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Soil;
+			sourceTree = "<group>";
+		};
+		6C972BDB175552F9007234B6 /* PlantType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PlantType;
+			sourceTree = "<group>";
+		};
+		6C972BDC175552FB007234B6 /* PlantCacheMeasurement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PlantCacheMeasurement;
+			sourceTree = "<group>";
+		};
+		6C972BDD175552FD007234B6 /* Plant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Plant;
+			sourceTree = "<group>";
+		};
+		6C972BDE175552FF007234B6 /* BaseStation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BaseStation;
+			sourceTree = "<group>";
+		};
+		6C972BDF17555301007234B6 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		6C972BE01755534A007234B6 /* GeneralMethods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GeneralMethods;
+			sourceTree = "<group>";
+		};
+		6C972BE11755535B007234B6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		6C972BE217555385007234B6 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TableViews;
+			sourceTree = "<group>";
+		};
+		6C972BE317555387007234B6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		6C972BE417555389007234B6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		6C972BE5175553DC007234B6 /* AddEditPlant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AddEditPlant;
+			sourceTree = "<group>";
+		};
+		6C972BE6175553DF007234B6 /* Garden */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Garden;
+			sourceTree = "<group>";
+		};
+		6C972BE7175553E1007234B6 /* Tour */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tour;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +546,8 @@
 				6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */,
 				6C972B8817550B4B007234B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				6C972B8B17550B4B007234B6 /* MainStoryboard_iPad.storyboard in Resources */,
+				6C972BC317554857007234B6 /* asphalt.png in Resources */,
+				6C972BC717554B44007234B6 /* green-med.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +584,6 @@
 			files = (
 				6C972B7B17550B4B007234B6 /* main.m in Sources */,
 				6C972B7F17550B4B007234B6 /* PLAppDelegate.m in Sources */,
-				6C972B8E17550B4B007234B6 /* PLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +774,7 @@
 				6C972BA817550B4C007234B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C972BA917550B4C007234B6 /* Build configuration list for PBXNativeTarget "PlantLinkTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +783,7 @@
 				6C972BAB17550B4C007234B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

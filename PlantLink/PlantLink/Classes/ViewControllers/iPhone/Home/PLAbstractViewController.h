@@ -1,5 +1,5 @@
 //
-//  PLViewController.h
+//  PLAbstractViewController.h
 //  PlantLink
 //
 //  Created by Zealous Amoeba on 5/28/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLViewController : UIViewController
+@interface PLAbstractViewController : UIViewController
 
 @end
