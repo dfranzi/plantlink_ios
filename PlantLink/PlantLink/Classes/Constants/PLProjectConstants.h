@@ -20,13 +20,44 @@
 #define URLStr_User @"/user"
 #define URLStr_Authentication @"/auth"
 #define URLStr_Logout @"/logout"
-#define URLStr_PasswordReset @"/passwordReset"
+#define URLStr_PasswordReset @"/passwordReset?email=%@"
+
 #define URLStr_BaseStation @"/baseStations"
+#define URLStr_BaseStation_Delete @"/baseStations?serial=%@"
+
 #define URLStr_SoilType @"/soilTypes"
 #define URLStr_PlantType @"/plantTypes"
+
 #define URLStr_Plant @"/plant"
+#define URLStr_Plant_Id @"/plant?plant_id=%@"
 #define URLStr_Valve @"/valve"
+
 #define URLStr_Measurement @"/measurement"
+#define URLStr_Measurement_Get @"/measurement?plant_id=%@"
+
+//Post Keys
+#define PostKey_Serial @"serial"
+
+#define PostKey_Email @"email"
+#define PostKey_Name @"name"
+#define PostKey_ZipCode @"zip"
+#define PostKey_Password @"password"
+
+#define PostKey_PlantType @"plant_type"
+#define PostKey_SoilType @"soil_type"
+#define PostKey_LinkName @"link_name"
+#define PostKey_LinkSerial @"link_serial"
+#define PostKey_Color @"color"
+
+//HTTP Codes
+#define HTTP_Get @"GET"
+#define HTTP_Post @"POST"
+#define HTTP_Put @"PUT"
+#define HTTP_Delete @"DELETE"
+
+#define HTTP_Authentication_Format @"%@:%@"
+#define HTTP_Authentication_Header @"Basic %@"
+#define HTTP_Header_Authorization @"Authorization"
 
 //Download Codes
 #define DC_User_Email @"email"
@@ -72,6 +103,34 @@
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
 #define DC_Measurement_IsHealthy @"is_healthy"
+
+//Requests
+typedef enum RequestTypes {
+    Request_GetAllBaseStations,
+    Request_AddBaseStation,
+    Request_RemoveBaseStation,
+    
+    Request_GetMeasurements,
+    
+    Request_GetSoilTypes,
+    Request_GetPlantTypes,
+    
+    Request_LoginUser,
+    Request_LogoutUser,
+    Request_RegisterUser,
+    Request_PasswordReset,
+    Request_GetUser,
+    
+    Request_GetAllPlants,
+    Request_AddPlant,
+    Request_EditPlant,
+    Request_RemovePlant,
+    
+    Request_GetAllValves,
+    Request_AddValve,
+    Request_EditValve,
+    Request_RemoveValve,
+} RequestType;
 
 
 

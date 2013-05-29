@@ -11,11 +11,11 @@
 
 @interface AbstractRequest : NSObject <NSURLConnectionDelegate>
 @property(nonatomic, assign) id <AbstractRequestDelegate> delegate;
+@property(nonatomic, assign) RequestType type;
 
-@property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *baseURLStr;
 @property(nonatomic, strong) NSString *URLExtStr;
-@property(nonatomic, strong) NSString *requestType;
+@property(nonatomic, strong) NSString *requestMethod;
 
 @property(nonatomic, assign, readonly) BOOL finished;
 @property(nonatomic, assign, readonly) BOOL successful;
@@ -32,9 +32,9 @@
 -(void)cancelRequest;
 
 #pragma mark -
-#pragma mark Request Methods
+#pragma mark Edit Methods
 
--(void)authOnRequest:(NSMutableURLRequest*)request;
+-(void)editRequest:(NSMutableURLRequest*)request;
 
 #pragma mark -
 #pragma mark Class Methods

@@ -10,4 +10,9 @@
 
 @interface PLValveRequest : AbstractRequest
 
+-(id)initGetAllUserValvesRequest;
+-(id)initAddUserValveRequest;
+-(id)initDeleteValvePlantRequest;
+-(id)initEditUserValveRequest;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface PLSoilTypeRequest : AbstractRequest
 
+-(id)initSoilTypeRequest;
+
 @end

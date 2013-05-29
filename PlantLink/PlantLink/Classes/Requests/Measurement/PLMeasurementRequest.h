@@ -9,5 +9,8 @@
 #import "AbstractRequest.h"
 
 @interface PLMeasurementRequest : AbstractRequest
+@property(nonatomic, strong, readonly) NSString *plantId;
+
+-(id)initMeasurementRequestWithPlantId:(NSString*)plantId;
 
 @end

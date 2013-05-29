@@ -10,4 +10,6 @@
 
 @interface PLPlantTypeRequest : AbstractRequest
 
+-(id)initPlantTypeRequest;
+
 @end

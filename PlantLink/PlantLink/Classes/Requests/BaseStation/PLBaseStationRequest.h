@@ -9,5 +9,10 @@
 #import "AbstractRequest.h"
 
 @interface PLBaseStationRequest : AbstractRequest
+@property(nonatomic, strong, readonly) NSString *serial;
+
+-(id)initGetBaseStationRequest;
+-(id)initAddBaseStationRequestWithSerialNumber:(NSString*)serial;
+-(id)initRemoveBaseStationRequestWithSerialNumber:(NSString*)serial;
 
 @end

@@ -20,10 +20,9 @@
 
 -(id)initAbstractRequest {
     if(self = [super init]) {
-        _name = @"";
         _baseURLStr = @"";
         _URLExtStr = @"";
-        _requestType = @"GET";
+        _requestMethod = @"GET";
         
         _finished = NO;
         _successful = NO;
@@ -54,11 +53,11 @@
     NSURL *URL = [NSURL URLWithString:urlString];
     [request setURL:URL];
     
-    [request setHTTPMethod:_requestType];
+    [request setHTTPMethod:_requestMethod];
     [request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     [request setTimeoutInterval:60];
     
-    [self authOnRequest:request];
+    [self editRequest:request];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -74,9 +73,9 @@
 }
 
 #pragma mark -
-#pragma mark Request Methods
+#pragma mark Edit Methods
 
--(void)authOnRequest:(NSMutableURLRequest*)request {
+-(void)editRequest:(NSMutableURLRequest*)request {
     
 }
 

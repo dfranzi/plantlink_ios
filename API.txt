@@ -197,7 +197,7 @@ Plant Link Measurement
 * Edits a plant for the current user
 #Required (url parameter)
 	id : the plant id
-#Optional
+#Optional (json body)
 	name : the nickname of the plant
 	plant_type : the type of the plant
 	soil_type : the type of soil the plant will be in
@@ -236,9 +236,10 @@ Plant Link Measurement
 
 
 [PUT] /valve
-* Deletes a valve from the current user
+* Edits a valve from the current user
 #Required (url parameter)
 	id : the valve id
+#Optional (json body)
 {
 	"error" : the request error
 	"response" : none
@@ -256,7 +257,7 @@ Plant Link Measurement
 #Measurements
 * Returns the measurements of a plant for the current user
 [GET] /measurement
-#Required
+#Required (url parameter)
 	plant_id : the plant id from which to gather measurements
 
 {

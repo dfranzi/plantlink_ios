@@ -10,4 +10,32 @@
 
 @implementation PLValveRequest
 
+-(id)initGetAllUserValvesRequest {
+    if(self = [super initAbstractRequest]) {
+        
+    }
+    return self;
+}
+
+-(id)initAddUserValveRequest {
+    if(self = [super initAbstractRequest]) {
+        
+    }
+    return self;
+}
+
+-(id)initDeleteValvePlantRequest {
+    if(self = [super initAbstractRequest]) {
+        
+    }
+    return self;
+}
+
+-(id)initEditUserValveRequest {
+    if(self = [super initAbstractRequest]) {
+        
+    }
+    return self;
+}
+
 @end

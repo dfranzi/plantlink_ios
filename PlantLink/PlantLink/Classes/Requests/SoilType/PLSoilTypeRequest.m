@@ -10,4 +10,23 @@
 
 @implementation PLSoilTypeRequest
 
+-(id)initSoilTypeRequest {
+    if(self = [super initAbstractRequest]) {
+        [self setType:Request_GetSoilTypes];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark Request Methods
+
+-(void)startRequest {
+    if([self type] == Request_GetSoilTypes) [self startGetSoilTypesRequest];
+    [super startRequest];
+}
+
+-(void)startGetSoilTypesRequest {
+    [self setURLExtStr:URLStr_SoilType];
+}
+
 @end
