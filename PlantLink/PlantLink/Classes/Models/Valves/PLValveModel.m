@@ -12,7 +12,9 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        
+        _serialNumber = dict[DC_Valve_SerialNumber];
+        _plantKey = dict[DC_Valve_PlantKey];
+        _nickname = dict[DC_Valve_Nickname];
     }
     return self;
 }
@@ -34,7 +36,12 @@
 #pragma mark NSCopying Methods
 
 -(id)copyWithZone:(NSZone *)zone {
-    PLValveModel *copy = [[PLValveModel alloc] initWithDictionary:@{}];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[DC_Valve_SerialNumber] = [_serialNumber copyWithZone:zone];
+    dict[DC_Valve_PlantKey] = [_plantKey copyWithZone:zone];
+    dict[DC_Valve_Nickname] = [_nickname copyWithZone:zone];
+    
+    PLValveModel *copy = [[PLValveModel alloc] initWithDictionary:dict];
     if(copy) return copy;
     else return NULL;
 }
@@ -43,20 +50,29 @@
 #pragma mark NSCoding Methods
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-    //NSDictionary *dict = [aDecoder decodeObjectForKey:Coder_Key_Obj];
-    if(self = [super init]) {}
+    if(self = [super init]) {
+        _serialNumber = [aDecoder decodeObjectForKey:DC_Valve_SerialNumber];
+        _plantKey = [aDecoder decodeObjectForKey:DC_Valve_PlantKey];
+        _nickname = [aDecoder decodeObjectForKey:DC_Valve_Nickname];
+    }
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
-    //[aCoder encodeObject:@{} forKey:Coder_Key_Obj];
+    [aCoder encodeObject:_serialNumber forKey:DC_Valve_SerialNumber];
+    [aCoder encodeObject:_plantKey forKey:DC_Valve_PlantKey];
+    [aCoder encodeObject:_nickname forKey:DC_Valve_Nickname];
 }
 
 #pragma mark -
 #pragma mark Equals Methods
 
 -(BOOL)isEqual:(id)object {
-    return [object isKindOfClass:[PLValveModel class]];
+    if([object isKindOfClass:[PLValveModel class]]) {
+        PLValveModel *other = (PLValveModel*)object;
+        return [[other serialNumber] isEqualToString:_serialNumber];
+    }
+    else return NO;
 }
 
 @end

@@ -50,6 +50,8 @@
 #define DC_Valve_PlantKey @"plant_key"
 #define DC_Valve_Nickname @"nickname"
 
+#define DC_Link_SerialNumber @"serial"
+
 #define DC_Plant_Name @"name"
 #define DC_Plant_Color @"color"
 #define DC_Plant_PlantTypeKey @"plant_type_key"

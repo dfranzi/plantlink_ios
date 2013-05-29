@@ -9,5 +9,6 @@
 #import "AbstractModel.h"
 
 @interface PLLinkModel : AbstractModel
+@property(nonatomic, strong, readonly) NSString *serialNumber;
 
 @end

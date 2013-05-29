@@ -12,7 +12,9 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        
+        _key = dict[DC_Soil_Key];
+        _name = dict[DC_Soil_Name];
+        _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Soil_Created] intValue]];
     }
     return self;
 }
@@ -34,7 +36,12 @@
 #pragma mark NSCopying Methods
 
 -(id)copyWithZone:(NSZone *)zone {
-    PLSoilModel *copy = [[PLSoilModel alloc] initWithDictionary:@{}];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[DC_Soil_Key] = [_key copyWithZone:zone];
+    dict[DC_Soil_Name] = [_name copyWithZone:zone];
+    dict[DC_Soil_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
+    
+    PLSoilModel *copy = [[PLSoilModel alloc] initWithDictionary:dict];
     if(copy) return copy;
     else return NULL;
 }
@@ -43,20 +50,29 @@
 #pragma mark NSCoding Methods
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-    //NSDictionary *dict = [aDecoder decodeObjectForKey:Coder_Key_Obj];
-    if(self = [super init]) {}
+    if(self = [super init]) {
+        _key = [aDecoder decodeObjectForKey:DC_Soil_Key];
+        _name = [aDecoder decodeObjectForKey:DC_Soil_Name];
+        _created = [aDecoder decodeObjectForKey:DC_Soil_Created];
+    }
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
-    //[aCoder encodeObject:@{} forKey:Coder_Key_Obj];
+    [aCoder encodeObject:_key forKey:DC_Soil_Key];
+    [aCoder encodeObject:_name forKey:DC_Soil_Name];
+    [aCoder encodeObject:_created forKey:DC_Soil_Created];
 }
 
 #pragma mark -
 #pragma mark Equals Methods
 
 -(BOOL)isEqual:(id)object {
-    return [object isKindOfClass:[PLSoilModel class]];
+    if([object isKindOfClass:[PLSoilModel class]]) {
+        PLSoilModel *other = (PLSoilModel*)object;
+        return [[other key] isEqualToString:_key];
+    }
+    else return NO;
 }
 
 @end

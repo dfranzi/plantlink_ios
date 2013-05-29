@@ -79,7 +79,7 @@
     dict[DC_Plant_Valves] = [_valves copyWithZone:zone];
     dict[DC_Plant_Links] = [_links copyWithZone:zone];
     
-    dict[DC_Plant_Created] = [[NSNumber numberWithInt:[_created timeIntervalSince1970]] stringValue];
+    dict[DC_Plant_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
     dict[DC_Plant_Color] = [_color copyWithZone:zone];
     
     PLPlantModel *copy = [[PLPlantModel alloc] initWithDictionary:dict];
