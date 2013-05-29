@@ -28,6 +28,11 @@
 		6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGerdenViewController.m */; };
 		6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
+		6C8CA4271756940F0019FC4B /* AbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BEC17555A66007234B6 /* AbstractRequest.m */; };
+		6C8CA428175694150019FC4B /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BE917555A5D007234B6 /* AbstractModel.m */; };
+		6C8CA429175694220019FC4B /* GeneralMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF417555B49007234B6 /* GeneralMethods.m */; };
+		6C8CA42A175694350019FC4B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF117555A73007234B6 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8CA42B175694490019FC4B /* SystemConfiguration.framework */; };
 		6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7217550B4B007234B6 /* CoreGraphics.framework */; };
@@ -109,6 +114,7 @@
 		6C8CA42017567AC20019FC4B /* PLDesignConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLDesignConstants.h; path = Classes/Constants/PLDesignConstants.h; sourceTree = "<group>"; };
 		6C8CA4241756810E0019FC4B /* PLLinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkModel.h; path = Classes/Models/Link/PLLinkModel.h; sourceTree = "<group>"; };
 		6C8CA4251756810E0019FC4B /* PLLinkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkModel.m; path = Classes/Models/Link/PLLinkModel.m; sourceTree = "<group>"; };
+		6C8CA42B175694490019FC4B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6C972B6B17550B4B007234B6 /* PlantLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C972B6E17550B4B007234B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C972B7017550B4B007234B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */,
 				6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */,
 				6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */,
 				6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */,
@@ -230,6 +237,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA42B175694490019FC4B /* SystemConfiguration.framework */,
 				6C972B6E17550B4B007234B6 /* UIKit.framework */,
 				6C972B7017550B4B007234B6 /* Foundation.framework */,
 				6C972B7217550B4B007234B6 /* CoreGraphics.framework */,
@@ -754,7 +762,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972B7B17550B4B007234B6 /* main.m in Sources */,
+				6C8CA429175694220019FC4B /* GeneralMethods.m in Sources */,
 				6C972B7F17550B4B007234B6 /* PLAppDelegate.m in Sources */,
+				6C8CA428175694150019FC4B /* AbstractModel.m in Sources */,
 				6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */,
 				6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */,
 				6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */,
@@ -763,6 +773,8 @@
 				6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */,
 				6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */,
 				6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */,
+				6C8CA4271756940F0019FC4B /* AbstractRequest.m in Sources */,
+				6C8CA42A175694350019FC4B /* Reachability.m in Sources */,
 				6C8CA3F81756681F0019FC4B /* PLBaseStationRequest.m in Sources */,
 				6C8CA3FB1756682B0019FC4B /* PLMeasurementRequest.m in Sources */,
 				6C8CA3FE175668400019FC4B /* PLPlantRequest.m in Sources */,

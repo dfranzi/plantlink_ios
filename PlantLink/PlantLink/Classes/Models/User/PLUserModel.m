@@ -42,10 +42,10 @@
 
 -(id)copyWithZone:(NSZone *)zone {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[DC_User_Email] = [_email copyWithZone:DC_User_Email];
-    dict[DC_User_Name] = [_name copyWithZone:DC_User_Name];
-    dict[DC_User_Phone] = [_phone copyWithZone:DC_User_Phone];
-    dict[DC_User_Zipcode] = [_zip copyWithZone:DC_User_Zipcode];
+    dict[DC_User_Email] = [_email copyWithZone:zone];
+    dict[DC_User_Name] = [_name copyWithZone:zone];
+    dict[DC_User_Phone] = [_phone copyWithZone:zone];
+    dict[DC_User_Zipcode] = [_zip copyWithZone:zone];
     
     dict[DC_User_EmailAlerts] = [NSNumber numberWithBool:_emailAlerts];
     dict[DC_User_TextAlerts] = [NSNumber numberWithBool:_textAlerts];
