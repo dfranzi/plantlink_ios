@@ -47,9 +47,14 @@ Valves
 	"plant_key" : string representing the plant that it is attached to
 }
 
+Link
+{
+	"serial" : string representing the serial of the link
+}
+
 Plant
 {
-	"color" : string representing hex value with the # of the plants user chosen color
+	"color" : string representing hex value of the plants user chosen color
 	"plant_type_key" : string representing the key of the plant type
 	"created " : int representing the timestamp when the plant was created
 	"active" : boolean whether or not the link is active
@@ -62,14 +67,6 @@ Plant
 	"links_keys" : an array of link models
 }
 
-Plant Link Measurement Cache
-{
-	"battery" : float [0,100] representing battery percentage
-	"signal" : float [0,100] representing signal strenght
-	"moisture" : float [0,100] representing moisture level ********
-	"isHealthy" : boolean whether the plant is health or not
-}
-
 Plant Link Measurement
 {
 	"plant_key" : string representing the plant key
@@ -78,7 +75,7 @@ Plant Link Measurement
 	"link_key" : string representing the key of the plank link
 	"moisture" : float from [0,100] representing the moisture level
 	"signal" : float from [0,100] representing the signal strength
-	"measurement" : float from [0,100] of a moisture value ********
+	"is_healthy" : boolean whether the plant is health or not
 	"timestamp" : int representing the time when the plant measurement was taken
 }
 
@@ -173,14 +170,14 @@ Plant Link Measurement
 
 
 #Plants
-[GET] /plants
+[GET] /plante
 * Returns all the users registered plants
 {
 	"error" : the request error
 	"response" : an array of plant models
 }
 
-[POST] /plants
+[POST] /plant
 * Adds a plant to the current user
 #Required
 	name : the nickname of the plant
@@ -196,7 +193,7 @@ Plant Link Measurement
 }
 
 
-[PUT] /plants ********
+[PUT] /plant ********
 * Edits a plant for the current user
 #Required (url parameter)
 	id : the plant id
@@ -212,7 +209,7 @@ Plant Link Measurement
 	"response" : the created plant model
 }
 
-[DELETE] /plants
+[DELETE] /plant
 * Deletes a plant from the current user
 #Required (url parameter)
 	id : the plant id
@@ -222,7 +219,7 @@ Plant Link Measurement
 }
 
 #Valves ********
-[GET] /valves
+[GET] /valve
 * Returns all the users registered valves
 {
 	"error" : the request error
@@ -238,7 +235,7 @@ Plant Link Measurement
 }
 
 
-[PUT] /valves
+[PUT] /valve
 * Deletes a valve from the current user
 #Required (url parameter)
 	id : the valve id
@@ -247,7 +244,7 @@ Plant Link Measurement
 	"response" : none
 }
 
-[DELETE] /valves 
+[DELETE] /valve
 * Deletes a valve from the current user
 #Required (url parameter)
 	id : the valve id
@@ -258,7 +255,7 @@ Plant Link Measurement
 
 #Measurements
 * Returns the measurements of a plant for the current user
-[GET] /measurements
+[GET] /measurement
 #Required
 	plant_id : the plant id from which to gather measurements
 

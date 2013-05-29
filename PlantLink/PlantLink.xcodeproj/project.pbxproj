@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */; };
+		6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D8175664790019FC4B /* PLPlantModel.m */; };
+		6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */; };
+		6C8CA3E2175664E90019FC4B /* PLPlantType.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E1175664E90019FC4B /* PLPlantType.m */; };
+		6C8CA3E5175664F70019FC4B /* PLValveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E4175664F70019FC4B /* PLValveModel.m */; };
+		6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E7175665040019FC4B /* PLUserModel.m */; };
+		6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3EA1756650F0019FC4B /* PLSoilModel.m */; };
+		6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3F0175667A80019FC4B /* PLUserManager.m */; };
+		6C8CA3F81756681F0019FC4B /* PLBaseStationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3F71756681F0019FC4B /* PLBaseStationRequest.m */; };
+		6C8CA3FB1756682B0019FC4B /* PLMeasurementRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3FA1756682B0019FC4B /* PLMeasurementRequest.m */; };
+		6C8CA3FE175668400019FC4B /* PLPlantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3FD175668400019FC4B /* PLPlantRequest.m */; };
+		6C8CA4011756684E0019FC4B /* PLPlantTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4001756684E0019FC4B /* PLPlantTypeRequest.m */; };
+		6C8CA4041756685B0019FC4B /* PLValveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4031756685B0019FC4B /* PLValveRequest.m */; };
+		6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA406175668690019FC4B /* PLUserRequest.m */; };
+		6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */; };
+		6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */; };
+		6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41217566AF90019FC4B /* PLHomeViewController.m */; };
+		6C8CA41617566B100019FC4B /* PLTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41517566B100019FC4B /* PLTourViewController.m */; };
+		6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGerdenViewController.m */; };
+		6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */; };
+		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
 		6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7217550B4B007234B6 /* CoreGraphics.framework */; };
@@ -44,6 +65,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C8CA3D4175664610019FC4B /* PLBaseStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBaseStationModel.h; path = Classes/Models/BaseStation/PLBaseStationModel.h; sourceTree = "<group>"; };
+		6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBaseStationModel.m; path = Classes/Models/BaseStation/PLBaseStationModel.m; sourceTree = "<group>"; };
+		6C8CA3D7175664790019FC4B /* PLPlantModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantModel.h; path = Classes/Models/Plant/PLPlantModel.h; sourceTree = "<group>"; };
+		6C8CA3D8175664790019FC4B /* PLPlantModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantModel.m; path = Classes/Models/Plant/PLPlantModel.m; sourceTree = "<group>"; };
+		6C8CA3DA175664890019FC4B /* PLPlantMeasurementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantMeasurementModel.h; path = Classes/Models/PlantMeasurement/PLPlantMeasurementModel.h; sourceTree = "<group>"; };
+		6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantMeasurementModel.m; path = Classes/Models/PlantMeasurement/PLPlantMeasurementModel.m; sourceTree = "<group>"; };
+		6C8CA3E0175664E90019FC4B /* PLPlantType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantType.h; path = Classes/Models/PlantType/PLPlantType.h; sourceTree = "<group>"; };
+		6C8CA3E1175664E90019FC4B /* PLPlantType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantType.m; path = Classes/Models/PlantType/PLPlantType.m; sourceTree = "<group>"; };
+		6C8CA3E3175664F70019FC4B /* PLValveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLValveModel.h; path = Classes/Models/Valves/PLValveModel.h; sourceTree = "<group>"; };
+		6C8CA3E4175664F70019FC4B /* PLValveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLValveModel.m; path = Classes/Models/Valves/PLValveModel.m; sourceTree = "<group>"; };
+		6C8CA3E6175665040019FC4B /* PLUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLUserModel.h; path = Classes/Models/User/PLUserModel.h; sourceTree = "<group>"; };
+		6C8CA3E7175665040019FC4B /* PLUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLUserModel.m; path = Classes/Models/User/PLUserModel.m; sourceTree = "<group>"; };
+		6C8CA3E91756650F0019FC4B /* PLSoilModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSoilModel.h; path = Classes/Models/Soil/PLSoilModel.h; sourceTree = "<group>"; };
+		6C8CA3EA1756650F0019FC4B /* PLSoilModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSoilModel.m; path = Classes/Models/Soil/PLSoilModel.m; sourceTree = "<group>"; };
+		6C8CA3EF175667A80019FC4B /* PLUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLUserManager.h; path = Classes/Managers/User/PLUserManager.h; sourceTree = "<group>"; };
+		6C8CA3F0175667A80019FC4B /* PLUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLUserManager.m; path = Classes/Managers/User/PLUserManager.m; sourceTree = "<group>"; };
+		6C8CA3F61756681F0019FC4B /* PLBaseStationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBaseStationRequest.h; path = Classes/Requests/BaseStation/PLBaseStationRequest.h; sourceTree = "<group>"; };
+		6C8CA3F71756681F0019FC4B /* PLBaseStationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBaseStationRequest.m; path = Classes/Requests/BaseStation/PLBaseStationRequest.m; sourceTree = "<group>"; };
+		6C8CA3F91756682B0019FC4B /* PLMeasurementRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMeasurementRequest.h; path = Classes/Requests/Measurement/PLMeasurementRequest.h; sourceTree = "<group>"; };
+		6C8CA3FA1756682B0019FC4B /* PLMeasurementRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMeasurementRequest.m; path = Classes/Requests/Measurement/PLMeasurementRequest.m; sourceTree = "<group>"; };
+		6C8CA3FC175668400019FC4B /* PLPlantRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantRequest.h; path = Classes/Requests/Plant/PLPlantRequest.h; sourceTree = "<group>"; };
+		6C8CA3FD175668400019FC4B /* PLPlantRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantRequest.m; path = Classes/Requests/Plant/PLPlantRequest.m; sourceTree = "<group>"; };
+		6C8CA3FF1756684E0019FC4B /* PLPlantTypeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantTypeRequest.h; path = Classes/Requests/PlantType/PLPlantTypeRequest.h; sourceTree = "<group>"; };
+		6C8CA4001756684E0019FC4B /* PLPlantTypeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantTypeRequest.m; path = Classes/Requests/PlantType/PLPlantTypeRequest.m; sourceTree = "<group>"; };
+		6C8CA4021756685B0019FC4B /* PLValveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLValveRequest.h; path = Classes/Requests/Valve/PLValveRequest.h; sourceTree = "<group>"; };
+		6C8CA4031756685B0019FC4B /* PLValveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLValveRequest.m; path = Classes/Requests/Valve/PLValveRequest.m; sourceTree = "<group>"; };
+		6C8CA405175668690019FC4B /* PLUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLUserRequest.h; path = Classes/Requests/User/PLUserRequest.h; sourceTree = "<group>"; };
+		6C8CA406175668690019FC4B /* PLUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLUserRequest.m; path = Classes/Requests/User/PLUserRequest.m; sourceTree = "<group>"; };
+		6C8CA4081756687C0019FC4B /* PLSoilTypeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSoilTypeRequest.h; path = Classes/Requests/SoilType/PLSoilTypeRequest.h; sourceTree = "<group>"; };
+		6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSoilTypeRequest.m; path = Classes/Requests/SoilType/PLSoilTypeRequest.m; sourceTree = "<group>"; };
+		6C8CA40E1756692C0019FC4B /* PLAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAbstractViewController.h; path = Classes/ViewControllers/Abstract/PLAbstractViewController.h; sourceTree = "<group>"; };
+		6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAbstractViewController.m; path = Classes/ViewControllers/Abstract/PLAbstractViewController.m; sourceTree = "<group>"; };
+		6C8CA41117566AF90019FC4B /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
+		6C8CA41217566AF90019FC4B /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
+		6C8CA41417566B100019FC4B /* PLTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTourViewController.h; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.h; sourceTree = "<group>"; };
+		6C8CA41517566B100019FC4B /* PLTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourViewController.m; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.m; sourceTree = "<group>"; };
+		6C8CA41717566B260019FC4B /* PLGerdenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLGerdenViewController.h; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.h; sourceTree = "<group>"; };
+		6C8CA41817566B260019FC4B /* PLGerdenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLGerdenViewController.m; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.m; sourceTree = "<group>"; };
+		6C8CA41A17566B3D0019FC4B /* PLAddEditPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAddEditPlantViewController.h; path = Classes/ViewControllers/iPhone/AddEditPlant/PLAddEditPlantViewController.h; sourceTree = "<group>"; };
+		6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAddEditPlantViewController.m; path = Classes/ViewControllers/iPhone/AddEditPlant/PLAddEditPlantViewController.m; sourceTree = "<group>"; };
+		6C8CA41D17567AAF0019FC4B /* PLProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLProjectConstants.h; path = Classes/Constants/PLProjectConstants.h; sourceTree = "<group>"; };
+		6C8CA42017567AC20019FC4B /* PLDesignConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLDesignConstants.h; path = Classes/Constants/PLDesignConstants.h; sourceTree = "<group>"; };
+		6C8CA4241756810E0019FC4B /* PLLinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkModel.h; path = Classes/Models/Link/PLLinkModel.h; sourceTree = "<group>"; };
+		6C8CA4251756810E0019FC4B /* PLLinkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkModel.m; path = Classes/Models/Link/PLLinkModel.m; sourceTree = "<group>"; };
 		6C972B6B17550B4B007234B6 /* PlantLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C972B6E17550B4B007234B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C972B7017550B4B007234B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +169,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C8CA3F2175667B60019FC4B /* AddEditPlant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AddEditPlant;
+			sourceTree = "<group>";
+		};
+		6C8CA3F3175667B80019FC4B /* Garden */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Garden;
+			sourceTree = "<group>";
+		};
+		6C8CA3F4175667BA0019FC4B /* Tour */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tour;
+			sourceTree = "<group>";
+		};
+		6C8CA3F5175667BC0019FC4B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		6C8CA423175680FB0019FC4B /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				6C8CA4241756810E0019FC4B /* PLLinkModel.h */,
+				6C8CA4251756810E0019FC4B /* PLLinkModel.m */,
+			);
+			name = Link;
+			sourceTree = "<group>";
+		};
 		6C972B6217550B4B007234B6 = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +331,8 @@
 		6C972BBA175543C9007234B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA41117566AF90019FC4B /* PLHomeViewController.h */,
+				6C8CA41217566AF90019FC4B /* PLHomeViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -236,6 +340,8 @@
 		6C972BBB175543D7007234B6 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA40E1756692C0019FC4B /* PLAbstractViewController.h */,
+				6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -272,12 +378,11 @@
 				6C972BDE175552FF007234B6 /* BaseStation */,
 				6C972BDD175552FD007234B6 /* Plant */,
 				6C972BD7175552EE007234B6 /* PlantMeasurement */,
-				6C972BDC175552FB007234B6 /* PlantCacheMeasurement */,
 				6C972BDB175552F9007234B6 /* PlantType */,
 				6C972BDA175552F6007234B6 /* Soil */,
-				6C972BD9175552F2007234B6 /* SoilType */,
 				6C972BD8175552F0007234B6 /* User */,
 				6C972BD6175552EA007234B6 /* Valves */,
+				6C8CA423175680FB0019FC4B /* Link */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -293,6 +398,8 @@
 		6C972BCC1755519A007234B6 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA41D17567AAF0019FC4B /* PLProjectConstants.h */,
+				6C8CA42017567AC20019FC4B /* PLDesignConstants.h */,
 				6C972BE01755534A007234B6 /* GeneralMethods */,
 			);
 			name = Constants;
@@ -301,6 +408,10 @@
 		6C972BCD1755529F007234B6 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3F5175667BC0019FC4B /* Home */,
+				6C8CA3F4175667BA0019FC4B /* Tour */,
+				6C8CA3F3175667B80019FC4B /* Garden */,
+				6C8CA3F2175667B60019FC4B /* AddEditPlant */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -308,6 +419,8 @@
 		6C972BCE175552B4007234B6 /* Valve */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA4021756685B0019FC4B /* PLValveRequest.h */,
+				6C8CA4031756685B0019FC4B /* PLValveRequest.m */,
 			);
 			name = Valve;
 			sourceTree = "<group>";
@@ -315,6 +428,8 @@
 		6C972BCF175552B6007234B6 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA405175668690019FC4B /* PLUserRequest.h */,
+				6C8CA406175668690019FC4B /* PLUserRequest.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -322,6 +437,8 @@
 		6C972BD0175552B7007234B6 /* SoilType */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA4081756687C0019FC4B /* PLSoilTypeRequest.h */,
+				6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */,
 			);
 			name = SoilType;
 			sourceTree = "<group>";
@@ -329,6 +446,8 @@
 		6C972BD1175552B9007234B6 /* PlantType */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3FF1756684E0019FC4B /* PLPlantTypeRequest.h */,
+				6C8CA4001756684E0019FC4B /* PLPlantTypeRequest.m */,
 			);
 			name = PlantType;
 			sourceTree = "<group>";
@@ -336,6 +455,8 @@
 		6C972BD2175552BB007234B6 /* Plant */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3FC175668400019FC4B /* PLPlantRequest.h */,
+				6C8CA3FD175668400019FC4B /* PLPlantRequest.m */,
 			);
 			name = Plant;
 			sourceTree = "<group>";
@@ -343,6 +464,8 @@
 		6C972BD3175552BD007234B6 /* Measurement */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3F91756682B0019FC4B /* PLMeasurementRequest.h */,
+				6C8CA3FA1756682B0019FC4B /* PLMeasurementRequest.m */,
 			);
 			name = Measurement;
 			sourceTree = "<group>";
@@ -350,6 +473,8 @@
 		6C972BD4175552BF007234B6 /* BaseStation */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3F61756681F0019FC4B /* PLBaseStationRequest.h */,
+				6C8CA3F71756681F0019FC4B /* PLBaseStationRequest.m */,
 			);
 			name = BaseStation;
 			sourceTree = "<group>";
@@ -368,6 +493,8 @@
 		6C972BD6175552EA007234B6 /* Valves */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3E3175664F70019FC4B /* PLValveModel.h */,
+				6C8CA3E4175664F70019FC4B /* PLValveModel.m */,
 			);
 			name = Valves;
 			sourceTree = "<group>";
@@ -375,6 +502,8 @@
 		6C972BD7175552EE007234B6 /* PlantMeasurement */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3DA175664890019FC4B /* PLPlantMeasurementModel.h */,
+				6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */,
 			);
 			name = PlantMeasurement;
 			sourceTree = "<group>";
@@ -382,20 +511,17 @@
 		6C972BD8175552F0007234B6 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3E6175665040019FC4B /* PLUserModel.h */,
+				6C8CA3E7175665040019FC4B /* PLUserModel.m */,
 			);
 			name = User;
-			sourceTree = "<group>";
-		};
-		6C972BD9175552F2007234B6 /* SoilType */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SoilType;
 			sourceTree = "<group>";
 		};
 		6C972BDA175552F6007234B6 /* Soil */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3E91756650F0019FC4B /* PLSoilModel.h */,
+				6C8CA3EA1756650F0019FC4B /* PLSoilModel.m */,
 			);
 			name = Soil;
 			sourceTree = "<group>";
@@ -403,20 +529,17 @@
 		6C972BDB175552F9007234B6 /* PlantType */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3E0175664E90019FC4B /* PLPlantType.h */,
+				6C8CA3E1175664E90019FC4B /* PLPlantType.m */,
 			);
 			name = PlantType;
-			sourceTree = "<group>";
-		};
-		6C972BDC175552FB007234B6 /* PlantCacheMeasurement */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = PlantCacheMeasurement;
 			sourceTree = "<group>";
 		};
 		6C972BDD175552FD007234B6 /* Plant */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3D7175664790019FC4B /* PLPlantModel.h */,
+				6C8CA3D8175664790019FC4B /* PLPlantModel.m */,
 			);
 			name = Plant;
 			sourceTree = "<group>";
@@ -424,6 +547,8 @@
 		6C972BDE175552FF007234B6 /* BaseStation */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3D4175664610019FC4B /* PLBaseStationModel.h */,
+				6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */,
 			);
 			name = BaseStation;
 			sourceTree = "<group>";
@@ -449,6 +574,8 @@
 		6C972BE11755535B007234B6 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA3EF175667A80019FC4B /* PLUserManager.h */,
+				6C8CA3F0175667A80019FC4B /* PLUserManager.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -477,6 +604,8 @@
 		6C972BE5175553DC007234B6 /* AddEditPlant */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA41A17566B3D0019FC4B /* PLAddEditPlantViewController.h */,
+				6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */,
 			);
 			name = AddEditPlant;
 			sourceTree = "<group>";
@@ -484,6 +613,8 @@
 		6C972BE6175553DF007234B6 /* Garden */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA41717566B260019FC4B /* PLGerdenViewController.h */,
+				6C8CA41817566B260019FC4B /* PLGerdenViewController.m */,
 			);
 			name = Garden;
 			sourceTree = "<group>";
@@ -491,6 +622,8 @@
 		6C972BE7175553E1007234B6 /* Tour */ = {
 			isa = PBXGroup;
 			children = (
+				6C8CA41417566B100019FC4B /* PLTourViewController.h */,
+				6C8CA41517566B100019FC4B /* PLTourViewController.m */,
 			);
 			name = Tour;
 			sourceTree = "<group>";
@@ -622,6 +755,27 @@
 			files = (
 				6C972B7B17550B4B007234B6 /* main.m in Sources */,
 				6C972B7F17550B4B007234B6 /* PLAppDelegate.m in Sources */,
+				6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */,
+				6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */,
+				6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */,
+				6C8CA3E2175664E90019FC4B /* PLPlantType.m in Sources */,
+				6C8CA3E5175664F70019FC4B /* PLValveModel.m in Sources */,
+				6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */,
+				6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */,
+				6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */,
+				6C8CA3F81756681F0019FC4B /* PLBaseStationRequest.m in Sources */,
+				6C8CA3FB1756682B0019FC4B /* PLMeasurementRequest.m in Sources */,
+				6C8CA3FE175668400019FC4B /* PLPlantRequest.m in Sources */,
+				6C8CA4011756684E0019FC4B /* PLPlantTypeRequest.m in Sources */,
+				6C8CA4041756685B0019FC4B /* PLValveRequest.m in Sources */,
+				6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */,
+				6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */,
+				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,
+				6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */,
+				6C8CA41617566B100019FC4B /* PLTourViewController.m in Sources */,
+				6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */,
+				6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */,
+				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

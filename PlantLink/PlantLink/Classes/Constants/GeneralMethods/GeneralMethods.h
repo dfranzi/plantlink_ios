@@ -11,6 +11,12 @@
 @interface GeneralMethods : NSObject
 
 #pragma mark -
+#pragma mark Color Methods
+
++(UIColor*)colorFromHexString:(NSString*)hex;
++(CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger)length;
+
+#pragma mark -
 #pragma mark Date Methods
 
 +(NSString*)stringFromDate:(NSDate*)date withFormat:(NSString*)format;
