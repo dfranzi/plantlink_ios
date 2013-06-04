@@ -38,4 +38,11 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Edit Methods
+
+-(void)editRequest:(NSMutableURLRequest *)request {
+    [request addValue:API_Version forHTTPHeaderField:HTTP_Header_APIVersion];
+}
+
 @end

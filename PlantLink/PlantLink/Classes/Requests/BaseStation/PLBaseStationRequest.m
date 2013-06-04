@@ -38,6 +38,8 @@
 #pragma mark Edit Methods
 
 -(void)editRequest:(NSMutableURLRequest *)request {
+    [request addValue:API_Version forHTTPHeaderField:HTTP_Header_APIVersion];
+    
     if([self type] == Request_AddBaseStation) {
         NSDictionary *dict = [NSDictionary dictionaryWithObject:_serial forKey:PostKey_Serial];
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
@@ -49,6 +51,8 @@
 #pragma mark Request Methods
 
 -(void)startRequest {
+    [self setBaseURLStr:URLStr_Base];
+    
     if([self type] == Request_GetAllBaseStations) [self startGetAllBaseStationsRequest];
     else if([self type] == Request_AddBaseStation) [self startAddBaseStationRequest];
     else if([self type] == Request_RemoveBaseStation) [self startRemoveBaseStationRquest];

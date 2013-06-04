@@ -19,9 +19,18 @@
 }
 
 #pragma mark -
+#pragma mark Edit Methods
+
+-(void)editRequest:(NSMutableURLRequest *)request {
+    [request addValue:API_Version forHTTPHeaderField:HTTP_Header_APIVersion];
+}
+
+#pragma mark -
 #pragma mark Request Methods
 
 -(void)startRequest {
+    [self setBaseURLStr:URLStr_Base];
+    
     if([self type] == Request_GetMeasurements) [self startGetMeasurementsRequest];
     [super startRequest];
 }

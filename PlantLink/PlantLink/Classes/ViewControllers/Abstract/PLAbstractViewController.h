@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractRequestProtocol.h"
 
-@interface PLAbstractViewController : UIViewController
+@interface PLAbstractViewController : UIViewController <AbstractRequestDelegate>
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "AbstractRequestProtocol.h"
 
-@interface PlantLinkTests : SenTestCase
+@interface PlantLinkTests : SenTestCase <AbstractRequestDelegate>
 
 @end

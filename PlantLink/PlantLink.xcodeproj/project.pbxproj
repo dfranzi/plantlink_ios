@@ -10,7 +10,7 @@
 		6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */; };
 		6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D8175664790019FC4B /* PLPlantModel.m */; };
 		6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */; };
-		6C8CA3E2175664E90019FC4B /* PLPlantType.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E1175664E90019FC4B /* PLPlantType.m */; };
+		6C8CA3E2175664E90019FC4B /* PLPlantTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E1175664E90019FC4B /* PLPlantTypeModel.m */; };
 		6C8CA3E5175664F70019FC4B /* PLValveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E4175664F70019FC4B /* PLValveModel.m */; };
 		6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3E7175665040019FC4B /* PLUserModel.m */; };
 		6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3EA1756650F0019FC4B /* PLSoilModel.m */; };
@@ -28,10 +28,6 @@
 		6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGerdenViewController.m */; };
 		6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
-		6C8CA4271756940F0019FC4B /* AbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BEC17555A66007234B6 /* AbstractRequest.m */; };
-		6C8CA428175694150019FC4B /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BE917555A5D007234B6 /* AbstractModel.m */; };
-		6C8CA429175694220019FC4B /* GeneralMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF417555B49007234B6 /* GeneralMethods.m */; };
-		6C8CA42A175694350019FC4B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF117555A73007234B6 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8CA42B175694490019FC4B /* SystemConfiguration.framework */; };
 		6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
@@ -49,14 +45,12 @@
 		6C972B9817550B4C007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972BA017550B4C007234B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B9E17550B4C007234B6 /* InfoPlist.strings */; };
 		6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BA217550B4C007234B6 /* PlantLinkTests.m */; };
-		6C972BC317554857007234B6 /* asphalt.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC217554857007234B6 /* asphalt.png */; };
-		6C972BC717554B44007234B6 /* green-med.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BC617554B44007234B6 /* green-med.png */; };
-		6C972BEA17555A5D007234B6 /* AbstractModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BE917555A5D007234B6 /* AbstractModel.m */; };
-		6C972BEE17555A66007234B6 /* AbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BEC17555A66007234B6 /* AbstractRequest.m */; };
-		6C972BF217555A73007234B6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF117555A73007234B6 /* Reachability.m */; };
-		6C972BF517555B49007234B6 /* GeneralMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BF417555B49007234B6 /* GeneralMethods.m */; };
 		6C972BF71755634C007234B6 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF61755634C007234B6 /* icon_57.png */; };
 		6C972BF91755634E007234B6 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF81755634E007234B6 /* icon_114.png */; };
+		6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9C0DD6175E744300864EF1 /* Localizable.strings */; };
+		6CB86FB7175D560F00B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
+		6CB8711C175E4FF100B18213 /* ModelTests.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8711B175E4FF100B18213 /* ModelTests.strings */; };
+		6CB8711E175E54E100B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +70,8 @@
 		6C8CA3D8175664790019FC4B /* PLPlantModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantModel.m; path = Classes/Models/Plant/PLPlantModel.m; sourceTree = "<group>"; };
 		6C8CA3DA175664890019FC4B /* PLPlantMeasurementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantMeasurementModel.h; path = Classes/Models/PlantMeasurement/PLPlantMeasurementModel.h; sourceTree = "<group>"; };
 		6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantMeasurementModel.m; path = Classes/Models/PlantMeasurement/PLPlantMeasurementModel.m; sourceTree = "<group>"; };
-		6C8CA3E0175664E90019FC4B /* PLPlantType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantType.h; path = Classes/Models/PlantType/PLPlantType.h; sourceTree = "<group>"; };
-		6C8CA3E1175664E90019FC4B /* PLPlantType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantType.m; path = Classes/Models/PlantType/PLPlantType.m; sourceTree = "<group>"; };
+		6C8CA3E0175664E90019FC4B /* PLPlantTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantTypeModel.h; path = Classes/Models/PlantType/PLPlantTypeModel.h; sourceTree = "<group>"; };
+		6C8CA3E1175664E90019FC4B /* PLPlantTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantTypeModel.m; path = Classes/Models/PlantType/PLPlantTypeModel.m; sourceTree = "<group>"; };
 		6C8CA3E3175664F70019FC4B /* PLValveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLValveModel.h; path = Classes/Models/Valves/PLValveModel.h; sourceTree = "<group>"; };
 		6C8CA3E4175664F70019FC4B /* PLValveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLValveModel.m; path = Classes/Models/Valves/PLValveModel.m; sourceTree = "<group>"; };
 		6C8CA3E6175665040019FC4B /* PLUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLUserModel.h; path = Classes/Models/User/PLUserModel.h; sourceTree = "<group>"; };
@@ -136,19 +130,11 @@
 		6C972B9F17550B4C007234B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C972BA117550B4C007234B6 /* PlantLinkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlantLinkTests.h; sourceTree = "<group>"; };
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
-		6C972BC217554857007234B6 /* asphalt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = asphalt.png; path = Images/Patterns/asphalt.png; sourceTree = "<group>"; };
-		6C972BC617554B44007234B6 /* green-med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-med.png"; path = "Images/green-med.png"; sourceTree = "<group>"; };
-		6C972BE817555A5D007234B6 /* AbstractModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractModel.h; path = Classes/Models/Abstract/AbstractModel.h; sourceTree = "<group>"; };
-		6C972BE917555A5D007234B6 /* AbstractModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractModel.m; path = Classes/Models/Abstract/AbstractModel.m; sourceTree = "<group>"; };
-		6C972BEB17555A66007234B6 /* AbstractRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractRequest.h; path = Classes/Requests/Abstract/AbstractRequest.h; sourceTree = "<group>"; };
-		6C972BEC17555A66007234B6 /* AbstractRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbstractRequest.m; path = Classes/Requests/Abstract/AbstractRequest.m; sourceTree = "<group>"; };
-		6C972BED17555A66007234B6 /* AbstractRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractRequestProtocol.h; path = Classes/Requests/Abstract/AbstractRequestProtocol.h; sourceTree = "<group>"; };
-		6C972BF017555A73007234B6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Requests/Abstract/Reachability/Reachability.h; sourceTree = "<group>"; };
-		6C972BF117555A73007234B6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Requests/Abstract/Reachability/Reachability.m; sourceTree = "<group>"; };
-		6C972BF317555B49007234B6 /* GeneralMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralMethods.h; path = Classes/Constants/GeneralMethods/GeneralMethods.h; sourceTree = "<group>"; };
-		6C972BF417555B49007234B6 /* GeneralMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralMethods.m; path = Classes/Constants/GeneralMethods/GeneralMethods.m; sourceTree = "<group>"; };
 		6C972BF61755634C007234B6 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
 		6C972BF81755634E007234B6 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libService-CodeBase.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos/libService-CodeBase.a"; sourceTree = "<group>"; };
+		6CB8711B175E4FF100B18213 /* ModelTests.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = ModelTests.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +144,7 @@
 			files = (
 				6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */,
 				6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */,
+				6CB86FB7175D560F00B18213 /* libService-CodeBase.a in Frameworks */,
 				6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */,
 				6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -167,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB8711E175E54E100B18213 /* libService-CodeBase.a in Frameworks */,
 				6C972B9617550B4C007234B6 /* SenTestingKit.framework in Frameworks */,
 				6C972B9717550B4C007234B6 /* UIKit.framework in Frameworks */,
 				6C972B9817550B4C007234B6 /* Foundation.framework in Frameworks */,
@@ -216,8 +204,6 @@
 		6C972B6217550B4B007234B6 = {
 			isa = PBXGroup;
 			children = (
-				6C972BF81755634E007234B6 /* icon_114.png */,
-				6C972BF61755634C007234B6 /* icon_57.png */,
 				6C972B7417550B4B007234B6 /* PlantLink */,
 				6C972B9B17550B4C007234B6 /* PlantLinkTests */,
 				6C972B6D17550B4B007234B6 /* Frameworks */,
@@ -237,6 +223,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */,
 				6C8CA42B175694490019FC4B /* SystemConfiguration.framework */,
 				6C972B6E17550B4B007234B6 /* UIKit.framework */,
 				6C972B7017550B4B007234B6 /* Foundation.framework */,
@@ -249,6 +236,7 @@
 		6C972B7417550B4B007234B6 /* PlantLink */ = {
 			isa = PBXGroup;
 			children = (
+				6CB86FBE175D58FE00B18213 /* Icons */,
 				6C972BCC1755519A007234B6 /* Constants */,
 				6C972BCB17555198007234B6 /* Managers */,
 				6C972BCA17555196007234B6 /* Models */,
@@ -282,6 +270,7 @@
 		6C972B9B17550B4C007234B6 /* PlantLinkTests */ = {
 			isa = PBXGroup;
 			children = (
+				6CB8711B175E4FF100B18213 /* ModelTests.strings */,
 				6C972BA117550B4C007234B6 /* PlantLinkTests.h */,
 				6C972BA217550B4C007234B6 /* PlantLinkTests.m */,
 				6C972B9C17550B4C007234B6 /* Supporting Files */,
@@ -301,18 +290,10 @@
 		6C972BAC175540CB007234B6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BC617554B44007234B6 /* green-med.png */,
-				6C972BAD175540CF007234B6 /* Patterns */,
+				6CB86FBA175D589400B18213 /* Standard */,
+				6CB86FB9175D589200B18213 /* Retina */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		6C972BAD175540CF007234B6 /* Patterns */ = {
-			isa = PBXGroup;
-			children = (
-				6C972BC217554857007234B6 /* asphalt.png */,
-			);
-			name = Patterns;
 			sourceTree = "<group>";
 		};
 		6C972BB8175543BA007234B6 /* ViewControllers */ = {
@@ -367,7 +348,6 @@
 		6C972BC917555194007234B6 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BD5175552C0007234B6 /* Abstract */,
 				6C972BD4175552BF007234B6 /* BaseStation */,
 				6C972BD3175552BD007234B6 /* Measurement */,
 				6C972BD2175552BB007234B6 /* Plant */,
@@ -382,7 +362,6 @@
 		6C972BCA17555196007234B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BDF17555301007234B6 /* Abstract */,
 				6C972BDE175552FF007234B6 /* BaseStation */,
 				6C972BDD175552FD007234B6 /* Plant */,
 				6C972BD7175552EE007234B6 /* PlantMeasurement */,
@@ -406,9 +385,9 @@
 		6C972BCC1755519A007234B6 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				6C9C0DD6175E744300864EF1 /* Localizable.strings */,
 				6C8CA41D17567AAF0019FC4B /* PLProjectConstants.h */,
 				6C8CA42017567AC20019FC4B /* PLDesignConstants.h */,
-				6C972BE01755534A007234B6 /* GeneralMethods */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -487,17 +466,6 @@
 			name = BaseStation;
 			sourceTree = "<group>";
 		};
-		6C972BD5175552C0007234B6 /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				6C972BEB17555A66007234B6 /* AbstractRequest.h */,
-				6C972BEC17555A66007234B6 /* AbstractRequest.m */,
-				6C972BED17555A66007234B6 /* AbstractRequestProtocol.h */,
-				6C972BEF17555A69007234B6 /* Reachbility */,
-			);
-			name = Abstract;
-			sourceTree = "<group>";
-		};
 		6C972BD6175552EA007234B6 /* Valves */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +505,8 @@
 		6C972BDB175552F9007234B6 /* PlantType */ = {
 			isa = PBXGroup;
 			children = (
-				6C8CA3E0175664E90019FC4B /* PLPlantType.h */,
-				6C8CA3E1175664E90019FC4B /* PLPlantType.m */,
+				6C8CA3E0175664E90019FC4B /* PLPlantTypeModel.h */,
+				6C8CA3E1175664E90019FC4B /* PLPlantTypeModel.m */,
 			);
 			name = PlantType;
 			sourceTree = "<group>";
@@ -559,24 +527,6 @@
 				6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */,
 			);
 			name = BaseStation;
-			sourceTree = "<group>";
-		};
-		6C972BDF17555301007234B6 /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				6C972BE817555A5D007234B6 /* AbstractModel.h */,
-				6C972BE917555A5D007234B6 /* AbstractModel.m */,
-			);
-			name = Abstract;
-			sourceTree = "<group>";
-		};
-		6C972BE01755534A007234B6 /* GeneralMethods */ = {
-			isa = PBXGroup;
-			children = (
-				6C972BF317555B49007234B6 /* GeneralMethods.h */,
-				6C972BF417555B49007234B6 /* GeneralMethods.m */,
-			);
-			name = GeneralMethods;
 			sourceTree = "<group>";
 		};
 		6C972BE11755535B007234B6 /* User */ = {
@@ -636,13 +586,28 @@
 			name = Tour;
 			sourceTree = "<group>";
 		};
-		6C972BEF17555A69007234B6 /* Reachbility */ = {
+		6CB86FB9175D589200B18213 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BF017555A73007234B6 /* Reachability.h */,
-				6C972BF117555A73007234B6 /* Reachability.m */,
 			);
-			name = Reachbility;
+			name = Retina;
+			sourceTree = "<group>";
+		};
+		6CB86FBA175D589400B18213 /* Standard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Standard;
+			sourceTree = "<group>";
+		};
+		6CB86FBE175D58FE00B18213 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6C972BF81755634E007234B6 /* icon_114.png */,
+				6C972BF61755634C007234B6 /* icon_57.png */,
+			);
+			name = Icons;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -723,10 +688,9 @@
 				6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */,
 				6C972B8817550B4B007234B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				6C972B8B17550B4B007234B6 /* MainStoryboard_iPad.storyboard in Resources */,
-				6C972BC317554857007234B6 /* asphalt.png in Resources */,
-				6C972BC717554B44007234B6 /* green-med.png in Resources */,
 				6C972BF71755634C007234B6 /* icon_57.png in Resources */,
 				6C972BF91755634E007234B6 /* icon_114.png in Resources */,
+				6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +699,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972BA017550B4C007234B6 /* InfoPlist.strings in Resources */,
+				6CB8711C175E4FF100B18213 /* ModelTests.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,19 +727,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972B7B17550B4B007234B6 /* main.m in Sources */,
-				6C8CA429175694220019FC4B /* GeneralMethods.m in Sources */,
 				6C972B7F17550B4B007234B6 /* PLAppDelegate.m in Sources */,
-				6C8CA428175694150019FC4B /* AbstractModel.m in Sources */,
 				6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */,
 				6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */,
 				6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */,
-				6C8CA3E2175664E90019FC4B /* PLPlantType.m in Sources */,
+				6C8CA3E2175664E90019FC4B /* PLPlantTypeModel.m in Sources */,
 				6C8CA3E5175664F70019FC4B /* PLValveModel.m in Sources */,
 				6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */,
 				6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */,
 				6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */,
-				6C8CA4271756940F0019FC4B /* AbstractRequest.m in Sources */,
-				6C8CA42A175694350019FC4B /* Reachability.m in Sources */,
 				6C8CA3F81756681F0019FC4B /* PLBaseStationRequest.m in Sources */,
 				6C8CA3FB1756682B0019FC4B /* PLMeasurementRequest.m in Sources */,
 				6C8CA3FE175668400019FC4B /* PLPlantRequest.m in Sources */,
@@ -796,10 +757,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */,
-				6C972BEA17555A5D007234B6 /* AbstractModel.m in Sources */,
-				6C972BEE17555A66007234B6 /* AbstractRequest.m in Sources */,
-				6C972BF217555A73007234B6 /* Reachability.m in Sources */,
-				6C972BF517555B49007234B6 /* GeneralMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +801,15 @@
 				6C972B9F17550B4C007234B6 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6C9C0DD6175E744300864EF1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C9C0DD5175E744300864EF1 /* en */,
+			);
+			name = Localizable.strings;
+			path = Classes/Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -910,10 +876,16 @@
 		6C972BA717550B4C007234B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -921,10 +893,16 @@
 		6C972BA817550B4C007234B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -932,6 +910,7 @@
 		6C972BAA17550B4C007234B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlantLink.app/PlantLink";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -939,9 +918,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLinkTests/PlantLinkTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -949,6 +934,7 @@
 		6C972BAB17550B4C007234B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlantLink.app/PlantLink";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -956,9 +942,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLinkTests/PlantLinkTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

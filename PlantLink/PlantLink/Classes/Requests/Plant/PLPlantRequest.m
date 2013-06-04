@@ -70,6 +70,8 @@
 #pragma mark Edit Methods
 
 -(void)editRequest:(NSMutableURLRequest *)request {
+    [request addValue:API_Version forHTTPHeaderField:HTTP_Header_APIVersion];
+    
     if([self type] != Request_AddPlant && [self type] != Request_EditPlant) return;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -89,6 +91,8 @@
 #pragma mark Request Methods
 
 -(void)startRequest {
+    [self setBaseURLStr:URLStr_Base];
+    
     if([self type] == Request_GetAllPlants) [self startGetAllUserPlantsRequest];
     else if([self type] == Request_AddPlant) [self startAddPlantRequest];
     else if([self type] == Request_EditPlant) [self startEditPlantRequest];

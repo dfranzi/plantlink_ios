@@ -69,6 +69,8 @@
 #pragma mark Edit Methods
 
 -(void)editRequest:(NSMutableURLRequest *)request {
+    [request addValue:API_Version forHTTPHeaderField:HTTP_Header_APIVersion];
+    
     if([self type] == Request_RegisterUser) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[PostKey_Email] = _email;
@@ -84,6 +86,7 @@
         NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
         NSString *authValue = [NSString stringWithFormat:HTTP_Authentication_Header,[AbstractRequest base64forData:authData]];
         [request addValue:authValue forHTTPHeaderField:HTTP_Header_Authorization];
+        ZALog(@"User auth added: %@",authStr);
     }
 }
 
@@ -91,6 +94,8 @@
 #pragma mark Request Methods
 
 -(void)startRequest {
+    [self setBaseURLStr:URLStr_Base];
+    
     if([self type] == Request_LoginUser) [self startLoginUserRequest];
     else if([self type] == Request_RegisterUser) [self startRegisterUserRequest];
     else if([self type] == Request_GetUser) [self startGetUserRequest];

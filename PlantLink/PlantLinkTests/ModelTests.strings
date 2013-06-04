@@ -1,0 +1,130 @@
+[
+    {
+        "class" : "PLBaseStationModel",
+        "model" : {
+            "serial" : "XFEG2351DSW"
+        },
+        "keys" : {
+            "serialNumber" : "serial"
+        }
+    },
+    {
+        "class" : "PLPlantModel",
+        "model" : {
+            "name" : "My plant",
+            "color" : "FAFBFC",
+            "plant_type_key" : "Green",
+            "soil_type_key" : "Wet",
+            "created" : "1370368917",
+            "active" : true,
+            "id" : "1231",
+            "environment" : "Chicago",
+            "valves_key" : "[v]",
+            "links_key" : "[l]",
+            "measurement_cache" : "[m]"
+        },
+        "keys" : {
+            "name" : "name",
+            "color" : "color",
+            "plantTypeKey" : "plant_type_key",
+            "soilTypeKey" : "soil_type_key",
+            "environment" : "environment",
+            "created" : "created",
+            "active" : "active",
+            "pid" : "id",
+            "cachedMeasurements" : "measurement_cache",
+            "valves" : "valves_key",
+            "links" : "links_key"
+        }
+    },
+    {
+        "class" : "PLPlantMeasurementModel",
+        "model" : {
+            "plant_key" : "Green",
+            "link_key" : "XFEG2351DSW",
+            "created" : "1370369917",
+            "timestamp" : "1370368917",
+            "moisture" : "90.2",
+            "signal" : "50.2",
+            "battery" : "20.2",
+            "is_healthy" : true
+        },
+        "keys" : {
+            "plantKey" : "plant_key",
+            "linkKey" : "link_key",
+            "created" : "created",
+            "timestamp" : "timestamp",
+            "battery" : "battery",
+            "signal" : "signal",
+            "moisture" : "moisture",
+            "isHealthy" : "is_healthy"
+        }
+    },
+    {
+        "class" : "PLPlantTypeModel",
+        "model" : {
+            "name" : "Green Monster",
+            "key" : "ASDA2351DSW"
+        },
+        "keys" : {
+            "name" : "name",
+            "key" : "key"
+        }
+    },
+    {
+         "class" : "PLSoilModel",
+         "model" : {
+             "name" : "Green Monster",
+             "key" : "ASDA2351DSW",
+             "created" : "1370368917"
+         },
+         "keys" : {
+             "name" : "name",
+             "key" : "key",
+             "created" : "created"
+         }
+    },
+    {
+        "class" : "PLUserModel",
+        "model" : {
+            "email" : "rob@oso.tc",
+            "phone" : "1-224-766-9663",
+            "name" : "Rob P",
+            "zip" : "60025",
+            "email_alerts" : true,
+            "text_alerts" : false,
+            "push_alerts" : true
+        },
+        "keys" : {
+            "email" : "email",
+            "phone" : "phone",
+            "name" : "name",
+            "zip" : "zip",
+            "emailAlerts" : "email_alerts",
+            "textAlerts" : "text_alerts",
+            "pushAlerts" : "push_alerts"
+        }
+    },
+    {
+        "class" : "PLValveModel",
+        "model" : {
+            "serial" : "ASDA2351DSWr",
+            "plant_key" : "BOOOOO51DSW",
+            "nickname" : "Blue Meany"
+        },
+        "keys" : {
+            "serialNumber" : "serial",
+            "nickname" : "nickname",
+            "plantKey" : "plant_key"
+        }
+    },
+    {
+        "class" : "PLLinkModel",
+        "model" : {
+            "serial" : "XFEG2351DSW"
+        },
+        "keys" : {
+            "serialNumber" : "serial"
+        }
+    }
+]

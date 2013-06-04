@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "GeneralMethods.h"
+#import "GeneralConstants.h"
 #import "PLDesignConstants.h"
 
 //Colors
@@ -14,8 +14,11 @@
 #define Color_OsoBlue [UIColor colorWithRed:0.0/255.0 green:31.0/255.0 blue:69.0/255.0 alpha:1.0];
 #define Color_OsoBrown [UIColor colorWithRed:148.0/255.0 green:69.0/255.0 blue:11.0/255.0 alpha:1.0];
 
+//Keys
+#define API_Version @"1.0"
+
 //URL Strings
-#define URLStr_Base @"http://www.plantlink.com/api/v1"
+#define URLStr_Base @"https://dev.oso-tech.appspot.com/api/v1"
 
 #define URLStr_User @"/user"
 #define URLStr_Authentication @"/auth"
@@ -35,6 +38,9 @@
 #define URLStr_Measurement @"/measurement"
 #define URLStr_Measurement_Get @"/measurement?plant_id=%@"
 
+//HTTP Headers
+#define HTTP_Header_APIVersion @"API-Version"
+
 //Post Keys
 #define PostKey_Serial @"serial"
 
@@ -48,16 +54,6 @@
 #define PostKey_LinkName @"link_name"
 #define PostKey_LinkSerial @"link_serial"
 #define PostKey_Color @"color"
-
-//HTTP Codes
-#define HTTP_Get @"GET"
-#define HTTP_Post @"POST"
-#define HTTP_Put @"PUT"
-#define HTTP_Delete @"DELETE"
-
-#define HTTP_Authentication_Format @"%@:%@"
-#define HTTP_Authentication_Header @"Basic %@"
-#define HTTP_Header_Authorization @"Authorization"
 
 //Download Codes
 #define DC_User_Email @"email"
