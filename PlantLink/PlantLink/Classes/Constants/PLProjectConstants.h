@@ -98,6 +98,7 @@
 #define DC_Measurement_Moisture @"moisture"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
+#define DC_Measurement_PlantFuelLevel @"plant_fuel_level"
 #define DC_Measurement_IsHealthy @"is_healthy"
 
 //Requests

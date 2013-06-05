@@ -17,6 +17,7 @@
 @property(nonatomic, assign, readonly) float battery;
 @property(nonatomic, assign, readonly) float signal;
 @property(nonatomic, assign, readonly) float moisture;
+@property(nonatomic, assign, readonly) float plantFuelLevel;
 @property(nonatomic, assign, readonly) BOOL isHealthy;
 
 @end

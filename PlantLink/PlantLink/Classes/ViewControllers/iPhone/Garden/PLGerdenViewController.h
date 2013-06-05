@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PLAbstractViewController.h"
 
-@interface PLGerdenViewController : UIViewController
+@interface PLGerdenViewController : PLAbstractViewController
 
 @end

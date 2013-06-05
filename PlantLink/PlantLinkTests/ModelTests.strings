@@ -47,6 +47,7 @@
             "moisture" : "90.2",
             "signal" : "50.2",
             "battery" : "20.2",
+            "plant_fuel_level" : "35.2",
             "is_healthy" : true
         },
         "keys" : {
@@ -57,6 +58,7 @@
             "battery" : "battery",
             "signal" : "signal",
             "moisture" : "moisture",
+            "plantFuelLevel" : "plant_fuel_level",
             "isHealthy" : "is_healthy"
         }
     },

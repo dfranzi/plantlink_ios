@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AbstractRequestProtocol.h"
 
-@interface PLAbstractViewController : UIViewController <AbstractRequestDelegate>
+@class PLUserManager;
+@interface PLAbstractViewController : UIViewController <AbstractRequestDelegate> {
+    PLUserManager *sharedUser;
+}
 
 @end

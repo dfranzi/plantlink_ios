@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class PLUserModel;
 @interface PLUserManager : NSObject
+@property(nonatomic, assign) BOOL loggedIn;
+@property(nonatomic, strong) PLUserModel *user;
+
++(id)initializeUserManager;
 
 @end

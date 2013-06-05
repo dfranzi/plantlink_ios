@@ -8,6 +8,23 @@
 
 #import "PLUserManager.h"
 
+static PLUserManager *sharedUser = nil;
+
 @implementation PLUserManager
+
++(id)initializeUserManager {
+    @synchronized(self) {
+        if(sharedUser == nil)
+            sharedUser = [[PLUserManager alloc] init];
+    }
+    return sharedUser;
+}
+
+-(id)init {
+    if(self = [super init]) {
+        
+    }
+    return self;
+}
 
 @end

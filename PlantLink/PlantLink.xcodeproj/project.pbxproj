@@ -24,7 +24,6 @@
 		6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */; };
 		6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */; };
 		6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41217566AF90019FC4B /* PLHomeViewController.m */; };
-		6C8CA41617566B100019FC4B /* PLTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41517566B100019FC4B /* PLTourViewController.m */; };
 		6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGerdenViewController.m */; };
 		6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
@@ -98,8 +97,6 @@
 		6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAbstractViewController.m; path = Classes/ViewControllers/Abstract/PLAbstractViewController.m; sourceTree = "<group>"; };
 		6C8CA41117566AF90019FC4B /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
 		6C8CA41217566AF90019FC4B /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
-		6C8CA41417566B100019FC4B /* PLTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTourViewController.h; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.h; sourceTree = "<group>"; };
-		6C8CA41517566B100019FC4B /* PLTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourViewController.m; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.m; sourceTree = "<group>"; };
 		6C8CA41717566B260019FC4B /* PLGerdenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLGerdenViewController.h; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.h; sourceTree = "<group>"; };
 		6C8CA41817566B260019FC4B /* PLGerdenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLGerdenViewController.m; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.m; sourceTree = "<group>"; };
 		6C8CA41A17566B3D0019FC4B /* PLAddEditPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAddEditPlantViewController.h; path = Classes/ViewControllers/iPhone/AddEditPlant/PLAddEditPlantViewController.h; sourceTree = "<group>"; };
@@ -132,7 +129,7 @@
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
 		6C972BF61755634C007234B6 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
 		6C972BF81755634E007234B6 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
-		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libService-CodeBase.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos/libService-CodeBase.a"; sourceTree = "<group>"; };
 		6CB8711B175E4FF100B18213 /* ModelTests.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = ModelTests.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				6C972BBA175543C9007234B6 /* Home */,
-				6C972BE7175553E1007234B6 /* Tour */,
 				6C972BE6175553DF007234B6 /* Garden */,
 				6C972BE5175553DC007234B6 /* AddEditPlant */,
 			);
@@ -577,15 +573,6 @@
 			name = Garden;
 			sourceTree = "<group>";
 		};
-		6C972BE7175553E1007234B6 /* Tour */ = {
-			isa = PBXGroup;
-			children = (
-				6C8CA41417566B100019FC4B /* PLTourViewController.h */,
-				6C8CA41517566B100019FC4B /* PLTourViewController.m */,
-			);
-			name = Tour;
-			sourceTree = "<group>";
-		};
 		6CB86FB9175D589200B18213 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,7 +732,6 @@
 				6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */,
 				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,
 				6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */,
-				6C8CA41617566B100019FC4B /* PLTourViewController.m in Sources */,
 				6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */,
 				6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */,
 				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,

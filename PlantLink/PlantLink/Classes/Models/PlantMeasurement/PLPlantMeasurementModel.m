@@ -21,6 +21,7 @@
         _moisture = [dict[DC_Measurement_Moisture] floatValue];
         _signal = [dict[DC_Measurement_Signal] floatValue];
         _battery = [dict[DC_Measurement_Battery] floatValue];
+        _plantFuelLevel = [dict[DC_Measurement_PlantFuelLevel] floatValue];
         _isHealthy = [dict[DC_Measurement_IsHealthy] boolValue];
     }
     return self;
@@ -53,6 +54,7 @@
     dict[DC_Measurement_Moisture] = [NSNumber numberWithFloat:_moisture];
     dict[DC_Measurement_Signal] = [NSNumber numberWithFloat:_signal];
     dict[DC_Measurement_Battery] = [NSNumber numberWithFloat:_battery];
+    dict[DC_Measurement_PlantFuelLevel] = [NSNumber numberWithFloat:_plantFuelLevel];
     dict[DC_Measurement_IsHealthy] = [NSNumber numberWithBool:_isHealthy];
     
     PLPlantMeasurementModel *copy = [[PLPlantMeasurementModel alloc] initWithDictionary:dict];
@@ -73,6 +75,7 @@
         _moisture = [aDecoder decodeFloatForKey:DC_Measurement_Moisture];
         _signal = [aDecoder decodeFloatForKey:DC_Measurement_Signal];
         _battery = [aDecoder decodeFloatForKey:DC_Measurement_Battery];
+        _plantFuelLevel = [aDecoder decodeFloatForKey:DC_Measurement_PlantFuelLevel];
         _isHealthy = [aDecoder decodeBoolForKey:DC_Measurement_IsHealthy];
     }
     return self;
@@ -87,6 +90,7 @@
     [aCoder encodeFloat:_moisture forKey:DC_Measurement_Moisture];
     [aCoder encodeFloat:_signal forKey:DC_Measurement_Signal];
     [aCoder encodeFloat:_battery forKey:DC_Measurement_Battery];
+    [aCoder encodeFloat:_plantFuelLevel forKey:DC_Measurement_PlantFuelLevel];
     [aCoder encodeBool:_isHealthy forKey:DC_Measurement_IsHealthy];
 }
 

@@ -7,12 +7,19 @@
 //
 
 #import "PLAbstractViewController.h"
+#import "PLUserManager.h"
 
 @interface PLAbstractViewController() {
 @private
+
 }
 @end
 
 @implementation PLAbstractViewController
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    sharedUser = [PLUserManager initializeUserManager];
+}
 
 @end
