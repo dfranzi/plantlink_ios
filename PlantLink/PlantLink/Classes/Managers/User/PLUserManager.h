@@ -7,12 +7,36 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractRequestProtocol.h"
 
 @class PLUserModel;
-@interface PLUserManager : NSObject
+@interface PLUserManager : NSObject <AbstractRequestDelegate>
 @property(nonatomic, assign) BOOL loggedIn;
 @property(nonatomic, strong) PLUserModel *user;
 
+@property(nonatomic, strong, readonly) NSArray *plants;
+@property(nonatomic, strong, readonly) NSArray *soilTypes;
+@property(nonatomic, strong, readonly) NSArray *plantTypes;
+
+/**
+ * Initializes the download manager, loading any necessary data from disk while restoring
+ * any applicable sessions and information
+ */
 +(id)initializeUserManager;
+
+#pragma mark -
+#pragma mark User Methods
+
+/**
+ * Performs a user request updating all of the current users information (including the
+ * plants NSArray)
+ */
+-(void)refreshData;
+
+/**
+ * Performs a type request on both Soil and Plant types updating the list of available options
+ * from the server
+ */
+-(void)refreshTypes;
 
 @end

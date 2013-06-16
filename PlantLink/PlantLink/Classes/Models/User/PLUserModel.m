@@ -17,9 +17,14 @@
         _phone = dict[DC_User_Phone];
         _zip = dict[DC_User_Zipcode];
         
-        _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
-        _textAlerts = [dict[DC_User_TextAlerts] boolValue];
-        _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
+        if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
+        else _emailAlerts = NO;
+        
+        if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]])_textAlerts = [dict[DC_User_TextAlerts] boolValue];
+        else _textAlerts = NO;
+        
+        if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
+        else _pushAlerts = NO;
     }
     return self;
 }

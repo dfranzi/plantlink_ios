@@ -10,6 +10,7 @@
 
 @interface PLSoilTypeRequest : AbstractRequest
 
+// Retrieves all known soil types from the server
 -(id)initSoilTypeRequest;
 
 @end

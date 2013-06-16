@@ -30,12 +30,12 @@
         
         
         
-        if([dict[DC_Plant_Valves] isKindOfClass:[NSArray class]]) _valves = [PLValveModel modelsFromArrayOfDictionaries:dict[DC_Plant_Valves]];
+        if([dict[DC_Plant_Valves] isKindOfClass:[NSArray class]]) _valves = dict[DC_Plant_Valves];
         else _valves = dict[DC_Plant_Valves];
         
         
         
-        if([dict[DC_Plant_Links] isKindOfClass:[NSArray class]]) _links = [PLLinkModel modelsFromArrayOfDictionaries:dict[DC_Plant_Links]];
+        if([dict[DC_Plant_Links] isKindOfClass:[NSArray class]]) _links = dict[DC_Plant_Links];
         else _links = dict[DC_Plant_Links];
         
         

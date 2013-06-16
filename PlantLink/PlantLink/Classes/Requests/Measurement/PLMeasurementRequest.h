@@ -9,8 +9,13 @@
 #import "AbstractRequest.h"
 
 @interface PLMeasurementRequest : AbstractRequest
+// The server assigned plant id of the plant
 @property(nonatomic, strong, readonly) NSString *plantId;
 
+/*
+ * Retrieves all the latest measurements associated with the passed
+ * in plant id for the plant of the currently logged in user
+ */
 -(id)initMeasurementRequestWithPlantId:(NSString*)plantId;
 
 @end

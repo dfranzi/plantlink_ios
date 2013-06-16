@@ -10,6 +10,7 @@
 
 @interface PLPlantTypeRequest : AbstractRequest
 
+// Retrieves all known plant types from the server
 -(id)initPlantTypeRequest;
 
 @end

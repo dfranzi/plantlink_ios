@@ -24,10 +24,11 @@
 		6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */; };
 		6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */; };
 		6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41217566AF90019FC4B /* PLHomeViewController.m */; };
-		6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGerdenViewController.m */; };
+		6C8CA41917566B260019FC4B /* PLGardenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41817566B260019FC4B /* PLGardenViewController.m */; };
 		6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
 		6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8CA42B175694490019FC4B /* SystemConfiguration.framework */; };
+		6C917424175FC09900B3903B /* PLMyGardenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C917423175FC09900B3903B /* PLMyGardenCell.m */; };
 		6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7217550B4B007234B6 /* CoreGraphics.framework */; };
@@ -97,8 +98,8 @@
 		6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAbstractViewController.m; path = Classes/ViewControllers/Abstract/PLAbstractViewController.m; sourceTree = "<group>"; };
 		6C8CA41117566AF90019FC4B /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
 		6C8CA41217566AF90019FC4B /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
-		6C8CA41717566B260019FC4B /* PLGerdenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLGerdenViewController.h; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.h; sourceTree = "<group>"; };
-		6C8CA41817566B260019FC4B /* PLGerdenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLGerdenViewController.m; path = Classes/ViewControllers/iPhone/Garden/PLGerdenViewController.m; sourceTree = "<group>"; };
+		6C8CA41717566B260019FC4B /* PLGardenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLGardenViewController.h; path = Classes/ViewControllers/iPhone/Garden/PLGardenViewController.h; sourceTree = "<group>"; };
+		6C8CA41817566B260019FC4B /* PLGardenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLGardenViewController.m; path = Classes/ViewControllers/iPhone/Garden/PLGardenViewController.m; sourceTree = "<group>"; };
 		6C8CA41A17566B3D0019FC4B /* PLAddEditPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAddEditPlantViewController.h; path = Classes/ViewControllers/iPhone/AddEditPlant/PLAddEditPlantViewController.h; sourceTree = "<group>"; };
 		6C8CA41B17566B3D0019FC4B /* PLAddEditPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAddEditPlantViewController.m; path = Classes/ViewControllers/iPhone/AddEditPlant/PLAddEditPlantViewController.m; sourceTree = "<group>"; };
 		6C8CA41D17567AAF0019FC4B /* PLProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLProjectConstants.h; path = Classes/Constants/PLProjectConstants.h; sourceTree = "<group>"; };
@@ -106,6 +107,8 @@
 		6C8CA4241756810E0019FC4B /* PLLinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkModel.h; path = Classes/Models/Link/PLLinkModel.h; sourceTree = "<group>"; };
 		6C8CA4251756810E0019FC4B /* PLLinkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkModel.m; path = Classes/Models/Link/PLLinkModel.m; sourceTree = "<group>"; };
 		6C8CA42B175694490019FC4B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C917422175FC09900B3903B /* PLMyGardenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMyGardenCell.h; path = Classes/UIElements/Cells/MyGardenCell/PLMyGardenCell.h; sourceTree = "<group>"; };
+		6C917423175FC09900B3903B /* PLMyGardenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMyGardenCell.m; path = Classes/UIElements/Cells/MyGardenCell/PLMyGardenCell.m; sourceTree = "<group>"; };
 		6C972B6B17550B4B007234B6 /* PlantLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C972B6E17550B4B007234B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C972B7017550B4B007234B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -196,6 +199,15 @@
 				6C8CA4251756810E0019FC4B /* PLLinkModel.m */,
 			);
 			name = Link;
+			sourceTree = "<group>";
+		};
+		6C917421175FC07500B3903B /* MyGardenCell */ = {
+			isa = PBXGroup;
+			children = (
+				6C917422175FC09900B3903B /* PLMyGardenCell.h */,
+				6C917423175FC09900B3903B /* PLMyGardenCell.m */,
+			);
+			name = MyGardenCell;
 			sourceTree = "<group>";
 		};
 		6C972B6217550B4B007234B6 = {
@@ -336,7 +348,6 @@
 			children = (
 				6C972BE417555389007234B6 /* Buttons */,
 				6C972BE317555387007234B6 /* Cells */,
-				6C972BE217555385007234B6 /* TableViews */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -534,16 +545,10 @@
 			name = User;
 			sourceTree = "<group>";
 		};
-		6C972BE217555385007234B6 /* TableViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TableViews;
-			sourceTree = "<group>";
-		};
 		6C972BE317555387007234B6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				6C917421175FC07500B3903B /* MyGardenCell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -567,8 +572,8 @@
 		6C972BE6175553DF007234B6 /* Garden */ = {
 			isa = PBXGroup;
 			children = (
-				6C8CA41717566B260019FC4B /* PLGerdenViewController.h */,
-				6C8CA41817566B260019FC4B /* PLGerdenViewController.m */,
+				6C8CA41717566B260019FC4B /* PLGardenViewController.h */,
+				6C8CA41817566B260019FC4B /* PLGardenViewController.m */,
 			);
 			name = Garden;
 			sourceTree = "<group>";
@@ -732,9 +737,10 @@
 				6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */,
 				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,
 				6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */,
-				6C8CA41917566B260019FC4B /* PLGerdenViewController.m in Sources */,
+				6C8CA41917566B260019FC4B /* PLGardenViewController.m in Sources */,
 				6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */,
 				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,
+				6C917424175FC09900B3903B /* PLMyGardenCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

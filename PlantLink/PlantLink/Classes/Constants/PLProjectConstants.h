@@ -10,9 +10,9 @@
 #import "PLDesignConstants.h"
 
 //Colors
-#define Color_OsoGreen [UIColor colorWithRed:11.0/255.0 green:148.0/255.0 blue:68.0/255.0 alpha:1.0];
-#define Color_OsoBlue [UIColor colorWithRed:0.0/255.0 green:31.0/255.0 blue:69.0/255.0 alpha:1.0];
-#define Color_OsoBrown [UIColor colorWithRed:148.0/255.0 green:69.0/255.0 blue:11.0/255.0 alpha:1.0];
+#define Color_OsoGreen [UIColor colorWithRed:11.0/255.0 green:148.0/255.0 blue:68.0/255.0 alpha:1.0]
+#define Color_OsoBlue [UIColor colorWithRed:0.0/255.0 green:31.0/255.0 blue:69.0/255.0 alpha:1.0]
+#define Color_OsoBrown [UIColor colorWithRed:148.0/255.0 green:69.0/255.0 blue:11.0/255.0 alpha:1.0]
 
 //Keys
 #define API_Version @"1.0"
@@ -31,7 +31,7 @@
 #define URLStr_SoilType @"/soilTypes"
 #define URLStr_PlantType @"/plantTypes"
 
-#define URLStr_Plant @"/plant"
+#define URLStr_Plant @"/plants"
 #define URLStr_Plant_Id @"/plant?plant_id=%@"
 #define URLStr_Valve @"/valve"
 
@@ -129,8 +129,18 @@ typedef enum RequestTypes {
     Request_RemoveValve,
 } RequestType;
 
+//Segue
+#define Segue_ToMyGarden @"toMyGardenView"
 
+//Notifications
+#define Notification_User_UserRefreshed @"User-UserRefreshed"
+#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
 
+#define Notification_User_TypesRefreshed @"User-UserRefreshed"
+#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
+
+//Cells
+#define Cell_GardenCell @"myGardenCell"
 
 
 

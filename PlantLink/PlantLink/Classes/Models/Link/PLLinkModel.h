@@ -9,6 +9,7 @@
 #import "AbstractModel.h"
 
 @interface PLLinkModel : AbstractModel
+// The serial number of the plant link
 @property(nonatomic, strong, readonly) NSString *serialNumber;
 
 @end
