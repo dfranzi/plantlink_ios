@@ -10,7 +10,7 @@
 
 @interface PLMeasurementRequest : AbstractRequest
 // The server assigned plant id of the plant
-@property(nonatomic, strong, readonly) NSString *plantId;
+@property(nonatomic, strong) NSString *plantId;
 
 /*
  * Retrieves all the latest measurements associated with the passed

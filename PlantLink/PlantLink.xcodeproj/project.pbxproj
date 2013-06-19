@@ -48,6 +48,7 @@
 		6C972BF71755634C007234B6 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF61755634C007234B6 /* icon_57.png */; };
 		6C972BF91755634E007234B6 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF81755634E007234B6 /* icon_114.png */; };
 		6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9C0DD6175E744300864EF1 /* Localizable.strings */; };
+		6C9C633A1772123100992D27 /* PLLinkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9C63391772123100992D27 /* PLLinkRequest.m */; };
 		6CB86FB7175D560F00B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
 		6CB8711C175E4FF100B18213 /* ModelTests.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8711B175E4FF100B18213 /* ModelTests.strings */; };
 		6CB8711E175E54E100B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
@@ -133,6 +134,8 @@
 		6C972BF61755634C007234B6 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
 		6C972BF81755634E007234B6 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6C9C63381772123100992D27 /* PLLinkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkRequest.h; path = Classes/Requests/Link/PLLinkRequest.h; sourceTree = "<group>"; };
+		6C9C63391772123100992D27 /* PLLinkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkRequest.m; path = Classes/Requests/Link/PLLinkRequest.m; sourceTree = "<group>"; };
 		6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libService-CodeBase.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos/libService-CodeBase.a"; sourceTree = "<group>"; };
 		6CB8711B175E4FF100B18213 /* ModelTests.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = ModelTests.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,6 +361,7 @@
 				6C972BD4175552BF007234B6 /* BaseStation */,
 				6C972BD3175552BD007234B6 /* Measurement */,
 				6C972BD2175552BB007234B6 /* Plant */,
+				6C9C63371772120400992D27 /* Link */,
 				6C972BD1175552B9007234B6 /* PlantType */,
 				6C972BD0175552B7007234B6 /* SoilType */,
 				6C972BCF175552B6007234B6 /* User */,
@@ -578,6 +582,15 @@
 			name = Garden;
 			sourceTree = "<group>";
 		};
+		6C9C63371772120400992D27 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				6C9C63381772123100992D27 /* PLLinkRequest.h */,
+				6C9C63391772123100992D27 /* PLLinkRequest.m */,
+			);
+			name = Link;
+			sourceTree = "<group>";
+		};
 		6CB86FB9175D589200B18213 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,6 +754,7 @@
 				6C8CA41C17566B3D0019FC4B /* PLAddEditPlantViewController.m in Sources */,
 				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,
 				6C917424175FC09900B3903B /* PLMyGardenCell.m in Sources */,
+				6C9C633A1772123100992D27 /* PLLinkRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 @interface PLBaseStationRequest : AbstractRequest
 // The serial number of the base station
-@property(nonatomic, strong, readonly) NSString *serial;
+@property(nonatomic, strong) NSString *serial;
 
 /*
  * Gets all base stations associated with the current logged in user

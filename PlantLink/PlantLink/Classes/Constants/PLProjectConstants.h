@@ -33,6 +33,10 @@
 
 #define URLStr_Plant @"/plants"
 #define URLStr_Plant_Id @"/plant?plant_id=%@"
+
+#define URLStr_Link @"/link"
+#define URLStr_LinkSerial @"/link/%@"
+
 #define URLStr_Valve @"/valve"
 
 #define URLStr_Measurement @"/measurement"
@@ -48,6 +52,10 @@
 #define PostKey_Name @"name"
 #define PostKey_ZipCode @"zip"
 #define PostKey_Password @"password"
+
+#define PostKey_EmailAlerts @"email_alerts"
+#define PostKey_TextAlerts @"text_alerts"
+#define PostKey_PushAlerts @"push_alerts"
 
 #define PostKey_PlantType @"plant_type"
 #define PostKey_SoilType @"soil_type"
@@ -115,6 +123,7 @@ typedef enum RequestTypes {
     Request_LoginUser,
     Request_LogoutUser,
     Request_RegisterUser,
+    Request_UpdateUser,
     Request_PasswordReset,
     Request_GetUser,
     
@@ -122,6 +131,11 @@ typedef enum RequestTypes {
     Request_AddPlant,
     Request_EditPlant,
     Request_RemovePlant,
+    
+    Request_DeleteLink,
+    Request_GetLink,
+    Request_ListLinks,
+    Request_RegisterLink,
     
     Request_GetAllValves,
     Request_AddValve,
@@ -136,8 +150,8 @@ typedef enum RequestTypes {
 #define Notification_User_UserRefreshed @"User-UserRefreshed"
 #define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
 
-#define Notification_User_TypesRefreshed @"User-UserRefreshed"
-#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
+#define Notification_User_TypesRefreshed @"User-TypesRefreshed"
+#define Notification_User_TypesRefreshFailed @"User-TypesRefreshFailed"
 
 //Cells
 #define Cell_GardenCell @"myGardenCell"

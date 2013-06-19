@@ -10,16 +10,25 @@
 
 @interface PLUserRequest : AbstractRequest
 // The email address of the user
-@property(nonatomic, strong, readonly) NSString *email;
+@property(nonatomic, strong) NSString *email;
 
 // The password of the user
-@property(nonatomic, strong, readonly) NSString *password;
+@property(nonatomic, strong) NSString *password;
 
 // The full name of the user
-@property(nonatomic, strong, readonly) NSString *name;
+@property(nonatomic, strong) NSString *name;
 
 // The zip code of the user
-@property(nonatomic, strong, readonly) NSString *zipCode;
+@property(nonatomic, strong) NSString *zipCode;
+
+// Whether the user wants to recieve email alerts
+@property(nonatomic, assign) BOOL *emailAlerts;
+
+// Whether the user wants to recieve text alerts
+@property(nonatomic, assign) BOOL *textAlerts;
+
+// Whether the user wants to recieve push alerts
+@property(nonatomic, assign) BOOL *pushAlerts;
 
 /*
  * Attempts to log in the user with the passed in email and password
@@ -35,6 +44,11 @@
  * Retrieves the information associated with the currently logged in user
  */
 -(id)initGetUserRequest;
+
+/*
+ *
+ */
+-(id)initUpdateUserRequest;
 
 /*
  * Logs out the currently logged in user

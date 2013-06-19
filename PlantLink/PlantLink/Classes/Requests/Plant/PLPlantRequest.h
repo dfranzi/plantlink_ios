@@ -10,16 +10,16 @@
 
 @interface PLPlantRequest : AbstractRequest
 // The server assigned plant id
-@property(nonatomic, strong, readonly) NSString *pid;
+@property(nonatomic, strong) NSString *pid;
 
 // The user assigned plant name
-@property(nonatomic, strong, readonly) NSString *name;
+@property(nonatomic, strong) NSString *name;
 
 // The user assigned plant type
-@property(nonatomic, strong, readonly) NSString *plantType;
+@property(nonatomic, strong) NSString *plantType;
 
 // The user assigned soil type
-@property(nonatomic, strong, readonly) NSString *soilType;
+@property(nonatomic, strong) NSString *soilType;
 
 // The user assigned link name
 @property(nonatomic, strong) NSString *linkName;
