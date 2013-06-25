@@ -8,14 +8,15 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLHomeViewController : PLAbstractViewController <UITextFieldDelegate> {
-    IBOutlet UITextField *usernameTextField;
-    IBOutlet UITextField *passwordTextField;
+@interface PLHomeViewController : PLAbstractViewController {
+    IBOutlet UILabel *sloganLabel;
 }
 
 #pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)loginPushed:(id)sender;
+-(IBAction)registerPushed:(id)sender;
+-(IBAction)learnMorePushed:(id)sender;
 
 @end

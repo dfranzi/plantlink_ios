@@ -14,4 +14,9 @@
     PLUserManager *sharedUser;
 }
 
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)popView:(id)sender;
+
 @end

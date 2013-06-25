@@ -19,6 +19,7 @@
         _password = password;
         _name = @"";
         _zipCode = @"";
+        _serial = @"";
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -28,12 +29,13 @@
     return self;
 }
 
--(id)initRegisterUserRequestWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password andZipCode:(NSString*)zipCode {
+-(id)initRegisterUserRequestWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password andZipCode:(NSString*)zipCode andBaseStationSerial:(NSString*)serial {
     if(self = [super initAbstractRequest]) {
         _email = email;
         _name = name;
         _password = password;
         _zipCode = zipCode;
+        _serial = serial;
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -49,6 +51,7 @@
         _name = @"";
         _password = @"";
         _zipCode = @"";
+        _serial = @"";
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -64,6 +67,7 @@
         _name = @"";
         _password = @"";
         _zipCode = @"";
+        _serial = @"";
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -89,6 +93,7 @@
         _name = @"";
         _password = @"";
         _zipCode = @"";
+        _serial = @"";
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -104,6 +109,7 @@
         _name = @"";
         _password = @"";
         _zipCode = @"";
+        _serial = @"";
         _emailAlerts = NO;
         _textAlerts = NO;
         _pushAlerts = NO;
@@ -126,10 +132,13 @@
         dict[PostKey_Password] = _password;
         dict[PostKey_ZipCode] = _zipCode;
         
+        
+        if([self type] == Request_RegisterUser) dict[PostKey_Serial] = _serial;
+        
         if([self type] == Request_UpdateUser) {
-            dict[PostKey_EmailAlerts] = @_emailAlerts;
-            dict[PostKey_TextAlerts] = @_textAlerts;
-            dict[PostKey_PushAlerts] = @_pushAlerts;
+            dict[PostKey_EmailAlerts] = [NSNumber numberWithBool:_emailAlerts];
+            dict[PostKey_TextAlerts] = [NSNumber numberWithBool:_textAlerts];
+            dict[PostKey_PushAlerts] = [NSNumber numberWithBool:_pushAlerts];
             
             [dict removeObjectForKey:PostKey_Password];
         }

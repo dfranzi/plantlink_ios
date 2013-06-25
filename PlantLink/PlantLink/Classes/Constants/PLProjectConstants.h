@@ -9,11 +9,6 @@
 #import "GeneralConstants.h"
 #import "PLDesignConstants.h"
 
-//Colors
-#define Color_OsoGreen [UIColor colorWithRed:11.0/255.0 green:148.0/255.0 blue:68.0/255.0 alpha:1.0]
-#define Color_OsoBlue [UIColor colorWithRed:0.0/255.0 green:31.0/255.0 blue:69.0/255.0 alpha:1.0]
-#define Color_OsoBrown [UIColor colorWithRed:148.0/255.0 green:69.0/255.0 blue:11.0/255.0 alpha:1.0]
-
 //Keys
 #define API_Version @"1.0"
 
@@ -52,6 +47,7 @@
 #define PostKey_Name @"name"
 #define PostKey_ZipCode @"zip"
 #define PostKey_Password @"password"
+#define PostKey_BaseStationSerial @"serial"
 
 #define PostKey_EmailAlerts @"email_alerts"
 #define PostKey_TextAlerts @"text_alerts"
@@ -144,7 +140,10 @@ typedef enum RequestTypes {
 } RequestType;
 
 //Segue
+#define Segue_ToRegister @"toRegisterView"
+#define Segue_ToLogin @"toLoginView"
 #define Segue_ToMyGarden @"toMyGardenView"
+#define Segue_ToTour @"toTourView"
 
 //Notifications
 #define Notification_User_UserRefreshed @"User-UserRefreshed"
@@ -155,6 +154,7 @@ typedef enum RequestTypes {
 
 //Cells
 #define Cell_GardenCell @"myGardenCell"
+#define Cell_TourCell @"tourCell"
 
 
 

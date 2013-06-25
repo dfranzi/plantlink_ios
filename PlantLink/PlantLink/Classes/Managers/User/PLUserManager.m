@@ -22,6 +22,7 @@
 @interface PLUserManager() {
 @private
     PLUserRequest *userRequest;
+    PLUserRequest *logoutRequest;
     PLPlantRequest *plantRequest;
     
     PLSoilTypeRequest *soilRequest;
@@ -67,7 +68,21 @@ static PLUserManager *sharedUser = nil;
 }
 
 -(void)refreshTypes {
+    plantTypeRequest = [[PLPlantTypeRequest alloc] initPlantTypeRequest];
+    [plantTypeRequest setDelegate:self];
+    [plantTypeRequest startRequest];
     
+    soilRequest = [[PLSoilTypeRequest alloc] initSoilTypeRequest];
+    [soilRequest setDelegate:self];
+    [soilRequest startRequest];
+}
+
+-(void)logout {
+    _user = NULL;
+    _plants = [NSMutableArray array];
+    
+    logoutRequest = [[PLUserRequest alloc] initLogoutUserRequest];
+    [logoutRequest startRequest];
 }
 
 #pragma mark -

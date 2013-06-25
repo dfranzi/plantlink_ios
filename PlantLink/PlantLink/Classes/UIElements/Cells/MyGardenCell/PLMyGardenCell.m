@@ -7,9 +7,16 @@
 //
 
 #import "PLMyGardenCell.h"
+
 #import "PLPlantModel.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PLMyGardenCell
+
+-(void)drawRect:(CGRect)rect {
+    [self.layer setCornerRadius:5.0];
+    [self.layer setMasksToBounds:YES];
+}
 
 #pragma mark -
 #pragma mark Setters

@@ -39,4 +39,9 @@
  */
 -(void)refreshTypes;
 
+/*
+ * Makes sure the current user is logged out
+ */
+-(void)logout;
+
 @end

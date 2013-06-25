@@ -21,14 +21,17 @@
 // The zip code of the user
 @property(nonatomic, strong) NSString *zipCode;
 
+// The serial number of the user's base station
+@property(nonatomic, strong) NSString *serial;
+
 // Whether the user wants to recieve email alerts
-@property(nonatomic, assign) BOOL *emailAlerts;
+@property(nonatomic, assign) BOOL emailAlerts;
 
 // Whether the user wants to recieve text alerts
-@property(nonatomic, assign) BOOL *textAlerts;
+@property(nonatomic, assign) BOOL textAlerts;
 
 // Whether the user wants to recieve push alerts
-@property(nonatomic, assign) BOOL *pushAlerts;
+@property(nonatomic, assign) BOOL pushAlerts;
 
 /*
  * Attempts to log in the user with the passed in email and password
@@ -38,7 +41,7 @@
 /*
  * Attempts to register a new user with the passed in email, name password and zipcode
  */
--(id)initRegisterUserRequestWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password andZipCode:(NSString*)zipCode;
+-(id)initRegisterUserRequestWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password andZipCode:(NSString*)zipCode andBaseStationSerial:(NSString*)serial;
 
 /*
  * Retrieves the information associated with the currently logged in user

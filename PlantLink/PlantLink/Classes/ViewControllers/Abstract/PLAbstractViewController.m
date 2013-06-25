@@ -20,6 +20,16 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     sharedUser = [PLUserManager initializeUserManager];
+    
+    [self.navigationController.navigationBar setBackgroundColor:Color_OsoGreen];
+    [self.navigationController.navigationBar setTintColor:Color_OsoGreen];
+}
+
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)popView:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
