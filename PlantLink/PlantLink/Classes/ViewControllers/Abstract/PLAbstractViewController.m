@@ -26,6 +26,13 @@
 }
 
 #pragma mark -
+#pragma mark Getters
+
+-(BOOL)isIphone5 {
+    return [UIScreen mainScreen].bounds.size.height == 568;
+}
+
+#pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)popView:(id)sender {

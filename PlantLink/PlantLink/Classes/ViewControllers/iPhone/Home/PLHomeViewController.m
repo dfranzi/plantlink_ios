@@ -18,7 +18,15 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    if([self isIphone5]) [self adjustToiPhone5Screen];
     [sloganLabel setFont:[UIFont fontWithName:Font_Bariol_Light size:20.0]];
+}
+
+#pragma mark -
+#pragma mark Layout Methods
+
+-(void)adjustToiPhone5Screen {
+    
 }
 
 #pragma mark -

@@ -40,6 +40,11 @@
 #pragma mark IBAction Methods
 
 -(IBAction)loginPushed:(id)sender {
+    BOOL validEmail = [emailTextField validate:Validation_Email];
+    BOOL validPassword = [passwordTextField validate:Validation_Empty];
+    BOOL validParameters = validEmail && validPassword;
+    if(!validParameters) return;
+    
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
     
@@ -49,6 +54,9 @@
 }
 
 -(IBAction)forgotPasswordPushed:(id)sender {
+    BOOL validEmail = [emailTextField validate:Validation_Email];
+    if(!validEmail) return;
+    
     NSString *email = [emailTextField text];
     forgotPasswordRequest = [[PLUserRequest alloc] initPasswordResetRequestWithEmail:email];
     [forgotPasswordRequest setDelegate:self];

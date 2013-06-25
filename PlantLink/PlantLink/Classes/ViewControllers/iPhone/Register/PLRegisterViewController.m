@@ -45,6 +45,14 @@
 #pragma mark IBAction Methods
 
 -(IBAction)registerPushed:(id)sender {
+    BOOL validName = [nameTextField validate:Validation_Empty];
+    BOOL validEmail = [emailTextField validate:Validation_Email];
+    BOOL validPassword = [passwordTextField validate:Validation_Empty];
+    BOOL validLocation = [locationTextField validate:Validation_Empty];
+    BOOL validSerial = [serialNumberTextField validate:Validation_Empty];
+    BOOL validParameters = validName && validEmail && validPassword && validLocation && validSerial;
+    if(!validParameters) return;
+    
     NSString *name = [nameTextField text];
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define Validation_Empty @"validation_empty"
+#define Validation_Email @"validation_email"
+
 @interface PLTextField : UITextField
 
 #pragma mark -
@@ -16,5 +19,10 @@
 -(void)setLeftLabel:(NSString*)labelText;
 -(void)setRightInfoWithTitle:(NSString*)title text:(NSString*)text andCancelButton:(NSString*)cancel;
 
+#pragma mark -
+#pragma mark Display Methods
+
+-(BOOL)validate:(NSString*)type;
 
 @end
+

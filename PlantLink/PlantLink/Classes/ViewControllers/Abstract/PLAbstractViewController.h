@@ -13,6 +13,7 @@
 @interface PLAbstractViewController : UIViewController <AbstractRequestDelegate> {
     PLUserManager *sharedUser;
 }
+@property(nonatomic, assign) BOOL isIphone5;
 
 #pragma mark -
 #pragma mark IBAction Methods

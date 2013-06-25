@@ -14,6 +14,8 @@
     NSString *_title;
     NSString *_text;
     NSString *_cancel;
+    
+    UILabel *leftLabel;
 }
 
 @end
@@ -29,6 +31,11 @@
     [self setFrame:_frame];
 }
 
+-(void)drawPlaceholderInRect:(CGRect)rect {
+    //[[UIColor whiteColor] setFill];
+    //[[self placeholder] drawInRect:rect withFont:[UIFont fontWithName:Font_Bariol_Bold size:20.0]];
+}
+
 #pragma mark -
 #pragma mark View Methods
 
@@ -38,7 +45,7 @@
     UIFont *font = [UIFont fontWithName:Font_Bariol_Bold size:20.0];
     CGSize textSize = [labelText sizeWithFont:font constrainedToSize:CGSizeMake(MAXFLOAT, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
     
-    UILabel *leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 20, self.frame.size.height)];
+    leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 20, self.frame.size.height)];
     [leftLabel setBackgroundColor:[UIColor clearColor]];
     [leftLabel setText:labelText];
     [leftLabel setTextAlignment:NSTextAlignmentCenter];
@@ -74,6 +81,26 @@
 -(void)infoPushed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_title message:_text delegate:nil cancelButtonTitle:_cancel otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(BOOL)validate:(NSString*)type {
+    if([type isEqualToString:@"Catch"]) {
+        
+    }
+    else {
+        if([[self text] isEqualToString:@""]) {
+            [leftLabel setTextColor:Color_Alizarin];
+            return NO;
+        }
+        else {
+            [leftLabel setTextColor:[UIColor whiteColor]];
+            return YES;
+        }
+    }
+    return YES;
 }
 
 @end

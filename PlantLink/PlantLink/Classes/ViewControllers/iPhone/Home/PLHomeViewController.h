@@ -9,7 +9,12 @@
 #import "PLAbstractViewController.h"
 
 @interface PLHomeViewController : PLAbstractViewController {
+    IBOutlet UIImageView *logoImage;
     IBOutlet UILabel *sloganLabel;
+    
+    IBOutlet UIButton *loginButton;
+    IBOutlet UIButton *registerButton;
+    IBOutlet UIButton *learnMoreButton;
 }
 
 #pragma mark -
