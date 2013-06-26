@@ -23,7 +23,7 @@
 
 -(void)setModel:(PLPlantModel *)model {
     _model = model;
-    
+
     if(_model) {
         [plantNameLabel setText:[model name]];
         [plantInfoLabel setText:[NSString stringWithFormat:@"%@ in %@ soil",[model plantTypeKey],[model soilTypeKey]]];
