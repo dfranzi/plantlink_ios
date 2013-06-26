@@ -27,6 +27,12 @@
     
     [[UINavigationBar appearance] setShadowImage:[GeneralMethods imageWithColor:Color_MainShadow andSize:CGSizeMake(1, 1)]];
     
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
+                                UITextAttributeTextColor:[UIColor whiteColor],
+                          UITextAttributeTextShadowColor:[UIColor clearColor],
+                         UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+     } forState:UIControlStateNormal];
+    
     return YES;
 }
 
