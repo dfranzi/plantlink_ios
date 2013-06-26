@@ -12,24 +12,39 @@
 
 @interface PLTourViewController() {
 @private
+    NSArray *contentArray;
 }
 
 @end
 
 @implementation PLTourViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"TourLayout" ofType:@"strings"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    contentArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [tourCollectionView reloadData];
+}
+
 #pragma mark -
 #pragma mark Collection View Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5.0;
+    return [contentArray count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = Cell_TourCell;
     
     PLTourCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell setPage:indexPath.row ofTotal:5.0];
+    [cell setPage:indexPath.row ofTotal:[contentArray count]];
+    [cell setContentArray:contentArray[indexPath.row]];
     
     return cell;
 }

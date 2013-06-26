@@ -64,10 +64,9 @@
 		6CBCC4B4177A009F00527961 /* PLMyGardenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4B3177A009F00527961 /* PLMyGardenViewController.m */; };
 		6CBCC4B8177A187C00527961 /* PLTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4B7177A187C00527961 /* PLTourViewController.m */; };
 		6CBCC4BC177A18C800527961 /* PLTourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4BB177A18C800527961 /* PLTourCell.m */; };
-		6CBCC4BE177A380300527961 /* navigation_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4BD177A380300527961 /* navigation_bar.png */; };
-		6CBCC4C0177A380900527961 /* navigation_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4BF177A380900527961 /* navigation_bar@2x.png */; };
 		6CBCC4C4177A3A0A00527961 /* navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */; };
 		6CBCC4C6177A3A1000527961 /* navigation_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4C5177A3A1000527961 /* navigation_back.png */; };
+		6CBCC4E0177B512800527961 /* TourLayout.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4DF177B512800527961 /* TourLayout.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,10 +167,9 @@
 		6CBCC4B7177A187C00527961 /* PLTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourViewController.m; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.m; sourceTree = "<group>"; };
 		6CBCC4BA177A18C800527961 /* PLTourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTourCell.h; path = Classes/UIElements/Cells/TourCell/PLTourCell.h; sourceTree = "<group>"; };
 		6CBCC4BB177A18C800527961 /* PLTourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourCell.m; path = Classes/UIElements/Cells/TourCell/PLTourCell.m; sourceTree = "<group>"; };
-		6CBCC4BD177A380300527961 /* navigation_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigation_bar.png; path = Images/Standard/navigation_bar.png; sourceTree = "<group>"; };
-		6CBCC4BF177A380900527961 /* navigation_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation_bar@2x.png"; path = "Images/Retina/navigation_bar@2x.png"; sourceTree = "<group>"; };
 		6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation_back@2x.png"; path = "Images/Retina/navigation_back@2x.png"; sourceTree = "<group>"; };
 		6CBCC4C5177A3A1000527961 /* navigation_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigation_back.png; path = Images/Standard/navigation_back.png; sourceTree = "<group>"; };
+		6CBCC4DF177B512800527961 /* TourLayout.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; name = TourLayout.strings; path = Classes/ViewControllers/iPhone/Tour/TourLayout.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,7 +617,6 @@
 			isa = PBXGroup;
 			children = (
 				6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */,
-				6CBCC4BF177A380900527961 /* navigation_bar@2x.png */,
 			);
 			name = Retina;
 			sourceTree = "<group>";
@@ -628,7 +625,6 @@
 			isa = PBXGroup;
 			children = (
 				6CBCC4C5177A3A1000527961 /* navigation_back.png */,
-				6CBCC4BD177A380300527961 /* navigation_bar.png */,
 			);
 			name = Standard;
 			sourceTree = "<group>";
@@ -701,6 +697,7 @@
 		6CBCC4B5177A186500527961 /* Tour */ = {
 			isa = PBXGroup;
 			children = (
+				6CBCC4DF177B512800527961 /* TourLayout.strings */,
 				6CBCC4B6177A187C00527961 /* PLTourViewController.h */,
 				6CBCC4B7177A187C00527961 /* PLTourViewController.m */,
 			);
@@ -800,10 +797,9 @@
 				6CBCC4AA1779FC6A00527961 /* bariol_bold.ttf in Resources */,
 				6CBCC4AB1779FC6C00527961 /* bariol_light.ttf in Resources */,
 				6CBCC4AC1779FC6F00527961 /* bariol_thin.ttf in Resources */,
-				6CBCC4BE177A380300527961 /* navigation_bar.png in Resources */,
-				6CBCC4C0177A380900527961 /* navigation_bar@2x.png in Resources */,
 				6CBCC4C4177A3A0A00527961 /* navigation_back@2x.png in Resources */,
 				6CBCC4C6177A3A1000527961 /* navigation_back.png in Resources */,
+				6CBCC4E0177B512800527961 /* TourLayout.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

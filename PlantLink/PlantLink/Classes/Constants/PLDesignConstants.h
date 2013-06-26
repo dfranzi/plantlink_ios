@@ -15,7 +15,16 @@
 
 //Button Colors
 #define Color_MenuButton_Up [UIColor colorWithRed:81.0/255.0 green:185.0/255.0 blue:186.0/255.0 alpha:1.0]
-#define Color_MenuBUtton_Down [UIColor colorWithRed:70.0/255.0 green:159.0/255.0 blue:160.0/255.0 alpha:1.0]
+#define Color_MenuButton_Down [UIColor colorWithRed:70.0/255.0 green:159.0/255.0 blue:160.0/255.0 alpha:1.0]
+
+//Shadows
+#define Color_MainShadow [UIColor colorWithRed:40.0/255.0 green:109.0/255.0 blue:53.0/255.0 alpha:1.0]
+
+//Navigation
+#define Color_NavigationBar [UIColor colorWithRed:64.0/255.0 green:171.0/255.0 blue:71.0/255.0 alpha:1.0]
+
+//Text Field
+#define Color_TextFieldBackground [UIColor colorWithRed:97.0/255.0 green:182.0/255.0 blue:99.0/255.0 alpha:1.0]
 
 //Fonts
 #define Font_Bariol_Bold @"Bariol-Bold"

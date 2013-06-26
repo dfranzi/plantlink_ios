@@ -10,8 +10,10 @@
 
 @interface PLTourCell : AbstractCLCell {
     IBOutlet UIView *contentsView;
+    IBOutlet UIView *greenBottomView;
     IBOutlet UIPageControl *cellPageControl;
 }
+@property(nonatomic, strong) NSArray *contentArray;
 
 #pragma mark -
 #pragma mark Page Control Methods

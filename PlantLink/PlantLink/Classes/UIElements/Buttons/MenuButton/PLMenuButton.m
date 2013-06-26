@@ -11,13 +11,21 @@
 
 @implementation PLMenuButton
 
--(void)drawRect:(CGRect)rect {
-    [self.layer setCornerRadius:5.0];
-    [self.layer setMasksToBounds:YES];
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder]) {
+        [self.layer setCornerRadius:5.0];
+        [self.layer setMasksToBounds:YES];
+        
+        [self.layer setShadowColor:Color_MainShadow.CGColor];
+        [self.layer setShadowOffset:CGSizeMake(0, 1)];
+        [self.layer setShadowOpacity:1.0];
+        [self.layer setShadowRadius:0.0f];
+    }
+    return self;
 }
 
 -(void)highlightView {
-    [self setBackgroundColor:Color_MenuBUtton_Down];
+    [self setBackgroundColor:Color_MenuButton_Down];
 }
 
 -(void)clearHighlightView {

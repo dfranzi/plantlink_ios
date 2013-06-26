@@ -13,11 +13,19 @@
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    UIImage *image = [UIImage imageNamed:Image_NavigationBar];
-    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundColor:Color_NavigationBar];
     
     UIImage *backButtonImage = [[UIImage imageNamed:Image_NavigationBackButton] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                UITextAttributeTextColor:[UIColor whiteColor],
+                          UITextAttributeTextShadowColor:[UIColor clearColor],
+                         UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+     }];
+    
+    [[UINavigationBar appearance] setShadowImage:[GeneralMethods imageWithColor:Color_MainShadow andSize:CGSizeMake(1, 1)]];
     
     return YES;
 }

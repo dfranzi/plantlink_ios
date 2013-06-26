@@ -202,7 +202,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tourCell" id="0aY-lf-4jm" customClass="PLTourCell">
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tourCell" id="0aY-lf-4jm" customClass="PLTourCell">
                                         <rect key="frame" x="0.0" y="10" width="320" height="396"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -226,6 +226,11 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.26591609031059532" green="0.7052176339285714" blue="0.32693024320093905" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" id="PSD-gQ-NcH">
+                                                            <rect key="frame" x="0.0" y="316" width="267" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="backgroundColor" red="0.26591609030000002" green="0.70521763390000003" blue="0.32693024320000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92516342474489799" green="0.92516342474489799" blue="0.92516342474489799" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -236,6 +241,7 @@
                                         <connections>
                                             <outlet property="cellPageControl" destination="TeI-9T-FCW" id="tqq-aq-8N6"/>
                                             <outlet property="contentsView" destination="Acv-Zc-J1g" id="TBM-JD-sNI"/>
+                                            <outlet property="greenBottomView" destination="UFC-QB-YM2" id="9Ev-b0-5Lw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -264,7 +270,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="J8n-wA-sb8" customClass="PLTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="J8n-wA-sb8" customClass="PLTextField">
                                 <rect key="frame" x="41" y="29" width="238" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.71372549019999998" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -275,7 +281,7 @@
                                     <outlet property="delegate" destination="fgi-lS-90a" id="Afw-5F-Dsg"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="jb3-yT-gyh" customClass="PLTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="jb3-yT-gyh" customClass="PLTextField">
                                 <rect key="frame" x="41" y="96" width="238" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.71372549019999998" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -303,10 +309,10 @@
                                     <action selector="loginPushed:" destination="2" eventType="touchUpInside" id="tIg-rf-Nfo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="smX-lK-eBV">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="smX-lK-eBV">
                                 <rect key="frame" x="92" y="202" width="136" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.72941176470000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.58039215690000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -427,6 +433,100 @@
             <point key="canvasLocation" x="-407" y="77"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AbstractCLCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractCLCell.h"/>
+        </class>
+        <class className="PLAbstractViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="popView:"/>
+            </relationships>
+        </class>
+        <class className="PLHomeViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLHomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="learnMorePushed:"/>
+                <relationship kind="action" name="loginPushed:"/>
+                <relationship kind="action" name="registerPushed:"/>
+                <relationship kind="outlet" name="learnMoreButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="logoImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sloganLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLLoginViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="forgotPasswordPushed:"/>
+                <relationship kind="action" name="loginPushed:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="forgotPasswordTextField" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLMenuButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMenuButton.h"/>
+        </class>
+        <class className="PLMyGardenCell" superclassName="AbstractCLCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMyGardenCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="plantBatteryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="plantInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="plantMoistureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="plantNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="plantSignalLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLMyGardenViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMyGardenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPushed:"/>
+                <relationship kind="outlet" name="gardenCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLRegisterViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLRegisterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="registerPushed:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="locationTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="serialNumberTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTextField.h"/>
+        </class>
+        <class className="PLTourCell" superclassName="AbstractCLCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTourCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="contentsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="greenBottomView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="PLTourViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTourViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tourCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -22,18 +22,11 @@
 
 @implementation PLTextField
 
--(void)drawRect:(CGRect)rect {
-    [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:3.0f];
-    
-    CGRect _frame = self.frame;
-    _frame.size = CGSizeMake(_frame.size.width+6, _frame.size.height);
-    [self setFrame:_frame];
-}
-
--(void)drawPlaceholderInRect:(CGRect)rect {
-    //[[UIColor whiteColor] setFill];
-    //[[self placeholder] drawInRect:rect withFont:[UIFont fontWithName:Font_Bariol_Bold size:20.0]];
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder]) {
+        [self.layer setCornerRadius:3.0f];
+    }
+    return self;
 }
 
 #pragma mark -
@@ -85,6 +78,10 @@
 
 #pragma mark -
 #pragma mark Display Methods
+
+-(void)reset {
+    [leftLabel setTextColor:[UIColor whiteColor]];
+}
 
 -(BOOL)validate:(NSString*)type {
     if([type isEqualToString:@"Catch"]) {

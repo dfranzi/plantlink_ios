@@ -54,6 +54,7 @@
 }
 
 -(IBAction)forgotPasswordPushed:(id)sender {
+    [passwordTextField reset];
     BOOL validEmail = [emailTextField validate:Validation_Email];
     if(!validEmail) return;
     

@@ -22,6 +22,7 @@
 #pragma mark -
 #pragma mark Display Methods
 
+-(void)reset;
 -(BOOL)validate:(NSString*)type;
 
 @end
