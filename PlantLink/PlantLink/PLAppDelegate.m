@@ -12,26 +12,21 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setBackgroundColor:Color_NavigationBar];
+    NSDictionary *textAttributes = @{
+                            UITextAttributeTextColor:[UIColor whiteColor],
+                      UITextAttributeTextShadowColor:[UIColor clearColor],
+                     UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+    };
     
     UIImage *backButtonImage = [[UIImage imageNamed:Image_NavigationBackButton] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
+    
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                UITextAttributeTextColor:[UIColor whiteColor],
-                          UITextAttributeTextShadowColor:[UIColor clearColor],
-                         UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-     }];
-    
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
     [[UINavigationBar appearance] setShadowImage:[GeneralMethods imageWithColor:Color_MainShadow andSize:CGSizeMake(1, 1)]];
-    
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-                                UITextAttributeTextColor:[UIColor whiteColor],
-                          UITextAttributeTextShadowColor:[UIColor clearColor],
-                         UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-     } forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundColor:Color_NavigationBar];
     
     return YES;
 }
