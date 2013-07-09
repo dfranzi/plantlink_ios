@@ -2,47 +2,37 @@
 //  PLHomeViewController.m
 //  PlantLink
 //
-//  Created by Zealous Amoeba on 5/29/13.
+//  Created by Zealous Amoeba on 7/9/13.
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
 #import "PLHomeViewController.h"
 
-@interface PLHomeViewController() {
-@private
-}
+@interface PLHomeViewController ()
+
 @end
 
 @implementation PLHomeViewController
 
--(void)viewDidLoad {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    if([self isIphone5]) [self adjustToiPhone5Screen];
-    [sloganLabel setFont:[UIFont fontWithName:Font_Bariol_Light size:20.0]];
+	// Do any additional setup after loading the view.
 }
 
-#pragma mark -
-#pragma mark Layout Methods
-
--(void)adjustToiPhone5Screen {
-    
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
-#pragma mark -
-#pragma mark IBAction Methods
-
--(IBAction)loginPushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToLogin sender:self];
-}
-
--(IBAction)registerPushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToRegister sender:self];
-}
-
--(IBAction)learnMorePushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToTour sender:self];
-}
-
 
 @end

@@ -23,7 +23,6 @@
 		6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA406175668690019FC4B /* PLUserRequest.m */; };
 		6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */; };
 		6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */; };
-		6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA41217566AF90019FC4B /* PLHomeViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
 		6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8CA42B175694490019FC4B /* SystemConfiguration.framework */; };
 		6C917424175FC09900B3903B /* PLMyGardenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C917423175FC09900B3903B /* PLMyGardenCell.m */; };
@@ -56,17 +55,13 @@
 		6CBCC4A31779F6EA00527961 /* bariol_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */; };
 		6CBCC4A41779F6EA00527961 /* bariol_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A11779F6EA00527961 /* bariol_light.ttf */; };
 		6CBCC4A51779F6EA00527961 /* bariol_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */; };
-		6CBCC4A91779F8F700527961 /* PLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A81779F8F700527961 /* PLLoginViewController.m */; };
 		6CBCC4AA1779FC6A00527961 /* bariol_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */; };
 		6CBCC4AB1779FC6C00527961 /* bariol_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A11779F6EA00527961 /* bariol_light.ttf */; };
 		6CBCC4AC1779FC6F00527961 /* bariol_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */; };
-		6CBCC4B01779FD7F00527961 /* PLRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4AF1779FD7F00527961 /* PLRegisterViewController.m */; };
-		6CBCC4B4177A009F00527961 /* PLMyGardenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4B3177A009F00527961 /* PLMyGardenViewController.m */; };
-		6CBCC4B8177A187C00527961 /* PLTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4B7177A187C00527961 /* PLTourViewController.m */; };
 		6CBCC4BC177A18C800527961 /* PLTourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCC4BB177A18C800527961 /* PLTourCell.m */; };
 		6CBCC4C4177A3A0A00527961 /* navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */; };
 		6CBCC4C6177A3A1000527961 /* navigation_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4C5177A3A1000527961 /* navigation_back.png */; };
-		6CBCC4E0177B512800527961 /* TourLayout.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4DF177B512800527961 /* TourLayout.strings */; };
+		6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +107,6 @@
 		6C8CA4091756687C0019FC4B /* PLSoilTypeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSoilTypeRequest.m; path = Classes/Requests/SoilType/PLSoilTypeRequest.m; sourceTree = "<group>"; };
 		6C8CA40E1756692C0019FC4B /* PLAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAbstractViewController.h; path = Classes/ViewControllers/Abstract/PLAbstractViewController.h; sourceTree = "<group>"; };
 		6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAbstractViewController.m; path = Classes/ViewControllers/Abstract/PLAbstractViewController.m; sourceTree = "<group>"; };
-		6C8CA41117566AF90019FC4B /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
-		6C8CA41217566AF90019FC4B /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
 		6C8CA41D17567AAF0019FC4B /* PLProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLProjectConstants.h; path = Classes/Constants/PLProjectConstants.h; sourceTree = "<group>"; };
 		6C8CA42017567AC20019FC4B /* PLDesignConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLDesignConstants.h; path = Classes/Constants/PLDesignConstants.h; sourceTree = "<group>"; };
 		6C8CA4241756810E0019FC4B /* PLLinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkModel.h; path = Classes/Models/Link/PLLinkModel.h; sourceTree = "<group>"; };
@@ -157,19 +150,12 @@
 		6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_bold.ttf; path = Fonts/bariol_bold.ttf; sourceTree = "<group>"; };
 		6CBCC4A11779F6EA00527961 /* bariol_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_light.ttf; path = Fonts/bariol_light.ttf; sourceTree = "<group>"; };
 		6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_thin.ttf; path = Fonts/bariol_thin.ttf; sourceTree = "<group>"; };
-		6CBCC4A71779F8F700527961 /* PLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLoginViewController.h; path = Classes/ViewControllers/iPhone/Login/PLLoginViewController.h; sourceTree = "<group>"; };
-		6CBCC4A81779F8F700527961 /* PLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLoginViewController.m; path = Classes/ViewControllers/iPhone/Login/PLLoginViewController.m; sourceTree = "<group>"; };
-		6CBCC4AE1779FD7F00527961 /* PLRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLRegisterViewController.h; path = Classes/ViewControllers/iPhone/Register/PLRegisterViewController.h; sourceTree = "<group>"; };
-		6CBCC4AF1779FD7F00527961 /* PLRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLRegisterViewController.m; path = Classes/ViewControllers/iPhone/Register/PLRegisterViewController.m; sourceTree = "<group>"; };
-		6CBCC4B2177A009F00527961 /* PLMyGardenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMyGardenViewController.h; path = Classes/ViewControllers/iPhone/MyGarden/PLMyGardenViewController.h; sourceTree = "<group>"; };
-		6CBCC4B3177A009F00527961 /* PLMyGardenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMyGardenViewController.m; path = Classes/ViewControllers/iPhone/MyGarden/PLMyGardenViewController.m; sourceTree = "<group>"; };
-		6CBCC4B6177A187C00527961 /* PLTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTourViewController.h; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.h; sourceTree = "<group>"; };
-		6CBCC4B7177A187C00527961 /* PLTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourViewController.m; path = Classes/ViewControllers/iPhone/Tour/PLTourViewController.m; sourceTree = "<group>"; };
 		6CBCC4BA177A18C800527961 /* PLTourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTourCell.h; path = Classes/UIElements/Cells/TourCell/PLTourCell.h; sourceTree = "<group>"; };
 		6CBCC4BB177A18C800527961 /* PLTourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTourCell.m; path = Classes/UIElements/Cells/TourCell/PLTourCell.m; sourceTree = "<group>"; };
 		6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation_back@2x.png"; path = "Images/Retina/navigation_back@2x.png"; sourceTree = "<group>"; };
 		6CBCC4C5177A3A1000527961 /* navigation_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigation_back.png; path = Images/Standard/navigation_back.png; sourceTree = "<group>"; };
-		6CBCC4DF177B512800527961 /* TourLayout.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; name = TourLayout.strings; path = Classes/ViewControllers/iPhone/Tour/TourLayout.strings; sourceTree = "<group>"; };
+		6CF2FDE9178CC863004A50DF /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
+		6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,34 +186,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C8CA3F2175667B60019FC4B /* AddEditPlant */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = AddEditPlant;
-			sourceTree = "<group>";
-		};
-		6C8CA3F3175667B80019FC4B /* Garden */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Garden;
-			sourceTree = "<group>";
-		};
-		6C8CA3F4175667BA0019FC4B /* Tour */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Tour;
-			sourceTree = "<group>";
-		};
-		6C8CA3F5175667BC0019FC4B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Home;
-			sourceTree = "<group>";
-		};
 		6C8CA423175680FB0019FC4B /* Link */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,22 +314,9 @@
 		6C972BB9175543BD007234B6 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BBA175543C9007234B6 /* Home */,
-				6CBCC4B5177A186500527961 /* Tour */,
-				6CBCC4A61779F8E100527961 /* Login */,
-				6CBCC4AD1779FD6800527961 /* Register */,
-				6CBCC4B1177A008700527961 /* MyGarden */,
+				6CF2FDE8178CC851004A50DF /* Home */,
 			);
 			name = iPhone;
-			sourceTree = "<group>";
-		};
-		6C972BBA175543C9007234B6 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				6C8CA41117566AF90019FC4B /* PLHomeViewController.h */,
-				6C8CA41217566AF90019FC4B /* PLHomeViewController.m */,
-			);
-			name = Home;
 			sourceTree = "<group>";
 		};
 		6C972BBB175543D7007234B6 /* Abstract */ = {
@@ -444,10 +389,6 @@
 		6C972BCD1755529F007234B6 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				6C8CA3F5175667BC0019FC4B /* Home */,
-				6C8CA3F4175667BA0019FC4B /* Tour */,
-				6C8CA3F3175667B80019FC4B /* Garden */,
-				6C8CA3F2175667B60019FC4B /* AddEditPlant */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -667,43 +608,6 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		6CBCC4A61779F8E100527961 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				6CBCC4A71779F8F700527961 /* PLLoginViewController.h */,
-				6CBCC4A81779F8F700527961 /* PLLoginViewController.m */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		6CBCC4AD1779FD6800527961 /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				6CBCC4AE1779FD7F00527961 /* PLRegisterViewController.h */,
-				6CBCC4AF1779FD7F00527961 /* PLRegisterViewController.m */,
-			);
-			name = Register;
-			sourceTree = "<group>";
-		};
-		6CBCC4B1177A008700527961 /* MyGarden */ = {
-			isa = PBXGroup;
-			children = (
-				6CBCC4B2177A009F00527961 /* PLMyGardenViewController.h */,
-				6CBCC4B3177A009F00527961 /* PLMyGardenViewController.m */,
-			);
-			name = MyGarden;
-			sourceTree = "<group>";
-		};
-		6CBCC4B5177A186500527961 /* Tour */ = {
-			isa = PBXGroup;
-			children = (
-				6CBCC4DF177B512800527961 /* TourLayout.strings */,
-				6CBCC4B6177A187C00527961 /* PLTourViewController.h */,
-				6CBCC4B7177A187C00527961 /* PLTourViewController.m */,
-			);
-			name = Tour;
-			sourceTree = "<group>";
-		};
 		6CBCC4B9177A18AC00527961 /* TourCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +615,15 @@
 				6CBCC4BB177A18C800527961 /* PLTourCell.m */,
 			);
 			name = TourCell;
+			sourceTree = "<group>";
+		};
+		6CF2FDE8178CC851004A50DF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6CF2FDE9178CC863004A50DF /* PLHomeViewController.h */,
+				6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -799,7 +712,6 @@
 				6CBCC4AC1779FC6F00527961 /* bariol_thin.ttf in Resources */,
 				6CBCC4C4177A3A0A00527961 /* navigation_back@2x.png in Resources */,
 				6CBCC4C6177A3A1000527961 /* navigation_back.png in Resources */,
-				6CBCC4E0177B512800527961 /* TourLayout.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,17 +768,13 @@
 				6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */,
 				6C8CA40A1756687C0019FC4B /* PLSoilTypeRequest.m in Sources */,
 				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,
-				6C8CA41317566AF90019FC4B /* PLHomeViewController.m in Sources */,
 				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,
 				6C917424175FC09900B3903B /* PLMyGardenCell.m in Sources */,
 				6C9C633A1772123100992D27 /* PLLinkRequest.m in Sources */,
 				6CBCC4941779ED2D00527961 /* PLMenuButton.m in Sources */,
 				6CBCC49E1779F1B800527961 /* PLTextField.m in Sources */,
-				6CBCC4A91779F8F700527961 /* PLLoginViewController.m in Sources */,
-				6CBCC4B01779FD7F00527961 /* PLRegisterViewController.m in Sources */,
-				6CBCC4B4177A009F00527961 /* PLMyGardenViewController.m in Sources */,
-				6CBCC4B8177A187C00527961 /* PLTourViewController.m in Sources */,
 				6CBCC4BC177A18C800527961 /* PLTourCell.m in Sources */,
+				6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

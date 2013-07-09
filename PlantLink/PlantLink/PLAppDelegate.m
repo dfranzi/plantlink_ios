@@ -8,10 +8,14 @@
 
 #import "PLAppDelegate.h"
 
+#import "TestFlight.h"
+
 @implementation PLAppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [TestFlight takeOff:@"6e791af8-376e-46e2-b170-d4d252fa19d0"];
+    
     NSDictionary *textAttributes = @{
                             UITextAttributeTextColor:[UIColor whiteColor],
                       UITextAttributeTextShadowColor:[UIColor clearColor],
