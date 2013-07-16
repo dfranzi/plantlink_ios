@@ -50,6 +50,11 @@ static PLUserManager *sharedUser = nil;
         _plants = [NSMutableArray array];
         _soilTypes = [NSMutableArray array];
         _plantTypes = [NSMutableArray array];
+        
+        _loginType = Constant_LoginType_Login;
+        _setupDict = [NSMutableDictionary dictionary];
+        
+        _addPlantTrigger = NO;
     }
     return self;
 }

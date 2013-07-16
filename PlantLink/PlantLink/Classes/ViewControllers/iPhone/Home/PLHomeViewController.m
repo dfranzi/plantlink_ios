@@ -8,31 +8,26 @@
 
 #import "PLHomeViewController.h"
 
-@interface PLHomeViewController ()
+#import "PLUserManager.h"
 
+@interface PLHomeViewController() {
+@private
+}
 @end
 
 @implementation PLHomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)setupPushed:(id)sender {
+    [sharedUser setLoginType:Constant_LoginType_Setup];
+    [self performSegueWithIdentifier:Segue_ToLogin sender:self];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(IBAction)loginPushed:(id)sender {
+    [sharedUser setLoginType:Constant_LoginType_Login];
+    [self performSegueWithIdentifier:Segue_ToLogin sender:self];
 }
 
 @end

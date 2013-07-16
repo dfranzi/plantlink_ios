@@ -13,17 +13,6 @@
 
 @interface PLTextField : UITextField
 
-#pragma mark -
-#pragma mark View Methods
-
--(void)setLeftLabel:(NSString*)labelText;
--(void)setRightInfoWithTitle:(NSString*)title text:(NSString*)text andCancelButton:(NSString*)cancel;
-
-#pragma mark -
-#pragma mark Display Methods
-
--(void)reset;
--(BOOL)validate:(NSString*)type;
 
 @end
 

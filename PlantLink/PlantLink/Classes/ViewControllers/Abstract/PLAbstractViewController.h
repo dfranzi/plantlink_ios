@@ -14,10 +14,12 @@
     PLUserManager *sharedUser;
 }
 @property(nonatomic, assign) BOOL isIphone5;
+@property(nonatomic, strong) NSString *nextSegueIdentifier;
 
 #pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)popView:(id)sender;
+-(IBAction)nextPushed:(id)sender;
 
 @end

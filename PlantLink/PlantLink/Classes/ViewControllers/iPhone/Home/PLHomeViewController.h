@@ -6,8 +6,15 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "FIAbstractViewController.h"
+#import "PLAbstractViewController.h"
 
-@interface PLHomeViewController : FIAbstractViewController
+
+@interface PLHomeViewController : PLAbstractViewController
+
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)setupPushed:(id)sender;
+-(IBAction)loginPushed:(id)sender;
 
 @end

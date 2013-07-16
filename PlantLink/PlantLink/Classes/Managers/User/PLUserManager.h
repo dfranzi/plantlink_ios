@@ -18,6 +18,11 @@
 @property(nonatomic, strong, readonly) NSArray *soilTypes;
 @property(nonatomic, strong, readonly) NSArray *plantTypes;
 
+@property(nonatomic, strong) NSString *loginType;
+@property(nonatomic, strong) NSMutableDictionary *setupDict;
+
+@property(nonatomic, assign) BOOL addPlantTrigger;
+
 /**
  * Initializes the download manager, loading any necessary data from disk while restoring
  * any applicable sessions and information

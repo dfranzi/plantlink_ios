@@ -9,11 +9,41 @@
 #import "GeneralConstants.h"
 #import "PLDesignConstants.h"
 
+//Constants
+#define Constant_LoginType_Login @"LoginType-Login"
+#define Constant_LoginType_Setup @"LoginType-Setup"
+
+#define Constant_SetupDict_Name @"name"
+#define Constant_SetupDict_Email @"email"
+#define Constant_SetupDict_Password @"password"
+#define Constant_SetupDict_ZipCode @"zipcode"
+#define Constant_SetupDict_SerialNumber @"serial"
+
+//Defaults
+#define Defaults_SavedEmail @"Defaults-SavedEmail"
+
+//Segue
+#define Segue_ToLogin @"toLoginView"
+#define Segue_ToSerialInput @"toSerialInputView"
+#define Segue_ToLocationInput @"toLocationInputView"
+#define Segue_ToInformation @"toInformationView"
+#define Segue_ToAddFirstPlant @"toAddFirstPlantView"
+#define Segue_ToUserHome @"toUserHomeView"
+
+//Notifications
+#define Notification_User_UserRefreshed @"User-UserRefreshed"
+#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
+
+#define Notification_User_TypesRefreshed @"User-TypesRefreshed"
+#define Notification_User_TypesRefreshFailed @"User-TypesRefreshFailed"
+
+#define Notification_User_Logout @"User-Logout"
+
 //Keys
 #define API_Version @"1.0"
 
 //URL Strings
-#define URLStr_Base @"https://dev.oso-tech.appspot.com/api/v1"
+#define URLStr_Base @"http://dev.oso-tech.appspot.com/api/v1"
 
 #define URLStr_User @"/user"
 #define URLStr_Authentication @"/auth"
@@ -138,23 +168,6 @@ typedef enum RequestTypes {
     Request_EditValve,
     Request_RemoveValve,
 } RequestType;
-
-//Segue
-#define Segue_ToRegister @"toRegisterView"
-#define Segue_ToLogin @"toLoginView"
-#define Segue_ToMyGarden @"toMyGardenView"
-#define Segue_ToTour @"toTourView"
-
-//Notifications
-#define Notification_User_UserRefreshed @"User-UserRefreshed"
-#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
-
-#define Notification_User_TypesRefreshed @"User-TypesRefreshed"
-#define Notification_User_TypesRefreshFailed @"User-TypesRefreshFailed"
-
-//Cells
-#define Cell_GardenCell @"myGardenCell"
-#define Cell_TourCell @"tourCell"
 
 
 
