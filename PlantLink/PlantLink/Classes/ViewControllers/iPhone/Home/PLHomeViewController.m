@@ -17,6 +17,11 @@
 
 @implementation PLHomeViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [sharedUser setPlantReloadTrigger:YES];
+}
+
 #pragma mark -
 #pragma mark IBAction Methods
 

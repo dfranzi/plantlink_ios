@@ -22,6 +22,7 @@
 @property(nonatomic, strong) NSMutableDictionary *setupDict;
 
 @property(nonatomic, assign) BOOL addPlantTrigger;
+@property(nonatomic, assign) BOOL plantReloadTrigger;
 
 /**
  * Initializes the download manager, loading any necessary data from disk while restoring

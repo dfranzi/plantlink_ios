@@ -14,6 +14,8 @@
 
 @implementation PLPlantModel
 
+#warning Plant model and others have changed, make sure to fix before launch
+
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _name = dict[DC_Plant_Name];

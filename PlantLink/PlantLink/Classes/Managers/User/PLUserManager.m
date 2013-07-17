@@ -55,6 +55,7 @@ static PLUserManager *sharedUser = nil;
         _setupDict = [NSMutableDictionary dictionary];
         
         _addPlantTrigger = NO;
+        _plantReloadTrigger = NO;
     }
     return self;
 }
@@ -87,6 +88,7 @@ static PLUserManager *sharedUser = nil;
     _plants = [NSMutableArray array];
     
     logoutRequest = [[PLUserRequest alloc] initLogoutUserRequest];
+    [logoutRequest setDelegate:self];
     [logoutRequest startRequest];
 }
 
@@ -98,9 +100,10 @@ static PLUserManager *sharedUser = nil;
     ZALog(@"Data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
     if([request type] == Request_GetAllPlants) [self processAllPlantsRequest:data];
-    if([request type] == Request_GetUser) [self processGetUserRequest:data];
-    if([request type] == Request_GetSoilTypes) [self processSoilTypesRequest:data];
-    if([request type] == Request_GetPlantTypes) [self processPlantTypesRequest:data];
+    else if([request type] == Request_GetUser) [self processGetUserRequest:data];
+    else if([request type] == Request_GetSoilTypes) [self processSoilTypesRequest:data];
+    else if([request type] == Request_GetPlantTypes) [self processPlantTypesRequest:data];
+    else if([request type] == Request_LogoutUser) [self postNotification:Notification_User_Logout];
     
     if(plantRequest == NULL && userRequest == NULL) [self postNotification:Notification_User_UserRefreshed];
     if(soilRequest == NULL && plantTypeRequest == NULL) [self postNotification:Notification_User_TypesRefreshed];

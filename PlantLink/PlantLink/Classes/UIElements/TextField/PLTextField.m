@@ -34,4 +34,33 @@
     return [self textRectForBounds:bounds];
 }
 
+#pragma mark -
+#pragma mark Validation Methods
+
+-(void)showValidationError {
+    
+}
+
+-(void)resetValidation {
+    
+}
+
+-(BOOL)validForValidationType:(NSString*)validationType {
+    if([validationType isEqualToString:ValidationType_Email]) {
+        if([GeneralMethods validateEmailFormat:[self text]]) [self resetValidation];
+        else {
+            [self showValidationError];
+            return NO;
+        }
+    }
+    else if([validationType isEqualToString:ValidationType_Empty]) {
+        if([[self text] isEqualToString:@""]) {
+            [self showValidationError];
+            return NO;
+        }
+        else [self resetValidation];
+    }
+    return YES;
+}
+
 @end

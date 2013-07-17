@@ -10,3 +10,6 @@
 
 //Cells
 #define Cell_InformationCell @"informationCell"
+#define Cell_PlantCell @"plantCell"
+#define Cell_PlantType @"plantTypeCell"
+#define Cell_SoilType @"soilTypeCell"

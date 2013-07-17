@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="3512" y="1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Plant Type Select View Controller-->
         <scene sceneID="LUU-Zz-Vpj">
             <objects>
-                <viewController id="rHH-HP-uPf" sceneMemberID="viewController">
+                <viewController id="rHH-HP-uPf" customClass="PLPlantTypeSelectViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N1r-wk-8fN">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -270,6 +270,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="popView:" destination="rHH-HP-uPf" eventType="touchUpInside" id="aqL-UL-04n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VgN-hG-IA7">
                                 <rect key="frame" x="260" y="399" width="40" height="41"/>
@@ -282,6 +285,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="rHH-HP-uPf" eventType="touchUpInside" id="R1q-cp-tAe"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A4b-3N-m47">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
@@ -308,20 +314,23 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="helpPushed:" destination="rHH-HP-uPf" eventType="touchUpInside" id="AnY-88-4gS"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="us0-7X-BXZ">
                                 <rect key="frame" x="0.0" y="195" width="320" height="195"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cPf-dK-Eco">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantTypeCell" id="cPf-dK-Eco">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nIr-wL-bRQ">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nIr-wL-bRQ">
                                                     <rect key="frame" x="23" y="11" width="274" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -333,20 +342,30 @@
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rHH-HP-uPf" id="M31-pY-XCA"/>
+                                    <outlet property="delegate" destination="rHH-HP-uPf" id="NDY-HV-GgX"/>
+                                </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="location" minimumFontSize="17" id="th2-AR-hys">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="plant type" minimumFontSize="17" id="th2-AR-hys" customClass="PLTextField">
                                 <rect key="frame" x="20" y="147" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="plantTypeTextEditted:" destination="rHH-HP-uPf" eventType="editingChanged" id="3dU-0d-5Pf"/>
+                                    <outlet property="delegate" destination="rHH-HP-uPf" id="Q5d-MH-Rfq"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZq-oJ-kuG"/>
                     <connections>
-                        <segue destination="F7e-ec-DYc" kind="push" id="LZ4-8W-M8n"/>
+                        <outlet property="plantTypeTableView" destination="us0-7X-BXZ" id="dNr-Y6-99K"/>
+                        <outlet property="plantTypeTextField" destination="th2-AR-hys" id="CFF-q2-MCf"/>
+                        <segue destination="F7e-ec-DYc" kind="push" identifier="toSoilTypeSelectView" id="LZ4-8W-M8n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDY-Gx-2am" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,6 +427,36 @@
                                     <outlet property="delegate" destination="XmO-8R-qih" id="Req-HV-OJJ"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3xg-Ok-P2I">
+                                <rect key="frame" x="0.0" y="226" width="75" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPushed:" destination="XmO-8R-qih" eventType="touchUpInside" id="ID4-Yi-gf6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vep-VS-HIe">
+                                <rect key="frame" x="233" y="226" width="87" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Curr Loc">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCurrentLocationPushed:" destination="XmO-8R-qih" eventType="touchUpInside" id="ufG-ew-x3C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -480,10 +529,10 @@
             </objects>
             <point key="canvasLocation" x="6874" y="277"/>
         </scene>
-        <!--View Controller - Schedule-->
+        <!--Schedule View Controller - Schedule-->
         <scene sceneID="8il-jh-YYl">
             <objects>
-                <viewController id="Sbh-Q0-NXF" sceneMemberID="viewController">
+                <viewController id="Sbh-Q0-NXF" customClass="PLScheduleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TSx-PC-ZhO">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -495,10 +544,10 @@
             </objects>
             <point key="canvasLocation" x="7971" y="-12"/>
         </scene>
-        <!--View Controller - Plant-->
+        <!--Plant View Controller - Plant-->
         <scene sceneID="dZL-ek-7Js">
             <objects>
-                <viewController id="q2w-Uy-gVH" sceneMemberID="viewController">
+                <viewController id="q2w-Uy-gVH" customClass="PLPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L9p-Lq-xfc">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -514,7 +563,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mhW-Og-iqK">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="plantCell" id="mhW-Og-iqK" customClass="PLPlantCell">
                                         <rect key="frame" x="10" y="10" width="300" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -586,15 +635,24 @@
                                         </view>
                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="300" height="130"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="hzn-sG-2wo" id="c9e-VY-qsM"/>
+                                            <outlet property="nameLabel" destination="nvs-QV-zuj" id="xWJ-FJ-Y0H"/>
+                                            <outlet property="waterPageControl" destination="Vkr-Fr-und" id="sp0-fq-diE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="q2w-Uy-gVH" id="1UB-ff-ex7"/>
+                                    <outlet property="delegate" destination="q2w-Uy-gVH" id="0te-ut-nYe"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Plant" id="Bhk-BQ-l9u"/>
                     <connections>
-                        <segue destination="Sgy-ES-kN7" kind="modal" modalTransitionStyle="coverVertical" id="LUs-vH-xPd"/>
+                        <outlet property="plantCollectionView" destination="rz1-pd-gSP" id="dLQ-hf-FFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al4-XQ-Xc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -606,7 +664,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="lIF-P5-j99" customClass="PLUserHomeViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9ui-nZ-dps"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Otl-M3-S8S">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -617,6 +675,7 @@
                         <segue destination="Sbh-Q0-NXF" kind="relationship" relationship="viewControllers" id="IUX-D3-m5N"/>
                         <segue destination="GkL-BH-b05" kind="relationship" relationship="viewControllers" id="IgX-7m-Hhh"/>
                         <segue destination="hyj-JF-cLi" kind="relationship" relationship="viewControllers" id="tDG-sD-kPw"/>
+                        <segue destination="Sgy-ES-kN7" kind="modal" identifier="toAddPlantSequence" modalTransitionStyle="coverVertical" id="wmy-eD-2Ta"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUY-7d-YzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,13 +784,30 @@
             </objects>
             <point key="canvasLocation" x="6315" y="277"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="GJQ-5j-2y7">
             <objects>
-                <viewController id="hyj-JF-cLi" sceneMemberID="viewController">
+                <viewController id="hyj-JF-cLi" customClass="PLSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NsE-9u-D19">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R4p-He-PnX">
+                                <rect key="frame" x="101" y="27" width="132" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPushed:" destination="hyj-JF-cLi" eventType="touchUpInside" id="W8h-rM-zix"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="iFs-OU-Flg"/>
@@ -740,10 +816,10 @@
             </objects>
             <point key="canvasLocation" x="7971" y="1150"/>
         </scene>
-        <!--View Controller - Notifications-->
+        <!--Notifications View Controller - Notifications-->
         <scene sceneID="NN7-po-auW">
             <objects>
-                <viewController id="GkL-BH-b05" sceneMemberID="viewController">
+                <viewController id="GkL-BH-b05" customClass="PLNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n7T-Uv-j5Q">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -755,10 +831,10 @@
             </objects>
             <point key="canvasLocation" x="7971" y="576"/>
         </scene>
-        <!--View Controller-->
+        <!--Soil Type Select View Controller-->
         <scene sceneID="xiM-kO-4Bm">
             <objects>
-                <viewController id="F7e-ec-DYc" sceneMemberID="viewController">
+                <viewController id="F7e-ec-DYc" customClass="PLSoilTypeSelectViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LqR-xl-4Vq">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -774,6 +850,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="popView:" destination="F7e-ec-DYc" eventType="touchUpInside" id="mVu-gr-9st"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dOr-A3-0yz">
                                 <rect key="frame" x="260" y="400" width="40" height="41"/>
@@ -786,6 +865,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="F7e-ec-DYc" eventType="touchUpInside" id="NFw-AK-USu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u8K-zv-ZIv">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
@@ -812,20 +894,23 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="helpPushed:" destination="F7e-ec-DYc" eventType="touchUpInside" id="iJa-YC-fbR"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="t5m-Qt-57U">
                                 <rect key="frame" x="0.0" y="135" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a5G-0X-0LS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="soilTypeCell" id="a5G-0X-0LS">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yn4-ZI-FVN">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yn4-ZI-FVN">
                                                     <rect key="frame" x="23" y="11" width="274" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -837,23 +922,28 @@
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="F7e-ec-DYc" id="j9u-ij-Kqe"/>
+                                    <outlet property="delegate" destination="F7e-ec-DYc" id="J0S-08-DQT"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jiE-5o-yY6"/>
                     <connections>
-                        <segue destination="0uS-KU-s2r" kind="push" id="gcm-6s-z05"/>
+                        <outlet property="soilTypeTableView" destination="t5m-Qt-57U" id="5Sp-s8-UF9"/>
+                        <segue destination="0uS-KU-s2r" kind="push" identifier="toPlantNicknameSelectView" id="gcm-6s-z05"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bi-VH-o8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4635" y="1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Plant Nickname Select View Controller-->
         <scene sceneID="zmU-7U-sgy">
             <objects>
-                <viewController id="0uS-KU-s2r" sceneMemberID="viewController">
+                <viewController id="0uS-KU-s2r" customClass="PLPlantNicknameSelectViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98i-L9-psT">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -869,6 +959,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="popView:" destination="0uS-KU-s2r" eventType="touchUpInside" id="8Jc-kh-zax"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6N-o0-xea">
                                 <rect key="frame" x="260" y="400" width="40" height="41"/>
@@ -881,6 +974,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="0uS-KU-s2r" eventType="touchUpInside" id="bez-2D-gQ8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbX-f6-Ibx">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
@@ -890,63 +986,69 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLANT TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Icg-UG-tef">
-                                <rect key="frame" x="20" y="60" width="99" height="21"/>
+                                <rect key="frame" x="20" y="206" width="99" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SOIL TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hOf-i8-jw8">
-                                <rect key="frame" x="20" y="86" width="93" height="21"/>
+                                <rect key="frame" x="20" y="232" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tomato" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EV3-94-wGi">
-                                <rect key="frame" x="143" y="60" width="157" height="21"/>
+                                <rect key="frame" x="143" y="206" width="157" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Potting Soil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e8F-tB-CVg">
-                                <rect key="frame" x="143" y="86" width="157" height="21"/>
+                                <rect key="frame" x="143" y="232" width="157" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Give this plant a nickname." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJo-pv-lhV">
-                                <rect key="frame" x="20" y="145" width="280" height="75"/>
+                                <rect key="frame" x="20" y="57" width="280" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="plant nickname" minimumFontSize="17" id="5um-Jc-JeK">
-                                <rect key="frame" x="20" y="228" width="280" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="plant nickname" minimumFontSize="17" id="5um-Jc-JeK" customClass="PLTextField">
+                                <rect key="frame" x="20" y="140" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0uS-KU-s2r" id="ZdK-sx-fez"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QI3-7m-1T0"/>
                     <connections>
-                        <segue destination="Ywb-aK-RqK" kind="push" id="JbI-zB-tWh"/>
+                        <outlet property="nicknameTextField" destination="5um-Jc-JeK" id="l0n-Sp-2TJ"/>
+                        <outlet property="plantTypeLabel" destination="EV3-94-wGi" id="hjL-w6-TbP"/>
+                        <outlet property="soilTypeLabel" destination="e8F-tB-CVg" id="wgK-ia-6JP"/>
+                        <segue destination="Ywb-aK-RqK" kind="push" identifier="toBaseStationSyncView" id="JbI-zB-tWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbO-fs-RKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5194" y="1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Base Station Sync View Controller-->
         <scene sceneID="iNw-XI-PZO">
             <objects>
-                <viewController id="Ywb-aK-RqK" sceneMemberID="viewController">
+                <viewController id="Ywb-aK-RqK" customClass="PLBaseStationSyncViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM7-P0-ShX">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -962,6 +1064,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="popView:" destination="Ywb-aK-RqK" eventType="touchUpInside" id="zWV-Qx-UVY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y9W-lQ-fwo">
                                 <rect key="frame" x="260" y="400" width="40" height="41"/>
@@ -974,6 +1079,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="Ywb-aK-RqK" eventType="touchUpInside" id="ClD-m0-eLf"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="9iJ-bI-wCf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
@@ -991,17 +1099,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="3bc-6P-Svn"/>
                     <connections>
-                        <segue destination="Cvc-Qi-2kc" kind="push" id="tQr-VI-wRb"/>
+                        <segue destination="Cvc-Qi-2kc" kind="push" identifier="toPlantLinkSyncView" id="tQr-VI-wRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJg-rV-oAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5755" y="1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Plant Link Sync View Controller-->
         <scene sceneID="Pbd-8C-2s1">
             <objects>
-                <viewController id="Cvc-Qi-2kc" sceneMemberID="viewController">
+                <viewController id="Cvc-Qi-2kc" customClass="PLPlantLinkSyncViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fn8-Dm-vUN">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1017,6 +1125,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="popView:" destination="Cvc-Qi-2kc" eventType="touchUpInside" id="ukQ-bh-3hJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QVv-n4-cAi">
                                 <rect key="frame" x="260" y="400" width="40" height="41"/>
@@ -1029,6 +1140,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="Cvc-Qi-2kc" eventType="touchUpInside" id="Ys0-ve-xnm"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="V4q-Ne-h9s">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
@@ -1046,17 +1160,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="zuq-TL-gH4"/>
                     <connections>
-                        <segue destination="lmX-mh-pUA" kind="push" id="hio-1r-G2e"/>
+                        <segue destination="lmX-mh-pUA" kind="push" identifier="toAddValveToPlantView" id="hio-1r-G2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-1u-0xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6315" y="1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Valve To Plant View Controller-->
         <scene sceneID="A4l-Qe-hMn">
             <objects>
-                <viewController id="lmX-mh-pUA" sceneMemberID="viewController">
+                <viewController id="lmX-mh-pUA" customClass="PLAddValveToPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCT-Dr-8s4">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1080,6 +1194,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="yesPushed:" destination="lmX-mh-pUA" eventType="touchUpInside" id="WGW-Es-eAp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QTI-nl-n5q">
                                 <rect key="frame" x="58" y="384" width="205" height="41"/>
@@ -1092,6 +1209,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="whatIsAValvePushed:" destination="lmX-mh-pUA" eventType="touchUpInside" id="PEr-aT-Gst"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YTX-z3-sca">
                                 <rect key="frame" x="182" y="228" width="100" height="46"/>
@@ -1105,6 +1225,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="noPushed:" destination="lmX-mh-pUA" eventType="touchUpInside" id="JgQ-EO-cWg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1117,6 +1240,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AbstractCLCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractCLCell.h"/>
+        </class>
         <class className="PLAbstractViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractViewController.h"/>
             <relationships>
@@ -1128,15 +1254,24 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddFirstPlantViewController.h"/>
             <relationships>
                 <relationship kind="action" name="laterPushed:"/>
-                <relationship kind="action" name="yesP:"/>
                 <relationship kind="action" name="yesPushed:"/>
             </relationships>
+        </class>
+        <class className="PLAddValveToPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddValveToPlantViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="noPushed:"/>
+                <relationship kind="action" name="whatIsAValvePushed:"/>
+                <relationship kind="action" name="yesPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLBaseStationSyncViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBaseStationSyncViewController.h"/>
         </class>
         <class className="PLHomeViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLHomeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="loginPushed:"/>
-                <relationship kind="action" name="setupPu:"/>
                 <relationship kind="action" name="setupPushed:"/>
             </relationships>
         </class>
@@ -1150,6 +1285,8 @@
         <class className="PLLocationInputViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLocationInputViewController.h"/>
             <relationships>
+                <relationship kind="action" name="getCurrentLocationPushed:"/>
+                <relationship kind="action" name="searchPushed:"/>
                 <relationship kind="outlet" name="locationMapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="locationTextField" candidateClass="PLTextField"/>
             </relationships>
@@ -1157,16 +1294,71 @@
         <class className="PLLoginViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="nextPushed:"/>
                 <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="PLTextField"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="PLTextField"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="PLTextField"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="PLTextField"/>
             </relationships>
         </class>
+        <class className="PLNotificationsViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationsViewController.h"/>
+        </class>
+        <class className="PLPlantCell" superclassName="AbstractCLCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="waterPageControl" candidateClass="UIPageControl"/>
+            </relationships>
+        </class>
+        <class className="PLPlantLinkSyncViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantLinkSyncViewController.h"/>
+        </class>
+        <class className="PLPlantNicknameSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNicknameSelectViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nicknameTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="plantTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="soilTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantTypeSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantTypeSelectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="helpPushed:"/>
+                <relationship kind="action" name="plantTypeTextEditted:"/>
+                <relationship kind="action" name="popView:"/>
+                <relationship kind="outlet" name="plantTypeTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="plantTypeTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="plantCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="PLScheduleViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLScheduleViewController.h"/>
+        </class>
         <class className="PLSerialInputViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSerialInputViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="serialTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLSettingsViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLSoilTypeSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSoilTypeSelectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="helpPushed:"/>
+                <relationship kind="outlet" name="soilTypeTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="PLTextField" superclassName="UITextField">
@@ -1183,6 +1375,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

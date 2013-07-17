@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-#define Validation_Empty @"validation_empty"
-#define Validation_Email @"validation_email"
+#define ValidationType_Empty @"ValidationType_Empty"
+#define ValidationType_Email @"ValidationType_Email"
 
 @interface PLTextField : UITextField
+
+#pragma mark -
+#pragma mark Validation Methods
+
+-(void)showValidationError;
+-(void)resetValidation;
+-(BOOL)validForValidationType:(NSString*)validationType;
 
 
 @end
