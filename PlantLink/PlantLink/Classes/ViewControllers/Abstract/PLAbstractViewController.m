@@ -23,6 +23,7 @@
     [super viewDidLoad];
     sharedUser = [PLUserManager initializeUserManager];
 
+    [self.view setBackgroundColor:Color_ViewBackground];
     _nextSegueIdentifier = @"";
 }
 

@@ -16,6 +16,8 @@
 		6C487C191795F3FD007EE2B5 /* PLAddFirstPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C181795F3FD007EE2B5 /* PLAddFirstPlantViewController.m */; };
 		6C487C1D1795F882007EE2B5 /* PLUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */; };
 		6C753EA21797292600A47600 /* PLScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C753EA11797292600A47600 /* PLScheduleViewController.m */; };
+		6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */; };
+		6C7B5605179EF5C50076B07E /* PLPlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */; };
 		6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */; };
 		6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D8175664790019FC4B /* PLPlantModel.m */; };
 		6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */; };
@@ -108,6 +110,10 @@
 		6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLUserHomeViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/UserHome/PLUserHomeViewController.m; sourceTree = "<group>"; };
 		6C753EA01797292600A47600 /* PLScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Schedule/PLScheduleViewController.h; sourceTree = "<group>"; };
 		6C753EA11797292600A47600 /* PLScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Schedule/PLScheduleViewController.m; sourceTree = "<group>"; };
+		6C7B55FE179EE7AB0076B07E /* PLMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuButton.h; path = Classes/UIElements/Buttons/Menu/PLMenuButton.h; sourceTree = "<group>"; };
+		6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuButton.m; path = Classes/UIElements/Buttons/Menu/PLMenuButton.m; sourceTree = "<group>"; };
+		6C7B5603179EF5C50076B07E /* PLPlantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantDetailViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/PlantDetail/PLPlantDetailViewController.h; sourceTree = "<group>"; };
+		6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantDetailViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/PlantDetail/PLPlantDetailViewController.m; sourceTree = "<group>"; };
 		6C8CA3D4175664610019FC4B /* PLBaseStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBaseStationModel.h; path = Classes/Models/BaseStation/PLBaseStationModel.h; sourceTree = "<group>"; };
 		6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBaseStationModel.m; path = Classes/Models/BaseStation/PLBaseStationModel.m; sourceTree = "<group>"; };
 		6C8CA3D7175664790019FC4B /* PLPlantModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantModel.h; path = Classes/Models/Plant/PLPlantModel.h; sourceTree = "<group>"; };
@@ -181,8 +187,8 @@
 		6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_thin.ttf; path = Fonts/bariol_thin.ttf; sourceTree = "<group>"; };
 		6CBCC4C3177A3A0A00527961 /* navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation_back@2x.png"; path = "Images/Retina/navigation_back@2x.png"; sourceTree = "<group>"; };
 		6CBCC4C5177A3A1000527961 /* navigation_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigation_back.png; path = Images/Standard/navigation_back.png; sourceTree = "<group>"; };
-		6CE3CE981796F9E600618892 /* PLPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Plant/PLPlantViewController.h; sourceTree = "<group>"; };
-		6CE3CE991796F9E600618892 /* PLPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Plant/PLPlantViewController.m; sourceTree = "<group>"; };
+		6CE3CE981796F9E600618892 /* PLPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.h; sourceTree = "<group>"; };
+		6CE3CE991796F9E600618892 /* PLPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.m; sourceTree = "<group>"; };
 		6CE3CE9C1796FA6300618892 /* PLPlantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantCell.h; path = Classes/UIElements/Cells/Plant/PLPlantCell.h; sourceTree = "<group>"; };
 		6CE3CE9D1796FA6300618892 /* PLPlantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantCell.m; path = Classes/UIElements/Cells/Plant/PLPlantCell.m; sourceTree = "<group>"; };
 		6CE3CEA717970E7900618892 /* PLPlantTypeSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantTypeSelectViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/PlantTypeSelect/PLPlantTypeSelectViewController.h; sourceTree = "<group>"; };
@@ -306,6 +312,33 @@
 				6C753EA11797292600A47600 /* PLScheduleViewController.m */,
 			);
 			name = Schedule;
+			sourceTree = "<group>";
+		};
+		6C7B55FD179EE79A0076B07E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B55FE179EE7AB0076B07E /* PLMenuButton.h */,
+				6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		6C7B5601179EF3F10076B07E /* PlantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6C7B5603179EF5C50076B07E /* PLPlantDetailViewController.h */,
+				6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */,
+			);
+			name = PlantDetail;
+			sourceTree = "<group>";
+		};
+		6C7B5602179EF3F50076B07E /* PlantSequence */ = {
+			isa = PBXGroup;
+			children = (
+				6CE3CE971796F9CD00618892 /* Plant */,
+				6C7B5601179EF3F10076B07E /* PlantDetail */,
+			);
+			name = PlantSequence;
 			sourceTree = "<group>";
 		};
 		6C8CA423175680FB0019FC4B /* Link */ = {
@@ -658,6 +691,7 @@
 		6C972BE417555389007234B6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				6C7B55FD179EE79A0076B07E /* Menu */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -817,7 +851,7 @@
 			isa = PBXGroup;
 			children = (
 				6C487C1A1795F85B007EE2B5 /* UserHome */,
-				6CE3CE971796F9CD00618892 /* Plant */,
+				6C7B5602179EF3F50076B07E /* PlantSequence */,
 				6C753E9F1797291800A47600 /* Schedule */,
 				6CE3CEBD1797250B00618892 /* Notifications */,
 				6CE3CEBE1797251100618892 /* Settings */,
@@ -1014,6 +1048,8 @@
 				6CE3CEB817970F0700618892 /* PLAddValveToPlantViewController.m in Sources */,
 				6CE3CEC41797257500618892 /* PLSettingsViewController.m in Sources */,
 				6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */,
+				6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */,
+				6C7B5605179EF5C50076B07E /* PLPlantDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

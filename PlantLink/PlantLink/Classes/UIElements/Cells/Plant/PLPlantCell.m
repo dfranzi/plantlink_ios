@@ -10,8 +10,18 @@
 
 #import "PLPlantModel.h"
 #import "PLPlantMeasurementModel.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PLPlantCell
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder]) {
+        [self.layer setCornerRadius:3.0];
+        [self.layer setBorderWidth:1.0];
+        [self.layer setBorderColor:Color_PlantCell_Border.CGColor];
+    }
+    return self;
+}
 
 #pragma mark -
 #pragma mark Setters
@@ -21,6 +31,9 @@
     
     if(_model) {
         [nameLabel setText:[_model name]];
+        
+        [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
+        [self.layer setShouldRasterize:YES];
     }
 }
 

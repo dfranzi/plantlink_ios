@@ -37,6 +37,8 @@
 #define Segue_ToPlantLinkSync @"toPlantLinkSyncView"
 #define Segue_ToAddValveToPlant @"toAddValveToPlantView"
 
+#define Segue_ToPlantDetail @"toPlantDetailView"
+
 //Notifications
 #define Notification_User_UserRefreshed @"User-UserRefreshed"
 #define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
