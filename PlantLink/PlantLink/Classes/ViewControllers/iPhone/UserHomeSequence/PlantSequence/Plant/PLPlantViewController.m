@@ -12,6 +12,7 @@
 #import "PLPlantModel.h"
 #import "PLPlantCell.h"
 #import "PLPlantRequest.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PLPlantViewController() {
 @private
@@ -28,6 +29,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     lastReload = NULL;
+    
+    [plantCollectionView setBackgroundColor:Color_ViewBackground];
     [sharedUser setPlantReloadTrigger:YES];
 }
 
@@ -47,10 +50,19 @@
 #pragma mark Collection View Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [plants count];
+    return [plants count]+1;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == [plants count]) {
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_AddPlantCell forIndexPath:indexPath];
+        [cell.layer setBorderWidth:0];
+        [cell setBackgroundColor:[UIColor clearColor]];
+        
+        return cell;
+    }
+    
+    
     PLPlantCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_PlantCell forIndexPath:indexPath];
     
     PLPlantModel *model = plants[indexPath.row];
@@ -60,12 +72,15 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == [plants count]) return CGSizeMake(295.0, 43.0);
     return [PLPlantCell sizeForContent:@{}];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:Segue_ToPlantDetail sender:self];
+    
+    if(indexPath.row == [plants count])
+        [self performSegueWithIdentifier:Segue_ToPlantDetail sender:self];
 }
 
 #pragma mark -
@@ -83,6 +98,7 @@
 
 -(void)requestDidFinish:(AbstractRequest *)request {
     NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
+    ZALog(@"array: %@",array);
     plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
     [plantCollectionView reloadData];
     lastReload = [NSDate date];

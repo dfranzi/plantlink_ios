@@ -132,17 +132,15 @@
 #define DC_Plant_Environment @"environment"
 #define DC_Plant_Valves @"valves_key"
 #define DC_Plant_Links @"links_key"
-#define DC_Plant_Measurements @"measurement_cache"
+#define DC_Plant_Measurement @"last_measurement"
 
 #define DC_Measurement_PlantKey @"plant_key"
 #define DC_Measurement_LinkKey @"link_key"
 #define DC_Measurement_Created @"created"
-#define DC_Measurement_Timestamp @"timestamp"
 #define DC_Measurement_Moisture @"moisture"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
 #define DC_Measurement_PlantFuelLevel @"plant_fuel_level"
-#define DC_Measurement_IsHealthy @"is_healthy"
 
 //Requests
 typedef enum RequestTypes {

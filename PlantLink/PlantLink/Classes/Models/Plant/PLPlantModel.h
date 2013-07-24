@@ -8,6 +8,7 @@
 
 #import "AbstractModel.h"
 
+@class PLPlantMeasurementModel;
 @interface PLPlantModel : AbstractModel
 
 // The user assigned name of the plant
@@ -36,7 +37,7 @@
 
 
 // An array of PLPlantMeasurementModels indicating the most recent measurements
-@property(nonatomic, strong, readonly) NSArray *cachedMeasurements;
+@property(nonatomic, strong, readonly) PLPlantMeasurementModel *lastMeasurement;
 
 // An array of PLValveModels associated with the plant
 @property(nonatomic, strong, readonly) NSArray *valves;

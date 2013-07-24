@@ -16,13 +16,11 @@
         _linkKey = dict[DC_Measurement_LinkKey];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
-        _timestamp = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Timestamp] intValue]];
         
         _moisture = [dict[DC_Measurement_Moisture] floatValue];
         _signal = [dict[DC_Measurement_Signal] floatValue];
         _battery = [dict[DC_Measurement_Battery] floatValue];
         _plantFuelLevel = [dict[DC_Measurement_PlantFuelLevel] floatValue];
-        _isHealthy = [dict[DC_Measurement_IsHealthy] boolValue];
     }
     return self;
 }
@@ -49,13 +47,11 @@
     dict[DC_Measurement_LinkKey] = [_linkKey copyWithZone:zone];
     
     dict[DC_Measurement_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
-    dict[DC_Measurement_Timestamp] = [NSNumber numberWithInt:[_timestamp timeIntervalSince1970]];
     
     dict[DC_Measurement_Moisture] = [NSNumber numberWithFloat:_moisture];
     dict[DC_Measurement_Signal] = [NSNumber numberWithFloat:_signal];
     dict[DC_Measurement_Battery] = [NSNumber numberWithFloat:_battery];
     dict[DC_Measurement_PlantFuelLevel] = [NSNumber numberWithFloat:_plantFuelLevel];
-    dict[DC_Measurement_IsHealthy] = [NSNumber numberWithBool:_isHealthy];
     
     PLPlantMeasurementModel *copy = [[PLPlantMeasurementModel alloc] initWithDictionary:dict];
     if(copy) return copy;
@@ -70,13 +66,11 @@
         _plantKey = [aDecoder decodeObjectForKey:DC_Measurement_PlantKey];
         _linkKey = [aDecoder decodeObjectForKey:DC_Measurement_LinkKey];
         _created = [aDecoder decodeObjectForKey:DC_Measurement_Created];
-        _timestamp = [aDecoder decodeObjectForKey:DC_Measurement_Timestamp];
         
         _moisture = [aDecoder decodeFloatForKey:DC_Measurement_Moisture];
         _signal = [aDecoder decodeFloatForKey:DC_Measurement_Signal];
         _battery = [aDecoder decodeFloatForKey:DC_Measurement_Battery];
         _plantFuelLevel = [aDecoder decodeFloatForKey:DC_Measurement_PlantFuelLevel];
-        _isHealthy = [aDecoder decodeBoolForKey:DC_Measurement_IsHealthy];
     }
     return self;
 }
@@ -85,13 +79,11 @@
     [aCoder encodeObject:_plantKey forKey:DC_Measurement_PlantKey];
     [aCoder encodeObject:_linkKey forKey:DC_Measurement_LinkKey];
     [aCoder encodeObject:_created forKey:DC_Measurement_Created];
-    [aCoder encodeObject:_timestamp forKey:DC_Measurement_Timestamp];
     
     [aCoder encodeFloat:_moisture forKey:DC_Measurement_Moisture];
     [aCoder encodeFloat:_signal forKey:DC_Measurement_Signal];
     [aCoder encodeFloat:_battery forKey:DC_Measurement_Battery];
     [aCoder encodeFloat:_plantFuelLevel forKey:DC_Measurement_PlantFuelLevel];
-    [aCoder encodeBool:_isHealthy forKey:DC_Measurement_IsHealthy];
 }
 
 #pragma mark -

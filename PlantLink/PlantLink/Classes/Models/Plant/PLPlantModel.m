@@ -15,7 +15,6 @@
 @implementation PLPlantModel
 
 #warning Plant model and others have changed, make sure to fix before launch
-
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _name = dict[DC_Plant_Name];
@@ -27,8 +26,8 @@
         
         
         
-        if([dict[DC_Plant_Measurements] isKindOfClass:[NSArray class]]) _cachedMeasurements = [PLPlantMeasurementModel modelsFromArrayOfDictionaries:dict[DC_Plant_Measurements]];
-        else _cachedMeasurements = dict[DC_Plant_Measurements];
+        if([dict[DC_Plant_Measurement] isKindOfClass:[NSDictionary class]]) _lastMeasurement = [PLPlantMeasurementModel modelWithDictionary:dict[DC_Plant_Measurement]];
+        else _lastMeasurement = dict[DC_Plant_Measurement];
         
         
         
@@ -77,7 +76,7 @@
     dict[DC_Plant_PId] = [_pid copyWithZone:zone];
     dict[DC_Plant_Active] = [NSNumber numberWithBool:_active];
     
-    dict[DC_Plant_Measurements] = [_cachedMeasurements copyWithZone:zone];
+    dict[DC_Plant_Measurement] = [_lastMeasurement copyWithZone:zone];
     dict[DC_Plant_Valves] = [_valves copyWithZone:zone];
     dict[DC_Plant_Links] = [_links copyWithZone:zone];
     
@@ -101,7 +100,7 @@
         _pid = [aDecoder decodeObjectForKey:DC_Plant_PId];
         _active = [aDecoder decodeBoolForKey:DC_Plant_Active];
         
-        _cachedMeasurements = [aDecoder decodeObjectForKey:DC_Plant_Measurements];
+        _lastMeasurement = [aDecoder decodeObjectForKey:DC_Plant_Measurement];
         _links = [aDecoder decodeObjectForKey:DC_Plant_Links];
         _valves = [aDecoder decodeObjectForKey:DC_Plant_Valves];
         
@@ -119,7 +118,7 @@
     [aCoder encodeObject:_pid forKey:DC_Plant_PId];
     [aCoder encodeBool:_active forKey:DC_Plant_Active];
     
-    [aCoder encodeObject:_cachedMeasurements forKey:DC_Plant_Measurements];
+    [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
     [aCoder encodeObject:_links forKey:DC_Plant_Links];
     [aCoder encodeObject:_valves forKey:DC_Plant_Valves];
     

@@ -11,8 +11,18 @@
 @class PLPlantModel;
 @interface PLPlantCell : AbstractCLCell {
     IBOutlet UILabel *nameLabel;
-    IBOutlet UIPageControl *waterPageControl;
     IBOutlet UILabel *dateLabel;
+    
+    IBOutlet UIImageView *batteryImage;
+    IBOutlet UIImageView *networkImage;
+    
+    IBOutlet UIImageView *waterCircleLeft;
+    IBOutlet UIImageView *waterCircleLCenter;
+    IBOutlet UIImageView *waterCircleCenter;
+    IBOutlet UIImageView *waterCircleRCenter;
+    IBOutlet UIImageView *waterCircleRight;
+    
+    IBOutlet UIView *separatorView;
 }
 @property(nonatomic, strong) PLPlantModel *model;
 

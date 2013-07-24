@@ -18,6 +18,18 @@
 		6C753EA21797292600A47600 /* PLScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C753EA11797292600A47600 /* PLScheduleViewController.m */; };
 		6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */; };
 		6C7B5605179EF5C50076B07E /* PLPlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */; };
+		6C81562117A0605E00B698CB /* battery-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561417A0605E00B698CB /* battery-empty@2x.png */; };
+		6C81562217A0605E00B698CB /* battery-four@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561517A0605E00B698CB /* battery-four@2x.png */; };
+		6C81562317A0605E00B698CB /* battery-one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561617A0605E00B698CB /* battery-one@2x.png */; };
+		6C81562417A0605E00B698CB /* battery-three@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561717A0605E00B698CB /* battery-three@2x.png */; };
+		6C81562517A0605E00B698CB /* battery-two@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561817A0605E00B698CB /* battery-two@2x.png */; };
+		6C81562717A0605E00B698CB /* network-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561A17A0605E00B698CB /* network-empty@2x.png */; };
+		6C81562817A0605E00B698CB /* network-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561B17A0605E00B698CB /* network-full@2x.png */; };
+		6C81562917A0605E00B698CB /* network-one@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561C17A0605E00B698CB /* network-one@2x.png */; };
+		6C81562A17A0605E00B698CB /* network-three@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561D17A0605E00B698CB /* network-three@2x.png */; };
+		6C81562B17A0605E00B698CB /* plantWaterCircle-Empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561E17A0605E00B698CB /* plantWaterCircle-Empty@2x.png */; };
+		6C81562C17A0605E00B698CB /* plantWaterCircle-Full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81561F17A0605E00B698CB /* plantWaterCircle-Full@2x.png */; };
+		6C81562D17A0605E00B698CB /* plantWaterCircle-Red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C81562017A0605E00B698CB /* plantWaterCircle-Red@2x.png */; };
 		6C8CA3D6175664610019FC4B /* PLBaseStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */; };
 		6C8CA3D9175664790019FC4B /* PLPlantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3D8175664790019FC4B /* PLPlantModel.m */; };
 		6C8CA3DC175664890019FC4B /* PLPlantMeasurementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA3DB175664890019FC4B /* PLPlantMeasurementModel.m */; };
@@ -114,6 +126,18 @@
 		6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuButton.m; path = Classes/UIElements/Buttons/Menu/PLMenuButton.m; sourceTree = "<group>"; };
 		6C7B5603179EF5C50076B07E /* PLPlantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantDetailViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/PlantDetail/PLPlantDetailViewController.h; sourceTree = "<group>"; };
 		6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantDetailViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/PlantDetail/PLPlantDetailViewController.m; sourceTree = "<group>"; };
+		6C81561417A0605E00B698CB /* battery-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery-empty@2x.png"; path = "Images/battery-empty@2x.png"; sourceTree = "<group>"; };
+		6C81561517A0605E00B698CB /* battery-four@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery-four@2x.png"; path = "Images/battery-four@2x.png"; sourceTree = "<group>"; };
+		6C81561617A0605E00B698CB /* battery-one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery-one@2x.png"; path = "Images/battery-one@2x.png"; sourceTree = "<group>"; };
+		6C81561717A0605E00B698CB /* battery-three@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery-three@2x.png"; path = "Images/battery-three@2x.png"; sourceTree = "<group>"; };
+		6C81561817A0605E00B698CB /* battery-two@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery-two@2x.png"; path = "Images/battery-two@2x.png"; sourceTree = "<group>"; };
+		6C81561A17A0605E00B698CB /* network-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "network-empty@2x.png"; path = "Images/network-empty@2x.png"; sourceTree = "<group>"; };
+		6C81561B17A0605E00B698CB /* network-full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "network-full@2x.png"; path = "Images/network-full@2x.png"; sourceTree = "<group>"; };
+		6C81561C17A0605E00B698CB /* network-one@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "network-one@2x.png"; path = "Images/network-one@2x.png"; sourceTree = "<group>"; };
+		6C81561D17A0605E00B698CB /* network-three@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "network-three@2x.png"; path = "Images/network-three@2x.png"; sourceTree = "<group>"; };
+		6C81561E17A0605E00B698CB /* plantWaterCircle-Empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plantWaterCircle-Empty@2x.png"; path = "Images/plantWaterCircle-Empty@2x.png"; sourceTree = "<group>"; };
+		6C81561F17A0605E00B698CB /* plantWaterCircle-Full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plantWaterCircle-Full@2x.png"; path = "Images/plantWaterCircle-Full@2x.png"; sourceTree = "<group>"; };
+		6C81562017A0605E00B698CB /* plantWaterCircle-Red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plantWaterCircle-Red@2x.png"; path = "Images/plantWaterCircle-Red@2x.png"; sourceTree = "<group>"; };
 		6C8CA3D4175664610019FC4B /* PLBaseStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBaseStationModel.h; path = Classes/Models/BaseStation/PLBaseStationModel.h; sourceTree = "<group>"; };
 		6C8CA3D5175664610019FC4B /* PLBaseStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBaseStationModel.m; path = Classes/Models/BaseStation/PLBaseStationModel.m; sourceTree = "<group>"; };
 		6C8CA3D7175664790019FC4B /* PLPlantModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantModel.h; path = Classes/Models/Plant/PLPlantModel.h; sourceTree = "<group>"; };
@@ -444,6 +468,18 @@
 		6C972BAC175540CB007234B6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6C81561417A0605E00B698CB /* battery-empty@2x.png */,
+				6C81561517A0605E00B698CB /* battery-four@2x.png */,
+				6C81561617A0605E00B698CB /* battery-one@2x.png */,
+				6C81561717A0605E00B698CB /* battery-three@2x.png */,
+				6C81561817A0605E00B698CB /* battery-two@2x.png */,
+				6C81561A17A0605E00B698CB /* network-empty@2x.png */,
+				6C81561B17A0605E00B698CB /* network-full@2x.png */,
+				6C81561C17A0605E00B698CB /* network-one@2x.png */,
+				6C81561D17A0605E00B698CB /* network-three@2x.png */,
+				6C81561E17A0605E00B698CB /* plantWaterCircle-Empty@2x.png */,
+				6C81561F17A0605E00B698CB /* plantWaterCircle-Full@2x.png */,
+				6C81562017A0605E00B698CB /* plantWaterCircle-Red@2x.png */,
 				6CB86FBA175D589400B18213 /* Standard */,
 				6CB86FB9175D589200B18213 /* Retina */,
 			);
@@ -972,6 +1008,18 @@
 				6CBCC4AC1779FC6F00527961 /* bariol_thin.ttf in Resources */,
 				6CBCC4C4177A3A0A00527961 /* navigation_back@2x.png in Resources */,
 				6CBCC4C6177A3A1000527961 /* navigation_back.png in Resources */,
+				6C81562117A0605E00B698CB /* battery-empty@2x.png in Resources */,
+				6C81562217A0605E00B698CB /* battery-four@2x.png in Resources */,
+				6C81562317A0605E00B698CB /* battery-one@2x.png in Resources */,
+				6C81562417A0605E00B698CB /* battery-three@2x.png in Resources */,
+				6C81562517A0605E00B698CB /* battery-two@2x.png in Resources */,
+				6C81562717A0605E00B698CB /* network-empty@2x.png in Resources */,
+				6C81562817A0605E00B698CB /* network-full@2x.png in Resources */,
+				6C81562917A0605E00B698CB /* network-one@2x.png in Resources */,
+				6C81562A17A0605E00B698CB /* network-three@2x.png in Resources */,
+				6C81562B17A0605E00B698CB /* plantWaterCircle-Empty@2x.png in Resources */,
+				6C81562C17A0605E00B698CB /* plantWaterCircle-Full@2x.png in Resources */,
+				6C81562D17A0605E00B698CB /* plantWaterCircle-Red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
