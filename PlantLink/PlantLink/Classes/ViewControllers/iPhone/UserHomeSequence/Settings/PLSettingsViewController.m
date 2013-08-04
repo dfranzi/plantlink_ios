@@ -18,6 +18,17 @@
 
 @implementation PLSettingsViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UIImage *settings = [UIImage imageNamed:Image_Tab_Settings];
+    UIImage *settingsHighlighted = [UIImage imageNamed:Image_Tab_SettingsHighlighted];
+    
+    [self.tabBarItem setTitle:@""];
+    [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
+}
+
+
 #pragma mark -
 #pragma mark IBAction Methods
 

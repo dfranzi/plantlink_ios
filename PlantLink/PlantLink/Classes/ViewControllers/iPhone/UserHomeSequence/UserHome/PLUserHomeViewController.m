@@ -22,6 +22,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_User_Logout object:nil];
+    
+    for(UIViewController *controller in self.viewControllers) [controller viewDidLoad];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -29,7 +31,6 @@
     [self removeViewControllerStack];
     
     sharedUserManager = [PLUserManager initializeUserManager];
-    #warning Incorrect if statement (no ! should be there) so add plant presented every time
     if([sharedUserManager addPlantTrigger]) {
         [sharedUserManager setAddPlantTrigger:NO];
         [self performSegueWithIdentifier:Segue_ToAddPlantSequence sender:self];

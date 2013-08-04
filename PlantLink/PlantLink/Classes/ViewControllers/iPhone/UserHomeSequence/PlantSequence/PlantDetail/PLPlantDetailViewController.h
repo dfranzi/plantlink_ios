@@ -11,10 +11,7 @@
 @interface PLPlantDetailViewController : PLAbstractViewController <UITableViewDataSource,UITableViewDelegate> {
     IBOutlet UITableView *plantTableView;
 }
-
-#pragma mark -
-#pragma mark IBAction Methods
-
--(IBAction)dismissPushed:(id)sender;
+@property(nonatomic, assign) BOOL editMode;
+@property(nonatomic, assign) BOOL infoMode;
 
 @end

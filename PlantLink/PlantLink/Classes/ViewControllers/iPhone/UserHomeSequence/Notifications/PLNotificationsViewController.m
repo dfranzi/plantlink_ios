@@ -16,5 +16,15 @@
 
 @implementation PLNotificationsViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UIImage *clock = [UIImage imageNamed:Image_Tab_Clock];
+    UIImage *clockHighlighted = [UIImage imageNamed:Image_Tab_ClockHighlighted];
+    
+    [self.tabBarItem setTitle:@""];
+    [self.tabBarItem setFinishedSelectedImage:clockHighlighted withFinishedUnselectedImage:clock];
+}
+
 
 @end

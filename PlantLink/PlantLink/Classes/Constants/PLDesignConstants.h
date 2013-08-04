@@ -50,5 +50,12 @@
 #define Image_WaterCircle_Full @"plantWaterCircle-Full@2x.png"
 #define Image_WaterCircle_Red @"plantWaterCircle-Red@2x.png"
 
-
+#define Image_Tab_Leaf @"leafIcon.png"
+#define Image_Tab_LeafHighlighted @"leafIconHighlighted.png"
+#define Image_Tab_Schedule @"scheduleIcon.png"
+#define Image_Tab_ScheduleHighlighted @"scheduleIconHighlighted.png"
+#define Image_Tab_Clock @"clockIcon.png"
+#define Image_Tab_ClockHighlighted @"clockIconHighlighted.png"
+#define Image_Tab_Settings @"settingsIcon.png"
+#define Image_Tab_SettingsHighlighted @"settingsIconHighlighted.png"
 

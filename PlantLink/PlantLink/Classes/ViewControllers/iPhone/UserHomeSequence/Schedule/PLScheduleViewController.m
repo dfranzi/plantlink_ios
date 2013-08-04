@@ -16,4 +16,15 @@
 
 @implementation PLScheduleViewController
 
+-(void)viewDidLoad {
+    ZALog(@"Schedule");
+    [super viewDidLoad];
+    
+    UIImage *schedule = [UIImage imageNamed:Image_Tab_Schedule];
+    UIImage *scheduleHighlighted = [UIImage imageNamed:Image_Tab_ScheduleHighlighted];
+    
+    [self.tabBarItem setTitle:@""];
+    [self.tabBarItem setFinishedSelectedImage:scheduleHighlighted withFinishedUnselectedImage:schedule];
+}
+
 @end

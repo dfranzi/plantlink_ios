@@ -32,6 +32,12 @@
     
     [plantCollectionView setBackgroundColor:Color_ViewBackground];
     [sharedUser setPlantReloadTrigger:YES];
+    
+    UIImage *leaf = [UIImage imageNamed:Image_Tab_Leaf];
+    UIImage *leafHighlighted = [UIImage imageNamed:Image_Tab_LeafHighlighted];
+        
+    [self.tabBarItem setTitle:@""];
+    [self.tabBarItem setFinishedSelectedImage:leafHighlighted withFinishedUnselectedImage:leaf];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -72,7 +78,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [plants count]) return CGSizeMake(295.0, 43.0);
+    if(indexPath.row == [plants count]) return CGSizeMake(295.0, 60.0);
     return [PLPlantCell sizeForContent:@{}];
 }
 
@@ -80,7 +86,10 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     if(indexPath.row == [plants count])
+        [self.tabBarController performSegueWithIdentifier:Segue_ToAddPlantSequence sender:self.tabBarController];
+    else {
         [self performSegueWithIdentifier:Segue_ToPlantDetail sender:self];
+    }
 }
 
 #pragma mark -
@@ -98,7 +107,7 @@
 
 -(void)requestDidFinish:(AbstractRequest *)request {
     NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
-    ZALog(@"array: %@",array);
+
     plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
     [plantCollectionView reloadData];
     lastReload = [NSDate date];
