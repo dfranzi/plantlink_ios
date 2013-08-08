@@ -32,5 +32,7 @@
 // The fuel level indication as a float 0 - 100
 @property(nonatomic, assign, readonly) float plantFuelLevel;
 
+@property(nonatomic, strong, readonly) NSDate *predictedWaterDate;
+
 
 @end

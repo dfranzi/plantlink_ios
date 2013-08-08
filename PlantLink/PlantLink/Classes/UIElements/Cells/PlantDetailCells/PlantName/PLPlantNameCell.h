@@ -11,6 +11,9 @@
 @interface PLPlantNameCell : PLAbstractPlantDetailCell {
     IBOutlet UIButton *editButton;
     IBOutlet UIButton *infoButton;
+    
+    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *activeOnLabel;
 }
 @property(nonatomic, weak) UIViewController *enclosingController;
 

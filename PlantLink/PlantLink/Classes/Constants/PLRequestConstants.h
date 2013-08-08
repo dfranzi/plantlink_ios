@@ -93,6 +93,7 @@
 #define DC_Measurement_PlantKey @"plant_key"
 #define DC_Measurement_LinkKey @"link_key"
 #define DC_Measurement_Created @"created"
+#define DC_Measurement_PredictedWaterDate @"predicted_water_needed"
 #define DC_Measurement_Moisture @"moisture"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"

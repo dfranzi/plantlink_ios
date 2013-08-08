@@ -16,13 +16,14 @@
 #define Cell_SoilType @"soilTypeCell"
 
 #define Cell_PlantTitle @"plantTitleCell"
+#define Cell_PlantDetail @"plantDetailCell"
 #define Cell_PlantMoisture @"plantMoistureCell"
 #define Cell_PlantHistory @"plantHistoryCell"
 #define Cell_PlantSchedule @"plantScheduleCell"
 #define Cell_PlantLinkDetail @"plantLinkDetailsCell"
 #define Cell_PlantHelp @"plantHelpCell"
 
-#define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail, Cell_PlantHelp]
+#define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail, Cell_PlantHelp]
 
 //Colors
 #define Color_ViewBackground RGB(240.0,245.0,238.0)

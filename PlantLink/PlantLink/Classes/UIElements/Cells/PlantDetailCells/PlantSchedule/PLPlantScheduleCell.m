@@ -8,13 +8,31 @@
 
 #import "PLPlantScheduleCell.h"
 
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
+
 @implementation PLPlantScheduleCell
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    if(self = [super initWithCoder:aDecoder]) {
+#pragma mark -
+#pragma mark Setters
+
+-(void)setModel:(PLPlantModel *)model {
+    [super setModel:model];
+    
+    if([self model]) {
+        NSDate *predictedWaterDate = [[[self model] lastMeasurement] predictedWaterDate];
+        NSDateComponents *components = [GeneralMethods componentsFromDate:predictedWaterDate];
         
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        NSString *dayStr = [[df shortWeekdaySymbols] objectAtIndex:[components day]-1];
+        NSString *monthStr = [[df shortMonthSymbols] objectAtIndex:[components month]-1];
+         
+        NSString *waterOnText = [NSString stringWithFormat:@"Water on %@ %@ %i ",dayStr,monthStr,[components day]];
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnText];
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica" size:25] range:NSMakeRange(0,8)];
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:25] range:NSMakeRange(8,[waterOnText length]-9)];
+        [waterOnLabel setAttributedText:attrStr];
     }
-    return self;
 }
 
 #pragma mark -

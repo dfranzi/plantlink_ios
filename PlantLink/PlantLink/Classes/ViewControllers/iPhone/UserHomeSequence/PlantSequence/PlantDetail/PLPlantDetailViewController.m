@@ -9,6 +9,7 @@
 #import "PLPlantDetailViewController.h"
 
 #import "PLPlantNameCell.h"
+#import "PLPlantDetailsCell.h"
 #import "PLPlantSoilCell.h"
 #import "PLPlantHistoryCell.h"
 #import "PLPlantScheduleCell.h"
@@ -80,35 +81,48 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellIdentifier = Cell_PlantsAll[indexPath.row];
+    
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) {
         PLPlantNameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setEnclosingController:self];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
+        return cell;
+    }
+    else if([cellIdentifier isEqualToString:Cell_PlantDetail]) {
+        PLPlantDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     else if([cellIdentifier isEqualToString:Cell_PlantMoisture]) {
         PLPlantSoilCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     else if([cellIdentifier isEqualToString:Cell_PlantHistory]) {
         PLPlantHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     else if([cellIdentifier isEqualToString:Cell_PlantSchedule]) {
         PLPlantScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     else if([cellIdentifier isEqualToString:Cell_PlantLinkDetail]) {
         PLPlantLinkCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     else if([cellIdentifier isEqualToString:Cell_PlantHelp]) {
         PLPlantHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         [cell setInfoText:InfoText_All[indexPath.row]];
+        [cell setModel:_model];
         return cell;
     }
     
@@ -124,6 +138,7 @@
     
     NSString *cellIdentifier = Cell_PlantsAll[indexPath.row];
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) return [PLPlantNameCell heightForContent:infoDict];
+    else if([cellIdentifier isEqualToString:Cell_PlantDetail]) return [PLPlantDetailsCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantMoisture]) return [PLPlantSoilCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantHistory]) return [PLPlantHistoryCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantSchedule]) return [PLPlantScheduleCell heightForContent:infoDict];

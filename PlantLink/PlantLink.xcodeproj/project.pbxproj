@@ -51,6 +51,10 @@
 		6C2FC83B17B366F100184FB3 /* remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC83917B366F100184FB3 /* remove@2x.png */; };
 		6C2FC83E17B366FA00184FB3 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC83C17B366FA00184FB3 /* add.png */; };
 		6C2FC83F17B366FA00184FB3 /* remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC83D17B366FA00184FB3 /* remove.png */; };
+		6C370CD517B428CF009974D1 /* PLPlantDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CD417B428CF009974D1 /* PLPlantDetailsCell.m */; };
+		6C370CDF17B45A00009974D1 /* PLSignalImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CDE17B45A00009974D1 /* PLSignalImageView.m */; };
+		6C370CE217B45A11009974D1 /* PLBatteryImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CE117B45A11009974D1 /* PLBatteryImageView.m */; };
+		6C370CE517B45ACB009974D1 /* PLMoistureIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CE417B45ACA009974D1 /* PLMoistureIndicator.m */; };
 		6C487C001795BEFE007EE2B5 /* PLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487BFF1795BEFE007EE2B5 /* PLLoginViewController.m */; };
 		6C487C021795C50E007EE2B5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C487C011795C50E007EE2B5 /* libz.dylib */; };
 		6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C081795DEAA007EE2B5 /* PLSerialInputViewController.m */; };
@@ -217,6 +221,14 @@
 		6C2FC83917B366F100184FB3 /* remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "remove@2x.png"; path = "Images/Retina/remove@2x.png"; sourceTree = "<group>"; };
 		6C2FC83C17B366FA00184FB3 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Images/Standard/add.png; sourceTree = "<group>"; };
 		6C2FC83D17B366FA00184FB3 /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = remove.png; path = Images/Standard/remove.png; sourceTree = "<group>"; };
+		6C370CD317B428CF009974D1 /* PLPlantDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantDetailsCell.h; path = Classes/UIElements/Cells/PlantDetailCells/PlantDetail/PLPlantDetailsCell.h; sourceTree = "<group>"; };
+		6C370CD417B428CF009974D1 /* PLPlantDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantDetailsCell.m; path = Classes/UIElements/Cells/PlantDetailCells/PlantDetail/PLPlantDetailsCell.m; sourceTree = "<group>"; };
+		6C370CDD17B45A00009974D1 /* PLSignalImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSignalImageView.h; path = Classes/UIElements/Image/Signal/PLSignalImageView.h; sourceTree = "<group>"; };
+		6C370CDE17B45A00009974D1 /* PLSignalImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSignalImageView.m; path = Classes/UIElements/Image/Signal/PLSignalImageView.m; sourceTree = "<group>"; };
+		6C370CE017B45A11009974D1 /* PLBatteryImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBatteryImageView.h; path = Classes/UIElements/Image/Battery/PLBatteryImageView.h; sourceTree = "<group>"; };
+		6C370CE117B45A11009974D1 /* PLBatteryImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBatteryImageView.m; path = Classes/UIElements/Image/Battery/PLBatteryImageView.m; sourceTree = "<group>"; };
+		6C370CE317B45ACA009974D1 /* PLMoistureIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMoistureIndicator.h; path = Classes/UIElements/View/MoistureIndicator/PLMoistureIndicator.h; sourceTree = "<group>"; };
+		6C370CE417B45ACA009974D1 /* PLMoistureIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMoistureIndicator.m; path = Classes/UIElements/View/MoistureIndicator/PLMoistureIndicator.m; sourceTree = "<group>"; };
 		6C487BFE1795BEFE007EE2B5 /* PLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLoginViewController.h; path = Classes/ViewControllers/iPhone/LoginSequence/Login/PLLoginViewController.h; sourceTree = "<group>"; };
 		6C487BFF1795BEFE007EE2B5 /* PLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLoginViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/Login/PLLoginViewController.m; sourceTree = "<group>"; };
 		6C487C011795C50E007EE2B5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -407,6 +419,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C370CD217B42897009974D1 /* PlantDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CD317B428CF009974D1 /* PLPlantDetailsCell.h */,
+				6C370CD417B428CF009974D1 /* PLPlantDetailsCell.m */,
+			);
+			name = PlantDetails;
+			sourceTree = "<group>";
+		};
+		6C370CD617B45979009974D1 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CDC17B459CF009974D1 /* Battery */,
+				6C370CD717B4597D009974D1 /* Signal */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		6C370CD717B4597D009974D1 /* Signal */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CDD17B45A00009974D1 /* PLSignalImageView.h */,
+				6C370CDE17B45A00009974D1 /* PLSignalImageView.m */,
+			);
+			name = Signal;
+			sourceTree = "<group>";
+		};
+		6C370CDA17B4598B009974D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CDB17B459BD009974D1 /* MoistureIndicator */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6C370CDB17B459BD009974D1 /* MoistureIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CE317B45ACA009974D1 /* PLMoistureIndicator.h */,
+				6C370CE417B45ACA009974D1 /* PLMoistureIndicator.m */,
+			);
+			name = MoistureIndicator;
+			sourceTree = "<group>";
+		};
+		6C370CDC17B459CF009974D1 /* Battery */ = {
+			isa = PBXGroup;
+			children = (
+				6C370CE017B45A11009974D1 /* PLBatteryImageView.h */,
+				6C370CE117B45A11009974D1 /* PLBatteryImageView.m */,
+			);
+			name = Battery;
+			sourceTree = "<group>";
+		};
 		6C487BFD1795BEE5007EE2B5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				6C61234A17AF017B0048EAFE /* PlantName */,
+				6C370CD217B42897009974D1 /* PlantDetails */,
 				6C61234917AF01790048EAFE /* PlantSoil */,
 				6C61234817AF01720048EAFE /* PlantHistory */,
 				6C61234717AF016D0048EAFE /* PlantSchedule */,
@@ -723,6 +789,8 @@
 		6C972BC817555191007234B6 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				6C370CDA17B4598B009974D1 /* View */,
+				6C370CD617B45979009974D1 /* Image */,
 				6CBCC49B1779F19E00527961 /* TextField */,
 				6C972BE417555389007234B6 /* Buttons */,
 				6C972BE317555387007234B6 /* Cells */,
@@ -1441,6 +1509,10 @@
 				6C61235A17AF024A0048EAFE /* PLPlantHelpCell.m in Sources */,
 				6C61236117AF040C0048EAFE /* PLPlantNameCell.m in Sources */,
 				6C61235D17AF025C0048EAFE /* PLPlantLinkCell.m in Sources */,
+				6C370CD517B428CF009974D1 /* PLPlantDetailsCell.m in Sources */,
+				6C370CDF17B45A00009974D1 /* PLSignalImageView.m in Sources */,
+				6C370CE217B45A11009974D1 /* PLBatteryImageView.m in Sources */,
+				6C370CE517B45ACB009974D1 /* PLMoistureIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

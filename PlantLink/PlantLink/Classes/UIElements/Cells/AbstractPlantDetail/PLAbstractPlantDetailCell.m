@@ -52,6 +52,8 @@
         [bottomBorder setAlpha:0.5];
         [self.contentView addSubview:bottomBorder];
         
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
     }
     return self;
 }
@@ -70,6 +72,9 @@
         infoLabelHeight = size.height;
         [infoLabel setFrame:CGRectMake(30, 50, width, size.height)];
         
+        
+        [infoContainerView setBackgroundColor:[UIColor clearColor]];
+
         [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
     }
 }

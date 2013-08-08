@@ -8,6 +8,8 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@interface PLPlantScheduleCell : PLAbstractPlantDetailCell
+@interface PLPlantScheduleCell : PLAbstractPlantDetailCell {
+    IBOutlet UILabel *waterOnLabel;
+}
 
 @end

@@ -8,6 +8,12 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@interface PLPlantLinkCell : PLAbstractPlantDetailCell
+@interface PLPlantLinkCell : PLAbstractPlantDetailCell {
+    IBOutlet UIImageView *batteryImageView;
+    IBOutlet UIImageView *wifiImageView;
+    
+    IBOutlet UILabel *batteryLabel;
+    IBOutlet UILabel *wifiLabel;
+}
 
 @end

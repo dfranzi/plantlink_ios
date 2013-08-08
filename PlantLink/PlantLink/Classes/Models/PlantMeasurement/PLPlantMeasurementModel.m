@@ -16,7 +16,7 @@
         _linkKey = dict[DC_Measurement_LinkKey];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
-        
+        _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
         _moisture = [dict[DC_Measurement_Moisture] floatValue];
         _signal = [dict[DC_Measurement_Signal] floatValue];
         _battery = [dict[DC_Measurement_Battery] floatValue];
@@ -47,6 +47,7 @@
     dict[DC_Measurement_LinkKey] = [_linkKey copyWithZone:zone];
     
     dict[DC_Measurement_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
+    dict[DC_Measurement_PredictedWaterDate] = [NSNumber numberWithInt:[_predictedWaterDate timeIntervalSince1970]];
     
     dict[DC_Measurement_Moisture] = [NSNumber numberWithFloat:_moisture];
     dict[DC_Measurement_Signal] = [NSNumber numberWithFloat:_signal];
@@ -66,6 +67,7 @@
         _plantKey = [aDecoder decodeObjectForKey:DC_Measurement_PlantKey];
         _linkKey = [aDecoder decodeObjectForKey:DC_Measurement_LinkKey];
         _created = [aDecoder decodeObjectForKey:DC_Measurement_Created];
+        _predictedWaterDate = [aDecoder decodeObjectForKey:DC_Measurement_PredictedWaterDate];
         
         _moisture = [aDecoder decodeFloatForKey:DC_Measurement_Moisture];
         _signal = [aDecoder decodeFloatForKey:DC_Measurement_Signal];
@@ -79,6 +81,7 @@
     [aCoder encodeObject:_plantKey forKey:DC_Measurement_PlantKey];
     [aCoder encodeObject:_linkKey forKey:DC_Measurement_LinkKey];
     [aCoder encodeObject:_created forKey:DC_Measurement_Created];
+    [aCoder encodeObject:_predictedWaterDate forKey:DC_Measurement_PredictedWaterDate];
     
     [aCoder encodeFloat:_moisture forKey:DC_Measurement_Moisture];
     [aCoder encodeFloat:_signal forKey:DC_Measurement_Signal];

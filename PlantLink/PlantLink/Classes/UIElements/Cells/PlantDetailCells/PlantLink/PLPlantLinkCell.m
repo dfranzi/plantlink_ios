@@ -8,13 +8,24 @@
 
 #import "PLPlantLinkCell.h"
 
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
+
 @implementation PLPlantLinkCell
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    if(self = [super initWithCoder:aDecoder]) {
+#pragma mark -
+#pragma mark Setters 
+
+-(void)setModel:(PLPlantModel *)model {
+    [super setModel:model];
+    
+    if([self model]) {
+        int battery = [[[self model] lastMeasurement] battery]*100;
+        int signal = [[[self model] lastMeasurement] signal]*100;
         
+        [batteryLabel setText:[NSString stringWithFormat:@"%i%% Charge",battery]];
+        [wifiLabel setText:[NSString stringWithFormat:@"%i%% Signal",signal]];
     }
-    return self;
 }
 
 #pragma mark -

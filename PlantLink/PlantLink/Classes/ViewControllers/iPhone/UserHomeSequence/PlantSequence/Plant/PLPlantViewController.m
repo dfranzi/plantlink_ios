@@ -13,10 +13,12 @@
 #import "PLPlantCell.h"
 #import "PLPlantRequest.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PLPlantDetailViewController.h"
 
 @interface PLPlantViewController() {
 @private
     PLPlantRequest *plantRequest;
+    PLPlantModel *selectedPlant;
     NSMutableArray *plants;
     
     NSDate *lastReload;
@@ -88,8 +90,20 @@
     if(indexPath.row == [plants count])
         [self.tabBarController performSegueWithIdentifier:Segue_ToAddPlantSequence sender:self.tabBarController];
     else {
+        selectedPlant = plants[indexPath.row];
         [self performSegueWithIdentifier:Segue_ToPlantDetail sender:self];
     }
+}
+
+#pragma mark -
+#pragma mark Segue Methods
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:Segue_ToPlantDetail]) {
+        PLPlantDetailViewController *destination = [segue destinationViewController];
+        [destination setModel:selectedPlant];
+    }
+    
 }
 
 #pragma mark -
@@ -108,6 +122,8 @@
 -(void)requestDidFinish:(AbstractRequest *)request {
     NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
 
+    ZALog(@"Plants: %@",array);
+    
     plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
     [plantCollectionView reloadData];
     lastReload = [NSDate date];

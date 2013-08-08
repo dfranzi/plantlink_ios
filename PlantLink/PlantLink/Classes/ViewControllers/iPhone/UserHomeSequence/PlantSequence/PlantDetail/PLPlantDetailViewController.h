@@ -8,9 +8,11 @@
 
 #import "PLAbstractViewController.h"
 
+@class PLPlantModel;
 @interface PLPlantDetailViewController : PLAbstractViewController <UITableViewDataSource,UITableViewDelegate> {
     IBOutlet UITableView *plantTableView;
 }
+@property(nonatomic, strong) PLPlantModel *model;
 @property(nonatomic, assign) BOOL editMode;
 @property(nonatomic, assign) BOOL infoMode;
 

@@ -764,7 +764,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gaC-Cn-wjk">
-                                                    <rect key="frame" x="268" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="261" y="0.0" width="46" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="pencil_gray.png">
@@ -779,7 +779,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="82d-1Y-O4A">
-                                                    <rect key="frame" x="268" y="53" width="39" height="39"/>
+                                                    <rect key="frame" x="261" y="44" width="46" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="info-off.png">
@@ -801,8 +801,78 @@
                                             <outlet property="infoButton" destination="82d-1Y-O4A" id="AZC-aH-JtE"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantDetailCell" rowHeight="161" id="xUr-QS-no3" customClass="PLPlantDetailsCell">
+                                        <rect key="frame" x="0.0" y="142" width="320" height="161"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="plantdetails.png" id="1yf-ms-jhh">
+                                                    <rect key="frame" x="73" y="14" width="174" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" id="ygz-Yy-Q6b">
+                                                    <rect key="frame" x="0.0" y="52" width="320" height="108"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ix3-9U-syU">
+                                                            <rect key="frame" x="41" y="20" width="81" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Soil Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xtm-95-W8c">
+                                                            <rect key="frame" x="41" y="43" width="81" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yuE-RF-Vbf">
+                                                            <rect key="frame" x="41" y="67" width="81" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Basil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ssn-h0-kTj">
+                                                            <rect key="frame" x="125" y="20" width="180" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Miracle Grow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ot5-Ca-8YK">
+                                                            <rect key="frame" x="125" y="43" width="180" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Outdoor Garden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fHm-hn-ePl">
+                                                            <rect key="frame" x="125" y="67" width="180" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="infoContainerView" destination="ygz-Yy-Q6b" id="Uck-Hc-a8G"/>
+                                            <outlet property="locationLabel" destination="fHm-hn-ePl" id="xrx-7p-gQh"/>
+                                            <outlet property="plantTypeLabel" destination="Ssn-h0-kTj" id="ebn-Vk-WQe"/>
+                                            <outlet property="soilTypeLabel" destination="Ot5-Ca-8YK" id="MX3-x0-qws"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantMoistureCell" rowHeight="127" id="hZk-Jj-ucW" customClass="PLPlantSoilCell">
-                                        <rect key="frame" x="0.0" y="142" width="320" height="127"/>
+                                        <rect key="frame" x="0.0" y="303" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
@@ -854,7 +924,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.94924726277372262" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="soilmoisture@2x.png" id="Oac-Mn-On6">
                                                     <rect key="frame" x="73" y="14" width="174" height="20"/>
@@ -868,7 +938,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHistoryCell" rowHeight="336" id="RLY-KZ-gip" customClass="PLPlantHistoryCell">
-                                        <rect key="frame" x="0.0" y="269" width="320" height="336"/>
+                                        <rect key="frame" x="0.0" y="430" width="320" height="336"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
@@ -878,49 +948,47 @@
                                                     <rect key="frame" x="73" y="14" width="174" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="w59-A4-wox">
-                                                    <rect key="frame" x="20" y="58" width="182" height="231"/>
+                                                <view contentMode="scaleToFill" id="c9X-R0-Kb1">
+                                                    <rect key="frame" x="0.0" y="47" width="320" height="288"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Itv-GN-K2q">
-                                                    <rect key="frame" x="58" y="297" width="228" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <state key="normal" title="Edit moisture sensitivity">
-                                                        <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOO WET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SaU-Qz-qkO">
-                                                    <rect key="frame" x="217" y="58" width="69" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" red="0.53260868790000004" green="0.025095852089999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOO WET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kx9-Xo-4n3">
-                                                    <rect key="frame" x="217" y="263" width="69" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" red="0.53260868790000004" green="0.025095852089999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JUST RIGHT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ji7-RH-DCm">
-                                                    <rect key="frame" x="217" y="150" width="83" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" red="0.16078431369999999" green="0.72156862749999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="w59-A4-wox">
+                                                            <rect key="frame" x="20" y="9" width="182" height="231"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOO WET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SaU-Qz-qkO">
+                                                            <rect key="frame" x="217" y="9" width="69" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                                            <color key="textColor" red="0.53260868790000004" green="0.025095852089999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOO WET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kx9-Xo-4n3">
+                                                            <rect key="frame" x="217" y="214" width="69" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                                            <color key="textColor" red="0.53260868790000004" green="0.025095852089999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JUST RIGHT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ji7-RH-DCm">
+                                                            <rect key="frame" x="217" y="101" width="83" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                                            <color key="textColor" red="0.16078431369999999" green="0.72156862749999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="infoContainerView" destination="c9X-R0-Kb1" id="8dG-tp-CX4"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantScheduleCell" rowHeight="123" id="iYj-Sx-36p" customClass="PLPlantScheduleCell">
-                                        <rect key="frame" x="0.0" y="605" width="320" height="123"/>
+                                        <rect key="frame" x="0.0" y="766" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
@@ -930,33 +998,44 @@
                                                     <rect key="frame" x="73" y="14" width="174" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jtm-gN-TZL">
-                                                    <rect key="frame" x="33" y="58" width="254" height="51"/>
+                                                <view contentMode="scaleToFill" id="K8m-BE-iKB">
+                                                    <rect key="frame" x="0.0" y="52" width="320" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Water on ">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="25" name="Helvetica"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="Tue July 23">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="25" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jtm-gN-TZL">
+                                                            <rect key="frame" x="33" y="9" width="254" height="51"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Water on ">
+                                                                    <attributes>
+                                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="25" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment content="Tue July 23">
+                                                                    <attributes>
+                                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="25" name="Helvetica-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="infoContainerView" destination="K8m-BE-iKB" id="yYn-yO-HiG"/>
+                                            <outlet property="waterOnLabel" destination="jtm-gN-TZL" id="6Xi-fg-rcR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="100" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
-                                        <rect key="frame" x="0.0" y="728" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="889" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
@@ -966,26 +1045,46 @@
                                                     <rect key="frame" x="73" y="14" width="174" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOO WET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KmI-3O-sCH">
-                                                    <rect key="frame" x="217" y="58" width="69" height="21"/>
+                                                <view contentMode="scaleToFill" id="ndX-uc-goD">
+                                                    <rect key="frame" x="0.0" y="47" width="320" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" red="0.53260868790000004" green="0.025095852089999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="JUST RIGHT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcJ-LY-EEE">
-                                                    <rect key="frame" x="50" y="58" width="83" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" red="0.16078431369999999" green="0.72156862749999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="65% Charge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcJ-LY-EEE">
+                                                            <rect key="frame" x="64" y="13" width="83" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="battery_0.png" id="mxE-4m-GlA">
+                                                            <rect key="frame" x="22" y="16" width="40" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="wifi_0.png" id="wHT-tV-OsK">
+                                                            <rect key="frame" x="177" y="16" width="40" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="65% Signal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c9k-LE-g7y">
+                                                            <rect key="frame" x="216" y="13" width="83" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="batteryImageView" destination="mxE-4m-GlA" id="nhN-3B-Nes"/>
+                                            <outlet property="batteryLabel" destination="kcJ-LY-EEE" id="TdN-oN-THa"/>
+                                            <outlet property="infoContainerView" destination="ndX-uc-goD" id="cuC-PB-oSY"/>
+                                            <outlet property="wifiImageView" destination="wHT-tV-OsK" id="DNW-w2-wSP"/>
+                                            <outlet property="wifiLabel" destination="c9k-LE-g7y" id="jrc-sZ-RVu"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHelpCell" rowHeight="77" id="4BP-vt-gOk" customClass="PLPlantHelpCell">
-                                        <rect key="frame" x="0.0" y="828" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="989" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
@@ -1608,6 +1707,7 @@
     <resources>
         <image name="addPlant.png" width="92" height="18"/>
         <image name="battery-one@2x.png" width="47" height="25"/>
+        <image name="battery_0.png" width="28" height="15"/>
         <image name="info-off.png" width="17" height="17"/>
         <image name="linkdetails.png" width="89" height="15"/>
         <image name="moisturehistory.png" width="120" height="15"/>
@@ -1615,9 +1715,11 @@
         <image name="pencil_gray.png" width="18" height="18"/>
         <image name="plantWaterCircle-Empty@2x.png" width="42" height="42"/>
         <image name="plantWaterCircle-Full@2x.png" width="42" height="42"/>
+        <image name="plantdetails.png" width="96" height="15"/>
         <image name="plantlinklogo.png" width="239" height="55"/>
         <image name="soilmoisture@2x.png" width="196" height="30"/>
         <image name="wateringschedule.png" width="136" height="15"/>
+        <image name="wifi_0.png" width="24" height="19"/>
         <image name="xicon.png" width="19" height="19"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

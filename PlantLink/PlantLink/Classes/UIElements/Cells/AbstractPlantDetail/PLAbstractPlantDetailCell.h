@@ -12,6 +12,7 @@
 #define PlantInfo_InfoMode @"PlantInfo-InfoMode"
 #define PlantInfo_InfoText @"PlantInfo-InfoText"
 
+@class PLPlantModel;
 @interface PLAbstractPlantDetailCell : AbstractTBCell {
     IBOutlet UILabel *titleLabel;
     IBOutlet UIView *infoContainerView;
@@ -20,6 +21,7 @@
     UIView *bottomBorder;
 }
 @property(nonatomic, strong) NSString *infoText;
+@property(nonatomic, strong) PLPlantModel *model;
 
 #pragma mark -
 #pragma mark Display Methods

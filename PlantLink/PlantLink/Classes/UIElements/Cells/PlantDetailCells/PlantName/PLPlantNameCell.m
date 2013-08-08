@@ -8,6 +8,8 @@
 
 #import "PLPlantNameCell.h"
 
+#import "PLPlantModel.h"
+
 @interface PLPlantNameCell() {
     BOOL isEditting;
     BOOL isShowingInfo;
@@ -26,6 +28,21 @@
 }
 
 #pragma mark -
+#pragma mark Setters 
+
+-(void)setModel:(PLPlantModel *)model {
+    [super setModel:model];
+    
+    if([self model]) {
+        [nameLabel setText:[[self model] name]];
+        
+        NSString *yearStr = [GeneralMethods stringFromDate:[[self model] created] withFormat:@"yyyy"];
+        NSString *monthStr = [GeneralMethods monthFromDate:[[self model] created] abbreviation:YES];
+        [activeOnLabel setText:[NSString stringWithFormat:@"Active since %@, %@",monthStr,yearStr]];
+    }
+}
+
+#pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender {
@@ -37,9 +54,11 @@
     
     if(isEditting) {
         [editButton setImage:[UIImage imageNamed:Image_Pencil_Edit] forState:UIControlStateNormal];
+        [editButton setFrame:CGRectMake(261-75, 0, 46+75, 41)];
     }
     else {
         [editButton setImage:[UIImage imageNamed:Image_Pencil_Gray] forState:UIControlStateNormal];
+        [editButton setFrame:CGRectMake(261, 0, 46, 41)];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Plant_Edit object:[NSNumber numberWithBool:isEditting]];
