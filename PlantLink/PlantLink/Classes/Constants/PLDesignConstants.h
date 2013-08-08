@@ -35,16 +35,16 @@
 #define Color_PlantCell_Border SHADE(220.0)
 
 //Images
-#define Image_Battery_Empty @"battery-empty@2x.png"
-#define Image_Battery_Fourth @"battery-one@2x.png"
-#define Image_Battery_Half @"battery-two@2x.png"
-#define Image_Battery_ThreeFourth @"battery-three@2x.png"
-#define Image_Battery_Full @"battery-four@2x.png"
+#define Image_Battery_Empty @"battery_0.png"
+#define Image_Battery_Fourth @"battery_1.png"
+#define Image_Battery_Half @"battery_2.png"
+#define Image_Battery_ThreeFourth @"battery_3.png"
+#define Image_Battery_Full @"battery_full.png"
 
-#define Image_Network_Empty @"network-empty@2x.png"
-#define Image_Network_Third @"network-one@2x.png"
-#define Image_Network_TwoThird @"network-three@2x.png"
-#define Image_Network_Full @"network-full@2x.png"
+#define Image_Network_Empty @"wifi_0.png"
+#define Image_Network_Third @"wifi_1.png"
+#define Image_Network_TwoThird @"wifi_2.png"
+#define Image_Network_Full @"wifi_full.png"
 
 #define Image_WaterCircle_Empty @"plantWaterCircle-Empty@2x.png"
 #define Image_WaterCircle_Full @"plantWaterCircle-Full@2x.png"
@@ -58,4 +58,21 @@
 #define Image_Tab_ClockHighlighted @"clockIconHighlighted.png"
 #define Image_Tab_Settings @"settingsIcon.png"
 #define Image_Tab_SettingsHighlighted @"settingsIconHighlighted.png"
+
+#define Image_Info_On @"info-on.png"
+#define Image_Info_Off @"info-off.png"
+#define Image_Icon_X @"xicon.png"
+
+#define Image_Headers_Link @"linkdetails.png"
+#define Image_Headers_Moisture @"moisturehistory.png"
+#define Image_Headers_Plant @"plantdetails.png"
+#define Image_Headers_Soil @"soilmoisture.png"
+#define Image_Headers_Schedule @"wateringschedule.png"
+
+#define Image_Pencil_Edit @"pencil_edit.png"
+#define Image_Pencil_Gray @"pencil_gray.png"
+#define Image_Pencil_White @"pencil_edit.png"
+
+#define Image_Icon_Add @"add.png"
+#define Image_Icon_Remove @"remove.png"
 

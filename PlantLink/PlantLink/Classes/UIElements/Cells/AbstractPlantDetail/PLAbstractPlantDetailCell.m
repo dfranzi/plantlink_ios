@@ -24,8 +24,11 @@
 #define PlantInfoText_Color RGB(141.0,202.0,135.0)
 #define PlantInfoText_FontSize 12.0
 
+#define PlantInfo_BorderOffset 25
+
 @implementation PLAbstractPlantDetailCell
 
+#warning If cell not loaded when show info is pressed incorrect behavior occurs
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_Plant_Edit object:nil];
@@ -43,6 +46,12 @@
         
         infoMode = NO;
         editMode = NO;
+        
+        bottomBorder = [[UIView alloc] initWithFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
+        [bottomBorder setBackgroundColor:SHADE(224.0)];
+        [bottomBorder setAlpha:0.5];
+        [self.contentView addSubview:bottomBorder];
+        
     }
     return self;
 }
@@ -60,6 +69,8 @@
         CGSize size = [_infoText sizeWithFont:infoLabel.font constrainedToSize:CGSizeMake(infoLabel.frame.size.width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
         infoLabelHeight = size.height;
         [infoLabel setFrame:CGRectMake(30, 50, width, size.height)];
+        
+        [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
     }
 }
 
@@ -89,6 +100,8 @@
         [infoContainerView setCenter:CGPointMake(contentViewCenter.x, contentViewCenter.y+infoLabelHeight)];
         [infoContainerView setAlpha:0.5];
         [infoLabel setAlpha:1.0f];
+        
+        [bottomBorder setCenter:CGPointMake(bottomBorder.center.x, bottomBorder.center.y+infoLabelHeight)];
     }];
     infoMode = YES;
 }
@@ -100,6 +113,8 @@
         [infoContainerView setCenter:contentViewCenter];
         [infoLabel setAlpha:0.0f];
         [infoContainerView setAlpha:1.0];
+        
+         [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
     }];
     infoMode = NO;
 }

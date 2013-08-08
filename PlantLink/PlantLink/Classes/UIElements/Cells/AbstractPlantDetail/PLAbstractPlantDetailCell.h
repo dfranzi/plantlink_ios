@@ -15,6 +15,9 @@
 @interface PLAbstractPlantDetailCell : AbstractTBCell {
     IBOutlet UILabel *titleLabel;
     IBOutlet UIView *infoContainerView;
+    
+    @protected
+    UIView *bottomBorder;
 }
 @property(nonatomic, strong) NSString *infoText;
 

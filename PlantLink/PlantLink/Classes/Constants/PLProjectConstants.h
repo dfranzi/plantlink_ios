@@ -10,6 +10,9 @@
 #import "PLDesignConstants.h"
 #import "PLRequestConstants.h"
 
+//Warning
+#warning Confirm caching works as intended
+
 //Constants
 #define Constant_LoginType_Login @"LoginType-Login"
 #define Constant_LoginType_Setup @"LoginType-Setup"

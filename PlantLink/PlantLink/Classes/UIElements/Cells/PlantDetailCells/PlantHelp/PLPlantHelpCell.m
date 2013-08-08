@@ -12,7 +12,7 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        
+        [bottomBorder setAlpha:0.0f];
     }
     return self;
 }
@@ -21,7 +21,7 @@
 #pragma mark Size Methods
 
 +(CGFloat)heightForContent:(NSDictionary*)content {
-    return 55+[super heightForContent:content];
+    return 77+[super heightForContent:content];
 }   
 
 @end

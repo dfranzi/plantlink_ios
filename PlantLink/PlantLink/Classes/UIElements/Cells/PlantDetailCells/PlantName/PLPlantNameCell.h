@@ -8,7 +8,10 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@interface PLPlantNameCell : PLAbstractPlantDetailCell
+@interface PLPlantNameCell : PLAbstractPlantDetailCell {
+    IBOutlet UIButton *editButton;
+    IBOutlet UIButton *infoButton;
+}
 @property(nonatomic, weak) UIViewController *enclosingController;
 
 #pragma mark -
