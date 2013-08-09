@@ -52,6 +52,7 @@
         [bottomBorder setAlpha:0.5];
         [self.contentView addSubview:bottomBorder];
         
+        [self.contentView setBackgroundColor:Color_ViewBackground];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         
     }
@@ -73,9 +74,8 @@
         [infoLabel setFrame:CGRectMake(30, 50, width, size.height)];
         
         
-        [infoContainerView setBackgroundColor:[UIColor clearColor]];
-
-        [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
+        [infoContainerView setBackgroundColor:Color_ViewBackground];
+        [self updateBorder];
     }
 }
 
@@ -96,7 +96,18 @@
 }
 
 #pragma mark -
+#pragma mark Reuse
+
+-(void)prepareForReuse {
+    [self updateBorder];
+}
+
+#pragma mark -
 #pragma mark Display Methods
+
+-(void)updateBorder {
+    [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
+}
 
 -(void)showInfo {
     if(infoMode) return;
@@ -108,6 +119,7 @@
         
         [bottomBorder setCenter:CGPointMake(bottomBorder.center.x, bottomBorder.center.y+infoLabelHeight)];
     }];
+    [infoContainerView setUserInteractionEnabled:NO];
     infoMode = YES;
 }
 
@@ -119,8 +131,9 @@
         [infoLabel setAlpha:0.0f];
         [infoContainerView setAlpha:1.0];
         
-         [bottomBorder setFrame:CGRectMake(PlantInfo_BorderOffset, self.contentView.frame.size.height-1, self.contentView.frame.size.width-2*PlantInfo_BorderOffset, 1)];
+        [self updateBorder];
     }];
+    [infoContainerView setUserInteractionEnabled:YES];
     infoMode = NO;
 }
 

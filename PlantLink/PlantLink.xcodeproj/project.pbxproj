@@ -100,6 +100,7 @@
 		6C61235D17AF025C0048EAFE /* PLPlantLinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235C17AF025C0048EAFE /* PLPlantLinkCell.m */; };
 		6C61236017AF04030048EAFE /* PLPlantNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235F17AF04030048EAFE /* PLPlantNameCell.m */; };
 		6C61236117AF040C0048EAFE /* PLPlantNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235F17AF04030048EAFE /* PLPlantNameCell.m */; };
+		6C72298C17B5985700C01EB4 /* PLPlantEditTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C72298B17B5985700C01EB4 /* PLPlantEditTextField.m */; };
 		6C753EA21797292600A47600 /* PLScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C753EA11797292600A47600 /* PLScheduleViewController.m */; };
 		6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B55FF179EE7AB0076B07E /* PLMenuButton.m */; };
 		6C7B5605179EF5C50076B07E /* PLPlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7B5604179EF5C50076B07E /* PLPlantDetailViewController.m */; };
@@ -286,6 +287,8 @@
 		6C61235E17AF04030048EAFE /* PLPlantNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantNameCell.h; path = Classes/UIElements/Cells/PlantDetailCells/PlantName/PLPlantNameCell.h; sourceTree = "<group>"; };
 		6C61235F17AF04030048EAFE /* PLPlantNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantNameCell.m; path = Classes/UIElements/Cells/PlantDetailCells/PlantName/PLPlantNameCell.m; sourceTree = "<group>"; };
 		6C61236217AF08530048EAFE /* PLRequestConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLRequestConstants.h; path = Classes/Constants/PLRequestConstants.h; sourceTree = "<group>"; };
+		6C72298A17B5985700C01EB4 /* PLPlantEditTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantEditTextField.h; path = Classes/UIElements/TextField/PlantEdit/PLPlantEditTextField.h; sourceTree = "<group>"; };
+		6C72298B17B5985700C01EB4 /* PLPlantEditTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantEditTextField.m; path = Classes/UIElements/TextField/PlantEdit/PLPlantEditTextField.m; sourceTree = "<group>"; };
 		6C753EA01797292600A47600 /* PLScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Schedule/PLScheduleViewController.h; sourceTree = "<group>"; };
 		6C753EA11797292600A47600 /* PLScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Schedule/PLScheduleViewController.m; sourceTree = "<group>"; };
 		6C7B55FE179EE7AB0076B07E /* PLMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuButton.h; path = Classes/UIElements/Buttons/Menu/PLMenuButton.h; sourceTree = "<group>"; };
@@ -358,8 +361,8 @@
 		6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libService-CodeBase.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos/libService-CodeBase.a"; sourceTree = "<group>"; };
 		6CB8711B175E4FF100B18213 /* ModelTests.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = ModelTests.strings; sourceTree = "<group>"; };
 		6CBCC4951779EEC000527961 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6CBCC49C1779F1B800527961 /* PLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTextField.h; path = Classes/UIElements/TextField/PLTextField.h; sourceTree = "<group>"; };
-		6CBCC49D1779F1B800527961 /* PLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTextField.m; path = Classes/UIElements/TextField/PLTextField.m; sourceTree = "<group>"; };
+		6CBCC49C1779F1B800527961 /* PLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTextField.h; path = Classes/UIElements/TextField/Standard/PLTextField.h; sourceTree = "<group>"; };
+		6CBCC49D1779F1B800527961 /* PLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTextField.m; path = Classes/UIElements/TextField/Standard/PLTextField.m; sourceTree = "<group>"; };
 		6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_bold.ttf; path = Fonts/bariol_bold.ttf; sourceTree = "<group>"; };
 		6CBCC4A11779F6EA00527961 /* bariol_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_light.ttf; path = Fonts/bariol_light.ttf; sourceTree = "<group>"; };
 		6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_thin.ttf; path = Fonts/bariol_thin.ttf; sourceTree = "<group>"; };
@@ -609,6 +612,24 @@
 				6C61235917AF024A0048EAFE /* PLPlantHelpCell.m */,
 			);
 			name = PlantHelp;
+			sourceTree = "<group>";
+		};
+		6C72298817B5981700C01EB4 /* Standard */ = {
+			isa = PBXGroup;
+			children = (
+				6CBCC49C1779F1B800527961 /* PLTextField.h */,
+				6CBCC49D1779F1B800527961 /* PLTextField.m */,
+			);
+			name = Standard;
+			sourceTree = "<group>";
+		};
+		6C72298917B5981E00C01EB4 /* PlantEdit */ = {
+			isa = PBXGroup;
+			children = (
+				6C72298A17B5985700C01EB4 /* PLPlantEditTextField.h */,
+				6C72298B17B5985700C01EB4 /* PLPlantEditTextField.m */,
+			);
+			name = PlantEdit;
 			sourceTree = "<group>";
 		};
 		6C753E9F1797291800A47600 /* Schedule */ = {
@@ -1115,8 +1136,8 @@
 		6CBCC49B1779F19E00527961 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				6CBCC49C1779F1B800527961 /* PLTextField.h */,
-				6CBCC49D1779F1B800527961 /* PLTextField.m */,
+				6C72298817B5981700C01EB4 /* Standard */,
+				6C72298917B5981E00C01EB4 /* PlantEdit */,
 			);
 			name = TextField;
 			sourceTree = "<group>";
@@ -1513,6 +1534,7 @@
 				6C370CDF17B45A00009974D1 /* PLSignalImageView.m in Sources */,
 				6C370CE217B45A11009974D1 /* PLBatteryImageView.m in Sources */,
 				6C370CE517B45ACB009974D1 /* PLMoistureIndicator.m in Sources */,
+				6C72298C17B5985700C01EB4 /* PLPlantEditTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

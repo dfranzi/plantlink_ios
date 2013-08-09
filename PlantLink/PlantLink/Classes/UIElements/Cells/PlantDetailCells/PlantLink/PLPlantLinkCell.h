@@ -16,6 +16,15 @@
     
     IBOutlet UILabel *batteryLabel;
     IBOutlet UILabel *wifiLabel;
+    
+    IBOutlet UIButton *addValveButton;
+    IBOutlet UIButton *removeLinkButton;
 }
+
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)disconnectLinkPushed:(id)sender;
+-(IBAction)addValvePushed:(id)sender;
 
 @end

@@ -16,6 +16,54 @@
 @implementation PLPlantLinkCell
 
 #pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)disconnectLinkPushed:(id)sender {
+
+}
+
+-(IBAction)addValvePushed:(id)sender {
+    
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)showEdit {
+    [super showEdit];
+    [self showLinkOptions];
+}
+
+-(void)hideEdit {
+    [super hideEdit];
+    [self showLinkInfo];
+}
+
+-(void)showLinkInfo {
+    [UIView animateWithDuration:0.3 animations:^{
+        [batteryImage setAlpha:1.0f];
+        [batteryLabel setAlpha:1.0f];
+        [wifiImage setAlpha:1.0f];
+        [wifiLabel setAlpha:1.0f];
+        
+        [addValveButton setAlpha:0.0f];
+        [removeLinkButton setAlpha:0.0f];
+    }];
+}
+
+-(void)showLinkOptions {
+    [UIView animateWithDuration:0.3 animations:^{
+        [batteryImage setAlpha:0.0f];
+        [batteryLabel setAlpha:0.0f];
+        [wifiImage setAlpha:0.0f];
+        [wifiLabel setAlpha:0.0f];
+        
+        [addValveButton setAlpha:1.0f];
+        [removeLinkButton setAlpha:1.0f];
+    }];
+}
+
+#pragma mark -
 #pragma mark Setters 
 
 -(void)setModel:(PLPlantModel *)model {

@@ -18,6 +18,7 @@
 
 @interface PLPlantDetailViewController() {
 @private
+    NSArray *plantCells;
 }
 
 @end
@@ -29,6 +30,9 @@
     
     _editMode = NO;
     _infoMode = NO;
+    
+    plantCells = Cell_PlantsAll;
+    [plantTableView setBackgroundColor:Color_ViewBackground];
     [plantTableView reloadData];
 }
 
@@ -61,13 +65,24 @@
 #pragma mark Setters
 
 -(void)setEditMode:(BOOL)editMode {
+    BOOL prev = _editMode;
     _editMode = editMode;
+    
     [plantTableView beginUpdates];
+    if(prev && !_editMode) {
+        plantCells = Cell_PlantsAll;
+        [plantTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];\
+    }
+    else if(!prev && _editMode) {
+        plantCells = @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantHistory, Cell_PlantLinkDetail, Cell_PlantHelp];
+        [plantTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
     [plantTableView endUpdates];
 }
 
 -(void)setInfoMode:(BOOL)infoMode {
     _infoMode = infoMode;
+    
     [plantTableView beginUpdates];
     [plantTableView endUpdates];
 }
@@ -76,57 +91,25 @@
 #pragma mark Table View Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [Cell_PlantsAll count];
+    return [plantCells count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = Cell_PlantsAll[indexPath.row];
+    NSString *cellIdentifier = plantCells[indexPath.row];
+    PLAbstractPlantDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if([cellIdentifier isEqualToString:Cell_PlantTitle]) {
-        PLPlantNameCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setEnclosingController:self];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantDetail]) {
-        PLPlantDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantMoisture]) {
-        PLPlantSoilCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantHistory]) {
-        PLPlantHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantSchedule]) {
-        PLPlantScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantLinkDetail]) {
-        PLPlantLinkCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
-    else if([cellIdentifier isEqualToString:Cell_PlantHelp]) {
-        PLPlantHelpCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        [cell setInfoText:InfoText_All[indexPath.row]];
-        [cell setModel:_model];
-        return cell;
-    }
+    if([cellIdentifier isEqualToString:Cell_PlantTitle]) [(PLPlantNameCell*)cell setEnclosingController:self];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [cell setInfoText:InfoText_All[indexPath.row]];
+    [cell setModel:_model];
+    
+    if(_infoMode) [cell showInfo];
+    else [cell hideInfo];
+    
+    if(_editMode) [cell showEdit];
+    else [cell hideEdit];
+    [cell updateBorder];
+    
     return cell;
 }
 
@@ -136,7 +119,7 @@
     infoDict[PlantInfo_InfoMode] = [NSNumber numberWithBool:_infoMode];
     infoDict[PlantInfo_InfoText] = InfoText_All[indexPath.row];
     
-    NSString *cellIdentifier = Cell_PlantsAll[indexPath.row];
+    NSString *cellIdentifier = plantCells[indexPath.row];
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) return [PLPlantNameCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantDetail]) return [PLPlantDetailsCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantMoisture]) return [PLPlantSoilCell heightForContent:infoDict];

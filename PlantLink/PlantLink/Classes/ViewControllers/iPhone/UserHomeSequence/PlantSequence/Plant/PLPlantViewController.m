@@ -123,7 +123,12 @@
     NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
     
     plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
-    [plantCollectionView reloadData];
+
+    NSMutableArray *indexes = [NSMutableArray array];
+    for(int i = 0; i < [plants count]; i++) [indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+    
+    [plantCollectionView insertItemsAtIndexPaths:indexes];
+    
     lastReload = [NSDate date];
     [sharedUser setPlantReloadTrigger:NO];
 }

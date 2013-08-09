@@ -26,6 +26,7 @@
 #pragma mark -
 #pragma mark Display Methods
 
+-(void)updateBorder;
 -(void)showInfo;
 -(void)hideInfo;
 -(void)showEdit;

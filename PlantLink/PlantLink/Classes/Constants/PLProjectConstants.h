@@ -12,6 +12,8 @@
 
 //Warning
 #warning Confirm caching works as intended
+#warning Make sure no internet doesnt screw up the nullification of requests
+#warning Make sure all onging requests are cancelled if view is left
 
 //Constants
 #define Constant_LoginType_Login @"LoginType-Login"
