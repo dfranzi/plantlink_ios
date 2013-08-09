@@ -121,8 +121,6 @@
 
 -(void)requestDidFinish:(AbstractRequest *)request {
     NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
-
-    ZALog(@"Plants: %@",array);
     
     plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
     [plantCollectionView reloadData];

@@ -8,6 +8,9 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@interface PLPlantSoilCell : PLAbstractPlantDetailCell
+@class PLMoistureIndicator;
+@interface PLPlantSoilCell : PLAbstractPlantDetailCell {
+    IBOutlet PLMoistureIndicator *moistureIndicator;
+}
 
 @end

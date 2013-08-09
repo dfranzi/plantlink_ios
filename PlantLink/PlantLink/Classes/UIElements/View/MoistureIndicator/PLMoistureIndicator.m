@@ -19,12 +19,13 @@
 
 @end
 
-#define MoistureIndicator_Offset 50
+#define MoistureIndicator_Offset 50.0
 
 @implementation PLMoistureIndicator
 
 -(id)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
+        [self nullifyWaterCircles];
         [self initialSetup];
     }
     return self;
@@ -32,6 +33,7 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
+        [self nullifyWaterCircles];
         [self initialSetup];
     }
     return self;
@@ -40,27 +42,49 @@
 #pragma mark -
 #pragma mark Setup Methods
 
--(void)initialSetup {
-    float center = self.center.x/2.0;
-    
-    [self addImageView:leftCircle atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 25)];
-    [self addImageView:leftCenterCircle atPoint:CGPointMake(center-MoistureIndicator_Offset, 25)];
-    [self addImageView:centerCircle atPoint:CGPointMake(center, 25)];
-    [self addImageView:rightCenterCircle atPoint:CGPointMake(center+MoistureIndicator_Offset, 25)];
-    [self addImageView:rightCircle atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 25)];
-    
-    [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 0)];
-    [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 0)];
-    [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 0)];
+-(void)nullifyWaterCircles {
+    leftCircle = NULL;
+    leftCenterCircle = NULL;
+    centerCircle = NULL;
+    rightCenterCircle = NULL;
+    rightCircle = NULL;
 }
 
--(void)addImageView:(UIImageView*)imageView atPoint:(CGPoint)center {
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
+-(void)initialSetup {
+    float center = self.frame.size.width/2.0;
+    
+    leftCircle = [self addWaterCircleAtPoint:CGPointMake(center-2*MoistureIndicator_Offset, 20)];
+    leftCenterCircle = [self addWaterCircleAtPoint:CGPointMake(center-MoistureIndicator_Offset, 20)];
+    centerCircle = [self addWaterCircleAtPoint:CGPointMake(center, 20)];
+    rightCenterCircle = [self addWaterCircleAtPoint:CGPointMake(center+MoistureIndicator_Offset, 20)];
+    rightCircle = [self addWaterCircleAtPoint:CGPointMake(center+2*MoistureIndicator_Offset, 20)];
+    
+    [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 55)];
+    [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 55)];
+    [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 55)];
+    
+    [self setBackgroundColor:[UIColor clearColor]];
+}
+
+-(UIImageView*)addWaterCircleAtPoint:(CGPoint)center {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 20)];
+    [imageView setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
     [imageView setCenter:center];
     [self addSubview:imageView];
+    return imageView;
 }
 
 -(void)addText:(NSString*)text atPoint:(CGPoint)center {
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21)];
+    [textLabel setBackgroundColor:[UIColor clearColor]];
+    [textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10.0]];
+    [textLabel setTextColor:[UIColor blackColor]];
+    [textLabel setTextAlignment:NSTextAlignmentCenter];
+    [textLabel setText:text];
+    [textLabel sizeToFit];
+    [textLabel setCenter:center];
+    [self addSubview:textLabel];
     
 }
 
@@ -70,7 +94,8 @@
 -(void)setMoistureLevel:(float)moistureLevel {
     _moistureLevel = moistureLevel;
     
-    NSArray *moistureCircles = @[leftCircle,leftCircle,centerCircle,rightCenterCircle,rightCircle];
+    
+    NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
     for(UIImageView *view in moistureCircles) [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
     
     if(_moistureLevel < 0.2) [leftCircle setImage:[UIImage imageNamed:Image_WaterCircle_Red]];

@@ -10,6 +10,8 @@
 
 #import "PLPlantModel.h"
 #import "PLPlantMeasurementModel.h"
+#import "PLBatteryImageView.h"
+#import "PLSignalImageView.h"
 
 @implementation PLPlantLinkCell
 
@@ -20,11 +22,16 @@
     [super setModel:model];
     
     if([self model]) {
-        int battery = [[[self model] lastMeasurement] battery]*100;
-        int signal = [[[self model] lastMeasurement] signal]*100;
+        float battery = [[[self model] lastMeasurement] battery];
+        float wifi = [[[self model] lastMeasurement] signal];
+        int batteryPercent = battery*100;
+        int signalPercent = wifi*100;
         
-        [batteryLabel setText:[NSString stringWithFormat:@"%i%% Charge",battery]];
-        [wifiLabel setText:[NSString stringWithFormat:@"%i%% Signal",signal]];
+        [batteryImage setBatteryLevel:battery];
+        [wifiImage setSignalLevel:wifi];
+        
+        [batteryLabel setText:[NSString stringWithFormat:@"%i%% Charge",batteryPercent]];
+        [wifiLabel setText:[NSString stringWithFormat:@"%i%% Signal",signalPercent]];
     }
 }
 

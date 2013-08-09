@@ -8,13 +8,23 @@
 
 #import "PLPlantSoilCell.h"
 
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
+#import "PLMoistureIndicator.h"
+
 @implementation PLPlantSoilCell
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    if(self = [super initWithCoder:aDecoder]) {
-        
+#pragma mark -
+#pragma mark Setters
+
+-(void)setModel:(PLPlantModel *)model {
+    [super setModel:model];
+    
+    if([self model]) {
+        float moisture = [[[self model] lastMeasurement] moisture];
+        ZALog(@"Moisture");
+        [moistureIndicator setMoistureLevel:moisture];
     }
-    return self;
 }
 
 #pragma mark -

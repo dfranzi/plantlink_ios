@@ -9,18 +9,16 @@
 #import "AbstractCLCell.h"
 
 @class PLPlantModel;
+@class PLMoistureIndicator;
+@class PLBatteryImageView;
+@class PLSignalImageView;
 @interface PLPlantCell : AbstractCLCell {
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *dateLabel;
     
-    IBOutlet UIImageView *batteryImage;
-    IBOutlet UIImageView *networkImage;
-    
-    IBOutlet UIImageView *waterCircleLeft;
-    IBOutlet UIImageView *waterCircleLCenter;
-    IBOutlet UIImageView *waterCircleCenter;
-    IBOutlet UIImageView *waterCircleRCenter;
-    IBOutlet UIImageView *waterCircleRight;
+    IBOutlet PLMoistureIndicator *moistureIndicator;
+    IBOutlet PLBatteryImageView *batteryImage;
+    IBOutlet PLSignalImageView *signalImage;
     
     IBOutlet UIView *separatorView;
 }
