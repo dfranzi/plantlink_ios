@@ -138,8 +138,6 @@
 		6C972B9817550B4C007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972BA017550B4C007234B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B9E17550B4C007234B6 /* InfoPlist.strings */; };
 		6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BA217550B4C007234B6 /* PlantLinkTests.m */; };
-		6C972BF71755634C007234B6 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF61755634C007234B6 /* icon_57.png */; };
-		6C972BF91755634E007234B6 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972BF81755634E007234B6 /* icon_114.png */; };
 		6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9C0DD6175E744300864EF1 /* Localizable.strings */; };
 		6C9C633A1772123100992D27 /* PLLinkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9C63391772123100992D27 /* PLLinkRequest.m */; };
 		6CB86FB7175D560F00B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
@@ -153,6 +151,10 @@
 		6CBCC4AA1779FC6A00527961 /* bariol_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */; };
 		6CBCC4AB1779FC6C00527961 /* bariol_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A11779F6EA00527961 /* bariol_light.ttf */; };
 		6CBCC4AC1779FC6F00527961 /* bariol_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */; };
+		6CC2F77917BC99FF002C4A1B /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77817BC99FF002C4A1B /* icon_57.png */; };
+		6CC2F77B17BC9A02002C4A1B /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77A17BC9A02002C4A1B /* icon_114.png */; };
+		6CC2F77D17BC9A06002C4A1B /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77C17BC9A06002C4A1B /* icon_72.png */; };
+		6CC2F77F17BC9A08002C4A1B /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77E17BC9A08002C4A1B /* icon_144.png */; };
 		6CE3CE9A1796F9E600618892 /* PLPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CE991796F9E600618892 /* PLPlantViewController.m */; };
 		6CE3CE9E1796FA6300618892 /* PLPlantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CE9D1796FA6300618892 /* PLPlantCell.m */; };
 		6CE3CEA917970E7900618892 /* PLPlantTypeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEA817970E7900618892 /* PLPlantTypeSelectViewController.m */; };
@@ -353,8 +355,6 @@
 		6C972B9F17550B4C007234B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C972BA117550B4C007234B6 /* PlantLinkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlantLinkTests.h; sourceTree = "<group>"; };
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
-		6C972BF61755634C007234B6 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
-		6C972BF81755634E007234B6 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C9C63381772123100992D27 /* PLLinkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkRequest.h; path = Classes/Requests/Link/PLLinkRequest.h; sourceTree = "<group>"; };
 		6C9C63391772123100992D27 /* PLLinkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkRequest.m; path = Classes/Requests/Link/PLLinkRequest.m; sourceTree = "<group>"; };
@@ -366,6 +366,10 @@
 		6CBCC4A01779F6EA00527961 /* bariol_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_bold.ttf; path = Fonts/bariol_bold.ttf; sourceTree = "<group>"; };
 		6CBCC4A11779F6EA00527961 /* bariol_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_light.ttf; path = Fonts/bariol_light.ttf; sourceTree = "<group>"; };
 		6CBCC4A21779F6EA00527961 /* bariol_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bariol_thin.ttf; path = Fonts/bariol_thin.ttf; sourceTree = "<group>"; };
+		6CC2F77817BC99FF002C4A1B /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		6CC2F77A17BC9A02002C4A1B /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		6CC2F77C17BC9A06002C4A1B /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
+		6CC2F77E17BC9A08002C4A1B /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		6CE3CE981796F9E600618892 /* PLPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.h; sourceTree = "<group>"; };
 		6CE3CE991796F9E600618892 /* PLPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.m; sourceTree = "<group>"; };
 		6CE3CE9C1796FA6300618892 /* PLPlantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantCell.h; path = Classes/UIElements/Cells/Plant/PLPlantCell.h; sourceTree = "<group>"; };
@@ -1126,8 +1130,10 @@
 		6CB86FBE175D58FE00B18213 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				6C972BF81755634E007234B6 /* icon_114.png */,
-				6C972BF61755634C007234B6 /* icon_57.png */,
+				6CC2F77E17BC9A08002C4A1B /* icon_144.png */,
+				6CC2F77C17BC9A06002C4A1B /* icon_72.png */,
+				6CC2F77A17BC9A02002C4A1B /* icon_114.png */,
+				6CC2F77817BC99FF002C4A1B /* icon_57.png */,
 			);
 			name = Icons;
 			path = ..;
@@ -1366,8 +1372,6 @@
 				6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */,
 				6C972B8817550B4B007234B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				6C972B8B17550B4B007234B6 /* MainStoryboard_iPad.storyboard in Resources */,
-				6C972BF71755634C007234B6 /* icon_57.png in Resources */,
-				6C972BF91755634E007234B6 /* icon_114.png in Resources */,
 				6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */,
 				6CBCC4AA1779FC6A00527961 /* bariol_bold.ttf in Resources */,
 				6CBCC4AB1779FC6C00527961 /* bariol_light.ttf in Resources */,
@@ -1444,6 +1448,10 @@
 				6C2FC83B17B366F100184FB3 /* remove@2x.png in Resources */,
 				6C2FC83E17B366FA00184FB3 /* add.png in Resources */,
 				6C2FC83F17B366FA00184FB3 /* remove.png in Resources */,
+				6CC2F77917BC99FF002C4A1B /* icon_57.png in Resources */,
+				6CC2F77B17BC9A02002C4A1B /* icon_114.png in Resources */,
+				6CC2F77D17BC9A06002C4A1B /* icon_72.png in Resources */,
+				6CC2F77F17BC9A08002C4A1B /* icon_144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
