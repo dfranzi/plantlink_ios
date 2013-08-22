@@ -14,6 +14,11 @@
 @interface PLTextField : UITextField
 
 #pragma mark -
+#pragma mark Display Methods
+
+-(void)setTitle:(NSString*)title;
+
+#pragma mark -
 #pragma mark Validation Methods
 
 -(void)showValidationError;

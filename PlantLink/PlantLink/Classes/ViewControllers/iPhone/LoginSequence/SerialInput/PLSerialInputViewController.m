@@ -8,6 +8,8 @@
 
 #import "PLSerialInputViewController.h"
 
+#import "PLTextField.h"
+
 @interface PLSerialInputViewController() {
 @private
 }
@@ -19,6 +21,9 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToLocationInput];
+    
+    [self.navigationItem setTitle:@"Serial Number"];
+    [serialTextField setTitle:@"Serial #"];
 }
 
 #pragma mark -

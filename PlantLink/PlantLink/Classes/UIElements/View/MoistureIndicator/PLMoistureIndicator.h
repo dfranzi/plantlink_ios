@@ -10,5 +10,6 @@
 
 @interface PLMoistureIndicator : UIView
 @property(nonatomic, assign) float moistureLevel;
+@property(nonatomic, assign, readonly) BOOL onLowestMoisture;
 
 @end

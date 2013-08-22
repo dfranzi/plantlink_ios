@@ -29,6 +29,7 @@
 #define Color_ViewBackground RGB(240.0,245.0,238.0)
 
 #define Color_TabBar_Background SHADE(250.0)
+#define Color_NavBar_Background RGB(0.0,174.0,240.0)
 
 #define Color_MenuButton_Up RGB(75.0,176.0,227.0)
 #define Color_MenuButton_Down RGB(65.0,166.0,217.0)

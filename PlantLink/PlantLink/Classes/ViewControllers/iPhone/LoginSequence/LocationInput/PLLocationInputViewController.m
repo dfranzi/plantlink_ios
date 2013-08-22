@@ -28,6 +28,9 @@
     
     sharedLocation = [LocationManager initializeLocationManager];
     [locationTextField setBackgroundColor:SHADE(250.0)];
+    
+    [self.navigationItem setTitle:@"Location"];
+    [locationTextField setTitle:@"Location"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

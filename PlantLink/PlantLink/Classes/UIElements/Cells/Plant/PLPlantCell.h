@@ -15,6 +15,7 @@
 @interface PLPlantCell : AbstractCLCell {
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *dateLabel;
+    IBOutlet UILabel *waterLabel;
     
     IBOutlet PLMoistureIndicator *moistureIndicator;
     IBOutlet PLBatteryImageView *batteryImage;

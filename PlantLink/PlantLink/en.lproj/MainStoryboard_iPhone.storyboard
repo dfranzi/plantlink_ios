@@ -7,9 +7,10 @@
         <!--Navigation Controller-->
         <scene sceneID="BLs-F1-t45">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="TmI-ib-oW0" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7nT-bT-kaj">
+                <navigationController definesPresentationContext="YES" id="TmI-ib-oW0" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="7nT-bT-kaj">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -29,11 +30,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rW1-lv-0aM" customClass="PLMenuButton">
-                                <rect key="frame" x="88" y="361" width="144" height="46"/>
+                                <rect key="frame" x="107" y="352" width="106" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Setup">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,14 +42,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="setupPushed:" destination="DHn-8Z-HTV" eventType="touchUpInside" id="cb6-Hq-CW4"/>
+                                    <action selector="loginPushed:" destination="DHn-8Z-HTV" eventType="touchUpInside" id="liF-cT-Kol"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SV4-ma-TZL">
                                 <rect key="frame" x="88" y="406" width="144" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Setup">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -56,7 +57,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPushed:" destination="DHn-8Z-HTV" eventType="touchUpInside" id="ex3-I1-vYY"/>
+                                    <action selector="setupPushed:" destination="DHn-8Z-HTV" eventType="touchUpInside" id="vhj-dM-cnm"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="plantlinklogo.png" id="IZN-h9-xEZ">
@@ -67,6 +68,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="R6g-77-ub0"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="Ms2-GX-xOL" kind="push" identifier="toLoginView" id="GdK-bD-xVZ"/>
                     </connections>
@@ -113,8 +115,8 @@
                                     <action selector="nextPushed:" destination="Ms2-GX-xOL" eventType="touchUpInside" id="ySj-JV-hNi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" minimumFontSize="17" clearButtonMode="whileEditing" id="oGU-7m-5b0" customClass="PLTextField">
-                                <rect key="frame" x="20" y="21" width="280" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Smith" textAlignment="right" minimumFontSize="17" id="oGU-7m-5b0" customClass="PLTextField">
+                                <rect key="frame" x="20" y="60" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -123,8 +125,8 @@
                                     <outlet property="delegate" destination="Ms2-GX-xOL" id="A4d-2i-zbB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" clearButtonMode="whileEditing" id="KNi-vD-F3E" customClass="PLTextField">
-                                <rect key="frame" x="20" y="82" width="280" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jsmith@gmail.com" textAlignment="right" minimumFontSize="17" id="KNi-vD-F3E" customClass="PLTextField">
+                                <rect key="frame" x="20" y="108" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -133,8 +135,8 @@
                                     <outlet property="delegate" destination="Ms2-GX-xOL" id="y9I-Sx-WTJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" id="S9x-HH-huG" customClass="PLTextField">
-                                <rect key="frame" x="20" y="143" width="280" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="at least 8 characters" textAlignment="right" minimumFontSize="17" id="S9x-HH-huG" customClass="PLTextField">
+                                <rect key="frame" x="20" y="156" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -143,7 +145,7 @@
                                     <outlet property="delegate" destination="Ms2-GX-xOL" id="R6Q-88-TKp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" minimumFontSize="17" clearButtonMode="whileEditing" id="rbm-Xq-J4h" customClass="PLTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="right" minimumFontSize="17" id="rbm-Xq-J4h" customClass="PLTextField">
                                 <rect key="frame" x="20" y="204" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,12 +155,48 @@
                                     <outlet property="delegate" destination="Ms2-GX-xOL" id="qPS-Wx-KVR"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cZ-Oi-tPU">
+                                <rect key="frame" x="27" y="255" width="266" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Before signing up, you agree to the ">
+                                        <attributes>
+                                            <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Terms of Service ">
+                                        <attributes>
+                                            <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="&amp;">
+                                        <attributes>
+                                            <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Privacy Policy">
+                                        <attributes>
+                                            <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uf9-nv-beQ"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="rbm-Xq-J4h" id="fAB-wl-UV4"/>
+                        <outlet property="disclaimerTextField" destination="6cZ-Oi-tPU" id="1BZ-06-Eas"/>
                         <outlet property="emailTextField" destination="KNi-vD-F3E" id="nce-w6-OJj"/>
                         <outlet property="nameTextField" destination="oGU-7m-5b0" id="qmU-V6-Aer"/>
                         <outlet property="passwordTextField" destination="S9x-HH-huG" id="S3O-oV-DnP"/>
@@ -208,7 +246,7 @@
                                     <action selector="nextPushed:" destination="EB4-ah-6an" eventType="touchUpInside" id="WMR-Ta-HkC"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="serial #" minimumFontSize="17" id="m63-Pc-gbl" customClass="PLTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="### - ### - ####" textAlignment="right" minimumFontSize="17" id="m63-Pc-gbl" customClass="PLTextField">
                                 <rect key="frame" x="20" y="188" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,6 +260,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KWX-Pt-0v1">
+                                <rect key="frame" x="27" y="236" width="266" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Find your unique serial number underneath the base station">
+                                        <attributes>
+                                            <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -417,8 +469,8 @@
                                     <outlet property="delegate" destination="XmO-8R-qih" id="8eD-w4-sRC"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="location" minimumFontSize="17" id="4ns-va-QAY" customClass="PLTextField">
-                                <rect key="frame" x="20" y="10" width="280" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search your location" textAlignment="right" minimumFontSize="17" id="4ns-va-QAY" customClass="PLTextField">
+                                <rect key="frame" x="20" y="282" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -427,35 +479,17 @@
                                     <outlet property="delegate" destination="XmO-8R-qih" id="Req-HV-OJJ"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3xg-Ok-P2I">
-                                <rect key="frame" x="0.0" y="226" width="75" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wfd-Ma-LdX">
+                                <rect key="frame" x="20" y="330" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Use current location?">
+                                    <color key="titleColor" red="0.0" green="0.68235294120000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="searchPushed:" destination="XmO-8R-qih" eventType="touchUpInside" id="ID4-Yi-gf6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vep-VS-HIe">
-                                <rect key="frame" x="233" y="226" width="87" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Curr Loc">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCurrentLocationPushed:" destination="XmO-8R-qih" eventType="touchUpInside" id="ufG-ew-x3C"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -487,9 +521,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cNq-5F-m7R" customClass="PLMenuButton">
-                                <rect key="frame" x="88" y="273" width="144" height="46"/>
+                                <rect key="frame" x="179" y="273" width="107" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.68235294117647061" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="YES">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -502,19 +536,21 @@
                                     <action selector="yesPushed:" destination="nWk-wm-dS0" eventType="touchUpInside" id="aqu-IB-Hds"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BUm-Uv-oBh">
-                                <rect key="frame" x="88" y="318" width="144" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rj0-W1-aoK" customClass="PLMenuButton">
+                                <rect key="frame" x="34" y="273" width="107" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.12941176470588234" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="0.92941176470588238" green="0.12941176470588234" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Later">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="laterPushed:" destination="nWk-wm-dS0" eventType="touchUpInside" id="uBW-Tr-Pif"/>
+                                    <action selector="laterPushed:" destination="nWk-wm-dS0" eventType="touchUpInside" id="gek-aL-xsu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -571,19 +607,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="Kn2-Sh-XuA">
-                                                    <rect key="frame" x="17" y="131" width="261" height="2"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <rect key="frame" x="17" y="131.5" width="261" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.90160241788321172" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Basil Garden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nvs-QV-zuj">
-                                                    <rect key="frame" x="20" y="23" width="255" height="29"/>
+                                                    <rect key="frame" x="17" y="23" width="258" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hzn-sG-2wo">
-                                                    <rect key="frame" x="15" y="141" width="97" height="21"/>
+                                                    <rect key="frame" x="17" y="141" width="97" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Water this">
@@ -612,15 +648,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="wifi_1.png" id="X4a-FD-inw" customClass="PLSignalImageView">
-                                                    <rect key="frame" x="249" y="141" width="20" height="21"/>
+                                                    <rect key="frame" x="255" y="141" width="20" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="battery_1.png" id="jX4-JY-eMn" customClass="PLBatteryImageView">
-                                                    <rect key="frame" x="213" y="143" width="23" height="18"/>
+                                                    <rect key="frame" x="219" y="143" width="23" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="VSM-KX-O2c" customClass="PLMoistureIndicator">
-                                                    <rect key="frame" x="17" y="60" width="261" height="62"/>
+                                                    <rect key="frame" x="17" y="60" width="258" height="62"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -636,24 +672,25 @@
                                             <outlet property="nameLabel" destination="nvs-QV-zuj" id="xWJ-FJ-Y0H"/>
                                             <outlet property="separatorView" destination="Kn2-Sh-XuA" id="QYs-6L-K4F"/>
                                             <outlet property="signalImage" destination="X4a-FD-inw" id="YOv-xT-SQv"/>
+                                            <outlet property="waterLabel" destination="hzn-sG-2wo" id="HCk-UQ-ajk"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addPlantCell" id="rSs-GZ-l9q" customClass="PLPlantCell">
-                                        <rect key="frame" x="12" y="196" width="295" height="60"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addPlantCell" id="rSs-GZ-l9q">
+                                        <rect key="frame" x="12" y="196" width="295" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="addPlant.png" id="Izf-vy-UZ5">
-                                                    <rect key="frame" x="96" y="6" width="103" height="21"/>
+                                                    <rect key="frame" x="96" y="34" width="103" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <size key="customSize" width="295" height="60"/>
+                                        <size key="customSize" width="295" height="90"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -1159,11 +1196,11 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" id="LgJ-70-3Hb">
-                                <rect key="frame" x="10" y="392" width="300" height="58"/>
+                                <rect key="frame" x="0.0" y="413" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E5J-1j-OzK">
-                                        <rect key="frame" x="20" y="9" width="40" height="41"/>
+                                        <rect key="frame" x="30" y="3" width="40" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="&lt;-">
@@ -1178,7 +1215,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k3T-ch-8dB">
-                                        <rect key="frame" x="240" y="9" width="40" height="41"/>
+                                        <rect key="frame" x="250" y="3" width="40" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="->">
@@ -1193,7 +1230,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" id="ibh-Lf-Gvc">
-                                        <rect key="frame" x="70" y="11" width="160" height="36"/>
+                                        <rect key="frame" x="80" y="5" width="160" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="pageIndicatorTintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1207,7 +1244,7 @@
                     <navigationItem key="navigationItem" id="scf-ud-bf9"/>
                     <connections>
                         <outlet property="infoCollectionView" destination="axS-LC-yu6" id="zSU-wy-xtm"/>
-                        <outlet property="infoPageControl" destination="ibh-Lf-Gvc" id="nUz-Aa-JzG"/>
+                        <outlet property="infoPageControl" destination="ibh-Lf-Gvc" id="mmb-fV-gI1"/>
                         <segue destination="nWk-wm-dS0" kind="push" identifier="toAddFirstPlantView" id="vW5-vx-Y2I"/>
                     </connections>
                 </viewController>
@@ -1688,6 +1725,229 @@
         <image name="wifi_1.png" width="24" height="19"/>
         <image name="xicon.png" width="19" height="19"/>
     </resources>
+    <classes>
+        <class className="AbstractCLCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractCLCell.h"/>
+        </class>
+        <class className="AbstractTBCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractTBCell.h"/>
+        </class>
+        <class className="PLAbstractPlantDetailCell" superclassName="AbstractTBCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractPlantDetailCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLAbstractViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextPushed:"/>
+                <relationship kind="action" name="popView:"/>
+            </relationships>
+        </class>
+        <class className="PLAddFirstPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddFirstPlantViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="laterPushed:"/>
+                <relationship kind="action" name="yesPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLAddValveToPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddValveToPlantViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="noPushed:"/>
+                <relationship kind="action" name="whatIsAValvePushed:"/>
+                <relationship kind="action" name="yesPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLBaseStationSyncViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBaseStationSyncViewController.h"/>
+        </class>
+        <class className="PLBatteryImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBatteryImageView.h"/>
+        </class>
+        <class className="PLHomeViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLHomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPushed:"/>
+                <relationship kind="action" name="setupPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLInformationViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLInformationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoCollectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="infoPageControl" candidateClass="UIPageControl"/>
+            </relationships>
+        </class>
+        <class className="PLLocationInputViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLocationInputViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCurrentLocationPushed:"/>
+                <relationship kind="action" name="searchPushed:"/>
+                <relationship kind="outlet" name="locationMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="locationTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLLoginViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="disclaimerTextField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLMenuButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMenuButton.h"/>
+        </class>
+        <class className="PLMoistureIndicator" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMoistureIndicator.h"/>
+        </class>
+        <class className="PLNotificationsViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationsViewController.h"/>
+        </class>
+        <class className="PLPlantCell" superclassName="AbstractCLCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="batteryImage" candidateClass="PLBatteryImageView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="moistureIndicator" candidateClass="PLMoistureIndicator"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="signalImage" candidateClass="PLSignalImageView"/>
+                <relationship kind="outlet" name="waterLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantDetailViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="plantTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PLPlantDetailsCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantDetailsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="locationTextField" candidateClass="PLPlantEditTextField"/>
+                <relationship kind="outlet" name="plantTypeTextField" candidateClass="PLPlantEditTextField"/>
+                <relationship kind="outlet" name="soilTypeTextField" candidateClass="PLPlantEditTextField"/>
+            </relationships>
+        </class>
+        <class className="PLPlantEditTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantEditTextField.h"/>
+        </class>
+        <class className="PLPlantHelpCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantHelpCell.h"/>
+        </class>
+        <class className="PLPlantHistoryCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantHistoryCell.h"/>
+        </class>
+        <class className="PLPlantLinkCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantLinkCell.h"/>
+            <relationships>
+                <relationship kind="action" name="addValvePushed:"/>
+                <relationship kind="action" name="disconnectLinkPushed:"/>
+                <relationship kind="outlet" name="addValveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="batteryImage" candidateClass="PLBatteryImageView"/>
+                <relationship kind="outlet" name="batteryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="removeLinkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="wifiImage" candidateClass="PLSignalImageView"/>
+                <relationship kind="outlet" name="wifiLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantLinkSyncViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantLinkSyncViewController.h"/>
+        </class>
+        <class className="PLPlantNameCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNameCell.h"/>
+            <relationships>
+                <relationship kind="action" name="backPushed:"/>
+                <relationship kind="action" name="editPushed:"/>
+                <relationship kind="action" name="infoPushed:"/>
+                <relationship kind="outlet" name="activeOnLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantNicknameSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNicknameSelectViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nicknameTextField" candidateClass="PLTextField"/>
+                <relationship kind="outlet" name="plantTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="soilTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantScheduleCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantScheduleCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="waterOnLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PLPlantSoilCell" superclassName="PLAbstractPlantDetailCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSoilCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="moistureIndicator" candidateClass="PLMoistureIndicator"/>
+            </relationships>
+        </class>
+        <class className="PLPlantTypeSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantTypeSelectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="helpPushed:"/>
+                <relationship kind="action" name="plantTypeTextEditted:"/>
+                <relationship kind="outlet" name="plantTypeTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="plantTypeTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="plantCollectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="PLScheduleViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLScheduleViewController.h"/>
+        </class>
+        <class className="PLSerialInputViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSerialInputViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="serialTextField" candidateClass="PLTextField"/>
+            </relationships>
+        </class>
+        <class className="PLSettingsViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPushed:"/>
+            </relationships>
+        </class>
+        <class className="PLSignalImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSignalImageView.h"/>
+        </class>
+        <class className="PLSoilTypeSelectViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSoilTypeSelectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="helpPushed:"/>
+                <relationship kind="outlet" name="soilTypeTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PLTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTextField.h"/>
+        </class>
+        <class className="PLUserHomeViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLUserHomeViewController.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

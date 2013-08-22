@@ -23,6 +23,13 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToSerialInput];
+    
+    [self.navigationItem setTitle:@"Account Info"];
+
+    [nameTextField setTitle:@"Name"];
+    [emailTextField setTitle:@"Email"];
+    [passwordTextField setTitle:@"Password"];
+    [confirmPasswordTextField setTitle:@"Confirm"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -34,6 +41,9 @@
         [confirmPasswordTextField setAlpha:0.0f];
         [nameTextField setAlpha:0.0f];
         [passwordTextField setReturnKeyType:UIReturnKeyGo];
+        [disclaimerTextField setAlpha:0.0];
+        
+        [self adjustTextFieldLocations:@[emailTextField,passwordTextField] offset:0];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *savedEmail = [defaults objectForKey:Defaults_SavedEmail];
@@ -44,7 +54,16 @@
         [confirmPasswordTextField setAlpha:1.0f];
         [nameTextField setAlpha:1.0f];
         [passwordTextField setReturnKeyType:UIReturnKeyNext];
+        
+        [self adjustTextFieldLocations:@[nameTextField,emailTextField,passwordTextField,confirmPasswordTextField] offset:0];
+        
+        [disclaimerTextField setAlpha:1.0];
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -61,7 +80,41 @@
 }
 
 #pragma mark -
+#pragma mark Display Methods
+
+-(void)adjustTextFieldLocations:(NSArray*)fields offset:(int)offset {
+    for(int i = 0; i < [fields count]; i++) {
+        UITextField *field = fields[i];
+        [field setCenter:CGPointMake(160, 80+i*48+offset)];
+    }
+}
+
+-(void)adjustViewToNewResponder:(UIView*)view {
+    
+    NSArray *fields = @[];
+    if([[sharedUser loginType] isEqual:Constant_LoginType_Login]) fields = @[emailTextField,passwordTextField];
+    else fields = @[nameTextField,emailTextField,passwordTextField,confirmPasswordTextField];
+    
+    if([view isEqual:confirmPasswordTextField]) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self adjustTextFieldLocations:fields offset:-48];
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self adjustTextFieldLocations:fields offset:0];
+        }];
+    }
+}
+
+
+
+#pragma mark -
 #pragma mark Text Field Methods
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self adjustViewToNewResponder:textField];
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if([textField isEqual:nameTextField]) {

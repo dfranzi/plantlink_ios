@@ -16,6 +16,7 @@
     IBOutlet PLTextField *emailTextField;
     IBOutlet PLTextField *passwordTextField;
     IBOutlet PLTextField *confirmPasswordTextField;
+    IBOutlet UILabel *disclaimerTextField;
 }
 
 @end

@@ -13,21 +13,40 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        UIView *bottomBorder = [[UIView alloc] initWithFrame:CGRectMake(5, self.frame.size.height-6, self.frame.size.width-10, 2)];
-        [bottomBorder setBackgroundColor:[UIColor darkGrayColor]];
-        [self addSubview:bottomBorder];
+        [self setFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
+        [self setBackgroundColor:[UIColor whiteColor]];
         
-        [self setFont:[UIFont fontWithName:@"Helvetica" size:17.0]];
-        [self setBackgroundColor:[UIColor clearColor]];
+        [self.layer setCornerRadius:4.0];
+        [self.layer setMasksToBounds:YES];
+        [self setBorderStyle:UITextBorderStyleNone];
+        
+        [self.layer setBorderColor:RGB(228,238,233).CGColor];
+        [self.layer setBorderWidth:2.0];
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)setTitle:(NSString*)title {
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [titleLabel setText:title];
+    [titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0]];
+    
+    [titleLabel sizeToFit];
+    [titleLabel setFrame:CGRectMake(0, 0, titleLabel.frame.size.width+26, self.frame.size.height)];
+    
+    [self setLeftView:titleLabel];
+    [self setLeftViewMode:UITextFieldViewModeAlways];
 }
 
 #pragma mark -
 #pragma mark Bounds Methods
 
 -(CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds , 10, 0);
+    return CGRectInset(bounds , 14, 0);
 }
 
 -(CGRect)editingRectForBounds:(CGRect)bounds {

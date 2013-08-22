@@ -80,7 +80,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [plants count]) return CGSizeMake(295.0, 60.0);
+    if(indexPath.row == [plants count]) return CGSizeMake(295.0, 90.0);
     return [PLPlantCell sizeForContent:@{}];
 }
 
