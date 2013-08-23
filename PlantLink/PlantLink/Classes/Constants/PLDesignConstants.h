@@ -23,6 +23,9 @@
 #define Cell_PlantLinkDetail @"plantLinkDetailsCell"
 #define Cell_PlantHelp @"plantHelpCell"
 
+#define Cell_SettingsImage @"settingsImageCell"
+#define Cell_Settings @"settingsCell"
+
 #define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail, Cell_PlantHelp]
 
 //Colors

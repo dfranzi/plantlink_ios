@@ -10,6 +10,8 @@
 
 #import "PLUserManager.h"
 
+#define TabBar_Offset -7
+
 @interface PLUserHomeViewController() {
 @private
     PLUserManager *sharedUserManager;
@@ -24,6 +26,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_User_Logout object:nil];
     
     for(UIViewController *controller in self.viewControllers) [controller viewDidLoad];
+    
+    [self addTopBorder];
+    [self addSeparatorAtInterval:0.25];
+    [self addSeparatorAtInterval:0.50];
+    [self addSeparatorAtInterval:0.75];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -50,6 +57,21 @@
     if([controllers count] > 2) {
         [self.navigationController setViewControllers:@[self.navigationController.viewControllers[0],self]];
     }
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)addTopBorder {
+    UIView *top = [[UIView alloc] initWithFrame:CGRectMake(0, TabBar_Offset, self.tabBar.frame.size.width, 1)];
+    [top setBackgroundColor:SHADE(235.0)];
+    [self.tabBar addSubview:top];
+}
+
+-(void)addSeparatorAtInterval:(float)interval {
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake((int) (interval * self.tabBar.frame.size.width), TabBar_Offset+1, 1, self.tabBar.frame.size.height-TabBar_Offset-1)];
+    [separator setBackgroundColor:SHADE(235.0)];
+    [self.tabBar addSubview:separator];
 }
 
 #pragma mark -

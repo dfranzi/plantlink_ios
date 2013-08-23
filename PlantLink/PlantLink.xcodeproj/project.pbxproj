@@ -122,6 +122,10 @@
 		6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA40F1756692C0019FC4B /* PLAbstractViewController.m */; };
 		6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8CA4251756810E0019FC4B /* PLLinkModel.m */; };
 		6C8CA42D175694580019FC4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8CA42B175694490019FC4B /* SystemConfiguration.framework */; };
+		6C92A92617C6F7570004BFF3 /* PLNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C92A92517C6F7570004BFF3 /* PLNotificationViewController.m */; };
+		6C92A92917C6F7660004BFF3 /* PLContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C92A92817C6F7660004BFF3 /* PLContactUsViewController.m */; };
+		6C92A92C17C6F7780004BFF3 /* PLTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C92A92B17C6F7780004BFF3 /* PLTutorialViewController.m */; };
+		6C92A92F17C6F78B0004BFF3 /* PLBugReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C92A92E17C6F78B0004BFF3 /* PLBugReportViewController.m */; };
 		6C972B6F17550B4B007234B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B6E17550B4B007234B6 /* UIKit.framework */; };
 		6C972B7117550B4B007234B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7017550B4B007234B6 /* Foundation.framework */; };
 		6C972B7317550B4B007234B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C972B7217550B4B007234B6 /* CoreGraphics.framework */; };
@@ -155,6 +159,7 @@
 		6CC2F77B17BC9A02002C4A1B /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77A17BC9A02002C4A1B /* icon_114.png */; };
 		6CC2F77D17BC9A06002C4A1B /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77C17BC9A06002C4A1B /* icon_72.png */; };
 		6CC2F77F17BC9A08002C4A1B /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2F77E17BC9A08002C4A1B /* icon_144.png */; };
+		6CD7514717C6AFE800FE2C4C /* PLSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD7514617C6AFE800FE2C4C /* PLSettingsCell.m */; };
 		6CE3CE9A1796F9E600618892 /* PLPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CE991796F9E600618892 /* PLPlantViewController.m */; };
 		6CE3CE9E1796FA6300618892 /* PLPlantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CE9D1796FA6300618892 /* PLPlantCell.m */; };
 		6CE3CEA917970E7900618892 /* PLPlantTypeSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEA817970E7900618892 /* PLPlantTypeSelectViewController.m */; };
@@ -334,6 +339,14 @@
 		6C8CA4241756810E0019FC4B /* PLLinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLinkModel.h; path = Classes/Models/Link/PLLinkModel.h; sourceTree = "<group>"; };
 		6C8CA4251756810E0019FC4B /* PLLinkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLinkModel.m; path = Classes/Models/Link/PLLinkModel.m; sourceTree = "<group>"; };
 		6C8CA42B175694490019FC4B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C92A92417C6F7570004BFF3 /* PLNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Notifications/PLNotificationViewController.h; sourceTree = "<group>"; };
+		6C92A92517C6F7570004BFF3 /* PLNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Notifications/PLNotificationViewController.m; sourceTree = "<group>"; };
+		6C92A92717C6F7660004BFF3 /* PLContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLContactUsViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/ContactUs/PLContactUsViewController.h; sourceTree = "<group>"; };
+		6C92A92817C6F7660004BFF3 /* PLContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLContactUsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/ContactUs/PLContactUsViewController.m; sourceTree = "<group>"; };
+		6C92A92A17C6F7780004BFF3 /* PLTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLTutorialViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Tutorial/PLTutorialViewController.h; sourceTree = "<group>"; };
+		6C92A92B17C6F7780004BFF3 /* PLTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLTutorialViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Tutorial/PLTutorialViewController.m; sourceTree = "<group>"; };
+		6C92A92D17C6F78B0004BFF3 /* PLBugReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLBugReportViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/BugReport/PLBugReportViewController.h; sourceTree = "<group>"; };
+		6C92A92E17C6F78B0004BFF3 /* PLBugReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLBugReportViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/BugReport/PLBugReportViewController.m; sourceTree = "<group>"; };
 		6C972B6B17550B4B007234B6 /* PlantLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C972B6E17550B4B007234B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6C972B7017550B4B007234B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -370,6 +383,8 @@
 		6CC2F77A17BC9A02002C4A1B /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		6CC2F77C17BC9A06002C4A1B /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
 		6CC2F77E17BC9A08002C4A1B /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
+		6CD7514517C6AFE800FE2C4C /* PLSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSettingsCell.h; path = Classes/UIElements/Cells/Settings/PLSettingsCell.h; sourceTree = "<group>"; };
+		6CD7514617C6AFE800FE2C4C /* PLSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSettingsCell.m; path = Classes/UIElements/Cells/Settings/PLSettingsCell.m; sourceTree = "<group>"; };
 		6CE3CE981796F9E600618892 /* PLPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.h; sourceTree = "<group>"; };
 		6CE3CE991796F9E600618892 /* PLPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/PlantSequence/Plant/PLPlantViewController.m; sourceTree = "<group>"; };
 		6CE3CE9C1796FA6300618892 /* PLPlantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantCell.h; path = Classes/UIElements/Cells/Plant/PLPlantCell.h; sourceTree = "<group>"; };
@@ -387,8 +402,8 @@
 		6CE3CEB617970F0700618892 /* PLAddValveToPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAddValveToPlantViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/AddValveToPlant/PLAddValveToPlantViewController.h; sourceTree = "<group>"; };
 		6CE3CEB717970F0700618892 /* PLAddValveToPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAddValveToPlantViewController.m; path = Classes/ViewControllers/iPhone/AddPlantSequence/AddValveToPlant/PLAddValveToPlantViewController.m; sourceTree = "<group>"; };
 		6CE3CEB9179720AF00618892 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		6CE3CEC21797257500618892 /* PLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSettingsViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Settings/PLSettingsViewController.h; sourceTree = "<group>"; };
-		6CE3CEC31797257500618892 /* PLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSettingsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Settings/PLSettingsViewController.m; sourceTree = "<group>"; };
+		6CE3CEC21797257500618892 /* PLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSettingsViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Settings/PLSettingsViewController.h; sourceTree = "<group>"; };
+		6CE3CEC31797257500618892 /* PLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSettingsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Settings/PLSettingsViewController.m; sourceTree = "<group>"; };
 		6CE3CEC51797258800618892 /* PLNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationsViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Notifications/PLNotificationsViewController.h; sourceTree = "<group>"; };
 		6CE3CEC61797258800618892 /* PLNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Notifications/PLNotificationsViewController.m; sourceTree = "<group>"; };
 		6CF2FDE9178CC863004A50DF /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
@@ -679,6 +694,51 @@
 				6C8CA4251756810E0019FC4B /* PLLinkModel.m */,
 			);
 			name = Link;
+			sourceTree = "<group>";
+		};
+		6C92A91F17C6F5DD0004BFF3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6CE3CEC21797257500618892 /* PLSettingsViewController.h */,
+				6CE3CEC31797257500618892 /* PLSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		6C92A92017C6F5FA0004BFF3 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6C92A92417C6F7570004BFF3 /* PLNotificationViewController.h */,
+				6C92A92517C6F7570004BFF3 /* PLNotificationViewController.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		6C92A92117C6F5FF0004BFF3 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				6C92A92A17C6F7780004BFF3 /* PLTutorialViewController.h */,
+				6C92A92B17C6F7780004BFF3 /* PLTutorialViewController.m */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		6C92A92217C6F6020004BFF3 /* BugReport */ = {
+			isa = PBXGroup;
+			children = (
+				6C92A92D17C6F78B0004BFF3 /* PLBugReportViewController.h */,
+				6C92A92E17C6F78B0004BFF3 /* PLBugReportViewController.m */,
+			);
+			name = BugReport;
+			sourceTree = "<group>";
+		};
+		6C92A92317C6F6160004BFF3 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				6C92A92717C6F7660004BFF3 /* PLContactUsViewController.h */,
+				6C92A92817C6F7660004BFF3 /* PLContactUsViewController.m */,
+			);
+			name = ContactUs;
 			sourceTree = "<group>";
 		};
 		6C972B6217550B4B007234B6 = {
@@ -1020,6 +1080,7 @@
 				6C61234117AEE1CE0048EAFE /* AbstractPlantDetail */,
 				6C61234517AF01400048EAFE /* PlantDetailCells */,
 				6CE3CE9B1796FA4900618892 /* Plant */,
+				6CD7514417C6AFC700FE2C4C /* Settings */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1158,6 +1219,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		6CD7514417C6AFC700FE2C4C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6CD7514517C6AFE800FE2C4C /* PLSettingsCell.h */,
+				6CD7514617C6AFE800FE2C4C /* PLSettingsCell.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		6CE3CE971796F9CD00618892 /* Plant */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,7 +1332,7 @@
 				6C7B5602179EF3F50076B07E /* PlantSequence */,
 				6C753E9F1797291800A47600 /* Schedule */,
 				6CE3CEBD1797250B00618892 /* Notifications */,
-				6CE3CEBE1797251100618892 /* Settings */,
+				6CE3CEBE1797251100618892 /* SettingsSequence */,
 			);
 			name = UserHomeSequence;
 			sourceTree = "<group>";
@@ -1276,13 +1346,16 @@
 			name = Notifications;
 			sourceTree = "<group>";
 		};
-		6CE3CEBE1797251100618892 /* Settings */ = {
+		6CE3CEBE1797251100618892 /* SettingsSequence */ = {
 			isa = PBXGroup;
 			children = (
-				6CE3CEC21797257500618892 /* PLSettingsViewController.h */,
-				6CE3CEC31797257500618892 /* PLSettingsViewController.m */,
+				6C92A91F17C6F5DD0004BFF3 /* Settings */,
+				6C92A92017C6F5FA0004BFF3 /* Notifications */,
+				6C92A92117C6F5FF0004BFF3 /* Tutorial */,
+				6C92A92217C6F6020004BFF3 /* BugReport */,
+				6C92A92317C6F6160004BFF3 /* ContactUs */,
 			);
-			name = Settings;
+			name = SettingsSequence;
 			sourceTree = "<group>";
 		};
 		6CF2FDE8178CC851004A50DF /* Home */ = {
@@ -1543,6 +1616,11 @@
 				6C370CE217B45A11009974D1 /* PLBatteryImageView.m in Sources */,
 				6C370CE517B45ACB009974D1 /* PLMoistureIndicator.m in Sources */,
 				6C72298C17B5985700C01EB4 /* PLPlantEditTextField.m in Sources */,
+				6CD7514717C6AFE800FE2C4C /* PLSettingsCell.m in Sources */,
+				6C92A92617C6F7570004BFF3 /* PLNotificationViewController.m in Sources */,
+				6C92A92917C6F7660004BFF3 /* PLContactUsViewController.m in Sources */,
+				6C92A92C17C6F7780004BFF3 /* PLTutorialViewController.m in Sources */,
+				6C92A92F17C6F78B0004BFF3 /* PLBugReportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,9 +59,9 @@
     rightCenterCircle = [self addWaterCircleAtPoint:CGPointMake(center+MoistureIndicator_Offset, 20)];
     rightCircle = [self addWaterCircleAtPoint:CGPointMake(center+2*MoistureIndicator_Offset, 20)];
     
-    [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 55)];
-    [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 55)];
-    [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 55)];
+    [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 45)];
+    [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 45)];
+    [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 45)];
     
     [self setBackgroundColor:[UIColor clearColor]];
 }
@@ -78,7 +78,7 @@
 -(void)addText:(NSString*)text atPoint:(CGPoint)center {
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21)];
     [textLabel setBackgroundColor:[UIColor clearColor]];
-    [textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10.0]];
+    [textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.0]];
     [textLabel setTextColor:[UIColor blackColor]];
     [textLabel setTextAlignment:NSTextAlignmentCenter];
     [textLabel setText:text];

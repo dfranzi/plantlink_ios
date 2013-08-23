@@ -18,6 +18,7 @@
 @interface PLPlantCell() {
     UIView *bubble;
     UILabel *bubbleLabel;
+    UIView *background;
 }
 
 @end
@@ -26,10 +27,24 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        [self.contentView.layer setCornerRadius:3.0];
-        [self.contentView.layer setBorderWidth:1.0];
+        //[self.contentView.layer setCornerRadius:3.0];
+        //[self.contentView.layer setBorderWidth:1.0];
+        [self setBackgroundColor:[UIColor clearColor]];
         [self.contentView.layer setBorderColor:Color_PlantCell_Border.CGColor];
         [self setClipsToBounds:NO];
+        
+        CGSize size = [PLPlantCell sizeForContent:@{}];
+        background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-2)];
+        [background setBackgroundColor:[UIColor whiteColor]];
+        [background.layer setCornerRadius:3.0];
+        [background setClipsToBounds:YES];
+        [self.contentView insertSubview:background atIndex:0];
+        
+        UIView *backdrop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height+1)];
+        [backdrop setBackgroundColor:Color_PlantCell_Border];
+        [backdrop.layer setCornerRadius:3.0];
+        [backdrop setClipsToBounds:YES];
+        [self.contentView insertSubview:backdrop belowSubview:background];
         
         bubble = NULL;
         bubbleLabel = NULL;
@@ -62,11 +77,50 @@
                 }];
             }
             else [bubble setAlpha:0.0];
+            
+            NSString *baseStr = @"";
+            NSString *dateStr = @"";
+            UIColor *dateColor = [UIColor blackColor];
+            NSDate *waterDate = [measurement predictedWaterDate];
+            if([self dateIsToday:waterDate]) {
+                baseStr = @"Water";
+                dateStr = @"today!";
+                dateColor = [UIColor redColor];
+            }
+            else {
+                baseStr = @"Water on";
+                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE, dd"];
+            }
+            
+            NSString *waterOnStr = [NSString stringWithFormat:@"%@ %@",baseStr,dateStr];
+            NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnStr];
+            [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:14.0] range:NSMakeRange(0, [baseStr length])];
+            [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] range:NSMakeRange([baseStr length]+1, [dateStr length])];
+            [attrStr addAttribute:NSForegroundColorAttributeName value:dateColor range:NSMakeRange([baseStr length]+1, [dateStr length])];
+            [waterLabel setAttributedText:attrStr];
         }
         
         [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
         [self.layer setShouldRasterize:YES];
     }
+}
+
+#pragma mark -
+#pragma mark Date Methods
+
+-(BOOL)dateIsToday:(NSDate*)date {
+    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+ 
+    return ( ([today day] == [otherDay day]) && ([today month] == [otherDay month]) && ([today year] == [otherDay year]) && ([today era] == [otherDay era]) );
+}
+
+#pragma mark -
+#pragma mark Override Methods
+
+-(void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    //Make depression like the buttons.
 }
 
 #pragma mark -
@@ -83,7 +137,7 @@
 #pragma mark Setup Methods
 
 -(void)createBubble {
-    bubble = [[UIView alloc] initWithFrame:CGRectMake(8, -3, 70, 16)];
+    bubble = [[UIView alloc] initWithFrame:CGRectMake(8, -3, 80, 16)];
     [bubble.layer setCornerRadius:3.0];
     
     [bubble setBackgroundColor:[UIColor redColor]];

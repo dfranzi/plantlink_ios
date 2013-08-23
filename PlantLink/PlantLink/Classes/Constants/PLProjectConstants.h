@@ -45,6 +45,11 @@
 
 #define Segue_ToPlantDetail @"toPlantDetailView"
 
+#define Segue_ToNotifications @"toNotificationsView"
+#define Segue_ToTutorial @"toTutorialView"
+#define Segue_ToBugReport @"toBugReportView"
+#define Segue_ToContactUs @"toContactUsView"
+
 //Notifications
 #define Notification_User_UserRefreshed @"User-UserRefreshed"
 #define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"

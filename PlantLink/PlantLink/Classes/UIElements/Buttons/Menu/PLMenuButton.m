@@ -30,14 +30,10 @@
         float red,green,blue,alpha;
         [topColor getRed:&red green:&green blue:&blue alpha:&alpha];
         
-        ZALog(@"R: %f G: %f B: %f",red,green,blue);
-        
         float offset = 25.0/255.0;
         red = red - offset > 0 ? red - offset : 0;
         green = green - offset > 0 ? green - offset : 0;
         blue = blue - offset > 0 ? blue - offset : 0;
-
-        ZALog(@"R: %f G: %f B: %f",red,green,blue);
         
         UIColor *bottomColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
         
