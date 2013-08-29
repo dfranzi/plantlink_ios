@@ -19,6 +19,6 @@
 #pragma mark IBAction Methods
 
 -(IBAction)searchPushed:(id)sender;
--(IBAction)getCurrentLocationPushed:(id)sender;
+-(IBAction)useCurrentLocationPushed:(id)sender;
 
 @end

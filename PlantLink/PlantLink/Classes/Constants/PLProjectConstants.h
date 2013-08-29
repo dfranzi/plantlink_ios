@@ -46,6 +46,8 @@
 #define Segue_ToPlantDetail @"toPlantDetailView"
 
 #define Segue_ToNotifications @"toNotificationsView"
+#define Segue_ToNotificationSettings @"toNotificationSettingsView"
+
 #define Segue_ToTutorial @"toTutorialView"
 #define Segue_ToBugReport @"toBugReportView"
 #define Segue_ToContactUs @"toContactUsView"

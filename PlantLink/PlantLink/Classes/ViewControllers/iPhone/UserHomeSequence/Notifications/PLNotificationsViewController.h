@@ -8,6 +8,8 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLNotificationsViewController : PLAbstractViewController
+@interface PLNotificationsViewController : PLAbstractViewController <UICollectionViewDataSource,UICollectionViewDelegate> {
+    IBOutlet UICollectionView *notificationCollectionView;
+}
 
 @end

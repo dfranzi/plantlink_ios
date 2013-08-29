@@ -34,6 +34,7 @@
     [titleLabel setText:title];
     [titleLabel setTextAlignment:NSTextAlignmentCenter];
     [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0]];
+    [titleLabel setBackgroundColor:self.backgroundColor];
     
     [titleLabel sizeToFit];
     [titleLabel setFrame:CGRectMake(0, 0, titleLabel.frame.size.width+26, self.frame.size.height)];

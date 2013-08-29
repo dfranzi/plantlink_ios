@@ -18,7 +18,11 @@
 @interface PLPlantCell() {
     UIView *bubble;
     UILabel *bubbleLabel;
+    
     UIView *background;
+    UIView *backdrop;
+    
+    CGPoint originalCenter;
 }
 
 @end
@@ -27,10 +31,8 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        //[self.contentView.layer setCornerRadius:3.0];
-        //[self.contentView.layer setBorderWidth:1.0];
         [self setBackgroundColor:[UIColor clearColor]];
-        [self.contentView.layer setBorderColor:Color_PlantCell_Border.CGColor];
+        [self.contentView.layer setBorderColor:Color_CellBorder.CGColor];
         [self setClipsToBounds:NO];
         
         CGSize size = [PLPlantCell sizeForContent:@{}];
@@ -40,8 +42,8 @@
         [background setClipsToBounds:YES];
         [self.contentView insertSubview:background atIndex:0];
         
-        UIView *backdrop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height+1)];
-        [backdrop setBackgroundColor:Color_PlantCell_Border];
+        backdrop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height+1)];
+        [backdrop setBackgroundColor:Color_CellBorder];
         [backdrop.layer setCornerRadius:3.0];
         [backdrop setClipsToBounds:YES];
         [self.contentView insertSubview:backdrop belowSubview:background];
@@ -49,6 +51,8 @@
         bubble = NULL;
         bubbleLabel = NULL;
         [separatorView setFrame:CGRectMake(18.0, 130.0, 198.0, 1.0)];
+        
+        originalCenter = self.contentView.center;
     }
     return self;
 }
@@ -120,7 +124,14 @@
 
 -(void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
-    //Make depression like the buttons.
+    if(highlighted) {
+        [self.contentView setCenter:CGPointMake(originalCenter.x, originalCenter.y+3)];
+        [backdrop setAlpha:0.0];
+    }
+    else {
+        [self.contentView setCenter:originalCenter];
+        [backdrop setAlpha:1.0];
+    }
 }
 
 #pragma mark -

@@ -63,6 +63,7 @@
 		6C487C141795F0DD007EE2B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C487C131795F0DD007EE2B5 /* MapKit.framework */; };
 		6C487C191795F3FD007EE2B5 /* PLAddFirstPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C181795F3FD007EE2B5 /* PLAddFirstPlantViewController.m */; };
 		6C487C1D1795F882007EE2B5 /* PLUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */; };
+		6C513EC317CFD3B5009B19D8 /* PLNotificationOptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C513EC217CFD3B5009B19D8 /* PLNotificationOptionButton.m */; };
 		6C61230A17AE32780048EAFE /* addPlant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6122FC17AE32780048EAFE /* addPlant@2x.png */; };
 		6C61230B17AE32780048EAFE /* clockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6122FD17AE32780048EAFE /* clockIcon@2x.png */; };
 		6C61230C17AE32780048EAFE /* clockIconHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6122FE17AE32780048EAFE /* clockIconHighlighted@2x.png */; };
@@ -172,6 +173,7 @@
 		6CE3CEC41797257500618892 /* PLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC31797257500618892 /* PLSettingsViewController.m */; };
 		6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC61797258800618892 /* PLNotificationsViewController.m */; };
 		6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */; };
+		6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +253,8 @@
 		6C487C181795F3FD007EE2B5 /* PLAddFirstPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAddFirstPlantViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/AddFirstPlant/PLAddFirstPlantViewController.m; sourceTree = "<group>"; };
 		6C487C1B1795F882007EE2B5 /* PLUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLUserHomeViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/UserHome/PLUserHomeViewController.h; sourceTree = "<group>"; };
 		6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLUserHomeViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/UserHome/PLUserHomeViewController.m; sourceTree = "<group>"; };
+		6C513EC117CFD3B5009B19D8 /* PLNotificationOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationOptionButton.h; path = Classes/UIElements/Buttons/NotificationOption/PLNotificationOptionButton.h; sourceTree = "<group>"; };
+		6C513EC217CFD3B5009B19D8 /* PLNotificationOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationOptionButton.m; path = Classes/UIElements/Buttons/NotificationOption/PLNotificationOptionButton.m; sourceTree = "<group>"; };
 		6C6122FC17AE32780048EAFE /* addPlant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addPlant@2x.png"; path = "Images/Retina/addPlant@2x.png"; sourceTree = "<group>"; };
 		6C6122FD17AE32780048EAFE /* clockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clockIcon@2x.png"; path = "Images/Retina/clockIcon@2x.png"; sourceTree = "<group>"; };
 		6C6122FE17AE32780048EAFE /* clockIconHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clockIconHighlighted@2x.png"; path = "Images/Retina/clockIconHighlighted@2x.png"; sourceTree = "<group>"; };
@@ -408,6 +412,8 @@
 		6CE3CEC61797258800618892 /* PLNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Notifications/PLNotificationsViewController.m; sourceTree = "<group>"; };
 		6CF2FDE9178CC863004A50DF /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
 		6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
+		6CFAA6B717CFCA0D00609ACF /* PLNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationCell.h; path = Classes/UIElements/Cells/Notification/PLNotificationCell.h; sourceTree = "<group>"; };
+		6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationCell.m; path = Classes/UIElements/Cells/Notification/PLNotificationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,6 +560,15 @@
 				6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */,
 			);
 			name = UserHome;
+			sourceTree = "<group>";
+		};
+		6C513EC017CFD39D009B19D8 /* NotificationOption */ = {
+			isa = PBXGroup;
+			children = (
+				6C513EC117CFD3B5009B19D8 /* PLNotificationOptionButton.h */,
+				6C513EC217CFD3B5009B19D8 /* PLNotificationOptionButton.m */,
+			);
+			name = NotificationOption;
 			sourceTree = "<group>";
 		};
 		6C61234117AEE1CE0048EAFE /* AbstractPlantDetail */ = {
@@ -1081,6 +1096,7 @@
 				6C61234517AF01400048EAFE /* PlantDetailCells */,
 				6CE3CE9B1796FA4900618892 /* Plant */,
 				6CD7514417C6AFC700FE2C4C /* Settings */,
+				6CFAA6B617CFC9EB00609ACF /* Notification */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1088,6 +1104,7 @@
 		6C972BE417555389007234B6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				6C513EC017CFD39D009B19D8 /* NotificationOption */,
 				6C7B55FD179EE79A0076B07E /* Menu */,
 			);
 			name = Buttons;
@@ -1367,6 +1384,15 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		6CFAA6B617CFC9EB00609ACF /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				6CFAA6B717CFCA0D00609ACF /* PLNotificationCell.h */,
+				6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1621,6 +1647,8 @@
 				6C92A92917C6F7660004BFF3 /* PLContactUsViewController.m in Sources */,
 				6C92A92C17C6F7780004BFF3 /* PLTutorialViewController.m in Sources */,
 				6C92A92F17C6F78B0004BFF3 /* PLBugReportViewController.m in Sources */,
+				6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */,
+				6C513EC317CFD3B5009B19D8 /* PLNotificationOptionButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1753,13 +1781,14 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+					"${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1770,13 +1799,14 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos\"",
+					"${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "/Users/ZAmoeba/Dropbox/Service-Apps/Service-CodeBase/Service-CodeBase/**";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

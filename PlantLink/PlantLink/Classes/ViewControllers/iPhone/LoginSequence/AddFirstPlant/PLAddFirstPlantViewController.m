@@ -23,6 +23,11 @@
     [self setNextSegueIdentifier:Segue_ToUserHome];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 #pragma mark -
 #pragma mark IBAction Methods
 

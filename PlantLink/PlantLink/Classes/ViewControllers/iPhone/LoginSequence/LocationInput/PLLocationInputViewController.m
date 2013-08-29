@@ -55,7 +55,7 @@
     [self geocode:address];
 }
 
--(IBAction)getCurrentLocationPushed:(id)sender {
+-(IBAction)useCurrentLocationPushed:(id)sender {
     [sharedLocation startLocationUpdates];
 }
 
@@ -83,7 +83,7 @@
 }
 
 -(void)addressNotFound {
-    #warning Error not yet implemented
+    
 }
 
 -(void)geocode:(NSString*)text {

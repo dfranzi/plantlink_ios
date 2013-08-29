@@ -23,8 +23,12 @@
 #define Cell_PlantLinkDetail @"plantLinkDetailsCell"
 #define Cell_PlantHelp @"plantHelpCell"
 
+#define Cell_Notification @"notificationCell"
+#define Cell_Edit @"editCell"
+
 #define Cell_SettingsImage @"settingsImageCell"
 #define Cell_Settings @"settingsCell"
+
 
 #define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail, Cell_PlantHelp]
 
@@ -37,7 +41,11 @@
 #define Color_MenuButton_Up RGB(75.0,176.0,227.0)
 #define Color_MenuButton_Down RGB(65.0,166.0,217.0)
 
-#define Color_PlantCell_Border SHADE(220.0)
+#define Color_CellBorder SHADE(220.0)
+
+#define Color_Notification_OptionBackground SHADE(59.0)
+#define Color_Notification_SelectedBackground RGB(57.0,182.0,84.0)
+
 
 //Images
 #define Image_Battery_Empty @"battery_0.png"
