@@ -22,4 +22,10 @@
 -(IBAction)popView:(id)sender;
 -(IBAction)nextPushed:(id)sender;
 
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)addLeftNavButtonWithImageNamed:(NSString*)imageName toNavigationItem:(UINavigationItem*)navItem withSelector:(SEL)selector;
+-(void)addRightNavButtonWithImageNamed:(NSString*)imageName toNavigationItem:(UINavigationItem*)navItem withSelector:(SEL)selector;
+
 @end

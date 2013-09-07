@@ -50,6 +50,18 @@
 }
 
 #pragma mark -
+#pragma mark Display Methods
+
+-(void)setCustomTabBarDesign {
+    UIImage* tabBarBackground = [GeneralMethods imageWithColor:Color_TabBar_Background andSize:CGSizeMake(320.0, 49.0)];
+    [self.tabBar setBackgroundImage:tabBarBackground];
+    
+    UIImage *selectedBackground = [GeneralMethods imageWithColor:Color_MenuButton_Up andSize:CGSizeMake(80.0, 49.0)];
+    [self.tabBar setSelectionIndicatorImage:selectedBackground];
+     
+}
+
+#pragma mark -
 #pragma mark Navigation Methods
 
 -(void)removeViewControllerStack {

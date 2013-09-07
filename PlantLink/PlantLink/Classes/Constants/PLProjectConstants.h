@@ -37,10 +37,7 @@
 #define Segue_ToUserHome @"toUserHomeView"
 
 #define Segue_ToAddPlantSequence @"toAddPlantSequence"
-#define Segue_ToSoilTypeSelect @"toSoilTypeSelectView"
-#define Segue_ToPlantNicknameSelect @"toPlantNicknameSelectView"
-#define Segue_ToBaseStationSync @"toBaseStationSyncView"
-#define Segue_ToPlantLinkSync @"toPlantLinkSyncView"
+
 #define Segue_ToAddValveToPlant @"toAddValveToPlantView"
 
 #define Segue_ToPlantDetail @"toPlantDetailView"

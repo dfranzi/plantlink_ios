@@ -48,6 +48,9 @@
 
 
 //Images
+#define Image_Navigation_BackButton @"arrowleft.png"
+#define Image_Navigation_NextButton @"arrowright.png"
+
 #define Image_Battery_Empty @"battery_0.png"
 #define Image_Battery_Fourth @"battery_1.png"
 #define Image_Battery_Half @"battery_2.png"

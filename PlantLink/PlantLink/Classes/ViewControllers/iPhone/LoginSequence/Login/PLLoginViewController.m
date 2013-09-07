@@ -25,7 +25,9 @@
     [self setNextSegueIdentifier:Segue_ToSerialInput];
     
     [self.navigationItem setTitle:@"Account Info"];
-
+    [self addLeftNavButtonWithImageNamed:Image_Navigation_BackButton toNavigationItem:self.navigationItem withSelector:@selector(popView:)];
+    [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
+    
     [nameTextField setTitle:@"Name"];
     [emailTextField setTitle:@"Email"];
     [passwordTextField setTitle:@"Password"];
@@ -180,7 +182,6 @@
 -(void)requestDidFinish:(AbstractRequest *)request {
     #warning Login does not account for incorrect credentials
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
-    ZALog(@"Dict: %@",dict);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];

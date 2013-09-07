@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A558" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TmI-ib-oW0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A569" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TmI-ib-oW0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -290,9 +290,10 @@
         <!--Navigation Controller-->
         <scene sceneID="f8M-JH-ydd">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="Sgy-ES-kN7" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController definesPresentationContext="YES" id="Sgy-ES-kN7" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="anA-PG-mPz">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -303,121 +304,80 @@
             </objects>
             <point key="canvasLocation" x="3512" y="1079"/>
         </scene>
-        <!--Plant Type Select View Controller-->
+        <!--Plant Setup View Controller-->
         <scene sceneID="LUU-Zz-Vpj">
             <objects>
-                <viewController id="rHH-HP-uPf" customClass="PLPlantTypeSelectViewController" sceneMemberID="viewController">
+                <viewController id="rHH-HP-uPf" customClass="PLPlantSetupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N1r-wk-8fN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M7h-tg-5dW">
-                                <rect key="frame" x="20" y="399" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="&lt;-">
-                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="popView:" destination="rHH-HP-uPf" eventType="touchUpInside" id="aqL-UL-04n"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VgN-hG-IA7">
-                                <rect key="frame" x="260" y="399" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="->">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextPushed:" destination="rHH-HP-uPf" eventType="touchUpInside" id="R1q-cp-tAe"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A4b-3N-m47">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What type of plant do you have?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aye-NT-Zrq">
-                                <rect key="frame" x="20" y="49" width="280" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VcP-TW-Anh">
-                                <rect key="frame" x="88" y="399" width="144" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Help?">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="helpPushed:" destination="rHH-HP-uPf" eventType="touchUpInside" id="AnY-88-4gS"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="us0-7X-BXZ">
-                                <rect key="frame" x="0.0" y="195" width="320" height="195"/>
+                            <view contentMode="scaleToFill" id="b56-hR-Tj4" customClass="PLPlantSetupOption">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantTypeCell" id="cPf-dK-Eco">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nIr-wL-bRQ">
-                                                    <rect key="frame" x="23" y="11" width="274" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="rHH-HP-uPf" id="M31-pY-XCA"/>
-                                    <outlet property="delegate" destination="rHH-HP-uPf" id="NDY-HV-GgX"/>
-                                </connections>
-                            </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="plant type" minimumFontSize="17" id="th2-AR-hys" customClass="PLTextField">
-                                <rect key="frame" x="20" y="147" width="280" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="plantTypeTextEditted:" destination="rHH-HP-uPf" eventType="editingChanged" id="3dU-0d-5Pf"/>
-                                    <outlet property="delegate" destination="rHH-HP-uPf" id="Q5d-MH-Rfq"/>
-                                </connections>
-                            </textField>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CcS-ym-7e5">
+                                        <rect key="frame" x="46" y="30" width="254" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="What type of ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue-LightItalic"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="plant">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue-BoldItalic"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" do you have?">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue-LightItalic"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ER-rP-jzg">
+                                        <rect key="frame" x="20" y="30" width="24" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20784313725490194" green="0.71372549019607845" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Smith" textAlignment="right" minimumFontSize="17" id="tGg-7F-avS" customClass="PLTextField">
+                                        <rect key="frame" x="20" y="61" width="280" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ms2-GX-xOL" id="hMv-Sn-wQx"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search for your plant type ie. Basil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DPp-0t-eHP">
+                                        <rect key="frame" x="20" y="103" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.96470588235294119" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZq-oJ-kuG"/>
                     <connections>
-                        <outlet property="plantTypeTableView" destination="us0-7X-BXZ" id="dNr-Y6-99K"/>
-                        <outlet property="plantTypeTextField" destination="th2-AR-hys" id="CFF-q2-MCf"/>
-                        <segue destination="F7e-ec-DYc" kind="push" identifier="toSoilTypeSelectView" id="LZ4-8W-M8n"/>
+                        <segue destination="Ywb-aK-RqK" kind="push" identifier="toConnectLinkView" id="lkI-nG-PKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDY-Gx-2am" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1641,226 +1601,13 @@
             </objects>
             <point key="canvasLocation" x="7971" y="576"/>
         </scene>
-        <!--Soil Type Select View Controller-->
-        <scene sceneID="xiM-kO-4Bm">
-            <objects>
-                <viewController id="F7e-ec-DYc" customClass="PLSoilTypeSelectViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LqR-xl-4Vq">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="41D-GD-GLK">
-                                <rect key="frame" x="20" y="400" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="&lt;-">
-                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="popView:" destination="F7e-ec-DYc" eventType="touchUpInside" id="mVu-gr-9st"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dOr-A3-0yz">
-                                <rect key="frame" x="260" y="400" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="->">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextPushed:" destination="F7e-ec-DYc" eventType="touchUpInside" id="NFw-AK-USu"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u8K-zv-ZIv">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What type of soil do you have?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5kL-j6-gHh">
-                                <rect key="frame" x="20" y="49" width="280" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hvc-xr-TV0">
-                                <rect key="frame" x="88" y="400" width="144" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Help?">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="helpPushed:" destination="F7e-ec-DYc" eventType="touchUpInside" id="iJa-YC-fbR"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="t5m-Qt-57U">
-                                <rect key="frame" x="0.0" y="135" width="320" height="252"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="soilTypeCell" id="a5G-0X-0LS">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Type #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yn4-ZI-FVN">
-                                                    <rect key="frame" x="23" y="11" width="274" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="F7e-ec-DYc" id="j9u-ij-Kqe"/>
-                                    <outlet property="delegate" destination="F7e-ec-DYc" id="J0S-08-DQT"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="jiE-5o-yY6"/>
-                    <connections>
-                        <outlet property="soilTypeTableView" destination="t5m-Qt-57U" id="5Sp-s8-UF9"/>
-                        <segue destination="0uS-KU-s2r" kind="push" identifier="toPlantNicknameSelectView" id="gcm-6s-z05"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bi-VH-o8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4635" y="1079"/>
-        </scene>
-        <!--Plant Nickname Select View Controller-->
-        <scene sceneID="zmU-7U-sgy">
-            <objects>
-                <viewController id="0uS-KU-s2r" customClass="PLPlantNicknameSelectViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="98i-L9-psT">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oja-9J-TOv">
-                                <rect key="frame" x="20" y="400" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="&lt;-">
-                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="popView:" destination="0uS-KU-s2r" eventType="touchUpInside" id="8Jc-kh-zax"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6N-o0-xea">
-                                <rect key="frame" x="260" y="400" width="40" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="->">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextPushed:" destination="0uS-KU-s2r" eventType="touchUpInside" id="bez-2D-gQ8"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbX-f6-Ibx">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLANT TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Icg-UG-tef">
-                                <rect key="frame" x="20" y="206" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SOIL TYPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hOf-i8-jw8">
-                                <rect key="frame" x="20" y="232" width="93" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tomato" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EV3-94-wGi">
-                                <rect key="frame" x="143" y="206" width="157" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Potting Soil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e8F-tB-CVg">
-                                <rect key="frame" x="143" y="232" width="157" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Give this plant a nickname." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJo-pv-lhV">
-                                <rect key="frame" x="20" y="57" width="280" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="plant nickname" minimumFontSize="17" id="5um-Jc-JeK" customClass="PLTextField">
-                                <rect key="frame" x="20" y="140" width="280" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="0uS-KU-s2r" id="ZdK-sx-fez"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="QI3-7m-1T0"/>
-                    <connections>
-                        <outlet property="nicknameTextField" destination="5um-Jc-JeK" id="l0n-Sp-2TJ"/>
-                        <outlet property="plantTypeLabel" destination="EV3-94-wGi" id="hjL-w6-TbP"/>
-                        <outlet property="soilTypeLabel" destination="e8F-tB-CVg" id="wgK-ia-6JP"/>
-                        <segue destination="Ywb-aK-RqK" kind="push" identifier="toBaseStationSyncView" id="JbI-zB-tWh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xbO-fs-RKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5194" y="1079"/>
-        </scene>
-        <!--Base Station Sync View Controller-->
+        <!--Connect Link View Controller-->
         <scene sceneID="iNw-XI-PZO">
             <objects>
-                <viewController id="Ywb-aK-RqK" customClass="PLBaseStationSyncViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJg-rV-oAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ywb-aK-RqK" customClass="PLConnectLinkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM7-P0-ShX">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tZd-RQ-r55">
@@ -1897,7 +1644,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the sync button on your base station." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQu-rT-3dG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the sync button on your base station" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQu-rT-3dG">
                                 <rect key="frame" x="26" y="316" width="268" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
@@ -1909,19 +1656,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="3bc-6P-Svn"/>
                     <connections>
-                        <segue destination="Cvc-Qi-2kc" kind="push" identifier="toPlantLinkSyncView" id="tQr-VI-wRb"/>
+                        <segue destination="Cvc-Qi-2kc" kind="push" identifier="toSyncLinkView" id="tQr-VI-wRb"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJg-rV-oAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5755" y="1079"/>
+            <point key="canvasLocation" x="4635" y="1079"/>
         </scene>
-        <!--Plant Link Sync View Controller-->
+        <!--Sync Link View Controller-->
         <scene sceneID="Pbd-8C-2s1">
             <objects>
-                <viewController id="Cvc-Qi-2kc" customClass="PLPlantLinkSyncViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-1u-0xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Cvc-Qi-2kc" customClass="PLSyncLinkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fn8-Dm-vUN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJb-Kb-Jvp">
@@ -1958,7 +1705,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the sync button on your link." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yUq-46-n1O">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the sync button on your link" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yUq-46-n1O">
                                 <rect key="frame" x="26" y="316" width="268" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
@@ -1970,17 +1717,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="zuq-TL-gH4"/>
                     <connections>
-                        <segue destination="lmX-mh-pUA" kind="push" identifier="toAddValveToPlantView" id="hio-1r-G2e"/>
+                        <segue destination="lmX-mh-pUA" kind="push" identifier="toAssociateVavleView" id="hio-1r-G2e"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-1u-0xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6315" y="1079"/>
+            <point key="canvasLocation" x="5195" y="1079"/>
         </scene>
-        <!--Add Valve To Plant View Controller-->
+        <!--Associate Valve View Controller-->
         <scene sceneID="A4l-Qe-hMn">
             <objects>
-                <viewController id="lmX-mh-pUA" customClass="PLAddValveToPlantViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cek-eC-8dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="lmX-mh-pUA" customClass="PLAssociateValveViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCT-Dr-8s4">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2009,7 +1756,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QTI-nl-n5q">
-                                <rect key="frame" x="58" y="384" width="205" height="41"/>
+                                <rect key="frame" x="58" y="316" width="205" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="What is a valve?">
@@ -2043,10 +1790,82 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jcR-f1-pXJ"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="TGT-dK-pSi" kind="push" identifier="toFirstPlantView" id="ztT-lE-Zgd"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cek-eC-8dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6874" y="1079"/>
+            <point key="canvasLocation" x="5754" y="1079"/>
+        </scene>
+        <!--First Plant View Controller-->
+        <scene sceneID="BCE-3a-08H">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNh-qv-pLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="TGT-dK-pSi" customClass="PLFirstPlantViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="McC-N9-mw6">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wxC-R6-0pT">
+                                <rect key="frame" x="34" y="20" width="252" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You connected your first plant!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GbV-kI-I2j">
+                                <rect key="frame" x="53" y="70" width="214" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="Fsr-bK-sKO">
+                                <rect key="frame" x="0.0" y="171" width="320" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xxO-mb-Z7f">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="XoV-eh-wSg">
+                                        <rect key="frame" x="15" y="20" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add another plant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QYw-t0-jCl">
+                                        <rect key="frame" x="72" y="19" width="234" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                        <color key="textColor" red="0.019607843137254902" green="0.68627450980392157" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You can always do this later from the dashboard" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="des-Yg-One">
+                                        <rect key="frame" x="72" y="54" width="188" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lee-or-xBa"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="6315" y="1079"/>
         </scene>
     </scenes>
     <resources>
@@ -2095,16 +1914,8 @@
                 <relationship kind="action" name="yesPushed:"/>
             </relationships>
         </class>
-        <class className="PLAddValveToPlantViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddValveToPlantViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="noPushed:"/>
-                <relationship kind="action" name="whatIsAValvePushed:"/>
-                <relationship kind="action" name="yesPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLBaseStationSyncViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBaseStationSyncViewController.h"/>
+        <class className="PLAssociateValveViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAssociateValveViewController.h"/>
         </class>
         <class className="PLBatteryImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBatteryImageView.h"/>
@@ -2115,11 +1926,17 @@
                 <relationship kind="action" name="backPushed:"/>
             </relationships>
         </class>
+        <class className="PLConnectLinkViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLConnectLinkViewController.h"/>
+        </class>
         <class className="PLContactUsViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLContactUsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backPushed:"/>
             </relationships>
+        </class>
+        <class className="PLFirstPlantViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLFirstPlantViewController.h"/>
         </class>
         <class className="PLHomeViewController" superclassName="PLAbstractViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLHomeViewController.h"/>
@@ -2239,9 +2056,6 @@
                 <relationship kind="outlet" name="wifiLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="PLPlantLinkSyncViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantLinkSyncViewController.h"/>
-        </class>
         <class className="PLPlantNameCell" superclassName="PLAbstractPlantDetailCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNameCell.h"/>
             <relationships>
@@ -2254,33 +2068,22 @@
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="PLPlantNicknameSelectViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNicknameSelectViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nicknameTextField" candidateClass="PLTextField"/>
-                <relationship kind="outlet" name="plantTypeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="soilTypeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
         <class className="PLPlantScheduleCell" superclassName="PLAbstractPlantDetailCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantScheduleCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="waterOnLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="PLPlantSetupOption" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSetupOption.h"/>
+        </class>
+        <class className="PLPlantSetupViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSetupViewController.h"/>
+        </class>
         <class className="PLPlantSoilCell" superclassName="PLAbstractPlantDetailCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSoilCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="moistureIndicator" candidateClass="PLMoistureIndicator"/>
-            </relationships>
-        </class>
-        <class className="PLPlantTypeSelectViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantTypeSelectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="helpPushed:"/>
-                <relationship kind="action" name="plantTypeTextEditted:"/>
-                <relationship kind="outlet" name="plantTypeTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="plantTypeTextField" candidateClass="PLTextField"/>
             </relationships>
         </class>
         <class className="PLPlantViewController" superclassName="PLAbstractViewController">
@@ -2313,12 +2116,8 @@
         <class className="PLSignalImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSignalImageView.h"/>
         </class>
-        <class className="PLSoilTypeSelectViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSoilTypeSelectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="helpPushed:"/>
-                <relationship kind="outlet" name="soilTypeTableView" candidateClass="UITableView"/>
-            </relationships>
+        <class className="PLSyncLinkViewController" superclassName="PLAbstractViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSyncLinkViewController.h"/>
         </class>
         <class className="PLTextField" superclassName="UITextField">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTextField.h"/>
@@ -2348,7 +2147,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OkX-mA-8Vl"/>
+        <segue reference="hGa-Fz-QF0"/>
         <segue reference="zMU-dg-SC3"/>
     </inferredMetricsTieBreakers>
 </document>

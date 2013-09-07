@@ -24,6 +24,7 @@
         NSDateComponents *components = [GeneralMethods componentsFromDate:predictedWaterDate];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        #warning Crashed on incorrect day (0)
         NSString *dayStr = [[df shortWeekdaySymbols] objectAtIndex:[components day]-1];
         NSString *monthStr = [[df shortMonthSymbols] objectAtIndex:[components month]-1];
          
