@@ -21,6 +21,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToLocationInput];
+    [self addLeftNavButtonWithImageNamed:Image_Navigation_BackButton toNavigationItem:self.navigationItem withSelector:@selector(popView:)];
+    [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
     
     [self.navigationItem setTitle:@"Serial Number"];
     [serialTextField setTitle:@"Serial #"];

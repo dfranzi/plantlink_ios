@@ -48,6 +48,7 @@
 
 
 //Images
+#define Image_Navigation_DismissButton @"xwhite.png"
 #define Image_Navigation_BackButton @"arrowleft.png"
 #define Image_Navigation_NextButton @"arrowright.png"
 

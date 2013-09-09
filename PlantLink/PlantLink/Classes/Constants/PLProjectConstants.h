@@ -37,8 +37,10 @@
 #define Segue_ToUserHome @"toUserHomeView"
 
 #define Segue_ToAddPlantSequence @"toAddPlantSequence"
-
-#define Segue_ToAddValveToPlant @"toAddValveToPlantView"
+#define Segue_ToConnectLink @"toConnectLinkView"
+#define Segue_ToSyncLink @"toSyncLinkView"
+#define Segue_ToAssociateValve @"toAssociateValveView"
+#define Segue_ToCongratulations @"toCongratulationsView"
 
 #define Segue_ToPlantDetail @"toPlantDetailView"
 

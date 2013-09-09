@@ -26,6 +26,9 @@
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToInformation];
     
+    [self addLeftNavButtonWithImageNamed:Image_Navigation_BackButton toNavigationItem:self.navigationItem withSelector:@selector(popView:)];
+    [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
+    
     sharedLocation = [LocationManager initializeLocationManager];
     [locationTextField setBackgroundColor:SHADE(250.0)];
     
@@ -36,6 +39,12 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 
 #pragma mark -
 #pragma mark Notification Methods

@@ -8,6 +8,11 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLPlantSetupViewController : PLAbstractViewController
+@class PLPlantSetupOption;
+@interface PLPlantSetupViewController : PLAbstractViewController {
+    IBOutlet PLPlantSetupOption *optionOne;
+    IBOutlet PLPlantSetupOption *optionTwo;
+    IBOutlet PLPlantSetupOption *optionThree;
+}
 
 @end

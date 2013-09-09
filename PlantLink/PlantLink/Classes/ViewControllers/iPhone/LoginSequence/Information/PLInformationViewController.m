@@ -22,6 +22,12 @@
     [infoCollectionView reloadData];
 }
 
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 #pragma mark -
 #pragma mark Collection View Methods
 
@@ -43,7 +49,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(320, 460);
+    return CGSizeMake(306, 400);
 }
 
 #pragma mark -

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLPlantSetupOption : UIView
+@interface PLPlantSetupOption : UIView <UITextFieldDelegate> {
+    IBOutlet UILabel *numberLabel;
+    IBOutlet UILabel *titleLabel;
+    IBOutlet UILabel *infoLabel;
+}
+@property(nonatomic, strong) IBOutlet UITextField *inputField;
+
 
 @end
