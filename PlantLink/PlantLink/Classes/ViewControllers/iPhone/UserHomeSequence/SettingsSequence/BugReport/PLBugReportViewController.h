@@ -8,11 +8,20 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLBugReportViewController : PLAbstractViewController
+
+@class PLTextField;
+@interface PLBugReportViewController : PLAbstractViewController <UITextViewDelegate>
+
+{
+    IBOutlet UITextView *bugReportView;
+    
+}
 
 #pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender;
+-(IBAction)sendPushed:(id)sender;
+
 
 @end

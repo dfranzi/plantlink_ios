@@ -200,6 +200,8 @@
 		6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC61797258800618892 /* PLNotificationsViewController.m */; };
 		6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */; };
 		6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */; };
+		BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */; };
+		BAB363BF17E27A0D00E5AC39 /* greyLine.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB363BE17E27A0D00E5AC39 /* greyLine.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -466,6 +468,9 @@
 		6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
 		6CFAA6B717CFCA0D00609ACF /* PLNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationCell.h; path = Classes/UIElements/Cells/Notification/PLNotificationCell.h; sourceTree = "<group>"; };
 		6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationCell.m; path = Classes/UIElements/Cells/Notification/PLNotificationCell.m; sourceTree = "<group>"; };
+		BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuTextView.h; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.h; sourceTree = "<group>"; };
+		BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuTextView.m; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.m; sourceTree = "<group>"; };
+		BAB363BE17E27A0D00E5AC39 /* greyLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyLine.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -996,6 +1001,7 @@
 		6C972BC817555191007234B6 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				BA3C1F4317E8FBF90000B255 /* TextView */,
 				6C370CDA17B4598B009974D1 /* View */,
 				6C370CD617B45979009974D1 /* Image */,
 				6CBCC49B1779F19E00527961 /* TextField */,
@@ -1285,6 +1291,7 @@
 		6CB86FBA175D589400B18213 /* Standard */ = {
 			isa = PBXGroup;
 			children = (
+				BAB363BE17E27A0D00E5AC39 /* greyLine.png */,
 				6C3F86C717DBDE2B007242FC /* arrowblue.png */,
 				6C3F86C817DBDE2B007242FC /* arrowleft.png */,
 				6C3F86C917DBDE2B007242FC /* arrowright.png */,
@@ -1471,6 +1478,23 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
+		BA3C1F4317E8FBF90000B255 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				BA3C1F4417E8FBFE0000B255 /* MenuTextView */,
+			);
+			name = TextView;
+			sourceTree = "<group>";
+		};
+		BA3C1F4417E8FBFE0000B255 /* MenuTextView */ = {
+			isa = PBXGroup;
+			children = (
+				BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */,
+				BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */,
+			);
+			name = MenuTextView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1655,6 +1679,7 @@
 				6C3F86D617DBDE2B007242FC /* circleplus.png in Resources */,
 				6C3F86D717DBDE2B007242FC /* settingsgear.png in Resources */,
 				6C3F86D817DBDE2B007242FC /* spyglass.png in Resources */,
+				BAB363BF17E27A0D00E5AC39 /* greyLine.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1753,6 +1778,7 @@
 				6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */,
 				6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */,
 				6C3F86A417DBDB2D007242FC /* PLPlantSetupOption.m in Sources */,
+				BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1885,8 +1911,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/../../Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**",
@@ -1903,8 +1930,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"/../../Service-CodeBase/Service-CodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}/../../Service-CodeBase/Service-CodeBase/**",

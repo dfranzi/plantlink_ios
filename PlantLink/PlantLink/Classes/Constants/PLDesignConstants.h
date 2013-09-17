@@ -46,6 +46,7 @@
 #define Color_Notification_OptionBackground SHADE(59.0)
 #define Color_Notification_SelectedBackground RGB(57.0,182.0,84.0)
 
+#define Color_TextField_Border RGB(215.0, 230.0, 226.0)
 
 //Images
 #define Image_Navigation_DismissButton @"xwhite.png"
