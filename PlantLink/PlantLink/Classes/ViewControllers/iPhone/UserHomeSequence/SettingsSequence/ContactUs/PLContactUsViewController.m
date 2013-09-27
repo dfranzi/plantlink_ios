@@ -16,6 +16,13 @@
 
 @implementation PLContactUsViewController
 
+- (void) viewDidLoad{
+   
+       
+}
+
+
+
 #pragma mark -
 #pragma mark IBAction Methods
 
