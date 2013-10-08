@@ -188,6 +188,7 @@
 		6CE3CEBA179720AF00618892 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE3CEB9179720AF00618892 /* CoreLocation.framework */; };
 		6CE3CEC41797257500618892 /* PLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC31797257500618892 /* PLSettingsViewController.m */; };
 		6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC61797258800618892 /* PLNotificationsViewController.m */; };
+		6CE89E0718048D1900C1A14B /* PLScheduleEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE89E0618048D1900C1A14B /* PLScheduleEditViewController.m */; };
 		6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */; };
 		6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */; };
 		6CFB28371802116D00C11A10 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB282A1802116D00C11A10 /* icon_29.png */; };
@@ -451,6 +452,8 @@
 		6CE3CEC31797257500618892 /* PLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSettingsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Settings/PLSettingsViewController.m; sourceTree = "<group>"; };
 		6CE3CEC51797258800618892 /* PLNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationsViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/Notifications/PLNotificationsViewController.h; sourceTree = "<group>"; };
 		6CE3CEC61797258800618892 /* PLNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationsViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/Notifications/PLNotificationsViewController.m; sourceTree = "<group>"; };
+		6CE89E0518048D1900C1A14B /* PLScheduleEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleEditViewController.h; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Schedule/PLScheduleEditViewController.h; sourceTree = "<group>"; };
+		6CE89E0618048D1900C1A14B /* PLScheduleEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleEditViewController.m; path = Classes/ViewControllers/iPhone/UserHomeSequence/SettingsSequence/Schedule/PLScheduleEditViewController.m; sourceTree = "<group>"; };
 		6CF2FDE9178CC863004A50DF /* PLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLHomeViewController.h; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.h; sourceTree = "<group>"; };
 		6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
 		6CFAA6B717CFCA0D00609ACF /* PLNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationCell.h; path = Classes/UIElements/Cells/Notification/PLNotificationCell.h; sourceTree = "<group>"; };
@@ -1401,11 +1404,21 @@
 			children = (
 				6C92A91F17C6F5DD0004BFF3 /* Settings */,
 				6C92A92017C6F5FA0004BFF3 /* Notifications */,
+				6CE89E0418048CEC00C1A14B /* Schedule */,
 				6C92A92117C6F5FF0004BFF3 /* Tutorial */,
 				6C92A92217C6F6020004BFF3 /* BugReport */,
 				6C92A92317C6F6160004BFF3 /* ContactUs */,
 			);
 			name = SettingsSequence;
+			sourceTree = "<group>";
+		};
+		6CE89E0418048CEC00C1A14B /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				6CE89E0518048D1900C1A14B /* PLScheduleEditViewController.h */,
+				6CE89E0618048D1900C1A14B /* PLScheduleEditViewController.m */,
+			);
+			name = Schedule;
 			sourceTree = "<group>";
 		};
 		6CF2FDE8178CC851004A50DF /* Home */ = {
@@ -1689,6 +1702,7 @@
 				6C8CA4261756810E0019FC4B /* PLLinkModel.m in Sources */,
 				6CBCC49E1779F1B800527961 /* PLTextField.m in Sources */,
 				6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */,
+				6CE89E0718048D1900C1A14B /* PLScheduleEditViewController.m in Sources */,
 				6C487C001795BEFE007EE2B5 /* PLLoginViewController.m in Sources */,
 				6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */,
 				6C487C0C1795DEBD007EE2B5 /* PLLocationInputViewController.m in Sources */,
