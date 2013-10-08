@@ -7,20 +7,38 @@
 //
 
 #import "PLBugReportViewController.h"
+#import  <QuartzCore/QuartzCore.h>
 
-@interface PLBugReportViewController() {
-@private
-}
+@interface PLBugReportViewController() 
 
 @end
 
 @implementation PLBugReportViewController
 
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
 #pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(IBAction)sendPushed:(id)sender{
+    
+}
+
+-(void)dismissKeyboard {
+    [bugReportView resignFirstResponder];
+}
+
+
+
 
 @end

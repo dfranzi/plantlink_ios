@@ -190,6 +190,7 @@
 		6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3CEC61797258800618892 /* PLNotificationsViewController.m */; };
 		6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */; };
 		6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */; };
+<<<<<<< HEAD
 		6CFB28371802116D00C11A10 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB282A1802116D00C11A10 /* icon_29.png */; };
 		6CFB28381802116D00C11A10 /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB282B1802116D00C11A10 /* icon_40.png */; };
 		6CFB28391802116D00C11A10 /* icon_50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB282C1802116D00C11A10 /* icon_50.png */; };
@@ -203,6 +204,9 @@
 		6CFB28411802116D00C11A10 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28341802116D00C11A10 /* icon_120.png */; };
 		6CFB28421802116D00C11A10 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28351802116D00C11A10 /* icon_144.png */; };
 		6CFB28431802116D00C11A10 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28361802116D00C11A10 /* icon_152.png */; };
+=======
+		BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */; };
+>>>>>>> 6601674ceb7091157c9d8c064c82acfe0cffc226
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -454,6 +458,7 @@
 		6CF2FDEA178CC863004A50DF /* PLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLHomeViewController.m; path = Classes/ViewControllers/iPhone/Home/PLHomeViewController.m; sourceTree = "<group>"; };
 		6CFAA6B717CFCA0D00609ACF /* PLNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationCell.h; path = Classes/UIElements/Cells/Notification/PLNotificationCell.h; sourceTree = "<group>"; };
 		6CFAA6B817CFCA0D00609ACF /* PLNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationCell.m; path = Classes/UIElements/Cells/Notification/PLNotificationCell.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		6CFB282A1802116D00C11A10 /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
 		6CFB282B1802116D00C11A10 /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
 		6CFB282C1802116D00C11A10 /* icon_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_50.png; sourceTree = "<group>"; };
@@ -467,6 +472,10 @@
 		6CFB28341802116D00C11A10 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		6CFB28351802116D00C11A10 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		6CFB28361802116D00C11A10 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
+=======
+		BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuTextView.h; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.h; sourceTree = "<group>"; };
+		BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuTextView.m; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.m; sourceTree = "<group>"; };
+>>>>>>> 6601674ceb7091157c9d8c064c82acfe0cffc226
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1007,6 +1016,7 @@
 		6C972BC817555191007234B6 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				BA3C1F4317E8FBF90000B255 /* TextView */,
 				6C370CDA17B4598B009974D1 /* View */,
 				6C370CD617B45979009974D1 /* Image */,
 				6CBCC49B1779F19E00527961 /* TextField */,
@@ -1422,6 +1432,23 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
+		BA3C1F4317E8FBF90000B255 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				BA3C1F4417E8FBFE0000B255 /* MenuTextView */,
+			);
+			name = TextView;
+			sourceTree = "<group>";
+		};
+		BA3C1F4417E8FBFE0000B255 /* MenuTextView */ = {
+			isa = PBXGroup;
+			children = (
+				BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */,
+				BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */,
+			);
+			name = MenuTextView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1706,7 +1733,11 @@
 				6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */,
 				6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */,
 				6C3F86A417DBDB2D007242FC /* PLPlantSetupOption.m in Sources */,
+<<<<<<< HEAD
 				6C67E3F117F7A24300A226C6 /* PLItemRequest.m in Sources */,
+=======
+				BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */,
+>>>>>>> 6601674ceb7091157c9d8c064c82acfe0cffc226
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1841,8 +1872,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+<<<<<<< HEAD
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZACodeBase/ZACodeBase/**";
+=======
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../../Service-CodeBase\"/**";
+>>>>>>> 6601674ceb7091157c9d8c064c82acfe0cffc226
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${SRCROOT}/../../ZAcodeBase/ZACodeBase/**",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Zealous-fvxmlabztuvlvlepksbwxgbtcgfo/Build/Products/Debug-iphoneos",
@@ -1863,8 +1899,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
+<<<<<<< HEAD
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZACodeBase/ZACodeBase/**";
+=======
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../../Service-CodeBase\"/**";
+>>>>>>> 6601674ceb7091157c9d8c064c82acfe0cffc226
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"${SRCROOT}/../../ZAcodeBase/ZACodeBase/**",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Zealous-fvxmlabztuvlvlepksbwxgbtcgfo/Build/Products/Debug-iphoneos",
