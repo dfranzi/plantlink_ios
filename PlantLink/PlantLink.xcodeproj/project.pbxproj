@@ -1863,18 +1863,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZACodeBase/ZACodeBase/**";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../../Service-CodeBase\"/**";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"${SRCROOT}/../../ZAcodeBase/ZACodeBase/**",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Zealous-fvxmlabztuvlvlepksbwxgbtcgfo/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1887,18 +1883,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZACodeBase/ZACodeBase/**";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../../Service-CodeBase\"/**";
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"${SRCROOT}/../../ZAcodeBase/ZACodeBase/**",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Zealous-fvxmlabztuvlvlepksbwxgbtcgfo/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
