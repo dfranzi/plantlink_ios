@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AbstractRequestProtocol.h"
 
 @class PLUserManager;
-@interface PLAbstractViewController : UIViewController <AbstractRequestDelegate> {
+@interface PLAbstractViewController : UIViewController {
     PLUserManager *sharedUser;
 }
 @property(nonatomic, assign) BOOL isIphone5;

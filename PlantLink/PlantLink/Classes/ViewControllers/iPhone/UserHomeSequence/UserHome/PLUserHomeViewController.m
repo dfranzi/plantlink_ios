@@ -23,6 +23,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_User_Logout object:nil];
     [self.navigationController.navigationItem setLeftBarButtonItem:nil];
     for(UIViewController *controller in self.viewControllers) [controller viewDidLoad];
@@ -31,6 +33,9 @@
     [self addSeparatorAtInterval:0.25];
     [self addSeparatorAtInterval:0.50];
     [self addSeparatorAtInterval:0.75];
+    
+    [self.tabBar setBarStyle:UIBarStyleBlack];
+    [self.tabBar setCenter:CGPointMake(self.tabBar.center.x, self.tabBar.center.y+5)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -47,18 +52,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
-#pragma mark -
-#pragma mark Display Methods
-
--(void)setCustomTabBarDesign {
-    UIImage* tabBarBackground = [GeneralMethods imageWithColor:Color_TabBar_Background andSize:CGSizeMake(320.0, 49.0)];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    
-    UIImage *selectedBackground = [GeneralMethods imageWithColor:Color_MenuButton_Up andSize:CGSizeMake(80.0, 49.0)];
-    [[UITabBar appearance] setSelectionIndicatorImage:selectedBackground];
-     
 }
 
 #pragma mark -

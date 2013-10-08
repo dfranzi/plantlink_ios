@@ -9,11 +9,9 @@
 #import "PLLocationInputViewController.h"
 
 #import "PLTextField.h"
-#import "LocationManager.h"
 
 @interface PLLocationInputViewController() {
 @private
-    LocationManager *sharedLocation;
 }
 
 @end
@@ -29,7 +27,6 @@
     [self addLeftNavButtonWithImageNamed:Image_Navigation_BackButton toNavigationItem:self.navigationItem withSelector:@selector(popView:)];
     [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
     
-    sharedLocation = [LocationManager initializeLocationManager];
     [locationTextField setBackgroundColor:SHADE(250.0)];
     
     [self.navigationItem setTitle:@"Location"];
@@ -45,17 +42,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-
-#pragma mark -
-#pragma mark Notification Methods
-
--(void)recievedNotification:(NSNotification*)notification {
-    NSString *type = (NSString*)[notification object];
-    if([[notification name] isEqualToString:Notification_Location_Update] && [type isEqualToString:Location_Update_Location]) {
-        [self updateMapToCoordinate:[sharedLocation currentLocation].coordinate];
-    }
-}
-
 #pragma mark -
 #pragma mark IBAction Methods
 
@@ -65,7 +51,7 @@
 }
 
 -(IBAction)useCurrentLocationPushed:(id)sender {
-    [sharedLocation startLocationUpdates];
+
 }
 
 #pragma mark -

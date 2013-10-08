@@ -13,20 +13,17 @@
 #import "PLSoilModel.h"
 #import "PLPlantTypeModel.h"
 
-#import "PLPlantRequest.h"
+#import "PLItemRequest.h"
 #import "PLUserRequest.h"
-
-#import "PLPlantTypeRequest.h"
-#import "PLSoilTypeRequest.h"
 
 @interface PLUserManager() {
 @private
     PLUserRequest *userRequest;
     PLUserRequest *logoutRequest;
-    PLPlantRequest *plantRequest;
+    PLItemRequest *plantRequest;
     
-    PLSoilTypeRequest *soilRequest;
-    PLPlantTypeRequest *plantTypeRequest;
+    PLItemRequest *soilRequest;
+    PLItemRequest *plantTypeRequest;
 }
 @end
 
@@ -64,113 +61,46 @@ static PLUserManager *sharedUser = nil;
 #pragma mark User Methods
 
 -(void)refreshData {
-    userRequest = [[PLUserRequest alloc] initGetUserRequest];
-    [userRequest setDelegate:self];
-    [userRequest startRequest];
+    userRequest = [[PLUserRequest alloc] init];
+    [userRequest getUserWithResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        _user = [PLUserModel initWithDictionary:dict];
+        userRequest = NULL;
+    }];
     
-    plantRequest = [[PLPlantRequest alloc] initGetAllUserPlantsRequest];
-    [plantRequest setDelegate:self];
-    [plantRequest startRequest];
+    
+    plantRequest = [[PLItemRequest alloc] init];
+    [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        _plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
+        plantRequest = NULL;
+    }];
 }
 
 -(void)refreshTypes {
-    plantTypeRequest = [[PLPlantTypeRequest alloc] initPlantTypeRequest];
-    [plantTypeRequest setDelegate:self];
-    [plantTypeRequest startRequest];
+    plantTypeRequest = [[PLItemRequest alloc] init];
+    [plantTypeRequest getPlantTypesWithResponse:^(NSData *data, NSError *error) {
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        _plantTypes = [PLPlantTypeModel modelsFromArrayOfDictionaries:array];
+        plantTypeRequest = NULL;
+    }];
     
-    soilRequest = [[PLSoilTypeRequest alloc] initSoilTypeRequest];
-    [soilRequest setDelegate:self];
-    [soilRequest startRequest];
+    soilRequest = [[PLItemRequest alloc] init];
+    [soilRequest getSoilTypesWithResponse:^(NSData *data, NSError *error) {
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        _soilTypes = [PLSoilModel modelsFromArrayOfDictionaries:array];
+        soilRequest = NULL;
+    }];
 }
 
 -(void)logout {
     _user = NULL;
     _plants = [NSMutableArray array];
     
-    logoutRequest = [[PLUserRequest alloc] initLogoutUserRequest];
-    [logoutRequest setDelegate:self];
-    [logoutRequest startRequest];
-}
-
-#pragma mark -
-#pragma mark Request Methods
-
--(void)requestDidFinish:(AbstractRequest *)request {
-    NSData *data = [request data];
-    ZALog(@"Data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
-    if([request type] == Request_GetAllPlants) [self processAllPlantsRequest:data];
-    else if([request type] == Request_GetUser) [self processGetUserRequest:data];
-    else if([request type] == Request_GetSoilTypes) [self processSoilTypesRequest:data];
-    else if([request type] == Request_GetPlantTypes) [self processPlantTypesRequest:data];
-    else if([request type] == Request_LogoutUser) [self postNotification:Notification_User_Logout];
-    
-    if(plantRequest == NULL && userRequest == NULL) [self postNotification:Notification_User_UserRefreshed];
-    if(soilRequest == NULL && plantTypeRequest == NULL) [self postNotification:Notification_User_TypesRefreshed];
-}
-
--(void)requestDidFail:(AbstractRequest *)request {
-    if([request type] == Request_GetAllPlants) {
-        [self postNotification:Notification_User_UserRefreshFailed];
-        plantRequest = NULL;
-        
-        [userRequest cancelRequest];
-        userRequest = NULL;
-    }
-    
-    if([request type] == Request_GetUser) {
-        [self postNotification:Notification_User_UserRefreshFailed];
-        userRequest = NULL;
-        
-        [plantRequest cancelRequest];
-        plantRequest = NULL;
-    }
-    
-    if([request type] == Request_GetSoilTypes) {
-        [self postNotification:Notification_User_TypesRefreshFailed];
-        soilRequest = NULL;
-        
-        [plantTypeRequest cancelRequest];
-        plantTypeRequest = NULL;
-    }
-    if([request type] == Request_GetPlantTypes) {
-        [self postNotification:Notification_User_TypesRefreshFailed];
-        plantTypeRequest = NULL;
-        
-        [soilRequest cancelRequest];
-        soilRequest = NULL;
-    }
-}
-
--(void)processAllPlantsRequest:(NSData*)data {
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    _plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
-    plantRequest = NULL;
-}
-
--(void)processGetUserRequest:(NSData*)data {
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    _user = [PLUserModel modelWithDictionary:dict];
-    userRequest = NULL;
-}
-
--(void)processPlantTypesRequest:(NSData*)data {
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    _plantTypes = [PLPlantTypeModel modelsFromArrayOfDictionaries:array];
-    plantTypeRequest = NULL;
-}
-
--(void)processSoilTypesRequest:(NSData*)data {
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    _soilTypes = [PLSoilModel modelsFromArrayOfDictionaries:array];
-    soilRequest = NULL;
-}
-
-#pragma mark -
-#pragma mark Notification Methods
-
--(void)postNotification:(NSString*)notification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
+    logoutRequest = [[PLUserRequest alloc] init];
+    [logoutRequest logoutWithResponse:^(NSData *data, NSError *error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_User_Logout object:nil];
+    }];
 }
 
 @end

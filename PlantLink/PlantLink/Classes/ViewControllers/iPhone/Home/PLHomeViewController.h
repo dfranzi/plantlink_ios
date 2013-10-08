@@ -9,7 +9,7 @@
 #import "PLAbstractViewController.h"
 
 
-@interface PLHomeViewController : PLAbstractViewController
+@interface PLHomeViewController : PLAbstractViewController <UIAlertViewDelegate>
 
 #pragma mark -
 #pragma mark IBAction Methods

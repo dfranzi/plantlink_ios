@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AbstractRequestProtocol.h"
 
 @class PLUserModel;
-@interface PLUserManager : NSObject <AbstractRequestDelegate>
+@interface PLUserManager : NSObject
 @property(nonatomic, assign) BOOL loggedIn;
 @property(nonatomic, strong) PLUserModel *user;
 

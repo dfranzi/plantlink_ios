@@ -11,7 +11,6 @@
 #import "PLRequestConstants.h"
 
 //Warning
-#warning Confirm caching works as intended
 #warning Make sure no internet doesnt screw up the nullification of requests
 #warning Make sure all onging requests are cancelled if view is left
 
@@ -52,12 +51,6 @@
 #define Segue_ToContactUs @"toContactUsView"
 
 //Notifications
-#define Notification_User_UserRefreshed @"User-UserRefreshed"
-#define Notification_User_UserRefreshFailed @"User-UserRefreshFailed"
-
-#define Notification_User_TypesRefreshed @"User-TypesRefreshed"
-#define Notification_User_TypesRefreshFailed @"User-TypesRefreshFailed"
-
 #define Notification_User_Logout @"User-Logout"
 
 #define Notification_Plant_Edit @"Plant-Edit"

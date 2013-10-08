@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A569" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TmI-ib-oW0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A584" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TmI-ib-oW0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="BLs-F1-t45">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TmI-ib-oW0" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="7nT-bT-kaj">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7nT-bT-kaj">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.64882789250625694" blue="0.89266826923076925" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="DHn-8Z-HTV" kind="relationship" relationship="rootViewController" id="aTO-zT-bPp"/>
@@ -26,7 +32,7 @@
             <objects>
                 <viewController id="DHn-8Z-HTV" customClass="PLHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sh4-XP-DKu">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rW1-lv-0aM" customClass="PLMenuButton">
@@ -82,11 +88,11 @@
             <objects>
                 <viewController id="Ms2-GX-xOL" customClass="PLLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="giR-nK-hI0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Smith" textAlignment="right" minimumFontSize="17" id="oGU-7m-5b0" customClass="PLTextField">
-                                <rect key="frame" x="20" y="60" width="280" height="40"/>
+                                <rect key="frame" x="20" y="80" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -96,7 +102,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jsmith@gmail.com" textAlignment="right" minimumFontSize="17" id="KNi-vD-F3E" customClass="PLTextField">
-                                <rect key="frame" x="20" y="108" width="280" height="40"/>
+                                <rect key="frame" x="20" y="128" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -106,7 +112,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="at least 8 characters" textAlignment="right" minimumFontSize="17" id="S9x-HH-huG" customClass="PLTextField">
-                                <rect key="frame" x="20" y="156" width="280" height="40"/>
+                                <rect key="frame" x="20" y="176" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -116,7 +122,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="right" minimumFontSize="17" id="rbm-Xq-J4h" customClass="PLTextField">
-                                <rect key="frame" x="20" y="204" width="280" height="40"/>
+                                <rect key="frame" x="20" y="224" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -126,7 +132,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cZ-Oi-tPU">
-                                <rect key="frame" x="27" y="255" width="266" height="43"/>
+                                <rect key="frame" x="27" y="275" width="266" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Before signing up, you agree to the ">
@@ -176,14 +182,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqa-AO-mpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4635" y="-12"/>
+            <point key="canvasLocation" x="4635" y="277"/>
         </scene>
         <!--Serial Input View Controller-->
         <scene sceneID="610-gq-nVc">
             <objects>
                 <viewController id="EB4-ah-6an" customClass="PLSerialInputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bNm-C2-11D">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="### - ### - ####" textAlignment="right" minimumFontSize="17" id="m63-Pc-gbl" customClass="PLTextField">
@@ -249,11 +255,11 @@
             <objects>
                 <viewController id="rHH-HP-uPf" customClass="PLPlantSetupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N1r-wk-8fN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="X7h-gO-6IA" customClass="PLPlantSetupOption">
-                                <rect key="frame" x="0.0" y="278" width="320" height="138"/>
+                                <rect key="frame" x="0.0" y="278" width="320" height="202"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nbh-Rh-w7O">
@@ -312,7 +318,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" id="KLo-ML-Tx7" customClass="PLPlantSetupOption">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aOK-Wv-YWo">
@@ -378,7 +384,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" id="QEI-Ge-oQW" customClass="PLPlantSetupOption">
-                                <rect key="frame" x="0.0" y="139" width="320" height="138"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="202"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7zw-ib-zKk">
@@ -461,11 +467,11 @@
             <objects>
                 <viewController id="XmO-8R-qih" customClass="PLLocationInputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ucL-Cp-8bW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="m4a-i8-UwN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="269"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="XmO-8R-qih" id="8eD-w4-sRC"/>
@@ -515,7 +521,7 @@
             <objects>
                 <viewController id="nWk-wm-dS0" customClass="PLAddFirstPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kfQ-Xl-4we">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ready to add your first plant?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zlj-FY-KwR">
@@ -575,7 +581,7 @@
             <objects>
                 <viewController id="Sbh-Q0-NXF" customClass="PLScheduleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TSx-PC-ZhO">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -590,11 +596,11 @@
             <objects>
                 <viewController id="q2w-Uy-gVH" customClass="PLPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L9p-Lq-xfc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="rz1-pd-gSP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HTB-wJ-m2q">
@@ -605,14 +611,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="plantCell" id="mhW-Og-iqK" customClass="PLPlantCell">
-                                        <rect key="frame" x="12" y="10" width="295" height="176"/>
+                                        <rect key="frame" x="13" y="10" width="295" height="176"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="Kn2-Sh-XuA">
-                                                    <rect key="frame" x="17" y="131.5" width="261" height="1"/>
+                                                    <rect key="frame" x="17" y="131" width="261" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.90160241788321172" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -681,7 +687,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addPlantCell" id="rSs-GZ-l9q">
-                                        <rect key="frame" x="12" y="196" width="295" height="90"/>
+                                        <rect key="frame" x="13" y="196" width="295" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="90"/>
@@ -721,19 +727,19 @@
             <objects>
                 <viewController id="TbD-UU-6O7" customClass="PLPlantDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5pm-0E-VdW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zxa-lc-odh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantTitleCell" rowHeight="120" id="kbB-0i-bmu" customClass="PLPlantNameCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbB-0i-bmu" id="6x9-r2-tm3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lfq-3a-obr">
@@ -796,8 +802,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="editButton" destination="gaC-Cn-wjk" id="avt-Tr-qtu"/>
                                             <outlet property="infoButton" destination="82d-1Y-O4A" id="AZC-aH-JtE"/>
@@ -806,8 +811,8 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantDetailCell" rowHeight="161" id="xUr-QS-no3" customClass="PLPlantDetailsCell">
                                         <rect key="frame" x="0.0" y="142" width="320" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xUr-QS-no3" id="ymZ-eC-zzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="plantdetails.png" id="1yf-ms-jhh">
@@ -873,8 +878,7 @@
                                                     <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="infoContainerView" destination="ygz-Yy-Q6b" id="Uck-Hc-a8G"/>
                                             <outlet property="locationTextField" destination="Qrk-Pf-Rzn" id="0OF-6C-o5J"/>
@@ -885,8 +889,8 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantMoistureCell" rowHeight="127" id="hZk-Jj-ucW" customClass="PLPlantSoilCell">
                                         <rect key="frame" x="0.0" y="303" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hZk-Jj-ucW" id="rbQ-mf-zkK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="Mtn-jc-aMx">
@@ -901,13 +905,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.94924726277372262" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="soilmoisture@2x.png" id="Oac-Mn-On6">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="soilmoisture.png" id="Oac-Mn-On6">
                                                     <rect key="frame" x="73" y="14" width="174" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="infoContainerView" destination="Mtn-jc-aMx" id="xAh-y1-dE3"/>
                                             <outlet property="moistureIndicator" destination="GBD-7Z-sM4" id="BNy-1W-7kk"/>
@@ -916,8 +919,8 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHistoryCell" rowHeight="336" id="RLY-KZ-gip" customClass="PLPlantHistoryCell">
                                         <rect key="frame" x="0.0" y="430" width="320" height="336"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RLY-KZ-gip" id="KFW-NG-Xt0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="moisturehistory.png" id="yxO-94-Sp0">
@@ -957,8 +960,7 @@
                                                     <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="infoContainerView" destination="c9X-R0-Kb1" id="8dG-tp-CX4"/>
                                         </connections>
@@ -966,7 +968,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantScheduleCell" rowHeight="123" id="iYj-Sx-36p" customClass="PLPlantScheduleCell">
                                         <rect key="frame" x="0.0" y="766" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYj-Sx-36p" id="6sg-bz-xmj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1003,8 +1005,7 @@
                                                     <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="infoContainerView" destination="K8m-BE-iKB" id="yYn-yO-HiG"/>
                                             <outlet property="waterOnLabel" destination="jtm-gN-TZL" id="6Xi-fg-rcR"/>
@@ -1013,7 +1014,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="100" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
                                         <rect key="frame" x="0.0" y="889" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GoN-2R-mU9" id="vWt-iV-MKQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1079,8 +1080,7 @@
                                                     <color key="backgroundColor" white="0.94924726280000005" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addValveButton" destination="IJN-Z7-jv5" id="qf1-5m-T2W"/>
                                             <outlet property="batteryImage" destination="mxE-4m-GlA" id="tkt-Q2-Iqr"/>
@@ -1094,7 +1094,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHelpCell" rowHeight="77" id="4BP-vt-gOk" customClass="PLPlantHelpCell">
                                         <rect key="frame" x="0.0" y="989" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4BP-vt-gOk" id="iAG-dn-U8L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1111,8 +1111,7 @@
                                                     </state>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1160,7 +1159,7 @@
             <objects>
                 <viewController id="fnN-8D-bLx" customClass="PLInformationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zVM-FX-chR">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="axS-LC-yu6">
@@ -1175,7 +1174,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="informationCell" id="dwL-YJ-L3i">
-                                        <rect key="frame" x="8" y="6" width="306" height="400"/>
+                                        <rect key="frame" x="8" y="7" width="306" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="306" height="400"/>
@@ -1262,19 +1261,19 @@
             <objects>
                 <viewController id="hyj-JF-cLi" customClass="PLSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NsE-9u-D19">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gfm-NQ-U1Q">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsImageCell" rowHeight="50" id="6bQ-Iw-LwP" customClass="PLSettingsCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6bQ-Iw-LwP" id="q5I-6d-715">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="iLc-lz-XPV">
@@ -1282,14 +1281,13 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsCell" rowHeight="50" id="4tr-1d-htc" customClass="PLSettingsCell">
                                         <rect key="frame" x="0.0" y="72" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tr-1d-htc" id="TKJ-jS-m9G">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kHW-R1-hVy">
@@ -1300,8 +1298,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="kHW-R1-hVy" id="KYJ-O7-lB3"/>
                                         </connections>
@@ -1333,7 +1330,7 @@
             <objects>
                 <viewController id="HGz-oX-pZ9" customClass="PLNotificationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hyf-R5-mBh">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aTv-Wk-tMk">
@@ -1466,7 +1463,7 @@
             <objects>
                 <viewController id="Q5x-Es-kV4" customClass="PLContactUsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZP-OT-iz5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W2l-Em-ONN">
@@ -1497,7 +1494,7 @@
             <objects>
                 <viewController id="oBg-3E-dlS" customClass="PLBugReportViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jO6-PG-qf7">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JCH-mV-QAM">
@@ -1529,7 +1526,7 @@
             <objects>
                 <viewController id="m5G-bZ-I9C" customClass="PLTutorialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Omc-ju-ro5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pEs-eT-pEr">
@@ -1560,11 +1557,11 @@
             <objects>
                 <viewController id="GkL-BH-b05" customClass="PLNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n7T-Uv-j5Q">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WNs-oJ-nH1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cSH-b6-nL8">
@@ -1575,7 +1572,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notificationCell" id="2SG-fO-g2e" customClass="PLNotificationCell">
-                                        <rect key="frame" x="11" y="10" width="297" height="69"/>
+                                        <rect key="frame" x="12" y="10" width="297" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="69"/>
@@ -1605,7 +1602,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editCell" id="iqt-fG-quW" customClass="PLNotificationCell">
-                                        <rect key="frame" x="11" y="89" width="297" height="85"/>
+                                        <rect key="frame" x="12" y="89" width="297" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="85"/>
@@ -1648,7 +1645,7 @@
             <objects>
                 <viewController id="Ywb-aK-RqK" customClass="PLConnectLinkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM7-P0-ShX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tZd-RQ-r55">
@@ -1709,7 +1706,7 @@
             <objects>
                 <viewController id="Cvc-Qi-2kc" customClass="PLSyncLinkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fn8-Dm-vUN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yJb-Kb-Jvp">
@@ -1770,7 +1767,7 @@
             <objects>
                 <viewController id="lmX-mh-pUA" customClass="PLAssociateValveViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCT-Dr-8s4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Would you like to associate a valve with this plant?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Pf-xz-77S">
@@ -1845,7 +1842,7 @@
             <objects>
                 <viewController id="TGT-dK-pSi" customClass="PLFirstPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="McC-N9-mw6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wxC-R6-0pT">
@@ -1924,285 +1921,19 @@
         <image name="plantdetails.png" width="96" height="15"/>
         <image name="plantlinklogo.png" width="239" height="55"/>
         <image name="remove.png" width="22" height="22"/>
-        <image name="soilmoisture@2x.png" width="196" height="30"/>
+        <image name="soilmoisture.png" width="98" height="15"/>
         <image name="wateringschedule.png" width="136" height="15"/>
         <image name="wifi_0.png" width="24" height="19"/>
         <image name="wifi_1.png" width="24" height="19"/>
         <image name="xicon.png" width="19" height="19"/>
     </resources>
-    <classes>
-        <class className="AbstractCLCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractCLCell.h"/>
-        </class>
-        <class className="AbstractTBCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractTBCell.h"/>
-        </class>
-        <class className="PLAbstractPlantDetailCell" superclassName="AbstractTBCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractPlantDetailCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLAbstractViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAbstractViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="nextPushed:"/>
-                <relationship kind="action" name="popView:"/>
-            </relationships>
-        </class>
-        <class className="PLAddFirstPlantViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAddFirstPlantViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="laterPushed:"/>
-                <relationship kind="action" name="yesPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLAssociateValveViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLAssociateValveViewController.h"/>
-        </class>
-        <class className="PLBatteryImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBatteryImageView.h"/>
-        </class>
-        <class className="PLBugReportViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLBugReportViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLConnectLinkViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLConnectLinkViewController.h"/>
-        </class>
-        <class className="PLContactUsViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLContactUsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLFirstPlantViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLFirstPlantViewController.h"/>
-        </class>
-        <class className="PLHomeViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLHomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginPushed:"/>
-                <relationship kind="action" name="setupPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLInformationViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLInformationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoCollectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="infoPageControl" candidateClass="UIPageControl"/>
-            </relationships>
-        </class>
-        <class className="PLLocationInputViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLocationInputViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchPushed:"/>
-                <relationship kind="action" name="useCurrentLocationPushed:"/>
-                <relationship kind="outlet" name="locationMapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="locationTextField" candidateClass="PLTextField"/>
-            </relationships>
-        </class>
-        <class className="PLLoginViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLLoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="PLTextField"/>
-                <relationship kind="outlet" name="disclaimerTextField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="PLTextField"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="PLTextField"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="PLTextField"/>
-            </relationships>
-        </class>
-        <class className="PLMenuButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMenuButton.h"/>
-        </class>
-        <class className="PLMoistureIndicator" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLMoistureIndicator.h"/>
-        </class>
-        <class className="PLNotificationCell" superclassName="AbstractCLCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notificationLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLNotificationOptionButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationOptionButton.h"/>
-        </class>
-        <class className="PLNotificationViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPushed:"/>
-                <relationship kind="action" name="eveningPushed:"/>
-                <relationship kind="action" name="midnightPushed:"/>
-                <relationship kind="action" name="morningPushed:"/>
-                <relationship kind="action" name="noonPushed:"/>
-                <relationship kind="action" name="savePushed:"/>
-                <relationship kind="outlet" name="eveningButton" candidateClass="PLNotificationOptionButton"/>
-                <relationship kind="outlet" name="midnightButton" candidateClass="PLNotificationOptionButton"/>
-                <relationship kind="outlet" name="morningButton" candidateClass="PLNotificationOptionButton"/>
-                <relationship kind="outlet" name="noonButton" candidateClass="PLNotificationOptionButton"/>
-            </relationships>
-        </class>
-        <class className="PLNotificationsViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLNotificationsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="notificationCollectionView" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="PLPlantCell" superclassName="AbstractCLCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="batteryImage" candidateClass="PLBatteryImageView"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="moistureIndicator" candidateClass="PLMoistureIndicator"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="signalImage" candidateClass="PLSignalImageView"/>
-                <relationship kind="outlet" name="waterLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLPlantDetailViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="plantTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PLPlantDetailsCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantDetailsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="locationTextField" candidateClass="PLPlantEditTextField"/>
-                <relationship kind="outlet" name="plantTypeTextField" candidateClass="PLPlantEditTextField"/>
-                <relationship kind="outlet" name="soilTypeTextField" candidateClass="PLPlantEditTextField"/>
-            </relationships>
-        </class>
-        <class className="PLPlantEditTextField" superclassName="UITextField">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantEditTextField.h"/>
-        </class>
-        <class className="PLPlantHelpCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantHelpCell.h"/>
-        </class>
-        <class className="PLPlantHistoryCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantHistoryCell.h"/>
-        </class>
-        <class className="PLPlantLinkCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantLinkCell.h"/>
-            <relationships>
-                <relationship kind="action" name="addValvePushed:"/>
-                <relationship kind="action" name="disconnectLinkPushed:"/>
-                <relationship kind="outlet" name="addValveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="batteryImage" candidateClass="PLBatteryImageView"/>
-                <relationship kind="outlet" name="batteryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="removeLinkButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wifiImage" candidateClass="PLSignalImageView"/>
-                <relationship kind="outlet" name="wifiLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLPlantNameCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantNameCell.h"/>
-            <relationships>
-                <relationship kind="action" name="backPushed:"/>
-                <relationship kind="action" name="editPushed:"/>
-                <relationship kind="action" name="infoPushed:"/>
-                <relationship kind="outlet" name="activeOnLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLPlantScheduleCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantScheduleCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="waterOnLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLPlantSetupOption" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSetupOption.h"/>
-            <relationships>
-                <relationship kind="outlet" name="infoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inputField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLPlantSetupViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSetupViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="optionOne" candidateClass="PLPlantSetupOption"/>
-                <relationship kind="outlet" name="optionThree" candidateClass="PLPlantSetupOption"/>
-                <relationship kind="outlet" name="optionTwo" candidateClass="PLPlantSetupOption"/>
-            </relationships>
-        </class>
-        <class className="PLPlantSoilCell" superclassName="PLAbstractPlantDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantSoilCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="moistureIndicator" candidateClass="PLMoistureIndicator"/>
-            </relationships>
-        </class>
-        <class className="PLPlantViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLPlantViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="plantCollectionView" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="PLScheduleViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLScheduleViewController.h"/>
-        </class>
-        <class className="PLSerialInputViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSerialInputViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="serialTextField" candidateClass="PLTextField"/>
-            </relationships>
-        </class>
-        <class className="PLSettingsCell" superclassName="AbstractTBCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSettingsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PLSettingsViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="settingsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PLSignalImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSignalImageView.h"/>
-        </class>
-        <class className="PLSyncLinkViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLSyncLinkViewController.h"/>
-        </class>
-        <class className="PLTextField" superclassName="UITextField">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTextField.h"/>
-        </class>
-        <class className="PLTutorialViewController" superclassName="PLAbstractViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLTutorialViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPushed:"/>
-            </relationships>
-        </class>
-        <class className="PLUserHomeViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PLUserHomeViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OkX-mA-8Vl"/>
         <segue reference="zMU-dg-SC3"/>
+        <segue reference="hGa-Fz-QF0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,9 +36,8 @@
     if([self model]) {
         [nameLabel setText:[[self model] name]];
         
-        NSString *yearStr = [GeneralMethods stringFromDate:[[self model] created] withFormat:@"yyyy"];
-        NSString *monthStr = [GeneralMethods monthFromDate:[[self model] created] abbreviation:YES];
-        [activeOnLabel setText:[NSString stringWithFormat:@"Active since %@, %@",monthStr,yearStr]];
+        NSString *dateStr = [GeneralMethods stringFromDate:[[self model] created] withFormat:@"mm, yyyy"];
+        [activeOnLabel setText:[NSString stringWithFormat:@"Active since %@",dateStr]];
     }
 }
 

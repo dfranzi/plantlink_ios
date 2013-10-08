@@ -26,7 +26,7 @@
         
         
         
-        if([dict[DC_Plant_Measurement] isKindOfClass:[NSDictionary class]]) _lastMeasurement = [PLPlantMeasurementModel modelWithDictionary:dict[DC_Plant_Measurement]];
+        if([dict[DC_Plant_Measurement] isKindOfClass:[NSDictionary class]]) _lastMeasurement = [PLPlantMeasurementModel initWithDictionary:dict[DC_Plant_Measurement]];
         else _lastMeasurement = dict[DC_Plant_Measurement];
         
         
@@ -43,9 +43,9 @@
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Plant_Created] intValue]];
         
-        
-        if([dict[DC_Plant_Color] isKindOfClass:[NSString class]]) _color = [GeneralMethods colorFromHexString:dict[DC_Plant_Color]];
-        else _color = dict[DC_Plant_Color];
+        #warning Color not implemented
+        //if([dict[DC_Plant_Color] isKindOfClass:[NSString class]]) _color = [GeneralMethods colorFromHexString:dict
+        //else _color = dict[DC_Plant_Color];
         
     }
     return self;

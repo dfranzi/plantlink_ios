@@ -11,13 +11,13 @@
 #import "PLUserManager.h"
 #import "PLPlantModel.h"
 #import "PLPlantCell.h"
-#import "PLPlantRequest.h"
+#import "PLItemRequest.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PLPlantDetailViewController.h"
 
 @interface PLPlantViewController() {
 @private
-    PLPlantRequest *plantRequest;
+    PLItemRequest *plantRequest;
     PLPlantModel *selectedPlant;
     NSMutableArray *plants;
     
@@ -35,11 +35,12 @@
     [plantCollectionView setBackgroundColor:Color_ViewBackground];
     [sharedUser setPlantReloadTrigger:YES];
     
-    UIImage *leaf = [UIImage imageNamed:Image_Tab_Leaf];
-    UIImage *leafHighlighted = [UIImage imageNamed:Image_Tab_LeafHighlighted];
-        
+    UIImage *leaf = [[UIImage imageNamed:Image_Tab_Leaf] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *leafHighlighted = [[UIImage imageNamed:Image_Tab_LeafHighlighted] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     [self.tabBarItem setTitle:@""];
-    [self.tabBarItem setFinishedSelectedImage:leafHighlighted withFinishedUnselectedImage:leaf];
+    [self.tabBarItem setSelectedImage:leafHighlighted];
+    [self.tabBarItem setImage:leaf];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -51,7 +52,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    if(plantRequest) [plantRequest cancelRequest];
+    if(plantRequest) [plantRequest cancel];
 }
 
 #pragma mark -
@@ -113,24 +114,20 @@
     plants = [NSMutableArray array];
     [plantCollectionView reloadData];
     
-    plantRequest = [[PLPlantRequest alloc] initGetAllUserPlantsRequest];
-    [plantRequest setDelegate:self];
-    [plantRequest startRequest];
-
-}
-
--(void)requestDidFinish:(AbstractRequest *)request {
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
-    
-    plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
-
-    NSMutableArray *indexes = [NSMutableArray array];
-    for(int i = 0; i < [plants count]; i++) [indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-    
-    [plantCollectionView insertItemsAtIndexPaths:indexes];
-    
-    lastReload = [NSDate date];
-    [sharedUser setPlantReloadTrigger:NO];
+    plantRequest = [[PLItemRequest alloc] init];
+    [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
+        
+        NSMutableArray *indexes = [NSMutableArray array];
+        for(int i = 0; i < [plants count]; i++) [indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        
+        [plantCollectionView insertItemsAtIndexPaths:indexes];
+        
+        lastReload = [NSDate date];
+        [sharedUser setPlantReloadTrigger:NO];
+    }];
 }
 
 @end

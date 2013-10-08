@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "AbstractTBCell.h"
+#import <UIKit/UIKit.h>
 
-@interface PLSettingsCell : AbstractTBCell {
+@interface PLSettingsCell : UITableViewCell {
     IBOutlet UILabel *titleLabel;
 }
 
@@ -16,5 +16,10 @@
 #pragma mark Display Methods
 
 -(void)setTitle:(NSString*)title;
+
+#pragma mark -
+#pragma mark Size Methods
+
++(CGFloat)heightForContent:(NSDictionary*)content;
 
 @end

@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "AbstractTBCell.h"
+#import <UIKit/UIKit.h>
 
 #define PlantInfo_EditMode @"PlantInfo-EditMode"
 #define PlantInfo_InfoMode @"PlantInfo-InfoMode"
 #define PlantInfo_InfoText @"PlantInfo-InfoText"
 
 @class PLPlantModel;
-@interface PLAbstractPlantDetailCell : AbstractTBCell {
+@interface PLAbstractPlantDetailCell : UITableViewCell {
     IBOutlet UILabel *titleLabel;
     IBOutlet UIView *infoContainerView;
     
@@ -31,5 +31,10 @@
 -(void)hideInfo;
 -(void)showEdit;
 -(void)hideEdit;
+
+#pragma mark -
+#pragma mark Size Methods
+
++(CGFloat)heightForContent:(NSDictionary*)content;
 
 @end

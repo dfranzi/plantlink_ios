@@ -70,7 +70,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    if(userRequest) [userRequest cancelRequest];
+    if(userRequest) [userRequest cancel];
 }
 
 #pragma mark -
@@ -85,6 +85,7 @@
 #pragma mark Display Methods
 
 -(void)adjustTextFieldLocations:(NSArray*)fields offset:(int)offset {
+    offset += 20;
     for(int i = 0; i < [fields count]; i++) {
         UITextField *field = fields[i];
         [field setCenter:CGPointMake(160, 80+i*48+offset)];
@@ -159,9 +160,15 @@
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
     
-    userRequest = [[PLUserRequest alloc] initLoginUserRequestWithEmail:email andPassword:password];
-    [userRequest setDelegate:self];
-    [userRequest startRequest];
+    userRequest = [[PLUserRequest alloc] init];
+    [userRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
+        #warning Login does not account for incorrect credentials
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];
+        
+        [super nextPushed:nil];
+    }];
 }
 
 -(void)registerRequest {
@@ -176,16 +183,6 @@
     setupDict[Constant_SetupDict_Password] = password;
     
     [sharedUser setSetupDict:setupDict];
-    [super nextPushed:nil];
-}
-
--(void)requestDidFinish:(AbstractRequest *)request {
-    #warning Login does not account for incorrect credentials
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[request data] options:NSJSONReadingMutableLeaves error:nil];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];
-    
     [super nextPushed:nil];
 }
 

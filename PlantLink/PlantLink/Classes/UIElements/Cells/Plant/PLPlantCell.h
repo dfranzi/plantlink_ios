@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "AbstractCLCell.h"
+#import <UIKit/UIKit.h>
 
 @class PLPlantModel;
 @class PLMoistureIndicator;
 @class PLBatteryImageView;
 @class PLSignalImageView;
-@interface PLPlantCell : AbstractCLCell {
+@interface PLPlantCell : UICollectionViewCell {
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *dateLabel;
     IBOutlet UILabel *waterLabel;
@@ -24,5 +24,10 @@
     IBOutlet UIView *separatorView;
 }
 @property(nonatomic, strong) PLPlantModel *model;
+
+#pragma mark -
+#pragma mark Size Methods
+
++(CGSize)sizeForContent:(NSDictionary*)content;
 
 @end
