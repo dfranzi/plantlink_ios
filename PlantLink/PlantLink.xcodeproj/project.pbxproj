@@ -133,7 +133,6 @@
 		6C61235D17AF025C0048EAFE /* PLPlantLinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235C17AF025C0048EAFE /* PLPlantLinkCell.m */; };
 		6C61236017AF04030048EAFE /* PLPlantNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235F17AF04030048EAFE /* PLPlantNameCell.m */; };
 		6C61236117AF040C0048EAFE /* PLPlantNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C61235F17AF04030048EAFE /* PLPlantNameCell.m */; };
-		6C67E3ED17F7A02E00A226C6 /* libZACodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C67E3EC17F7A02E00A226C6 /* libZACodeBase.a */; };
 		6C67E3F117F7A24300A226C6 /* PLItemRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C67E3F017F7A24300A226C6 /* PLItemRequest.m */; };
 		6C72298C17B5985700C01EB4 /* PLPlantEditTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C72298B17B5985700C01EB4 /* PLPlantEditTextField.m */; };
 		6C753EA21797292600A47600 /* PLScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C753EA11797292600A47600 /* PLScheduleViewController.m */; };
@@ -205,6 +204,8 @@
 		6CFB28421802116D00C11A10 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28351802116D00C11A10 /* icon_144.png */; };
 		6CFB28431802116D00C11A10 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28361802116D00C11A10 /* icon_152.png */; };
 		BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */; };
+		BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7096FB1804C0F700520D92 /* libZACodeBase.a */; };
+		BA907DCF18067642004DB5FA /* PLScheduleEditDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA907DCE18067642004DB5FA /* PLScheduleEditDayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -473,6 +474,9 @@
 		6CFB28361802116D00C11A10 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
 		BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuTextView.h; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.h; sourceTree = "<group>"; };
 		BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuTextView.m; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.m; sourceTree = "<group>"; };
+		BA7096FB1804C0F700520D92 /* libZACodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZACodeBase.a; path = "../../../zacodebase/build/Debug-iphoneos/libZACodeBase.a"; sourceTree = "<group>"; };
+		BA907DCD18067642004DB5FA /* PLScheduleEditDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleEditDayView.h; path = Classes/UIElements/View/ScheduleEditDays/PLScheduleEditDayView.h; sourceTree = "<group>"; };
+		BA907DCE18067642004DB5FA /* PLScheduleEditDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleEditDayView.m; path = Classes/UIElements/View/ScheduleEditDays/PLScheduleEditDayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,7 +484,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C67E3ED17F7A02E00A226C6 /* libZACodeBase.a in Frameworks */,
+				BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */,
 				6CE3CEBA179720AF00618892 /* CoreLocation.framework in Frameworks */,
 				6C487C141795F0DD007EE2B5 /* MapKit.framework in Frameworks */,
 				6C487C021795C50E007EE2B5 /* libz.dylib in Frameworks */,
@@ -536,6 +540,7 @@
 		6C370CDA17B4598B009974D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BA907DCC18067612004DB5FA /* ScheduleEditDays */,
 				6C3F86A117DBDB16007242FC /* PlantSetupOption */,
 				6C370CDB17B459BD009974D1 /* MoistureIndicator */,
 			);
@@ -904,6 +909,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA7096FB1804C0F700520D92 /* libZACodeBase.a */,
 				6C67E3EC17F7A02E00A226C6 /* libZACodeBase.a */,
 				6CBCC4951779EEC000527961 /* QuartzCore.framework */,
 				6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */,
@@ -1157,6 +1163,7 @@
 		6C972BE317555387007234B6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BAF787A11807BD1700973A62 /* Schedule */,
 				6C61234117AEE1CE0048EAFE /* AbstractPlantDetail */,
 				6C61234517AF01400048EAFE /* PlantDetailCells */,
 				6CE3CE9B1796FA4900618892 /* Plant */,
@@ -1456,6 +1463,22 @@
 			name = MenuTextView;
 			sourceTree = "<group>";
 		};
+		BA907DCC18067612004DB5FA /* ScheduleEditDays */ = {
+			isa = PBXGroup;
+			children = (
+				BA907DCD18067642004DB5FA /* PLScheduleEditDayView.h */,
+				BA907DCE18067642004DB5FA /* PLScheduleEditDayView.m */,
+			);
+			name = ScheduleEditDays;
+			sourceTree = "<group>";
+		};
+		BAF787A11807BD1700973A62 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1741,6 +1764,7 @@
 				6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */,
 				6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */,
 				6C3F86A417DBDB2D007242FC /* PLPlantSetupOption.m in Sources */,
+				BA907DCF18067642004DB5FA /* PLScheduleEditDayView.m in Sources */,
 				6C67E3F117F7A24300A226C6 /* PLItemRequest.m in Sources */,
 				BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */,
 			);
@@ -1877,14 +1901,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1897,14 +1921,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Pieta (P6A4G2CZDD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlantLink/PlantLink-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				INFOPLIST_FILE = "PlantLink/PlantLink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7969D694-73B0-4300-ACBC-A0A03652CE2B";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/../../ZAcodeBase/ZACodeBase/**";
+				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

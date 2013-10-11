@@ -8,6 +8,9 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLScheduleEditViewController : PLAbstractViewController
+@interface PLScheduleEditViewController : PLAbstractViewController{
+    
+}
+
 
 @end
