@@ -17,7 +17,7 @@
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLBaseStationModel alloc] initWithDictionary:dict];
 }
 

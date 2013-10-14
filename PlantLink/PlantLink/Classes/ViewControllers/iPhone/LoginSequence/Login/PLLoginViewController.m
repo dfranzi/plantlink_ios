@@ -65,6 +65,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
@@ -131,10 +132,14 @@
     else if([textField isEqual:passwordTextField]) {
         [passwordTextField resignFirstResponder];
         if([[sharedUser loginType] isEqual:Constant_LoginType_Setup]) [confirmPasswordTextField becomeFirstResponder];
-        else [self nextPushed:nil];
+        else {
+            [self adjustViewToNewResponder:nameTextField];
+            [self nextPushed:nil];
+        }
     }
     else {
         [textField resignFirstResponder];
+        [self adjustViewToNewResponder:nameTextField];
         [self nextPushed:nil];
     
     }
@@ -151,19 +156,27 @@
 #pragma mark -
 #pragma mark Request Methods
 
-#warning Validation Not Completed
 #warning Confirm password not implemented
 #warning Saved email could change during load
 #warning No email saved after successful registration
 
 -(void)loginRequest {
+    if(userRequest) return;
+    
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
     
     userRequest = [[PLUserRequest alloc] init];
     [userRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
-        #warning Login does not account for incorrect credentials
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {
+                userRequest = NULL;
+                return;
+            }
+        }
+     
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];
         
@@ -177,6 +190,38 @@
     NSString *name = [nameTextField text];
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
+    NSString *confirm = [confirmPasswordTextField text];
+    
+    if([name isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a name" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([email isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter an email" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if(![GeneralMethods validateEmailFormat:email]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a valid email" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([password isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a password" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if([confirm isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please confirm your password" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if(![password isEqualToString:confirm]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please make sure your passwords match" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     
     setupDict[Constant_SetupDict_Name] = name;
     setupDict[Constant_SetupDict_Email] = email;

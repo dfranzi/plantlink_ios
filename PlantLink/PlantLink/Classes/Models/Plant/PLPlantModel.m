@@ -18,28 +18,21 @@
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _name = dict[DC_Plant_Name];
-        _plantTypeKey = dict[DC_Plant_PlantTypeKey];
-        _soilTypeKey = dict[DC_Plant_SoilTypeKey];
+        _plantTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PlantTypeKey] intValue]];
+        _soilTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_SoilTypeKey] intValue]];
         _environment = dict[DC_Plant_Environment];
-        _pid = dict[DC_Plant_PId];
-        _active = [dict[DC_Plant_Active] boolValue];
+        _pid = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PId] intValue]];
         
+        ZALog(@"Dict: %@",dict);
         
-        
-        if([dict[DC_Plant_Measurement] isKindOfClass:[NSDictionary class]]) _lastMeasurement = [PLPlantMeasurementModel initWithDictionary:dict[DC_Plant_Measurement]];
+        if([dict[DC_Plant_Measurement] isKindOfClass:[NSArray class]]) {
+            if([dict[DC_Plant_Measurement] count] > 0) _lastMeasurement = [PLPlantMeasurementModel initWithDictionary:dict[DC_Plant_Measurement][0]];
+            else _lastMeasurement = NULL;
+        }
         else _lastMeasurement = dict[DC_Plant_Measurement];
-        
-        
-        
-        if([dict[DC_Plant_Valves] isKindOfClass:[NSArray class]]) _valves = dict[DC_Plant_Valves];
-        else _valves = dict[DC_Plant_Valves];
-        
-        
         
         if([dict[DC_Plant_Links] isKindOfClass:[NSArray class]]) _links = dict[DC_Plant_Links];
         else _links = dict[DC_Plant_Links];
-        
-        
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Plant_Created] intValue]];
         
@@ -51,7 +44,7 @@
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLPlantModel alloc] initWithDictionary:dict];
 }
 
@@ -74,10 +67,10 @@
     dict[DC_Plant_SoilTypeKey] = [_soilTypeKey copyWithZone:zone];
     dict[DC_Plant_Environment] = [_environment copyWithZone:zone];
     dict[DC_Plant_PId] = [_pid copyWithZone:zone];
-    dict[DC_Plant_Active] = [NSNumber numberWithBool:_active];
     
-    dict[DC_Plant_Measurement] = [_lastMeasurement copyWithZone:zone];
-    dict[DC_Plant_Valves] = [_valves copyWithZone:zone];
+    if(_lastMeasurement) dict[DC_Plant_Measurement] = [_lastMeasurement copyWithZone:zone];
+    else dict[DC_Plant_Measurement] = [NSNull null];
+    
     dict[DC_Plant_Links] = [_links copyWithZone:zone];
     
     dict[DC_Plant_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
@@ -98,11 +91,9 @@
         _soilTypeKey = [aDecoder decodeObjectForKey:DC_Plant_SoilTypeKey];
         _environment = [aDecoder decodeObjectForKey:DC_Plant_Environment];
         _pid = [aDecoder decodeObjectForKey:DC_Plant_PId];
-        _active = [aDecoder decodeBoolForKey:DC_Plant_Active];
         
         _lastMeasurement = [aDecoder decodeObjectForKey:DC_Plant_Measurement];
         _links = [aDecoder decodeObjectForKey:DC_Plant_Links];
-        _valves = [aDecoder decodeObjectForKey:DC_Plant_Valves];
         
         _created = [aDecoder decodeObjectForKey:DC_Plant_Created];
         _color = [aDecoder decodeObjectForKey:DC_Plant_Color];
@@ -116,11 +107,11 @@
     [aCoder encodeObject:_soilTypeKey forKey:DC_Plant_SoilTypeKey];
     [aCoder encodeObject:_environment forKey:DC_Plant_Environment];
     [aCoder encodeObject:_pid forKey:DC_Plant_PId];
-    [aCoder encodeBool:_active forKey:DC_Plant_Active];
     
-    [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
+    if(_lastMeasurement) [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
+    else [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
+    
     [aCoder encodeObject:_links forKey:DC_Plant_Links];
-    [aCoder encodeObject:_valves forKey:DC_Plant_Valves];
     
     [aCoder encodeObject:_created forKey:DC_Plant_Created];
     [aCoder encodeObject:_color forKey:DC_Plant_Color];

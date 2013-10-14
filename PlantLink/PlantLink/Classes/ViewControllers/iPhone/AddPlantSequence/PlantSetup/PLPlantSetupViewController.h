@@ -9,7 +9,7 @@
 #import "PLAbstractViewController.h"
 
 @class PLPlantSetupOption;
-@interface PLPlantSetupViewController : PLAbstractViewController {
+@interface PLPlantSetupViewController : PLAbstractViewController <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate> {
     IBOutlet PLPlantSetupOption *optionOne;
     IBOutlet PLPlantSetupOption *optionTwo;
     IBOutlet PLPlantSetupOption *optionThree;

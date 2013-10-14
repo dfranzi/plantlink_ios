@@ -35,8 +35,8 @@
     
     if([self model]) {
         [nameLabel setText:[[self model] name]];
-        
-        NSString *dateStr = [GeneralMethods stringFromDate:[[self model] created] withFormat:@"mm, yyyy"];
+
+        NSString *dateStr = [GeneralMethods stringFromDate:[[self model] created] withFormat:@"MMM, yyyy"];
         [activeOnLabel setText:[NSString stringWithFormat:@"Active since %@",dateStr]];
     }
 }

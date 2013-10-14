@@ -67,7 +67,6 @@
 
 #define DC_Soil_Key @"key"
 #define DC_Soil_Name @"name"
-#define DC_Soil_Created @"created"
 
 #define DC_PlantType_Key @"key"
 #define DC_PlantType_Name @"name"
@@ -83,21 +82,18 @@
 #define DC_Plant_PlantTypeKey @"plant_type_key"
 #define DC_Plant_SoilTypeKey @"soil_type_key"
 #define DC_Plant_Created @"created"
-#define DC_Plant_Active @"active"
-#define DC_Plant_PId @"id"
+#define DC_Plant_PId @"key"
 #define DC_Plant_Environment @"environment"
-#define DC_Plant_Valves @"valves_key"
 #define DC_Plant_Links @"links_key"
-#define DC_Plant_Measurement @"last_measurement"
+#define DC_Plant_Measurement @"last_measurements"
 
 #define DC_Measurement_PlantKey @"plant_key"
 #define DC_Measurement_LinkKey @"link_key"
-#define DC_Measurement_Created @"created"
+#define DC_Measurement_Created @"update"
 #define DC_Measurement_PredictedWaterDate @"predicted_water_needed"
 #define DC_Measurement_Moisture @"moisture"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
-#define DC_Measurement_PlantFuelLevel @"plant_fuel_level"
 
 //Requests
 typedef enum RequestTypes {

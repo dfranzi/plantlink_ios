@@ -33,6 +33,7 @@
     
     UIImage *settings = [UIImage imageNamed:Image_Tab_Settings];
     UIImage *settingsHighlighted = [UIImage imageNamed:Image_Tab_SettingsHighlighted];
+    [settingsTableView setBackgroundColor:Color_ViewBackground];
     
     [self.tabBarItem setTitle:@""];
     [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
@@ -65,7 +66,6 @@
 
 -(void)logout {
     [sharedUser logout];
-    
 }
 
 #pragma mark -
@@ -79,12 +79,12 @@
     PLSettingsCell *cell = NULL;
     if(indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:Cell_SettingsImage forIndexPath:indexPath];
-        
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:Cell_Settings forIndexPath:indexPath];
         [cell setTitle:SettingsCellTitles[indexPath.row-1]];
     }
+    [cell.contentView setBackgroundColor:tableView.backgroundColor];
     
     return cell;
 }

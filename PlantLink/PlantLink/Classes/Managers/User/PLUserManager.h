@@ -49,4 +49,10 @@
  */
 -(void)logout;
 
+#pragma mark -
+#pragma mark Type Methods
+
+-(NSString*)nameForPlantTypeKey:(NSString*)key;
+-(NSString*)nameForSoilTypeKey:(NSString*)key;
+
 @end

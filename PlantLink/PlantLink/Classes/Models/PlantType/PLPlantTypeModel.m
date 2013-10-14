@@ -13,12 +13,12 @@
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _name = dict[DC_PlantType_Name];
-        _key = dict[DC_PlantType_Key];
+        _key = [NSString stringWithFormat:@"%i",[dict[DC_PlantType_Key] intValue]];
     }
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLPlantTypeModel alloc] initWithDictionary:dict];
 }
 

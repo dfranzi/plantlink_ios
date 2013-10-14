@@ -29,18 +29,11 @@
 // The created date according to the server
 @property(nonatomic, strong, readonly) NSDate *created;
 
-// Whether or not the plant is currently active
-@property(nonatomic, assign, readonly) BOOL active;
-
 // The server assigned plant id in the datbase
 @property(nonatomic, strong, readonly) NSString *pid;
 
-
 // An array of PLPlantMeasurementModels indicating the most recent measurements
 @property(nonatomic, strong, readonly) PLPlantMeasurementModel *lastMeasurement;
-
-// An array of PLValveModels associated with the plant
-@property(nonatomic, strong, readonly) NSArray *valves;
 
 // An array of PLLinkModels associated with the plant
 @property(nonatomic, strong, readonly) NSArray *links;

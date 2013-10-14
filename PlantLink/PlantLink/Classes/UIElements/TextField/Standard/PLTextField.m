@@ -47,11 +47,11 @@
 #pragma mark Bounds Methods
 
 -(CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds , 14, 0);
+    return CGRectMake(bounds.origin.x+45, bounds.origin.y, bounds.size.width-14-40, bounds.size.height);
 }
 
 -(CGRect)editingRectForBounds:(CGRect)bounds {
-    return [self textRectForBounds:bounds];
+    return CGRectMake(bounds.origin.x+45, bounds.origin.y, bounds.size.width-14-40, bounds.size.height);
 }
 
 #pragma mark -

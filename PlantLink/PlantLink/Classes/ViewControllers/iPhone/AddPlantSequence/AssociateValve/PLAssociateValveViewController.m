@@ -7,6 +7,7 @@
 //
 
 #import "PLAssociateValveViewController.h"
+#import "PLUserManager.h"
 
 @interface PLAssociateValveViewController() {
 @private
@@ -32,7 +33,24 @@
 }
 
 -(void)nextPushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToCongratulations sender:self];
+    [sharedUser setPlantReloadTrigger:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    //[self performSegueWithIdentifier:Segue_ToCongratulations sender:self];
+}
+
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)yesPushed:(id)sender {
+    [self nextPushed:nil];
+}
+
+-(IBAction)noPushed:(id)sender {
+    [self nextPushed:nil];
+}
+
+-(IBAction)whatIsAValvePushed:(id)sender {
+    
 }
 
 

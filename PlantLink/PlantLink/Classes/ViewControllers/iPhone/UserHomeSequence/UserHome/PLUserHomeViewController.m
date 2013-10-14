@@ -36,6 +36,7 @@
     
     [self.tabBar setBarStyle:UIBarStyleBlack];
     [self.tabBar setCenter:CGPointMake(self.tabBar.center.x, self.tabBar.center.y+5)];
+    [self.navigationItem setHidesBackButton:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

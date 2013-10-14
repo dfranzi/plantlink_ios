@@ -21,16 +21,17 @@
 #warning Temp for demo
 -(void)viewDidLoad {
     [super viewDidLoad];
-    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
-    [self.view addGestureRecognizer:recognizer];
+    //UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    //[self.view addGestureRecognizer:recognizer];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 -(void)longPress:(id)sender {
-    UILongPressGestureRecognizer *recognizer = (UILongPressGestureRecognizer*)sender;
-    if(recognizer.state == UIGestureRecognizerStateEnded) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Scheduled Notification" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:@"1 - overwatered",@"2 - underwatered",@"3 - notified",@"4 - watered",nil];
-        [alert show];
-    }
+//    UILongPressGestureRecognizer *recognizer = (UILongPressGestureRecognizer*)sender;
+//    if(recognizer.state == UIGestureRecognizerStateEnded) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Scheduled Notification" message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:@"1 - overwatered",@"2 - underwatered",@"3 - notified",@"4 - watered",nil];
+//        [alert show];
+//    }
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

@@ -52,6 +52,7 @@
         bubbleLabel = NULL;
         [separatorView setFrame:CGRectMake(18.0, 130.0, 198.0, 1.0)];
         
+        
         originalCenter = self.contentView.center;
     }
     return self;
@@ -65,7 +66,7 @@
     
     if(_model) {
         [nameLabel setText:[_model name]];
-
+        
         PLPlantMeasurementModel *measurement = [_model lastMeasurement];
         if(measurement && ![measurement isEqual:[NSNull null]]) {
             [moistureIndicator setMoistureLevel:[measurement moisture]];
@@ -93,7 +94,7 @@
             }
             else {
                 baseStr = @"Water on";
-                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE, dd"];
+                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
             }
             
             NSString *waterOnStr = [NSString stringWithFormat:@"%@ %@",baseStr,dateStr];

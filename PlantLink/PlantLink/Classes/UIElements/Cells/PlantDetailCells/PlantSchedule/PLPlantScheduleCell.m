@@ -21,17 +21,11 @@
     
     if([self model]) {
         NSDate *predictedWaterDate = [[[self model] lastMeasurement] predictedWaterDate];
-        NSDateComponents *components = [GeneralMethods componentsFromDate:predictedWaterDate];
-        
-        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-        #warning Crashed on incorrect day (0)
-        NSString *dayStr = [[df shortWeekdaySymbols] objectAtIndex:[components day]-1];
-        NSString *monthStr = [[df shortMonthSymbols] objectAtIndex:[components month]-1];
-         
-        NSString *waterOnText = [NSString stringWithFormat:@"Water on %@ %@ %i ",dayStr,monthStr,[components day]];
+        NSString *dateStr = [GeneralMethods stringFromDate:predictedWaterDate withFormat:@"EEE, MMM dd"];
+        NSString *waterOnText = [NSString stringWithFormat:@"Water on %@",dateStr];
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnText];
         [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica" size:25] range:NSMakeRange(0,8)];
-        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:25] range:NSMakeRange(8,[waterOnText length]-9)];
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:25] range:NSMakeRange(8,[waterOnText length]-8)];
         [waterOnLabel setAttributedText:attrStr];
     }
 }

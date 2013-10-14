@@ -12,5 +12,9 @@
     
 }
 
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)dismissPushed:(id)sender;
 
 @end

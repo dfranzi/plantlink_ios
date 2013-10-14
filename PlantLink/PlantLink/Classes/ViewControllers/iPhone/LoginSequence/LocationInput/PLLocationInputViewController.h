@@ -8,9 +8,10 @@
 
 #import "PLAbstractViewController.h"
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class PLTextField;
-@interface PLLocationInputViewController : PLAbstractViewController <UITextFieldDelegate,MKMapViewDelegate> {
+@interface PLLocationInputViewController : PLAbstractViewController <UITextFieldDelegate,MKMapViewDelegate,CLLocationManagerDelegate> {
     IBOutlet PLTextField *locationTextField;
     IBOutlet MKMapView *locationMapView;
 }

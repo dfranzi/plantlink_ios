@@ -29,7 +29,7 @@
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLUserModel alloc] initWithDictionary:dict];
 }
 

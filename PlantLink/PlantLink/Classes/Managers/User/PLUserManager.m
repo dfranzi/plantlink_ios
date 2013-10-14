@@ -99,8 +99,25 @@ static PLUserManager *sharedUser = nil;
     
     logoutRequest = [[PLUserRequest alloc] init];
     [logoutRequest logoutWithResponse:^(NSData *data, NSError *error) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_User_Logout object:nil];
     }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_User_Logout object:nil];
+}
+
+#pragma mark -
+#pragma mark Type Methods
+
+-(NSString*)nameForPlantTypeKey:(NSString*)key {
+    for(PLPlantTypeModel *plant in _plantTypes) {
+        if([key isEqualToString:[plant key]]) return [plant name];
+    }
+    return @"Non standard";
+}
+
+-(NSString*)nameForSoilTypeKey:(NSString*)key {
+    for(PLSoilModel *soil in _soilTypes) {
+        if([key isEqualToString:[soil key]]) return [soil name];
+    }
+    return @"Non standard";
 }
 
 @end

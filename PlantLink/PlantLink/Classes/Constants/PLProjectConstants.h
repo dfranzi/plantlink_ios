@@ -71,6 +71,13 @@
 #define InfoText_All @[InfoText_PlantName, InfoText_PlantDetail, InfoText_PlantMoisture, InfoText_PlantHistory, InfoText_PlantSchedule, InfoText_PlantLink, InfoText_PlantHelp]
 
 
+//Errors
+#define Error_Auth @"InvalidBasicAuthParameter"
+#define Error_NoAuth @"NoAuth"
+#define Error_Generic @"GeneralError"
 
+#define Error_Dict @{ Error_Auth : @"Invalid login information",\
+                      Error_NoAuth : @"Invalid login information",\
+                      Error_Generic : @"An error occured but could not be specified, we apologize"}
 
 

@@ -47,6 +47,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == [notifications count]) {
         UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Edit forIndexPath:indexPath];
+        [cell.contentView setBackgroundColor:collectionView.backgroundColor];
         return cell;
     }
     

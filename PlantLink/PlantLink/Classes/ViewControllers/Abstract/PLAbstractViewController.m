@@ -9,6 +9,7 @@
 #import "PLAbstractViewController.h"
 
 #import "PLUserManager.h"
+#import "TestFlight.h"
 
 @interface PLAbstractViewController() {
 @private
@@ -26,6 +27,14 @@
     _nextSegueIdentifier = @"";
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[GeneralMethods imageWithColor:Color_NavBar_Background andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) {
+        [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    }
+}
+
 #pragma mark -
 #pragma mark Display Methods
 
@@ -34,7 +43,7 @@
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [backButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [backButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    [backButton setContentMode:UIViewContentModeLeft];
+    [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 
@@ -43,7 +52,7 @@
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [backButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [backButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    [backButton setContentMode:UIViewContentModeRight];
+    [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 
@@ -65,6 +74,25 @@
     if([_nextSegueIdentifier isEqualToString:@""])return;
     
     [self performSegueWithIdentifier:_nextSegueIdentifier sender:self];
+}
+
+#pragma mark -
+#pragma mark Request Methods
+
+-(BOOL)errorInRequestResponse:(NSDictionary*)dict {
+    if([dict.allKeys containsObject:@"severity"] && [dict[@"severity"] isEqualToString:@"Error"]) {
+        NSString *errorKey = dict[@"type_detail"];
+        NSString *message = dict[@"message"];
+        if([Error_Dict.allKeys containsObject:errorKey]) message = Error_Dict[errorKey];
+        else {
+            if([dict.allKeys containsObject:@"type"] && [dict.allKeys containsObject:@"type_detail"]) TFLog(@"Generic error occured on: (%@, %@) %@",dict[@"type"],dict[@"severity"],dict[@"type_detail"]);
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return YES;
+    }
+    return NO;
 }
 
 @end

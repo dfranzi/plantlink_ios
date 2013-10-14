@@ -27,7 +27,7 @@
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 -(IBAction)sendPushed:(id)sender{

@@ -19,7 +19,7 @@
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLValveModel alloc] initWithDictionary:dict];
 }
 

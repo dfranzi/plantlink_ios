@@ -27,4 +27,9 @@
 -(void)addLeftNavButtonWithImageNamed:(NSString*)imageName toNavigationItem:(UINavigationItem*)navItem withSelector:(SEL)selector;
 -(void)addRightNavButtonWithImageNamed:(NSString*)imageName toNavigationItem:(UINavigationItem*)navItem withSelector:(SEL)selector;
 
+#pragma mark -
+#pragma mark Request Methods
+
+-(BOOL)errorInRequestResponse:(NSDictionary*)dict;
+
 @end

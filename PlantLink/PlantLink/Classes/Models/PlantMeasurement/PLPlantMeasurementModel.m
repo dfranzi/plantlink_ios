@@ -12,20 +12,34 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        _plantKey = dict[DC_Measurement_PlantKey];
-        _linkKey = dict[DC_Measurement_LinkKey];
+        NSString *plantId = dict[DC_Measurement_PlantKey];
+        NSArray *items = [plantId componentsSeparatedByString:@"_"];
+        
+        _plantKey = items[1];
+        _linkKey = items[3];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
         _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
-        _moisture = [dict[DC_Measurement_Moisture] floatValue];
-        _signal = [dict[DC_Measurement_Signal] floatValue];
-        _battery = [dict[DC_Measurement_Battery] floatValue];
-        _plantFuelLevel = [dict[DC_Measurement_PlantFuelLevel] floatValue];
+        
+        if([dict[DC_Measurement_Moisture] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Moisture] isEqualToString:@"<null>"]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
+        else if([dict[DC_Measurement_Moisture] isKindOfClass:[NSNumber class]]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
+        else _moisture = 0.0f;
+    
+        ZALog(@"Moisture: %@ and reading %f",dict[DC_Measurement_Moisture],_moisture);
+        
+        if([dict[DC_Measurement_Signal] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Signal] isEqualToString:@"<null>"]) _signal = [dict[DC_Measurement_Signal] floatValue];
+        else if([dict[DC_Measurement_Signal] isKindOfClass:[NSNumber class]]) _signal = [dict[DC_Measurement_Signal] floatValue];
+        else _signal = 0.0f;
+        
+        if([dict[DC_Measurement_Battery] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Battery] isEqualToString:@"<null>"]) _battery = [dict[DC_Measurement_Battery] floatValue];
+        else if([dict[DC_Measurement_Battery] isKindOfClass:[NSNumber class]]) _battery = [dict[DC_Measurement_Battery] floatValue];
+        else _battery = 0.0f;
+        
     }
     return self;
 }
 
-+(id)modelWithDictionary:(NSDictionary*)dict {
++(id)initWithDictionary:(NSDictionary*)dict {
     return [[PLPlantMeasurementModel alloc] initWithDictionary:dict];
 }
 
@@ -43,8 +57,7 @@
 
 -(id)copyWithZone:(NSZone *)zone {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[DC_Measurement_PlantKey] = [_plantKey copyWithZone:zone];
-    dict[DC_Measurement_LinkKey] = [_linkKey copyWithZone:zone];
+    dict[DC_Measurement_PlantKey] = [NSString stringWithFormat:@"plant_%@_link_%@",[_plantKey copyWithZone:zone],[_linkKey copyWithZone:zone]];
     
     dict[DC_Measurement_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
     dict[DC_Measurement_PredictedWaterDate] = [NSNumber numberWithInt:[_predictedWaterDate timeIntervalSince1970]];
@@ -52,7 +65,6 @@
     dict[DC_Measurement_Moisture] = [NSNumber numberWithFloat:_moisture];
     dict[DC_Measurement_Signal] = [NSNumber numberWithFloat:_signal];
     dict[DC_Measurement_Battery] = [NSNumber numberWithFloat:_battery];
-    dict[DC_Measurement_PlantFuelLevel] = [NSNumber numberWithFloat:_plantFuelLevel];
     
     PLPlantMeasurementModel *copy = [[PLPlantMeasurementModel alloc] initWithDictionary:dict];
     if(copy) return copy;
@@ -72,7 +84,6 @@
         _moisture = [aDecoder decodeFloatForKey:DC_Measurement_Moisture];
         _signal = [aDecoder decodeFloatForKey:DC_Measurement_Signal];
         _battery = [aDecoder decodeFloatForKey:DC_Measurement_Battery];
-        _plantFuelLevel = [aDecoder decodeFloatForKey:DC_Measurement_PlantFuelLevel];
     }
     return self;
 }
@@ -86,7 +97,6 @@
     [aCoder encodeFloat:_moisture forKey:DC_Measurement_Moisture];
     [aCoder encodeFloat:_signal forKey:DC_Measurement_Signal];
     [aCoder encodeFloat:_battery forKey:DC_Measurement_Battery];
-    [aCoder encodeFloat:_plantFuelLevel forKey:DC_Measurement_PlantFuelLevel];
 }
 
 #pragma mark -

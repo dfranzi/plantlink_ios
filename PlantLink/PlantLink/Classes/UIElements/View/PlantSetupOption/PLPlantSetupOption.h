@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLPlantSetupOption : UIView <UITextFieldDelegate> {
+@interface PLPlantSetupOption : UIView {
     IBOutlet UILabel *numberLabel;
     IBOutlet UILabel *titleLabel;
     IBOutlet UILabel *infoLabel;

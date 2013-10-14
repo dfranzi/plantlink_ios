@@ -94,7 +94,6 @@
 -(void)setMoistureLevel:(float)moistureLevel {
     _moistureLevel = moistureLevel;
     
-    
     NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
     for(UIImageView *view in moistureCircles) [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
     

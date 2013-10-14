@@ -10,6 +10,7 @@
 
 #import "PLPlantModel.h"
 #import "PLPlantEditTextField.h"
+#import "PLUserManager.h"
 
 @implementation PLPlantDetailsCell
 
@@ -36,8 +37,10 @@
 -(void)setModel:(PLPlantModel *)model {
     [super setModel:model];
     if([self model]) {
-        [plantTypeTextField setText:[[self model] plantTypeKey]];
-        [soilTypeTextField setText:[[self model] soilTypeKey]];
+        PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+        
+        [plantTypeTextField setText:[sharedUser nameForPlantTypeKey:[[self model] plantTypeKey]]];
+        [soilTypeTextField setText:[sharedUser nameForSoilTypeKey:[[self model] soilTypeKey]]];
         [locationTextField setText:[[self model] environment]];
     }
 }

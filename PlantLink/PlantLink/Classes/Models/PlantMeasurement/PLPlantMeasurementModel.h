@@ -18,8 +18,6 @@
 // The server assigned created date of the measurement
 @property(nonatomic, strong, readonly) NSDate *created;
 
-
-
 // The battery level indication as a float 0 - 100
 @property(nonatomic, assign, readonly) float battery;
 
@@ -29,9 +27,7 @@
 // The moisture level indication as a float 0 - 100
 @property(nonatomic, assign, readonly) float moisture;
 
-// The fuel level indication as a float 0 - 100
-@property(nonatomic, assign, readonly) float plantFuelLevel;
-
+// The predicted date the plant needs to be watered
 @property(nonatomic, strong, readonly) NSDate *predictedWaterDate;
 
 

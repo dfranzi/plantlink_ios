@@ -16,9 +16,9 @@
 
 @implementation PLContactUsViewController
 
-- (void) viewDidLoad{
-   
-       
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view setBackgroundColor:Color_ViewBackground];
 }
 
 
