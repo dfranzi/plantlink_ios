@@ -29,6 +29,7 @@
     [self.tabBarItem setFinishedSelectedImage:clockHighlighted withFinishedUnselectedImage:clock];
     
     [notificationCollectionView setBackgroundColor:Color_ViewBackground];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [notificationCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

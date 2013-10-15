@@ -34,6 +34,8 @@
     plantCells = Cell_PlantsAll;
     [plantTableView setBackgroundColor:Color_ViewBackground];
     [plantTableView reloadData];
+    
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantTableView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

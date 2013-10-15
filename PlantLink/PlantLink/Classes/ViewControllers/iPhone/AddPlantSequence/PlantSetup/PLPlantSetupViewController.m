@@ -27,6 +27,9 @@
     NSArray *plantTypes;
     NSArray *soilTypes;
     NSString *state;
+    
+    NSMutableArray *drillDownPlants;
+    NSMutableArray *drillDownSoils;
 }
 
 @end
@@ -42,13 +45,18 @@
     plantTypes = [sharedUser plantTypes];
     soilTypes = [sharedUser soilTypes];
     
-    itemsTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, 143, 320-2*30, 121)];
+    drillDownPlants = [NSMutableArray array];
+    drillDownSoils = [NSMutableArray array];
+    
+    int height = ([UIScreen mainScreen].bounds.size.height < 568) ? 101 : 208;
+    itemsTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, 144, 320-2*30, height)];
     [itemsTableView setDataSource:self];
     [itemsTableView setDelegate:self];
     [itemsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [itemsTableView setBackgroundColor:Color_ViewBackground];
     [itemsTableView setAlpha:0.0f];
     [self.view addSubview:itemsTableView];
+    [self reset];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -68,6 +76,37 @@
 
 #pragma mark -
 #pragma mark Text Field Methods
+
+-(IBAction)valueChanged:(id)sender {
+    UITextField *textField = (UITextField*)sender;
+    if(textField.tag == 0) {
+        NSString *text = textField.text;
+        ZALog(@"Here with: %@",text);
+        if([text length] > [drillDownPlants count]) {
+            ZALog(@"Too long");
+            NSArray *last = [drillDownPlants lastObject];
+            if([drillDownPlants count] == 0) last = plantTypes;
+            NSMutableArray *new = [self prefixFilter:text fromPlants:last];
+            [drillDownPlants addObject:new];
+        }
+        else if([text length] == [drillDownPlants count]-1) {
+            [drillDownPlants removeLastObject];
+        }
+    }
+    else if(textField.tag == 1) {
+        NSString *text = textField.text;
+        if([text length] > [drillDownSoils count]) {
+            NSArray *last = [drillDownSoils lastObject];
+            if([drillDownSoils count] == 0) last = soilTypes;
+            NSMutableArray *new = [self prefixFilter:text fromSoils:last];
+            [drillDownSoils addObject:new];
+        }
+        else if([text length] < [drillDownPlants count]) {
+            [drillDownSoils removeLastObject];
+        }
+    }
+    [itemsTableView reloadData];
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if(textField.tag == 0) {
@@ -89,6 +128,7 @@
         NSString *key = [NSString stringWithFormat:@"%i",textField.tag];
         state = PossibleStates[key];
         [itemsTableView reloadData];
+        if([itemsTableView numberOfRowsInSection:0] > 0) [itemsTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         
         textField.tag == 0 ? [optionOne setAlpha:1.0f] : [optionOne setAlpha:0.0f];
         textField.tag == 1 ? [optionTwo setAlpha:1.0f] : [optionTwo setAlpha:0.0f];
@@ -126,14 +166,44 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+    [self reset];
+}
+
+#pragma mark -
+#pragma mark Content Methods
+
+-(NSMutableArray*)prefixFilter:(NSString*)prefix fromPlants:(NSArray*)plants {
+    NSMutableArray *retArr = [NSMutableArray array];
+    for(PLPlantTypeModel *plant in plants) {
+        ZALog(@"Looking for: %@ in %@",prefix,[plant name]);
+        if([[[plant name] lowercaseString] rangeOfString:[prefix lowercaseString]].location != NSNotFound) {
+            ZALog(@"    Found");
+            [retArr addObject:plant];
+        }
+    }
+    return retArr;
+}
+
+-(NSMutableArray*)prefixFilter:(NSString*)prefix fromSoils:(NSArray*)soils {
+    NSMutableArray *retArr = [NSMutableArray array];
+    for(PLSoilModel *soil in soils) {
+        if([[[soil name] lowercaseString] rangeOfString:[prefix lowercaseString]].location != NSNotFound) [retArr addObject:soil];
+    }
+    return retArr;
 }
 
 #pragma mark -
 #pragma mark TableView Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if([state isEqualToString:State_PlantType]) return [plantTypes count];
-    else if([state isEqualToString:State_SoilType]) return [soilTypes count];
+    if([state isEqualToString:State_PlantType]) {
+        if([drillDownPlants count] > 0) return [[drillDownPlants lastObject] count];
+        return [plantTypes count];
+    }
+    else if([state isEqualToString:State_SoilType]) {
+        if([drillDownSoils count] > 0) return [[drillDownSoils lastObject] count];
+        return [soilTypes count];
+    }
     else return 0;
 }
 
@@ -142,11 +212,17 @@
     [cell setBackgroundColor:tableView.backgroundColor];
     
     if([state isEqualToString:State_PlantType]) {
-        PLPlantTypeModel *plant = plantTypes[indexPath.row];
+        NSArray *plants = plantTypes;
+        if([drillDownPlants count] > 0) plants = [drillDownPlants lastObject];
+        
+        PLPlantTypeModel *plant = plants[indexPath.row];
         [[cell textLabel] setText:[plant name]];
     }
     else if([state isEqualToString:State_SoilType]) {
-        PLSoilModel *soil = soilTypes[indexPath.row];
+        NSArray *soils = soilTypes;
+        if([drillDownSoils count] > 0) soils = [drillDownSoils lastObject];
+        
+        PLSoilModel *soil = soils[indexPath.row];
         [[cell textLabel] setText:[soil name]];
     }
     
@@ -156,11 +232,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if([state isEqualToString:State_PlantType]) {
-        PLPlantTypeModel *plant = plantTypes[indexPath.row];
+        NSArray *plants = plantTypes;
+        if([drillDownPlants count] > 0) plants = [drillDownPlants lastObject];
+        
+        PLPlantTypeModel *plant = plants[indexPath.row];
         [optionOne.inputField setText:[plant name]];
     }
     else if([state isEqualToString:State_SoilType]) {
-        PLSoilModel *soil = soilTypes[indexPath.row];
+        NSArray *soils = soilTypes;
+        if([drillDownSoils count] > 0) soils = [drillDownSoils lastObject];
+        
+        PLSoilModel *soil = soils[indexPath.row];
         [optionTwo.inputField setText:[soil name]];
     }
 }

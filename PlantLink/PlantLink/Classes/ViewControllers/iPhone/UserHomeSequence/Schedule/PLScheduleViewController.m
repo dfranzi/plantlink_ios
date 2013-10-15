@@ -25,6 +25,7 @@
     
     [self.tabBarItem setTitle:@""];
     [self.tabBarItem setFinishedSelectedImage:scheduleHighlighted withFinishedUnselectedImage:schedule];
+    
 }
 
 @end

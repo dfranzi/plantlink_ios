@@ -37,6 +37,8 @@
     
     [self.tabBarItem setTitle:@""];
     [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
+    
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsTableView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }
 
 

@@ -43,7 +43,7 @@
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [backButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [backButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000) [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     navItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 
@@ -52,7 +52,7 @@
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [backButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [backButton addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000) [backButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 

@@ -34,7 +34,8 @@
     [self addSeparatorAtInterval:0.50];
     [self addSeparatorAtInterval:0.75];
     
-    [self.tabBar setBarStyle:UIBarStyleBlack];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000) [self.tabBar setBarStyle:UIBarStyleBlack];
+    
     [self.tabBar setCenter:CGPointMake(self.tabBar.center.x, self.tabBar.center.y+5)];
     [self.navigationItem setHidesBackButton:YES];
 }

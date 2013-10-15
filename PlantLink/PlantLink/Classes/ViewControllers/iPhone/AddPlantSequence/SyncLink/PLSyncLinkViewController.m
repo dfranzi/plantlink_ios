@@ -32,7 +32,9 @@
 }
 
 -(void)nextPushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToAssociateValve sender:self];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    
+    //[self performSegueWithIdentifier:Segue_ToAssociateValve sender:self];
 }
 
 

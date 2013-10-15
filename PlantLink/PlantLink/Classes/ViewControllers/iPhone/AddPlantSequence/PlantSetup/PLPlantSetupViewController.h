@@ -15,4 +15,9 @@
     IBOutlet PLPlantSetupOption *optionThree;
 }
 
+#pragma mark -
+#pragma mark Text Field Methods
+
+-(IBAction)valueChanged:(id)sender;
+
 @end

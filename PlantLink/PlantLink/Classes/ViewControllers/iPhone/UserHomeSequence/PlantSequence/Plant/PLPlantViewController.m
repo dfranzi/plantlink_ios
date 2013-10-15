@@ -35,12 +35,13 @@
     [plantCollectionView setBackgroundColor:Color_ViewBackground];
     [sharedUser setPlantReloadTrigger:YES];
     
-    UIImage *leaf = [[UIImage imageNamed:Image_Tab_Leaf] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *leafHighlighted = [[UIImage imageNamed:Image_Tab_LeafHighlighted] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+    
+    UIImage *leaf = [UIImage imageNamed:Image_Tab_Leaf];
+    UIImage *leafHighlighted = [UIImage imageNamed:Image_Tab_LeafHighlighted];
     
     [self.tabBarItem setTitle:@""];
-    [self.tabBarItem setSelectedImage:leafHighlighted];
-    [self.tabBarItem setImage:leaf];
+    [self.tabBarItem setFinishedSelectedImage:leafHighlighted withFinishedUnselectedImage:leaf];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
