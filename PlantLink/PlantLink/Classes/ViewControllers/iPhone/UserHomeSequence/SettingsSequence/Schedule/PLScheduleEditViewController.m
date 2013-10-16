@@ -25,9 +25,11 @@
     for (int i = 0; i < [dayArray count]; i++){
         
         PLScheduleEditDayView *dayView = [[PLScheduleEditDayView alloc] initWithFrame:CGRectMake(79,143+i*36,102,32)];
-        dayView.day.text = dayArray[i];
+        //[dayView setDay:dayArray[i]];
         [self.view addSubview:dayView];
         
+        
+        dayView.day.text = dayArray[i];
         //Button Implementation. No Buttons Available. Redo when images are available
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         //[button addTarget:self action:@selector() forControlEvents:UIControlEventTouchDown];

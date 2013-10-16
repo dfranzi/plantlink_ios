@@ -8,9 +8,7 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLScheduleEditViewController : PLAbstractViewController{
-    
-}
+@interface PLScheduleEditViewController : PLAbstractViewController {}
 
 #pragma mark -
 #pragma mark IBAction Methods

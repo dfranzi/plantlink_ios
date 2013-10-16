@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLScheduleEditDayView : UIView
-
-@property (nonatomic, strong) UILabel *day;
-
+@interface PLScheduleEditDayView : UIView {
+    @protected
+    UILabel *dayLabel;
+    UIButton *checkButton;
+    
+}
+@property(nonatomic, strong) NSString *day;
 
 @end
