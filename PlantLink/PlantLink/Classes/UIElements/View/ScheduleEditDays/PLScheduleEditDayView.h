@@ -12,6 +12,7 @@
     @protected
     UILabel *dayLabel;
     UIButton *checkButton;
+    BOOL pushed;
     
 }
 @property(nonatomic, strong) NSString *day;

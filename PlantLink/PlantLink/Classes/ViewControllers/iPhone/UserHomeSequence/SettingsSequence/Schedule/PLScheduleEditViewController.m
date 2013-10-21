@@ -23,19 +23,11 @@
     dayArray = [NSArray arrayWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",nil];
     
     for (int i = 0; i < [dayArray count]; i++){
+
+        PLScheduleEditDayView *dayView = [[PLScheduleEditDayView alloc] initWithFrame:CGRectMake(79,143+i*36,162,32)];
         
-        PLScheduleEditDayView *dayView = [[PLScheduleEditDayView alloc] initWithFrame:CGRectMake(79,143+i*36,102,32)];
-        //[dayView setDay:dayArray[i]];
+        [dayView setDay:dayArray[i]];
         [self.view addSubview:dayView];
-        
-        
-        dayView.day.text = dayArray[i];
-        //Button Implementation. No Buttons Available. Redo when images are available
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        //[button addTarget:self action:@selector() forControlEvents:UIControlEventTouchDown];
-        [button setImage:[UIImage imageNamed:@"xicon.png"] forState:UIControlStateNormal];
-        button.frame = CGRectMake(182, 146+i*36, 25, 25);
-        [self.view addSubview:button];
         
     }
 }
