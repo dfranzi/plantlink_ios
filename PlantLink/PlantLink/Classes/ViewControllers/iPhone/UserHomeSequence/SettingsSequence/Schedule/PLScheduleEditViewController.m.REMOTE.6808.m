@@ -28,6 +28,7 @@
         
         [dayView setDay:dayArray[i]];
         [self.view addSubview:dayView];
+        
     }
 }
 

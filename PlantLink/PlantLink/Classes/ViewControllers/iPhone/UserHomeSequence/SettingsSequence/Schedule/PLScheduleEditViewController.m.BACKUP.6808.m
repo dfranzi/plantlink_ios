@@ -28,6 +28,19 @@
         
         [dayView setDay:dayArray[i]];
         [self.view addSubview:dayView];
+        
+<<<<<<< HEAD
+        
+        //dayView.day.text = dayArray[i];
+        //Button Implementation. No Buttons Available. Redo when images are available
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        //[button addTarget:self action:@selector() forControlEvents:UIControlEventTouchDown];
+        [button setImage:[UIImage imageNamed:@"xicon.png"] forState:UIControlStateNormal];
+        button.frame = CGRectMake(182, 146+i*36, 25, 25);
+        [self.view addSubview:button];
+        
+=======
+>>>>>>> 05981b9cec62d1035a161d9dc5b05a11e969d040
     }
 }
 
