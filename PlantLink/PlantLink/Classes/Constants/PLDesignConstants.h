@@ -26,6 +26,7 @@
 #define Cell_Notification @"notificationCell"
 #define Cell_Edit @"editCell"
 
+#define Cell_Schedule @"scheduleCell"
 #define Cell_SettingsImage @"settingsImageCell"
 #define Cell_Settings @"settingsCell"
 

@@ -8,9 +8,9 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLScheduleViewController : PLAbstractViewController {
-
-    
+@interface PLScheduleViewController : PLAbstractViewController <UICollectionViewDataSource,UICollectionViewDelegate> {
+    IBOutlet UICollectionView *scheduleCollectionView;
 }
+
 
 @end

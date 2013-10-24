@@ -87,6 +87,7 @@
 		6C3F86D617DBDE2B007242FC /* circleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F86CD17DBDE2B007242FC /* circleplus.png */; };
 		6C3F86D717DBDE2B007242FC /* settingsgear.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F86CE17DBDE2B007242FC /* settingsgear.png */; };
 		6C3F86D817DBDE2B007242FC /* spyglass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F86CF17DBDE2B007242FC /* spyglass.png */; };
+		6C460D68181990C100A20FD3 /* PLScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C460D67181990C100A20FD3 /* PLScheduleCell.m */; };
 		6C487C001795BEFE007EE2B5 /* PLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487BFF1795BEFE007EE2B5 /* PLLoginViewController.m */; };
 		6C487C021795C50E007EE2B5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C487C011795C50E007EE2B5 /* libz.dylib */; };
 		6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C081795DEAA007EE2B5 /* PLSerialInputViewController.m */; };
@@ -310,6 +311,8 @@
 		6C3F86CD17DBDE2B007242FC /* circleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circleplus.png; path = Images/Standard/circleplus.png; sourceTree = "<group>"; };
 		6C3F86CE17DBDE2B007242FC /* settingsgear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settingsgear.png; path = Images/Standard/settingsgear.png; sourceTree = "<group>"; };
 		6C3F86CF17DBDE2B007242FC /* spyglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spyglass.png; path = Images/Standard/spyglass.png; sourceTree = "<group>"; };
+		6C460D66181990C100A20FD3 /* PLScheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleCell.h; path = Classes/UIElements/Cells/Schedule/PLScheduleCell.h; sourceTree = "<group>"; };
+		6C460D67181990C100A20FD3 /* PLScheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleCell.m; path = Classes/UIElements/Cells/Schedule/PLScheduleCell.m; sourceTree = "<group>"; };
 		6C487BFE1795BEFE007EE2B5 /* PLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLoginViewController.h; path = Classes/ViewControllers/iPhone/LoginSequence/Login/PLLoginViewController.h; sourceTree = "<group>"; };
 		6C487BFF1795BEFE007EE2B5 /* PLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLoginViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/Login/PLLoginViewController.m; sourceTree = "<group>"; };
 		6C487C011795C50E007EE2B5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1479,6 +1482,8 @@
 		BAF787A11807BD1700973A62 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				6C460D66181990C100A20FD3 /* PLScheduleCell.h */,
+				6C460D67181990C100A20FD3 /* PLScheduleCell.m */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -1742,6 +1747,7 @@
 				6C61233C17AE3AAC0048EAFE /* PLScheduleViewController.m in Sources */,
 				6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */,
 				6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */,
+				6C460D68181990C100A20FD3 /* PLScheduleCell.m in Sources */,
 				6C7B5605179EF5C50076B07E /* PLPlantDetailViewController.m in Sources */,
 				6C61234417AEE1F90048EAFE /* PLAbstractPlantDetailCell.m in Sources */,
 				6C61235117AF01F30048EAFE /* PLPlantSoilCell.m in Sources */,
