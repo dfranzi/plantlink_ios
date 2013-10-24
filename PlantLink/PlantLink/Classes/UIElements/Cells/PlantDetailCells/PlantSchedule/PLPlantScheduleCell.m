@@ -21,11 +21,11 @@
     
     if([self model]) {
         NSDate *predictedWaterDate = [[[self model] lastMeasurement] predictedWaterDate];
-        NSString *dateStr = [GeneralMethods stringFromDate:predictedWaterDate withFormat:@"EEE, MMM dd"];
+        NSString *dateStr = [GeneralMethods stringFromDate:predictedWaterDate withFormat:@"EEE, MMMM dd"];
         NSString *waterOnText = [NSString stringWithFormat:@"Water on %@",dateStr];
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnText];
-        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica" size:25] range:NSMakeRange(0,8)];
-        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:25] range:NSMakeRange(8,[waterOnText length]-8)];
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica" size:20] range:NSMakeRange(0,8)];
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:20] range:NSMakeRange(8,[waterOnText length]-8)];
         [waterOnLabel setAttributedText:attrStr];
     }
 }

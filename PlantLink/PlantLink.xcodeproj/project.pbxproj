@@ -171,6 +171,7 @@
 		6C972BA017550B4C007234B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B9E17550B4C007234B6 /* InfoPlist.strings */; };
 		6C972BA317550B4C007234B6 /* PlantLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972BA217550B4C007234B6 /* PlantLinkTests.m */; };
 		6C9C0DD4175E744300864EF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9C0DD6175E744300864EF1 /* Localizable.strings */; };
+		6CB828981818D15800349625 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB828971818D15800349625 /* CoreImage.framework */; };
 		6CB8711C175E4FF100B18213 /* ModelTests.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CB8711B175E4FF100B18213 /* ModelTests.strings */; };
 		6CB8711E175E54E100B18213 /* libService-CodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */; };
 		6CBCC4961779EEC000527961 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBCC4951779EEC000527961 /* QuartzCore.framework */; };
@@ -434,6 +435,7 @@
 		6C972BA117550B4C007234B6 /* PlantLinkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlantLinkTests.h; sourceTree = "<group>"; };
 		6C972BA217550B4C007234B6 /* PlantLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlantLinkTests.m; sourceTree = "<group>"; };
 		6C9C0DD5175E744300864EF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6CB828971818D15800349625 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		6CB86FB4175D55FA00B18213 /* libService-CodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libService-CodeBase.a"; path = "../../../../Library/Developer/Xcode/DerivedData/Service-cfzaadrjrbvxhcczpglnxvsmrcex/Build/Products/Debug-iphoneos/libService-CodeBase.a"; sourceTree = "<group>"; };
 		6CB8711B175E4FF100B18213 /* ModelTests.strings */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = ModelTests.strings; sourceTree = "<group>"; };
 		6CBCC4951779EEC000527961 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -484,6 +486,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB828981818D15800349625 /* CoreImage.framework in Frameworks */,
 				BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */,
 				6CE3CEBA179720AF00618892 /* CoreLocation.framework in Frameworks */,
 				6C487C141795F0DD007EE2B5 /* MapKit.framework in Frameworks */,
@@ -909,6 +912,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CB828971818D15800349625 /* CoreImage.framework */,
 				BA7096FB1804C0F700520D92 /* libZACodeBase.a */,
 				6C67E3EC17F7A02E00A226C6 /* libZACodeBase.a */,
 				6CBCC4951779EEC000527961 /* QuartzCore.framework */,
@@ -1906,8 +1910,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2038D16E-172F-4E11-851C-B977888B8173";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2038D16E-172F-4E11-851C-B977888B8173";
+				PROVISIONING_PROFILE = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1926,8 +1930,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2038D16E-172F-4E11-851C-B977888B8173";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2038D16E-172F-4E11-851C-B977888B8173";
+				PROVISIONING_PROFILE = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};

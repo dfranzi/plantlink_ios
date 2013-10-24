@@ -62,8 +62,7 @@
 }
 
 -(void)shop {
-    NSString *storeUrl = @"http://myplantlink.com/";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:storeUrl]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLStr_Store]];
 }
 
 -(void)logout {

@@ -87,14 +87,18 @@
             NSString *dateStr = @"";
             UIColor *dateColor = [UIColor blackColor];
             NSDate *waterDate = [measurement predictedWaterDate];
-            if([self dateIsToday:waterDate]) {
+            if([self distanceFromToday:waterDate] == 0) {
                 baseStr = @"Water";
                 dateStr = @"today!";
                 dateColor = [UIColor redColor];
             }
-            else {
+            else if([self distanceFromToday:waterDate] < 7) {
                 baseStr = @"Water on";
                 dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
+            }
+            else {
+                baseStr = @"Water on";
+                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"MMM dd"];
             }
             
             NSString *waterOnStr = [NSString stringWithFormat:@"%@ %@",baseStr,dateStr];
@@ -113,11 +117,11 @@
 #pragma mark -
 #pragma mark Date Methods
 
--(BOOL)dateIsToday:(NSDate*)date {
-    NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
-    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
- 
-    return ( ([today day] == [otherDay day]) && ([today month] == [otherDay month]) && ([today year] == [otherDay year]) && ([today era] == [otherDay era]) );
+-(int)distanceFromToday:(NSDate*)date { 
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
+    
+    return [components day];
 }
 
 #pragma mark -
@@ -149,7 +153,7 @@
 #pragma mark Setup Methods
 
 -(void)createBubble {
-    bubble = [[UIView alloc] initWithFrame:CGRectMake(8, -3, 80, 16)];
+    bubble = [[UIView alloc] initWithFrame:CGRectMake(8, -3, 85, 18)];
     [bubble.layer setCornerRadius:3.0];
     
     [bubble setBackgroundColor:[UIColor redColor]];
@@ -161,7 +165,7 @@
 -(void)createBubbleLabel {
     bubbleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, bubble.frame.size.width, bubble.frame.size.height)];
     [bubbleLabel setTextColor:[UIColor whiteColor]];
-    [bubbleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.0]];
+    [bubbleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:11.0]];
     [bubbleLabel setText:@"WATER NOW!"];
     [bubbleLabel setBackgroundColor:[UIColor clearColor]];
     [bubbleLabel setTextAlignment:NSTextAlignmentCenter];

@@ -26,11 +26,11 @@
 
 -(void)createLayout {
     self.backgroundColor = [UIColor blackColor];
-    day = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 102, 32)];
-    [day setTextColor:[UIColor whiteColor]];
-    day.text = @"";
-    day.font = [UIFont systemFontOfSize:14];
-    [self addSubview:day];
+//    day = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 102, 32)];
+//    [day setTextColor:[UIColor whiteColor]];
+//    day.text = @"";
+//    day.font = [UIFont systemFontOfSize:14];
+//    [self addSubview:day];
     
     //create labels, buttons, set defaults, blah lbah lba
 }

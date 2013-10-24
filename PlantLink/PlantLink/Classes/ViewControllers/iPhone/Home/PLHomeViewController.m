@@ -9,6 +9,9 @@
 #import "PLHomeViewController.h"
 
 #import "PLUserManager.h"
+#import <QuartzCore/QuartzCore.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <CoreImage/CoreImage.h>
 
 @interface PLHomeViewController() {
 @private
@@ -23,7 +26,13 @@
     [super viewDidLoad];
     //UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     //[self.view addGestureRecognizer:recognizer];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.000) {
+        UIImage *image = [GeneralMethods imageWithColor:Color_NavBar_Background andSize:CGSizeMake(320,20)];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        [[[[UIApplication sharedApplication] delegate] window] addSubview:imageView];
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
 }
 
 -(void)longPress:(id)sender {

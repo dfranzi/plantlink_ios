@@ -29,7 +29,7 @@
         [self.view addSubview:dayView];
         
         
-        dayView.day.text = dayArray[i];
+        //dayView.day.text = dayArray[i];
         //Button Implementation. No Buttons Available. Redo when images are available
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         //[button addTarget:self action:@selector() forControlEvents:UIControlEventTouchDown];

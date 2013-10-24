@@ -97,11 +97,11 @@
     NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
     for(UIImageView *view in moistureCircles) [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
     
-    _onLowestMoisture = _moistureLevel < 0.2;
+    _onLowestMoisture = _moistureLevel < 0;
     if(_onLowestMoisture) [leftCircle setImage:[UIImage imageNamed:Image_WaterCircle_Red]];
-    else if(_moistureLevel < 0.4) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel < 0.6) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel < 0.8) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel < 0.2) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel < 0.8) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel < 0.1) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
     else [rightCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
 }
 

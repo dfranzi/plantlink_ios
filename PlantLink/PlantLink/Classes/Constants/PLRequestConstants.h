@@ -9,6 +9,7 @@
 
 //URL Strings
 #define URLStr_Base @"http://dev.oso-tech.appspot.com/api/v1"
+#define URLStr_Store @"http://www.trycelery.com/shop/base-station"
 
 #define URLStr_User @"/user"
 #define URLStr_Authentication @"/auth"
@@ -91,7 +92,7 @@
 #define DC_Measurement_LinkKey @"link_key"
 #define DC_Measurement_Created @"update"
 #define DC_Measurement_PredictedWaterDate @"predicted_water_needed"
-#define DC_Measurement_Moisture @"moisture"
+#define DC_Measurement_Moisture @"plant_fuel_level"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
 
