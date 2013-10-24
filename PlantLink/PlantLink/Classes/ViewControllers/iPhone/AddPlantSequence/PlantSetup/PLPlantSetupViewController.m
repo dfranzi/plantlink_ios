@@ -71,7 +71,7 @@
 }
 
 -(void)nextPushed:(id)sender {
-    [self performSegueWithIdentifier:Segue_ToConnectLink sender:self];
+    [self performSegueWithIdentifier:Segue_ToSyncLink sender:self];
 }
 
 #pragma mark -

@@ -182,4 +182,16 @@
     }];
 }
 
+#pragma mark -
+#pragma mark Feed Methods
+
+-(void)getNotificationsWithResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *url = [URLStr_Base stringByAppendingString:URLStr_Notifications];
+    [self getUrlStr:url withMethod:HTTP_Get withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
 @end

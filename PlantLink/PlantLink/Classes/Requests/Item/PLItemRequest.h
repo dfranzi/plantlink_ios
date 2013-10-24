@@ -46,5 +46,10 @@
 -(void)getPlantTypesWithResponse:(void(^) (NSData *data, NSError *error))response;
 -(void)getSoilTypesWithResponse:(void(^) (NSData *data, NSError *error))response;
 
+#pragma mark -
+#pragma mark Feed Methods
+
+-(void)getNotificationsWithResponse:(void(^) (NSData *data, NSError *error))response;
+
 
 @end

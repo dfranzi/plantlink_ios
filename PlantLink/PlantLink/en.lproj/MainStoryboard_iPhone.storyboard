@@ -460,7 +460,7 @@
                         <outlet property="optionOne" destination="KLo-ML-Tx7" id="Dd4-tM-94g"/>
                         <outlet property="optionThree" destination="X7h-gO-6IA" id="CPB-SH-WS5"/>
                         <outlet property="optionTwo" destination="QEI-Ge-oQW" id="yZU-Kx-bIY"/>
-                        <segue destination="Ywb-aK-RqK" kind="push" identifier="toConnectLinkView" id="lkI-nG-PKe"/>
+                        <segue destination="Cvc-Qi-2kc" kind="push" identifier="toSyncLinkView" id="dWJ-8Y-IxQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDY-Gx-2am" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1875,37 +1875,6 @@
             </objects>
             <point key="canvasLocation" x="7971" y="576"/>
         </scene>
-        <!--Connect Link View Controller-->
-        <scene sceneID="iNw-XI-PZO">
-            <objects>
-                <viewController id="Ywb-aK-RqK" customClass="PLConnectLinkViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qM7-P0-ShX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="9iJ-bI-wCf">
-                                <rect key="frame" x="0.0" y="64" width="320" height="302"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the sync button on your base station" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQu-rT-3dG">
-                                <rect key="frame" x="26" y="380" width="268" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3bc-6P-Svn"/>
-                    <connections>
-                        <segue destination="Cvc-Qi-2kc" kind="push" identifier="toSyncLinkView" id="tQr-VI-wRb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJg-rV-oAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4635" y="1079"/>
-        </scene>
         <!--Sync Link View Controller-->
         <scene sceneID="Pbd-8C-2s1">
             <objects>
@@ -1935,7 +1904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-1u-0xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5195" y="1079"/>
+            <point key="canvasLocation" x="4635" y="1079"/>
         </scene>
         <!--Associate Valve View Controller-->
         <scene sceneID="A4l-Qe-hMn">
@@ -2010,7 +1979,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cek-eC-8dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5754" y="1079"/>
+            <point key="canvasLocation" x="5194" y="1079"/>
         </scene>
         <!--First Plant View Controller-->
         <scene sceneID="BCE-3a-08H">
@@ -2079,7 +2048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNh-qv-pLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6315" y="1079"/>
+            <point key="canvasLocation" x="5755" y="1079"/>
         </scene>
     </scenes>
     <resources>

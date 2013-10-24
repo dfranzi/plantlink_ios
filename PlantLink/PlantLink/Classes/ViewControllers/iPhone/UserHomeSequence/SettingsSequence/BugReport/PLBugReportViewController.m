@@ -8,9 +8,12 @@
 
 #import "PLBugReportViewController.h"
 #import  <QuartzCore/QuartzCore.h>
+#import "PLUserRequest.h"
 
-@interface PLBugReportViewController() 
-
+@interface PLBugReportViewController() {
+@private
+    PLUserRequest *reportRequest;
+}
 @end
 
 @implementation PLBugReportViewController
@@ -18,9 +21,6 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark -
@@ -31,13 +31,20 @@
 }
 
 -(IBAction)sendPushed:(id)sender{
+    if(![bugReportView.text isEqualToString:@""]) return;
     
+    reportRequest = [[PLUserRequest alloc] init];
+    [reportRequest submitBugReportWithMessage:bugReportView.text andResponse:^(NSData *data, NSError *error) {
+        [self backPushed:nil];
+    }];
 }
 
--(void)dismissKeyboard {
-    [bugReportView resignFirstResponder];
-}
+#pragma mark -
+#pragma mark Touch Methods
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 
 

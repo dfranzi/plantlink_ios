@@ -10,9 +10,7 @@
 
 
 @class PLTextField;
-@interface PLBugReportViewController : PLAbstractViewController <UITextViewDelegate>
-
-{
+@interface PLBugReportViewController : PLAbstractViewController <UITextViewDelegate> {
     IBOutlet UITextView *bugReportView;
     
 }

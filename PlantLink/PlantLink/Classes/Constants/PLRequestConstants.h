@@ -33,6 +33,9 @@
 #define URLStr_Measurement @"/measurement"
 #define URLStr_Measurement_Get @"/measurement?plant_id=%@"
 
+#define URLStr_Notifications @"/notifications"
+#define URLStr_BugReport @"/bugreport"
+
 //HTTP Headers
 #define HTTP_Header_APIVersion @"API-Version"
 
@@ -54,6 +57,8 @@
 #define PostKey_LinkName @"link_name"
 #define PostKey_LinkSerial @"link_serial"
 #define PostKey_Color @"color"
+
+#define PostKey_Message @"message"
 
 //Download Codes
 #define DC_User_Email @"email"

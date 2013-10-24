@@ -50,7 +50,6 @@
     }];
 }
 
-
 -(void)resetPasswordForEmail:(NSString*)email withResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *param = [NSString stringWithFormat:URLStr_PasswordReset,email];
     NSString *url = [URLStr_Base stringByAppendingString:param];
@@ -60,6 +59,9 @@
         response(data,error);
     }];
 }
+
+#pragma mark -
+#pragma mark Authentication Methods
 
 -(void)getUserWithResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_User];
@@ -74,6 +76,27 @@
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_Logout];
     [self getUrlStr:url withMethod:HTTP_Get withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
+#pragma mark -
+#pragma mark Reporting Methods
+
+-(void)submitBugReportWithMessage:(NSString*)message andResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *url = [URLStr_Base stringByAppendingString:URLStr_BugReport];
+    [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+        
+        PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[PostKey_Email] = [[sharedUser user] email];
+        dict[PostKey_Message] = message;
+        
+        NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+        [request setHTTPBody:data];
+        
     } andResponse:^(NSData *data, NSError *error) {
         response(data,error);
     }];

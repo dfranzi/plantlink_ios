@@ -56,7 +56,6 @@
 		6C370CE217B45A11009974D1 /* PLBatteryImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CE117B45A11009974D1 /* PLBatteryImageView.m */; };
 		6C370CE517B45ACB009974D1 /* PLMoistureIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C370CE417B45ACA009974D1 /* PLMoistureIndicator.m */; };
 		6C3F869417DBD712007242FC /* PLPlantSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F869317DBD712007242FC /* PLPlantSetupViewController.m */; };
-		6C3F869717DBD724007242FC /* PLConnectLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F869617DBD724007242FC /* PLConnectLinkViewController.m */; };
 		6C3F869A17DBD735007242FC /* PLFirstPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F869917DBD735007242FC /* PLFirstPlantViewController.m */; };
 		6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F869C17DBD759007242FC /* PLAssociateValveViewController.m */; };
 		6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F869F17DBD76F007242FC /* PLSyncLinkViewController.m */; };
@@ -275,8 +274,6 @@
 		6C370CE417B45ACA009974D1 /* PLMoistureIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMoistureIndicator.m; path = Classes/UIElements/View/MoistureIndicator/PLMoistureIndicator.m; sourceTree = "<group>"; };
 		6C3F869217DBD712007242FC /* PLPlantSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantSetupViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/PlantSetup/PLPlantSetupViewController.h; sourceTree = "<group>"; };
 		6C3F869317DBD712007242FC /* PLPlantSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantSetupViewController.m; path = Classes/ViewControllers/iPhone/AddPlantSequence/PlantSetup/PLPlantSetupViewController.m; sourceTree = "<group>"; };
-		6C3F869517DBD724007242FC /* PLConnectLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLConnectLinkViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/ConnectLink/PLConnectLinkViewController.h; sourceTree = "<group>"; };
-		6C3F869617DBD724007242FC /* PLConnectLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLConnectLinkViewController.m; path = Classes/ViewControllers/iPhone/AddPlantSequence/ConnectLink/PLConnectLinkViewController.m; sourceTree = "<group>"; };
 		6C3F869817DBD735007242FC /* PLFirstPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFirstPlantViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/FirstPlant/PLFirstPlantViewController.h; sourceTree = "<group>"; };
 		6C3F869917DBD735007242FC /* PLFirstPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFirstPlantViewController.m; path = Classes/ViewControllers/iPhone/AddPlantSequence/FirstPlant/PLFirstPlantViewController.m; sourceTree = "<group>"; };
 		6C3F869B17DBD759007242FC /* PLAssociateValveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAssociateValveViewController.h; path = Classes/ViewControllers/iPhone/AddPlantSequence/AssociateValve/PLAssociateValveViewController.h; sourceTree = "<group>"; };
@@ -596,15 +593,6 @@
 				6C3F869F17DBD76F007242FC /* PLSyncLinkViewController.m */,
 			);
 			name = SyncLink;
-			sourceTree = "<group>";
-		};
-		6C3F869017DBD695007242FC /* ConnectLink */ = {
-			isa = PBXGroup;
-			children = (
-				6C3F869517DBD724007242FC /* PLConnectLinkViewController.h */,
-				6C3F869617DBD724007242FC /* PLConnectLinkViewController.m */,
-			);
-			name = ConnectLink;
 			sourceTree = "<group>";
 		};
 		6C3F869117DBD697007242FC /* PlantSetup */ = {
@@ -1384,7 +1372,6 @@
 			isa = PBXGroup;
 			children = (
 				6C3F869117DBD697007242FC /* PlantSetup */,
-				6C3F869017DBD695007242FC /* ConnectLink */,
 				6C3F868F17DBD691007242FC /* SyncLink */,
 				6C3F868E17DBD68D007242FC /* AssociateValve */,
 				6C3F868D17DBD68B007242FC /* FirstPlant */,
@@ -1769,7 +1756,6 @@
 				6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */,
 				6C513EC317CFD3B5009B19D8 /* PLNotificationOptionButton.m in Sources */,
 				6C3F869417DBD712007242FC /* PLPlantSetupViewController.m in Sources */,
-				6C3F869717DBD724007242FC /* PLConnectLinkViewController.m in Sources */,
 				6C3F869A17DBD735007242FC /* PLFirstPlantViewController.m in Sources */,
 				6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */,
 				6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */,
