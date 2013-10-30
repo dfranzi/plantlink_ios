@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLScheduleCell : UICollectionViewCell
+
+@interface PLScheduleCell : UICollectionViewCell{
+    UILabel *nameLabel;
+    UILabel *dateLabel;
+    UILabel *dayLabel;
+    
+    UIView *separatorView;
+}
 
 -(void)setDictionary:(NSDictionary*)dict;
 

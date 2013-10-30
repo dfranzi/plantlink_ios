@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1124EA6D-F28A-413F-A0F5-89B91174A9E0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PlantLink</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6D3EEB07-18A0-4B5A-98E6-64ED4ED7FB21</key>
+		<string>https://github.com/OsoTech/plantlink_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PlantLink/PlantLink.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6D3EEB07-18A0-4B5A-98E6-64ED4ED7FB21</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/OsoTech/plantlink_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6D3EEB07-18A0-4B5A-98E6-64ED4ED7FB21</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6D3EEB07-18A0-4B5A-98E6-64ED4ED7FB21</string>
+			<key>IDESourceControlWCCName</key>
+			<string>plantlink_ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
