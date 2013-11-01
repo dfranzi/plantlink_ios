@@ -121,6 +121,7 @@
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
     
+    if([[NSDate date] compare:date] == NSOrderedDescending) return 0;
     return [components day];
 }
 

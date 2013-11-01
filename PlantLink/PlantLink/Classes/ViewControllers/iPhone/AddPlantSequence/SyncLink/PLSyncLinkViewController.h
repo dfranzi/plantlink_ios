@@ -8,6 +8,8 @@
 
 #import "PLAbstractViewController.h"
 
+@class PLPlantModel;
 @interface PLSyncLinkViewController : PLAbstractViewController
+@property(nonatomic, strong) PLPlantModel *createdPlant;
 
 @end

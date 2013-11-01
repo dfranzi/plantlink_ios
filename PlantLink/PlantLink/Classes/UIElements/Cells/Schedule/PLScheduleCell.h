@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
+@class PLPlantModel;
 @interface PLScheduleCell : UICollectionViewCell{
     UILabel *nameLabel;
     UILabel *dateLabel;
@@ -16,8 +17,7 @@
     
     UIView *separatorView;
 }
-
--(void)setDictionary:(NSDictionary*)dict;
+@property(nonatomic, strong) PLPlantModel *plant;
 
 #pragma mark -
 #pragma mark Size Methods

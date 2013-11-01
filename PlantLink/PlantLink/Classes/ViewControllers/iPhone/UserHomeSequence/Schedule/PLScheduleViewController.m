@@ -8,10 +8,15 @@
 
 #import "PLScheduleViewController.h"
 #import "PLScheduleCell.h"
+#import "PLItemRequest.h"
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
 
 @interface PLScheduleViewController() {
 @private
     NSArray *schedules;
+    BOOL reloadSchedule;
+    PLItemRequest *plantRequest;
 }
 
 @end
@@ -30,14 +35,31 @@
     
     [scheduleCollectionView setBackgroundColor:Color_ViewBackground];
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [scheduleCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+
+    schedules = @[];
+    [scheduleCollectionView reloadData];
+    reloadSchedule = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    schedules = @[@{@"date" : [NSDate date], @"name" : @"pot head"},
-                  @{@"date" : [[NSDate date] dateByAddingTimeInterval:60*60*24*3], @"name" : @"basil"}
-                  ];
-    [scheduleCollectionView reloadData];
+    if(reloadSchedule) {
+        reloadSchedule = NO;
+        plantRequest = [[PLItemRequest alloc] init];
+        [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            schedules = [PLPlantModel modelsFromArrayOfDictionaries:array];
+            
+            schedules = [schedules sortedArrayUsingComparator:^NSComparisonResult(PLPlantModel *obj1, PLPlantModel *obj2) {
+                return [[[obj1 lastMeasurement] predictedWaterDate] compare:[[obj2 lastMeasurement] predictedWaterDate]];
+            }];
+            
+            NSMutableArray *indexes = [NSMutableArray array];
+            for(int i = 0; i < [schedules count]; i++) [indexes addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+            
+            [scheduleCollectionView insertItemsAtIndexPaths:indexes];
+        }];
+    }
 }
 
 #pragma mark -
@@ -45,8 +67,6 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"%i",[schedules count]);
-    
     return [schedules count]+1;
 }
 
@@ -58,7 +78,7 @@
     }
     
     PLScheduleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Schedule forIndexPath:indexPath];
-    [cell setDictionary:schedules[indexPath.row]];
+    [cell setPlant:schedules[indexPath.row]];
     return cell;
 }
 

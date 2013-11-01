@@ -8,7 +8,8 @@
 
 
 #import "PLScheduleCell.h"
-
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
 
 @implementation PLScheduleCell
 
@@ -24,9 +25,12 @@
 }
 
 -(void)addLabels {
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 20, 150, 45)];
+    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 10, 150, 65)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:23.0]];
     [nameLabel setTextColor:[UIColor blackColor]];
+    [nameLabel setAdjustsFontSizeToFitWidth:YES];
+    [nameLabel setMinimumScaleFactor:0.8];
+    [nameLabel setNumberOfLines:0];
     [self addSubview:nameLabel];
     
     dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 49, 91, 21)];
@@ -50,19 +54,19 @@
 #pragma mark -
 #pragma mark Set Methods
 
--(void)setDictionary:(NSDictionary*)dict {
+-(void)setPlant:(PLPlantModel *)plant {
+    _plant = plant;
     
+    [nameLabel setText:[_plant name]];
+    NSDate *cellDate = [[_plant lastMeasurement] predictedWaterDate];
     
-    [nameLabel setText:[dict objectForKey:@"name"]];
-    NSDate *cellDate = [dict objectForKey:@"date"];
-    
-    
-    NSString *dayStr = [GeneralMethods stringFromDate:cellDate withFormat:@"EEE"];
-    NSString *monthStr = [GeneralMethods stringFromDate:cellDate withFormat:@"MMM dd"];
-    
-    [dayLabel setText:dayStr];
-    [dateLabel setText:monthStr];
     if([self distanceFromToday:cellDate] == 0){
+        NSString *dayStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"EEE"];
+        NSString *monthStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"MMM dd"];
+        
+        [dayLabel setText:dayStr];
+        [dateLabel setText:monthStr];
+        
         [dayLabel setText:@"Today"];
         [self setBackgroundColor:[UIColor redColor]];
         [nameLabel setTextColor:[UIColor whiteColor]];
@@ -71,6 +75,12 @@
         [separatorView setBackgroundColor:[UIColor whiteColor]];
         
     }else{
+        NSString *dayStr = [GeneralMethods stringFromDate:cellDate withFormat:@"EEE"];
+        NSString *monthStr = [GeneralMethods stringFromDate:cellDate withFormat:@"MMM dd"];
+        
+        [dayLabel setText:dayStr];
+        [dateLabel setText:monthStr];
+        
         [self setBackgroundColor:[UIColor whiteColor]];
         [nameLabel setTextColor:[UIColor blackColor]];
         [dayLabel setTextColor:[UIColor blackColor]];
@@ -86,6 +96,7 @@
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
     
+    if([[NSDate date] compare:date] == NSOrderedDescending) return 0;
     return [components day];
 }
 

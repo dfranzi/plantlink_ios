@@ -13,6 +13,9 @@
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _serialNumber = dict[DC_Link_SerialNumber];
+        _updated = dict[DC_Link_Updated];
+        _plantKeys = dict[DC_Link_PlantKeys];
+        _lastSynced = dict[DC_Link_LastSynced];
     }
     return self;
 }
@@ -35,7 +38,10 @@
 
 -(id)copyWithZone:(NSZone *)zone {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[DC_BaseStation_SerialNumber] = [_serialNumber copyWithZone:zone];
+    dict[DC_Link_SerialNumber] = [_serialNumber copyWithZone:zone];
+    dict[DC_Link_Updated] = [_updated copyWithZone:zone];
+    dict[DC_Link_PlantKeys] = [_plantKeys copyWithZone:zone];
+    dict[DC_Link_LastSynced] = [_lastSynced copyWithZone:zone];
     
     PLLinkModel *copy = [[PLLinkModel alloc] initWithDictionary:dict];
     if(copy) return copy;
@@ -48,12 +54,18 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super init]) {
         _serialNumber = [aDecoder decodeObjectForKey:DC_Link_SerialNumber];
+        _updated = [aDecoder decodeObjectForKey:DC_Link_Updated];
+        _plantKeys = [aDecoder decodeObjectForKey:DC_Link_PlantKeys];
+        _lastSynced = [aDecoder decodeObjectForKey:DC_Link_LastSynced];
     }
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:_serialNumber forKey:DC_Link_SerialNumber];
+    [aCoder encodeObject:_updated forKey:DC_Link_Updated];
+    [aCoder encodeObject:_plantKeys forKey:DC_Link_PlantKeys];
+    [aCoder encodeObject:_lastSynced forKey:DC_Link_LastSynced];
 }
 
 #pragma mark -

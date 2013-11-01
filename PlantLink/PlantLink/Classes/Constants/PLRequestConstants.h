@@ -54,6 +54,8 @@
 
 #define PostKey_PlantType @"plant_type"
 #define PostKey_SoilType @"soil_type"
+#define PostKey_PlantTypeKey @"plant_type_key"
+#define PostKey_SoilTypeKey @"soil_type_key"
 #define PostKey_LinkName @"link_name"
 #define PostKey_LinkSerial @"link_serial"
 #define PostKey_Color @"color"
@@ -82,6 +84,9 @@
 #define DC_Valve_Nickname @"nickname"
 
 #define DC_Link_SerialNumber @"serial"
+#define DC_Link_Updated @"updated"
+#define DC_Link_LastSynced @"last_synced"
+#define DC_Link_PlantKeys @"plant_keys"
 
 #define DC_Plant_Name @"name"
 #define DC_Plant_Color @"color"

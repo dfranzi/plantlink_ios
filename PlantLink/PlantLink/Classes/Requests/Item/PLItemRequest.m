@@ -86,8 +86,8 @@
         
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[PostKey_Name] = name;
-        dict[PostKey_PlantType] = type;
-        dict[PostKey_SoilType] = soil;
+        dict[PostKey_PlantTypeKey] = [NSNumber numberWithInt:[type intValue]];
+        dict[PostKey_SoilTypeKey] = [NSNumber numberWithInt:[soil intValue]];
         
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         [request setHTTPBody:data];

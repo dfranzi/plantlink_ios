@@ -17,6 +17,8 @@
 #warning Plant model and others have changed, make sure to fix before launch
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
+        ZALog(@"Dict: %@",dict);
+        
         _name = dict[DC_Plant_Name];
         _plantTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PlantTypeKey] intValue]];
         _soilTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_SoilTypeKey] intValue]];
