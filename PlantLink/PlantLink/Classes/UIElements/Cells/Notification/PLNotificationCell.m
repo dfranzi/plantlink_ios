@@ -9,6 +9,7 @@
 #import "PLNotificationCell.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "PLNotificationModel.h"
 
 @implementation PLNotificationCell
 
@@ -20,6 +21,20 @@
         [self setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark Override Methods
+
+-(void)setNotification:(PLNotificationModel *)notification {
+    _notification = notification;
+    
+    if(_notification) {
+        [notificationLabel setText:[_notification kind]];
+        
+        NSString *dateStr = [GeneralMethods stringFromDate:[_notification notificationTime] withFormat:@"MMMM dd"];
+        [dateLabel setText:dateStr];
+    }
 }
 
 #pragma mark -

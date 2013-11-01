@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0A94721824283B004DE6F2 /* PLNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A94711824283B004DE6F2 /* PLNotificationModel.m */; };
 		6C2FC7ED17B364C800184FB3 /* battery_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7E817B364C800184FB3 /* battery_0@2x.png */; };
 		6C2FC7EE17B364C800184FB3 /* battery_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7E917B364C800184FB3 /* battery_1@2x.png */; };
 		6C2FC7EF17B364C800184FB3 /* battery_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7EA17B364C800184FB3 /* battery_2@2x.png */; };
@@ -220,6 +221,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C0A94701824283B004DE6F2 /* PLNotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationModel.h; path = Classes/Models/Notification/PLNotificationModel.h; sourceTree = "<group>"; };
+		6C0A94711824283B004DE6F2 /* PLNotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationModel.m; path = Classes/Models/Notification/PLNotificationModel.m; sourceTree = "<group>"; };
 		6C2FC7E817B364C800184FB3 /* battery_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_0@2x.png"; path = "Images/Retina/battery_0@2x.png"; sourceTree = "<group>"; };
 		6C2FC7E917B364C800184FB3 /* battery_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_1@2x.png"; path = "Images/Retina/battery_1@2x.png"; sourceTree = "<group>"; };
 		6C2FC7EA17B364C800184FB3 /* battery_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_2@2x.png"; path = "Images/Retina/battery_2@2x.png"; sourceTree = "<group>"; };
@@ -513,6 +516,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C0A946F1824281F004DE6F2 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				6C0A94701824283B004DE6F2 /* PLNotificationModel.h */,
+				6C0A94711824283B004DE6F2 /* PLNotificationModel.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		6C370CD217B42897009974D1 /* PlantDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1056,7 @@
 				6C972BD8175552F0007234B6 /* User */,
 				6C972BD6175552EA007234B6 /* Valves */,
 				6C8CA423175680FB0019FC4B /* Link */,
+				6C0A946F1824281F004DE6F2 /* Notification */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1756,6 +1769,7 @@
 				6CFAA6B917CFCA0D00609ACF /* PLNotificationCell.m in Sources */,
 				6C513EC317CFD3B5009B19D8 /* PLNotificationOptionButton.m in Sources */,
 				6C3F869417DBD712007242FC /* PLPlantSetupViewController.m in Sources */,
+				6C0A94721824283B004DE6F2 /* PLNotificationModel.m in Sources */,
 				6C3F869A17DBD735007242FC /* PLFirstPlantViewController.m in Sources */,
 				6C3F869D17DBD759007242FC /* PLAssociateValveViewController.m in Sources */,
 				6C3F86A017DBD76F007242FC /* PLSyncLinkViewController.m in Sources */,

@@ -10,10 +10,12 @@
 
 #define NotificationInfo_Text @"NotificationText"
 
+@class PLNotificationModel;
 @interface PLNotificationCell : UICollectionViewCell {
     IBOutlet UILabel *dateLabel;
     IBOutlet UILabel *notificationLabel;
 }
+@property(nonatomic, strong) PLNotificationModel *notification;
 
 #pragma mark -
 #pragma mark Size Methods

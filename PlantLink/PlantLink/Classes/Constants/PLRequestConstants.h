@@ -106,6 +106,15 @@
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
 
+#define DC_Notification_Hidden @"hidden"
+#define DC_Notification_Key @"key"
+#define DC_Notification_Kind @"kind"
+#define DC_Notification_MarkedAsRead @"marked_read"
+#define DC_Notification_NotificationTime @"notification_time"
+#define DC_Notification_Severity @"severity"
+#define DC_Notification_LinkedObject @"linked_object"
+
+
 //Requests
 typedef enum RequestTypes {
     Request_GetAllBaseStations,
