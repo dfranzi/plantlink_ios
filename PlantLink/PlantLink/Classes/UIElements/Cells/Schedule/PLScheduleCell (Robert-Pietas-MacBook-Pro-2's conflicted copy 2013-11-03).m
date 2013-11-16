@@ -1,18 +1,17 @@
 //
-//  PLNotificationCell.m
+//  PLScheduleCell.m
 //  PlantLink
 //
-//  Created by Zealous Amoeba on 8/29/13.
+//  Created by Zealous Amoeba on 10/24/13.
 //  Copyright (c) 2013 Zealous Amoeba. All rights reserved.
 //
 
-#import "PLNotificationCell.h"
 
-#import <QuartzCore/QuartzCore.h>
-#import "PLNotificationModel.h"
+#import "PLScheduleCell.h"
+#import "PLPlantModel.h"
+#import "PLPlantMeasurementModel.h"
 
-@implementation PLNotificationCell
-
+@implementation PLScheduleCell
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
@@ -55,13 +54,22 @@
 #pragma mark -
 #pragma mark Set Methods
 
--(void)setNotification:(PLNotificationModel *)notification {
-    _notification = notification;
+-(void)setPlant:(PLPlantModel *)plant {
+    _plant = plant;
     
-    [nameLabel setText:[_notification kind]];
-    NSDate *cellDate = [_notification notificationTime];
-    
-    if([self distanceFromToday:cellDate] == 0){
+    [nameLabel setText:[_plant name]];
+    NSDate *cellDate = [[_plant lastMeasurement] predictedWaterDate];
+    if(cellDate == NULL) {
+        [dayLabel setText:@"-_-"];
+        [dateLabel setText:@"No link"];
+        
+        [self setBackgroundColor:[UIColor blueColor]];
+        [nameLabel setTextColor:[UIColor whiteColor]];
+        [dayLabel setTextColor:[UIColor whiteColor]];
+        [dateLabel setTextColor:[UIColor whiteColor]];
+        [separatorView setBackgroundColor:[UIColor whiteColor]];
+    }
+    else if([self distanceFromToday:cellDate] == 0){
         NSString *dayStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"EEE"];
         NSString *monthStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"MMM dd"];
         
@@ -97,7 +105,7 @@
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
     
-    if([[NSDate date] compare:date] == NSOrderedAscending) return 0;
+    if([[NSDate date] compare:date] == NSOrderedDescending) return 0;
     return [components day];
 }
 

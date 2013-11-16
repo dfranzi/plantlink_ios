@@ -8,13 +8,29 @@
 
 #import "PLPlantHistoryCell.h"
 
+#import <QuartzCore/QuartzCore.h>
+#import "PLWaterHistoryGraph.h"
+
+@interface PLPlantHistoryCell() {
+@private
+}
+@end
+
 @implementation PLPlantHistoryCell
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
+        [waterHistory setBackgroundColor:[UIColor redColor]];
+        [self addSubview:waterHistory];
         
+
     }
     return self;
+}
+
+-(void)setModel:(PLPlantModel *)model {
+    [super setModel:model];
+    [waterHistory setPlant:model];
 }
 
 #pragma mark -

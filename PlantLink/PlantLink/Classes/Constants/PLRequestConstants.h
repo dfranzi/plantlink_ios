@@ -23,15 +23,15 @@
 #define URLStr_PlantType @"/plantTypes"
 
 #define URLStr_Plant @"/plants"
-#define URLStr_Plant_Id @"/plant?plant_id=%@"
+#define URLStr_Plant_Id @"/plants/%@"
 
-#define URLStr_Link @"/link"
-#define URLStr_LinkSerial @"/link/%@"
+#define URLStr_Link @"/links"
+#define URLStr_LinkSerial @"/links/%@"
 
 #define URLStr_Valve @"/valve"
 
 #define URLStr_Measurement @"/measurement"
-#define URLStr_Measurement_Get @"/measurement?plant_id=%@"
+#define URLStr_Measurement_Get @"/plants/%@/measurements?limit=5"
 
 #define URLStr_Notifications @"/notifications"
 #define URLStr_BugReport @"/bugreport"
@@ -57,7 +57,7 @@
 #define PostKey_PlantTypeKey @"plant_type_key"
 #define PostKey_SoilTypeKey @"soil_type_key"
 #define PostKey_LinkName @"link_name"
-#define PostKey_LinkSerial @"link_serial"
+#define PostKey_LinkKeys @"links_key"
 #define PostKey_Color @"color"
 
 #define PostKey_Message @"message"
@@ -87,6 +87,7 @@
 #define DC_Link_Updated @"updated"
 #define DC_Link_LastSynced @"last_synced"
 #define DC_Link_PlantKeys @"plant_keys"
+#define DC_Link_Key @"key"
 
 #define DC_Plant_Name @"name"
 #define DC_Plant_Color @"color"
@@ -94,6 +95,7 @@
 #define DC_Plant_SoilTypeKey @"soil_type_key"
 #define DC_Plant_Created @"created"
 #define DC_Plant_PId @"key"
+#define DC_Plant_Status @"status"
 #define DC_Plant_Environment @"environment"
 #define DC_Plant_Links @"links_key"
 #define DC_Plant_Measurement @"last_measurements"

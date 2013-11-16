@@ -8,6 +8,10 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@interface PLPlantHistoryCell : PLAbstractPlantDetailCell
+@class PLPlantModel;
+@class PLWaterHistoryGraph;
+@interface PLPlantHistoryCell : PLAbstractPlantDetailCell {
+    IBOutlet PLWaterHistoryGraph *waterHistory;
+}
 
 @end

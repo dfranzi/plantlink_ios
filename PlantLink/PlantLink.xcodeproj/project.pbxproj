@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C0A94721824283B004DE6F2 /* PLNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A94711824283B004DE6F2 /* PLNotificationModel.m */; };
+		6C178781182CAAA400AD772E /* PLWaterHistoryGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C178780182CAAA400AD772E /* PLWaterHistoryGraph.m */; };
 		6C2FC7ED17B364C800184FB3 /* battery_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7E817B364C800184FB3 /* battery_0@2x.png */; };
 		6C2FC7EE17B364C800184FB3 /* battery_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7E917B364C800184FB3 /* battery_1@2x.png */; };
 		6C2FC7EF17B364C800184FB3 /* battery_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2FC7EA17B364C800184FB3 /* battery_2@2x.png */; };
@@ -223,6 +224,8 @@
 /* Begin PBXFileReference section */
 		6C0A94701824283B004DE6F2 /* PLNotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLNotificationModel.h; path = Classes/Models/Notification/PLNotificationModel.h; sourceTree = "<group>"; };
 		6C0A94711824283B004DE6F2 /* PLNotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLNotificationModel.m; path = Classes/Models/Notification/PLNotificationModel.m; sourceTree = "<group>"; };
+		6C17877F182CAAA400AD772E /* PLWaterHistoryGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLWaterHistoryGraph.h; path = Classes/UIElements/View/WaterHistory/PLWaterHistoryGraph.h; sourceTree = "<group>"; };
+		6C178780182CAAA400AD772E /* PLWaterHistoryGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLWaterHistoryGraph.m; path = Classes/UIElements/View/WaterHistory/PLWaterHistoryGraph.m; sourceTree = "<group>"; };
 		6C2FC7E817B364C800184FB3 /* battery_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_0@2x.png"; path = "Images/Retina/battery_0@2x.png"; sourceTree = "<group>"; };
 		6C2FC7E917B364C800184FB3 /* battery_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_1@2x.png"; path = "Images/Retina/battery_1@2x.png"; sourceTree = "<group>"; };
 		6C2FC7EA17B364C800184FB3 /* battery_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battery_2@2x.png"; path = "Images/Retina/battery_2@2x.png"; sourceTree = "<group>"; };
@@ -525,6 +528,15 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
+		6C17877E182CAA3C00AD772E /* WaterHistory */ = {
+			isa = PBXGroup;
+			children = (
+				6C17877F182CAAA400AD772E /* PLWaterHistoryGraph.h */,
+				6C178780182CAAA400AD772E /* PLWaterHistoryGraph.m */,
+			);
+			name = WaterHistory;
+			sourceTree = "<group>";
+		};
 		6C370CD217B42897009974D1 /* PlantDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +567,7 @@
 		6C370CDA17B4598B009974D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C17877E182CAA3C00AD772E /* WaterHistory */,
 				BA907DCC18067612004DB5FA /* ScheduleEditDays */,
 				6C3F86A117DBDB16007242FC /* PlantSetupOption */,
 				6C370CDB17B459BD009974D1 /* MoistureIndicator */,
@@ -1736,6 +1749,7 @@
 				6CF2FDEB178CC863004A50DF /* PLHomeViewController.m in Sources */,
 				6CE89E0718048D1900C1A14B /* PLScheduleEditViewController.m in Sources */,
 				6C487C001795BEFE007EE2B5 /* PLLoginViewController.m in Sources */,
+				6C178781182CAAA400AD772E /* PLWaterHistoryGraph.m in Sources */,
 				6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */,
 				6C487C0C1795DEBD007EE2B5 /* PLLocationInputViewController.m in Sources */,
 				6C487C0F1795DECE007EE2B5 /* PLInformationViewController.m in Sources */,
@@ -1918,6 +1932,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1938,6 +1953,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "000AFA5D-0B67-4E3F-BC4F-37E4A1CFFD67";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"${SRCROOT}/../../ZACodeBase/ZACodeBase\"/**";
 				WRAPPER_EXTENSION = app;
 			};

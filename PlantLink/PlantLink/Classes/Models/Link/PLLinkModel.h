@@ -10,6 +10,8 @@
 
 @interface PLLinkModel : AbstractModel
 // The serial number of the plant link
+@property(nonatomic, strong, readonly) NSNumber *key;
+
 @property(nonatomic, strong, readonly) NSString *serialNumber;
 
 @property(nonatomic, strong, readonly) NSDate *updated;

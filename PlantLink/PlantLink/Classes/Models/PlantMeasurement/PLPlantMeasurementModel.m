@@ -12,11 +12,10 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        NSString *plantId = dict[DC_Measurement_PlantKey];
-        NSArray *items = [plantId componentsSeparatedByString:@"_"];
-        
-        _plantKey = items[1];
-        _linkKey = items[3];
+        _plantKey =  dict[DC_Measurement_PlantKey];
+    
+        #warning this is incorrect
+        //_linkKey = items[3];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
         _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];

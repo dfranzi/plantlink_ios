@@ -53,7 +53,7 @@
 
             notifications = [PLNotificationModel modelsFromArrayOfDictionaries:array];
             notifications = [notifications sortedArrayUsingComparator:^NSComparisonResult(PLNotificationModel *obj1, PLNotificationModel *obj2) {
-                return NSOrderedSame;
+                return [[obj2 notificationTime] compare:[obj1 notificationTime]];
             }];
             
             NSMutableArray *indexes = [NSMutableArray array];

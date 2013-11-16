@@ -23,9 +23,8 @@
         _plantTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PlantTypeKey] intValue]];
         _soilTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_SoilTypeKey] intValue]];
         _environment = dict[DC_Plant_Environment];
-        _pid = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PId] intValue]];
-        
-        ZALog(@"Dict: %@",dict);
+        _pid = [NSString stringWithFormat:@"%lld",[dict[DC_Plant_PId] longLongValue]];
+        _status = [dict[DC_Plant_Status] intValue];
         
         if([dict[DC_Plant_Measurement] isKindOfClass:[NSArray class]]) {
             if([dict[DC_Plant_Measurement] count] > 0) _lastMeasurement = [PLPlantMeasurementModel initWithDictionary:dict[DC_Plant_Measurement][0]];
@@ -38,7 +37,7 @@
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Plant_Created] intValue]];
         
-        #warning Color not implemented
+
         //if([dict[DC_Plant_Color] isKindOfClass:[NSString class]]) _color = [GeneralMethods colorFromHexString:dict
         //else _color = dict[DC_Plant_Color];
         
@@ -69,6 +68,7 @@
     dict[DC_Plant_SoilTypeKey] = [_soilTypeKey copyWithZone:zone];
     dict[DC_Plant_Environment] = [_environment copyWithZone:zone];
     dict[DC_Plant_PId] = [_pid copyWithZone:zone];
+    dict[DC_Plant_Status] = [NSNumber numberWithInt:_status];
     
     if(_lastMeasurement) dict[DC_Plant_Measurement] = [_lastMeasurement copyWithZone:zone];
     else dict[DC_Plant_Measurement] = [NSNull null];
@@ -93,6 +93,7 @@
         _soilTypeKey = [aDecoder decodeObjectForKey:DC_Plant_SoilTypeKey];
         _environment = [aDecoder decodeObjectForKey:DC_Plant_Environment];
         _pid = [aDecoder decodeObjectForKey:DC_Plant_PId];
+        _status = [aDecoder decodeIntForKey:DC_Plant_Status];
         
         _lastMeasurement = [aDecoder decodeObjectForKey:DC_Plant_Measurement];
         _links = [aDecoder decodeObjectForKey:DC_Plant_Links];
@@ -109,6 +110,7 @@
     [aCoder encodeObject:_soilTypeKey forKey:DC_Plant_SoilTypeKey];
     [aCoder encodeObject:_environment forKey:DC_Plant_Environment];
     [aCoder encodeObject:_pid forKey:DC_Plant_PId];
+    [aCoder encodeInt:_status forKey:DC_Plant_Status];
     
     if(_lastMeasurement) [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
     else [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];

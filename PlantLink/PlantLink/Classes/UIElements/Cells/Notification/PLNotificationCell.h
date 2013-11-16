@@ -12,8 +12,11 @@
 
 @class PLNotificationModel;
 @interface PLNotificationCell : UICollectionViewCell {
-    IBOutlet UILabel *dateLabel;
-    IBOutlet UILabel *notificationLabel;
+    UILabel *nameLabel;
+    UILabel *dateLabel;
+    UILabel *dayLabel;
+    
+    UIView *separatorView;
 }
 @property(nonatomic, strong) PLNotificationModel *notification;
 

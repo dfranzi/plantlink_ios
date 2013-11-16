@@ -10,6 +10,7 @@
 #import "PLItemRequest.h"
 #import "PLPlantModel.h"
 #import "PLLinkModel.h"
+#import "PLUserManager.h"
 
 @interface PLSyncLinkViewController() {
 @private
@@ -38,11 +39,12 @@
 
 -(void)nextPushed:(id)sender {
     if(linkRequest) [linkRequest cancel];
+    
     linkRequest = [[PLItemRequest alloc] init];
     [linkRequest getUserLinkesWithResponse:^(NSData *data, NSError *error) {
         NSArray *linkData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         NSArray *links = [PLLinkModel modelsFromArrayOfDictionaries:linkData];
-        
+
         PLLinkModel *foundModel = NULL;
         NSDate *plantCreationData = [_createdPlant created];
         for(PLLinkModel *model in links) {
@@ -59,7 +61,12 @@
 
 -(void)foundLink:(PLLinkModel*)link {
     plantUpdateRequest = [[PLItemRequest alloc] init];
-    [plantUpdateRequest editPlant:[_createdPlant pid] paramDict:@{PostKey_LinkSerial : [link serialNumber]} withResponse:^(NSData *data, NSError *error) {
+    NSMutableArray *linksArray = [NSMutableArray arrayWithArray:[_createdPlant links]];
+    [linksArray addObject:[link key]];
+    
+    [plantUpdateRequest editPlant:[_createdPlant pid] paramDict:@{PostKey_LinkKeys : linksArray} withResponse:^(NSData *data, NSError *error) {
+        NSLog(@"Response: %@",[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil]);
+        [sharedUser setPlantReloadTrigger:YES];
         [self dismissViewControllerAnimated:YES completion:^{}];
     }];
 }

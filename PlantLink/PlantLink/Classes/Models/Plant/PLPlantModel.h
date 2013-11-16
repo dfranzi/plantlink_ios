@@ -32,6 +32,8 @@
 // The server assigned plant id in the datbase
 @property(nonatomic, strong, readonly) NSString *pid;
 
+@property(nonatomic, assign, readonly) int status;
+
 // An array of PLPlantMeasurementModels indicating the most recent measurements
 @property(nonatomic, strong, readonly) PLPlantMeasurementModel *lastMeasurement;
 

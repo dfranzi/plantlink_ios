@@ -91,17 +91,17 @@
 #pragma mark -
 #pragma mark Setters
 
--(void)setMoistureLevel:(float)moistureLevel {
+-(void)setMoistureLevel:(int)moistureLevel {
     _moistureLevel = moistureLevel;
     
     NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
     for(UIImageView *view in moistureCircles) [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
     
-    _onLowestMoisture = _moistureLevel < 0;
+    _onLowestMoisture = _moistureLevel == 0;
     if(_onLowestMoisture) [leftCircle setImage:[UIImage imageNamed:Image_WaterCircle_Red]];
-    else if(_moistureLevel < 0.2) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel < 0.8) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel < 0.1) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel == 1) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel == 2) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(_moistureLevel == 3) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
     else [rightCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
 }
 
