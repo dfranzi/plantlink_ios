@@ -21,8 +21,7 @@
     [super setModel:model];
     
     if([self model]) {
-        float moisture = [[[self model] lastMeasurement] moisture];
-        ZALog(@"Moisture");
+        int moisture = [[self model] status];
         [moistureIndicator setMoistureLevel:moisture];
     }
 }

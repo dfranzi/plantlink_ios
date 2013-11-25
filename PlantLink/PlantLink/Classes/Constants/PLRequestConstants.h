@@ -31,7 +31,7 @@
 #define URLStr_Valve @"/valve"
 
 #define URLStr_Measurement @"/measurement"
-#define URLStr_Measurement_Get @"/plants/%@/measurements?limit=5"
+#define URLStr_Measurement_Get @"/plants/%@/measurements?limit=7"
 
 #define URLStr_Notifications @"/notifications"
 #define URLStr_BugReport @"/bugreport"
@@ -99,12 +99,14 @@
 #define DC_Plant_Environment @"environment"
 #define DC_Plant_Links @"links_key"
 #define DC_Plant_Measurement @"last_measurements"
+#define DC_Plant_UpperThreshold @"upper_moisture_threshold"
+#define DC_Plant_LowerThreshold @"lower_moisture_threshold"
 
 #define DC_Measurement_PlantKey @"plant_key"
 #define DC_Measurement_LinkKey @"link_key"
 #define DC_Measurement_Created @"update"
 #define DC_Measurement_PredictedWaterDate @"predicted_water_needed"
-#define DC_Measurement_Moisture @"plant_fuel_level"
+#define DC_Measurement_Moisture @"moisture"
 #define DC_Measurement_Signal @"signal"
 #define DC_Measurement_Battery @"battery"
 

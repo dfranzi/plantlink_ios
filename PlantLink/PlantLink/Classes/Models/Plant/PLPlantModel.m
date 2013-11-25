@@ -26,6 +26,9 @@
         _pid = [NSString stringWithFormat:@"%lld",[dict[DC_Plant_PId] longLongValue]];
         _status = [dict[DC_Plant_Status] intValue];
         
+        _upperMoistureThreshold = [dict[DC_Plant_UpperThreshold] floatValue];
+        _lowerMoistureThreshold = [dict[DC_Plant_LowerThreshold] floatValue];
+        
         if([dict[DC_Plant_Measurement] isKindOfClass:[NSArray class]]) {
             if([dict[DC_Plant_Measurement] count] > 0) _lastMeasurement = [PLPlantMeasurementModel initWithDictionary:dict[DC_Plant_Measurement][0]];
             else _lastMeasurement = NULL;
@@ -69,6 +72,8 @@
     dict[DC_Plant_Environment] = [_environment copyWithZone:zone];
     dict[DC_Plant_PId] = [_pid copyWithZone:zone];
     dict[DC_Plant_Status] = [NSNumber numberWithInt:_status];
+    dict[DC_Plant_LowerThreshold] = [NSNumber numberWithFloat:_lowerMoistureThreshold];
+    dict[DC_Plant_UpperThreshold] = [NSNumber numberWithFloat:_upperMoistureThreshold];
     
     if(_lastMeasurement) dict[DC_Plant_Measurement] = [_lastMeasurement copyWithZone:zone];
     else dict[DC_Plant_Measurement] = [NSNull null];
@@ -95,6 +100,9 @@
         _pid = [aDecoder decodeObjectForKey:DC_Plant_PId];
         _status = [aDecoder decodeIntForKey:DC_Plant_Status];
         
+        _lowerMoistureThreshold = [aDecoder decodeIntForKey:DC_Plant_LowerThreshold];
+        _upperMoistureThreshold = [aDecoder decodeIntForKey:DC_Plant_UpperThreshold];
+        
         _lastMeasurement = [aDecoder decodeObjectForKey:DC_Plant_Measurement];
         _links = [aDecoder decodeObjectForKey:DC_Plant_Links];
         
@@ -114,6 +122,9 @@
     
     if(_lastMeasurement) [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
     else [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
+    
+    [aCoder encodeInt:_lowerMoistureThreshold forKey:DC_Plant_LowerThreshold];
+    [aCoder encodeInt:_upperMoistureThreshold forKey:DC_Plant_UpperThreshold];
     
     [aCoder encodeObject:_links forKey:DC_Plant_Links];
     

@@ -8,8 +8,8 @@
 
 #import "PLAbstractViewController.h"
 
-@interface PLSettingsViewController : PLAbstractViewController <UITableViewDataSource,UITableViewDelegate> {
-    IBOutlet UITableView *settingsTableView;
+@interface PLSettingsViewController : PLAbstractViewController <UICollectionViewDelegate,UICollectionViewDataSource> {
+    IBOutlet UICollectionView *settingsCollectionView;
 }
 
 @end

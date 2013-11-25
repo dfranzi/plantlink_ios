@@ -69,7 +69,7 @@
         
         PLPlantMeasurementModel *measurement = [_model lastMeasurement];
         if(measurement && ![measurement isEqual:[NSNull null]]) {
-            [moistureIndicator setMoistureLevel:[measurement moisture]];
+            [moistureIndicator setMoistureLevel:[_model status]];
             [batteryImage setBatteryLevel:[measurement battery]];
             [signalImage setSignalLevel:[measurement signal]];
             

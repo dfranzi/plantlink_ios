@@ -8,18 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLSettingsCell : UITableViewCell {
+@interface PLSettingsCell : UICollectionViewCell {
     IBOutlet UILabel *titleLabel;
+    IBOutlet UILabel *infoLabel;
 }
 
 #pragma mark -
 #pragma mark Display Methods
 
 -(void)setTitle:(NSString*)title;
+-(void)setLabel:(NSString*)label;
 
 #pragma mark -
 #pragma mark Size Methods
 
-+(CGFloat)heightForContent:(NSDictionary*)content;
++(CGSize)sizeForContent:(NSDictionary*)content;
 
 @end

@@ -40,4 +40,8 @@
 // An array of PLLinkModels associated with the plant
 @property(nonatomic, strong, readonly) NSArray *links;
 
+@property(nonatomic, assign, readonly) float upperMoistureThreshold;
+
+@property(nonatomic, assign, readonly) float lowerMoistureThreshold;
+
 @end

@@ -50,6 +50,7 @@
         [measurementRequest getMeasurementForPlant:[plant pid] withResponse:^(NSData *data, NSError *error) {
             NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             moistureHistory = [PLPlantMeasurementModel modelsFromArrayOfDictionaries:jsonArray];
+            moistureHistory = [[moistureHistory reverseObjectEnumerator] allObjects];
             
             [self setNeedsDisplay];
         }];
@@ -78,26 +79,20 @@
     
     // [...] and so on, for all line segments
     int increment = self.frame.size.width / [moistureHistory count];
+    int half = (int)increment/2.0;
+    
     if([moistureHistory count] > 2) {
         for(int i = 0; i < [moistureHistory count]-1; i++) {
             PLPlantMeasurementModel *measurement = moistureHistory[i];
             PLPlantMeasurementModel *measurement2 = moistureHistory[i+1];
 
-            int m1 = self.frame.size.height - (int)floorf([measurement moisture]*self.frame.size.height);
-            int m2 = self.frame.size.height - (int)floorf([measurement2 moisture]*self.frame.size.height);
-            
-            if(m1 < 0) m1 = 0;
-            if(m1 > self.frame.size.height) m1 = self.frame.size.height;
-            
-            if(m2 < 0) m2 = 0;
-            if(m2 > self.frame.size.height) m2 = self.frame.size.height;
-            
-            NSLog(@"Points (%i,%i) to (%i,%i)",increment*i+36, m1,increment*(i+1)+36, m2);
+            int m1 = [self heightForMoisture:[measurement moisture]];
+            int m2 = [self heightForMoisture:[measurement2 moisture]];
             
             CGContextBeginPath(context);
-            CGContextMoveToPoint(context, increment*i+36, m1 );
+            CGContextMoveToPoint(context, increment*i+half, m1 );
             //CGContextAddLineToPoint(context, increment*(i+1)+36, m2 );
-            CGContextAddCurveToPoint(context, increment*i+36+35, m1, increment*(i+1)+36-35, m2, increment*(i+1)+36, m2);
+            CGContextAddCurveToPoint(context, increment*i+half, m1, increment*(i+1)+half, m2, increment*(i+1)+half, m2);
             CGContextSetLineWidth(context, 2);
             CGContextSetStrokeColorWithColor(context, RGB(38.0, 171.0, 220.0).CGColor);
             CGContextStrokePath(context);
@@ -110,16 +105,27 @@
     for(PLPlantMeasurementModel *measurement in moistureHistory) {
         index = index + 1;
         
-        int m1 = self.frame.size.height - (int)floorf([measurement moisture]*self.frame.size.height);
-        
-        if(m1 < 0) m1 = 0;
-        if(m1 > self.frame.size.height) m1 = self.frame.size.height;
-        
+        int m1 = [self heightForMoisture:[measurement moisture]];
         CGContextFillEllipseInRect(context, CGRectMake(index*increment-20-7, m1-7, 14, 14));
     }
     
 }
 
-
+-(float)heightForMoisture:(float)moisture {
+    float upperThreshold = [_plant upperMoistureThreshold];
+    float lowerThreshold = [_plant lowerMoistureThreshold];
+    float difference = upperThreshold - lowerThreshold;
+    float upperBound = upperThreshold + difference;
+    float lowerBound = lowerThreshold - difference;
+    
+    float newValue = (moisture - lowerBound)/(upperBound - lowerBound);
+    int height = self.frame.size.height - (int)floorf(newValue*self.frame.size.height);
+    
+    if(height < 0) height = 0;
+    if(height > self.frame.size.height) height = self.frame.size.height;
+    
+    
+    return height;
+}
 
 @end

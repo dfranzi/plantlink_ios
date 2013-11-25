@@ -18,13 +18,28 @@
 @end
 
 #define SettingsTitle_Notification @"Notifications"
+#define SettingsTitle_Account @"Account"
 #define SettingsTitle_Tutorial @"Tutorial"
 #define SettingsTitle_BugReport @"Bug Report"
 #define SettingsTitle_ContactUs @"Contact Us"
 #define SettingsTitle_Shop @"Shop"
 #define SettingsTitle_Logout @"Logout"
 
-#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Tutorial, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
+#define SettingsLabel_Notification @"Change the way you are notified"
+#define SettingsLabel_Account @"Change the account email and password"
+#define SettingsLabel_Tutorial @"View the plant link app tutorial"
+#define SettingsLabel_BugReport @"Let us know about a possible bug"
+#define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
+#define SettingsLabel_Shop @"Buy extra plant links"
+#define SettingsLabel_Logout @"Logout of the application"
+
+#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_Tutorial, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
+
+#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_Tutorial, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
+
+#define State_Notifications @"Notifications Expanded"
+#define State_BugReport @"Bug Report Expanded"
+#define State_Contact @"Contact Expanded"
 
 @implementation PLSettingsViewController
 
@@ -33,12 +48,12 @@
     
     UIImage *settings = [UIImage imageNamed:Image_Tab_Settings];
     UIImage *settingsHighlighted = [UIImage imageNamed:Image_Tab_SettingsHighlighted];
-    [settingsTableView setBackgroundColor:Color_ViewBackground];
+    [settingsCollectionView setBackgroundColor:Color_ViewBackground];
     
     [self.tabBarItem setTitle:@""];
     [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsTableView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }
 
 
@@ -58,7 +73,7 @@
 }
 
 -(void)contactUs {
-    [self performSegueWithIdentifier:Segue_ToContactUs sender:self];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:info@oso.tc"]];
 }
 
 -(void)shop {
@@ -72,33 +87,25 @@
 #pragma mark -
 #pragma mark TableView Methods
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [SettingsCellTitles count] + 1;
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [SettingsCellTitles count];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PLSettingsCell *cell = NULL;
-    if(indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:Cell_SettingsImage forIndexPath:indexPath];
-    }
-    else {
-        cell = [tableView dequeueReusableCellWithIdentifier:Cell_Settings forIndexPath:indexPath];
-        [cell setTitle:SettingsCellTitles[indexPath.row-1]];
-    }
-    [cell.contentView setBackgroundColor:tableView.backgroundColor];
-    
+-(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PLSettingsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Settings forIndexPath:indexPath];
+    [cell setTitle:SettingsCellTitles[indexPath.row]];
+    [cell setLabel:SettingsCellLabels[indexPath.row]];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0;
+-(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [PLSettingsCell sizeForContent:@{}];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == 0) return;
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 
-    int row = indexPath.row-1;
+    int row = indexPath.row;
     if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification]) [self notifications];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Tutorial]) [self tutorial];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport]) [self bugReport];

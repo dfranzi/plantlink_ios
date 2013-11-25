@@ -11,6 +11,11 @@
 @interface PLSettingsCell() {
 @private
     UIColor *darkenedColor;
+    
+    UIView *background;
+    UIView *backdrop;
+    
+    CGPoint originalCenter;
 }
 
 @end
@@ -19,22 +24,31 @@
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        float offset = 37;
-        UIView *borderView = [[UIView alloc] initWithFrame:CGRectMake(offset,self.contentView.frame.size.height-1,self.contentView.frame.size.width-2*offset,1)];
-
-        float red,green,blue,alpha;
-        [Color_ViewBackground getRed:&red green:&green blue:&blue alpha:&alpha];
+        [self setBackgroundColor:[UIColor clearColor]];
+        [self.contentView.layer setBorderColor:Color_CellBorder.CGColor];
+        [self setClipsToBounds:NO];
         
-        float darken = 15.0;
-        red = red - darken/255.0 > 0 ? red - darken/255.0 : 0;
-        green = green - darken/255.0 > 0 ? green - darken/255.0 : 0;
-        blue = blue - darken/255.0 > 0 ? blue - darken/255.0 : 0;
-
-        darkenedColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-        [borderView setBackgroundColor:darkenedColor];
-        [self addSubview:borderView];
+        CGSize size = [PLSettingsCell sizeForContent:@{}];
+        background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-2)];
+        [background setBackgroundColor:[UIColor whiteColor]];
+        [background.layer setCornerRadius:3.0];
+        [background setClipsToBounds:YES];
+        [self.contentView insertSubview:background atIndex:0];
+        
+        backdrop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height+1)];
+        [backdrop setBackgroundColor:Color_CellBorder];
+        [backdrop.layer setCornerRadius:3.0];
+        [backdrop setClipsToBounds:YES];
+        [self.contentView insertSubview:backdrop belowSubview:background];
+        
+        
+        originalCenter = self.contentView.center;
     }
     return self;
+}
+
+-(void)prepareForReuse {
+    [self.contentView setCenter:originalCenter];
 }
 
 #pragma mark -
@@ -44,17 +58,31 @@
     [titleLabel setText:title];
 }
 
+-(void)setLabel:(NSString*)label {
+    [infoLabel setText:label];
+}
+
 #pragma mark -
 #pragma mark Override Methods
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    [super setHighlighted:highlighted animated:animated];
+-(void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    
     if(highlighted) {
-        if(titleLabel) [titleLabel setTextColor:darkenedColor];
+        [self.contentView setCenter:CGPointMake(originalCenter.x, originalCenter.y+3)];
+        [backdrop setAlpha:0.0];
     }
     else {
-        if(titleLabel) [titleLabel setTextColor:[UIColor blackColor]];
+        [self.contentView setCenter:originalCenter];
+        [backdrop setAlpha:1.0];
     }
+}
+
+#pragma mark -
+#pragma mark Size Methods
+
++(CGSize)sizeForContent:(NSDictionary*)content {
+    return CGSizeMake(295, 110);
 }
 
 @end
