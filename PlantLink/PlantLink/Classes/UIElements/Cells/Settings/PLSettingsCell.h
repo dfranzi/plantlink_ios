@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class PLSettingsViewController;
 @interface PLSettingsCell : UICollectionViewCell {
     IBOutlet UILabel *titleLabel;
     IBOutlet UILabel *infoLabel;
+    
+    @protected
+    UIView *background;
+    UIView *backdrop;
+    CGPoint originalCenter;
 }
+@property(nonatomic, strong) NSDictionary *stateDict;
+@property(nonatomic, weak) PLSettingsViewController *parentViewController;
 
 #pragma mark -
 #pragma mark Display Methods

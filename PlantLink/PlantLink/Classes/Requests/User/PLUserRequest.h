@@ -26,4 +26,9 @@
 
 -(void)submitBugReportWithMessage:(NSString*)message andResponse:(void(^) (NSData *data, NSError *error))response;
 
+#pragma mark -
+#pragma mark Update Methods
+
+-(void)updateUser:(NSDictionary*)updates withResponse:(void(^) (NSData *data, NSError *error))response;
+
 @end

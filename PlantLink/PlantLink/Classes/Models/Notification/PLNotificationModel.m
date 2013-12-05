@@ -12,6 +12,8 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
+        NSLog(@"Dict: %@",dict);
+        
         _hidden = [dict[DC_Notification_Hidden] boolValue];
         _nid = dict[DC_Notification_Key];
         _kind = dict[DC_Notification_Kind];

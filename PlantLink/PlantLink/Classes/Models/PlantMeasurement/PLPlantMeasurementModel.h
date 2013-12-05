@@ -12,8 +12,8 @@
 // The associated plant id that the measurement was taken on
 @property(nonatomic, strong, readonly) NSString *plantKey;
 
-// The associated link id that the measurement was taken from
-@property(nonatomic, strong, readonly) NSString *linkKey;
+// The associated link serial that the measurement was taken from
+@property(nonatomic, strong, readonly) NSString *linkSerial;
 
 // The server assigned created date of the measurement
 @property(nonatomic, strong, readonly) NSDate *created;

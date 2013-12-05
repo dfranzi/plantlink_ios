@@ -13,9 +13,7 @@
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
         _plantKey =  dict[DC_Measurement_PlantKey];
-    
-        #warning this is incorrect
-        //_linkKey = items[3];
+        _linkSerial = dict[DC_Measurement_LinkSerial];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
         _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
@@ -56,7 +54,7 @@
 
 -(id)copyWithZone:(NSZone *)zone {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[DC_Measurement_PlantKey] = [NSString stringWithFormat:@"plant_%@_link_%@",[_plantKey copyWithZone:zone],[_linkKey copyWithZone:zone]];
+    dict[DC_Measurement_PlantKey] = [NSString stringWithFormat:@"plant_%@_link_%@",[_plantKey copyWithZone:zone],[_linkSerial copyWithZone:zone]];
     
     dict[DC_Measurement_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
     dict[DC_Measurement_PredictedWaterDate] = [NSNumber numberWithInt:[_predictedWaterDate timeIntervalSince1970]];
@@ -76,7 +74,7 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super init]) {
         _plantKey = [aDecoder decodeObjectForKey:DC_Measurement_PlantKey];
-        _linkKey = [aDecoder decodeObjectForKey:DC_Measurement_LinkKey];
+        _linkSerial = [aDecoder decodeObjectForKey:DC_Measurement_LinkSerial];
         _created = [aDecoder decodeObjectForKey:DC_Measurement_Created];
         _predictedWaterDate = [aDecoder decodeObjectForKey:DC_Measurement_PredictedWaterDate];
         
@@ -89,7 +87,7 @@
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:_plantKey forKey:DC_Measurement_PlantKey];
-    [aCoder encodeObject:_linkKey forKey:DC_Measurement_LinkKey];
+    [aCoder encodeObject:_linkSerial forKey:DC_Measurement_LinkSerial];
     [aCoder encodeObject:_created forKey:DC_Measurement_Created];
     [aCoder encodeObject:_predictedWaterDate forKey:DC_Measurement_PredictedWaterDate];
     
@@ -104,7 +102,7 @@
 -(BOOL)isEqual:(id)object {
     if([object isKindOfClass:[PLPlantMeasurementModel class]]) {
         PLPlantMeasurementModel *other = (PLPlantMeasurementModel*)object;
-        return [[other created] isEqualToDate:_created] && [[other plantKey] isEqualToString:_plantKey] && [[other linkKey] isEqualToString:_linkKey];
+        return [[other created] isEqualToDate:_created] && [[other plantKey] isEqualToString:_plantKey] && [[other linkSerial] isEqualToString:_linkSerial];
     }
     else return NO;
 }

@@ -14,7 +14,6 @@
     if(self = [super init]) {
         _serialNumber = dict[DC_Valve_SerialNumber];
         _plantKey = dict[DC_Valve_PlantKey];
-        _nickname = dict[DC_Valve_Nickname];
     }
     return self;
 }
@@ -39,7 +38,6 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[DC_Valve_SerialNumber] = [_serialNumber copyWithZone:zone];
     dict[DC_Valve_PlantKey] = [_plantKey copyWithZone:zone];
-    dict[DC_Valve_Nickname] = [_nickname copyWithZone:zone];
     
     PLValveModel *copy = [[PLValveModel alloc] initWithDictionary:dict];
     if(copy) return copy;
@@ -53,7 +51,6 @@
     if(self = [super init]) {
         _serialNumber = [aDecoder decodeObjectForKey:DC_Valve_SerialNumber];
         _plantKey = [aDecoder decodeObjectForKey:DC_Valve_PlantKey];
-        _nickname = [aDecoder decodeObjectForKey:DC_Valve_Nickname];
     }
     return self;
 }
@@ -61,7 +58,6 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:_serialNumber forKey:DC_Valve_SerialNumber];
     [aCoder encodeObject:_plantKey forKey:DC_Valve_PlantKey];
-    [aCoder encodeObject:_nickname forKey:DC_Valve_Nickname];
 }
 
 #pragma mark -

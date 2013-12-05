@@ -21,7 +21,7 @@
 
 @implementation PLHomeViewController
 
-#warning Temp for demo
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     //UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];

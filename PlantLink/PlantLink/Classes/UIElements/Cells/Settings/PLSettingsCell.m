@@ -11,11 +11,6 @@
 @interface PLSettingsCell() {
 @private
     UIColor *darkenedColor;
-    
-    UIView *background;
-    UIView *backdrop;
-    
-    CGPoint originalCenter;
 }
 
 @end
@@ -26,7 +21,7 @@
     if(self = [super initWithCoder:aDecoder]) {
         [self setBackgroundColor:[UIColor clearColor]];
         [self.contentView.layer setBorderColor:Color_CellBorder.CGColor];
-        [self setClipsToBounds:NO];
+        [self setClipsToBounds:YES];
         
         CGSize size = [PLSettingsCell sizeForContent:@{}];
         background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-2)];
@@ -45,10 +40,6 @@
         originalCenter = self.contentView.center;
     }
     return self;
-}
-
--(void)prepareForReuse {
-    [self.contentView setCenter:originalCenter];
 }
 
 #pragma mark -
@@ -73,7 +64,7 @@
         [backdrop setAlpha:0.0];
     }
     else {
-        [self.contentView setCenter:originalCenter];
+        [self.contentView setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height)];
         [backdrop setAlpha:1.0];
     }
 }

@@ -47,6 +47,9 @@
     if(reloadNotifications) {
         reloadNotifications = NO;
         
+        notifications = @[];
+        [notificationCollectionView reloadData];
+        
         notificationRequest = [[PLItemRequest alloc] init];
         [notificationRequest getNotificationsWithResponse:^(NSData *data, NSError *error) {
             NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
@@ -64,36 +67,32 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    reloadNotifications = YES;
+}
+
 #pragma mark -
 #pragma mark CollectionView Methods
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [notifications count]+1;
+    return [notifications count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [notifications count]) {
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Edit forIndexPath:indexPath];
-        [cell.contentView setBackgroundColor:collectionView.backgroundColor];
-        return cell;
-    }
-    
     PLNotificationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Notification forIndexPath:indexPath];
     [cell setNotification:notifications[indexPath.row]];
     return cell;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [notifications count]) return CGSizeMake(297.0, 85.0);
     PLNotificationModel *notification = notifications[indexPath.row];
     return [PLNotificationCell sizeForContent:@{ NotificationInfo_Text : [notification kind] }];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
-    if(indexPath.row == [notifications count]) [self performSegueWithIdentifier:Segue_ToNotificationSettings sender:self];
 }
 
 

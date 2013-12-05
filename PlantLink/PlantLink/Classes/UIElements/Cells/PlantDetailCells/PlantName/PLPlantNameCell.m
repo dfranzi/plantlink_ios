@@ -23,6 +23,9 @@
     if(self = [super initWithCoder:aDecoder]) {
         isEditting = NO;
         isShowingInfo = NO;
+        
+        [infoButton setAlpha:0.0f];
+        [editButton setAlpha:0.0f];
     }
     return self;
 }
@@ -33,6 +36,8 @@
 -(void)setModel:(PLPlantModel *)model {
     [super setModel:model];
     
+    [infoButton setAlpha:0.0f];
+    [editButton setAlpha:0.0f];
     if([self model]) {
         [nameLabel setText:[[self model] name]];
 

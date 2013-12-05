@@ -44,6 +44,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if(reloadSchedule) {
+        schedules = @[];
+        [scheduleCollectionView reloadData];
+        
         reloadSchedule = NO;
         plantRequest = [[PLItemRequest alloc] init];
         [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
@@ -61,36 +64,31 @@
         }];
     }
 }
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    reloadSchedule = YES;
+}
 
 #pragma mark -
 #pragma mark CollectionView Methods
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [schedules count]+1;
+    return [schedules count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [schedules count]) {
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Edit forIndexPath:indexPath];
-        [cell.contentView setBackgroundColor:collectionView.backgroundColor];
-        return cell;
-    }
-    
     PLScheduleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Schedule forIndexPath:indexPath];
     [cell setPlant:schedules[indexPath.row]];
     return cell;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == [schedules count]) return CGSizeMake(297.0, 85.0);
     return [PLScheduleCell sizeForContent:@{}];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
-    if(indexPath.row == [schedules count]) [self performSegueWithIdentifier:@"toScheduleEditView" sender:self];
 }
 
 @end

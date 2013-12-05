@@ -12,4 +12,10 @@
     IBOutlet UICollectionView *settingsCollectionView;
 }
 
+#pragma mark -
+#pragma mark Update Methods
+
+-(void)closeSection:(NSString*)section;
+-(void)expandSection:(NSString*)section;
+
 @end

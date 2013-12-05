@@ -12,9 +12,6 @@
 // The serial number of the valve
 @property(nonatomic, strong, readonly) NSString *serialNumber;
 
-// The user assigned nickname of the valve
-@property(nonatomic, strong, readonly) NSString *nickname;
-
 // The plant id the valve is associated with
 @property(nonatomic, strong, readonly) NSString *plantKey;
 

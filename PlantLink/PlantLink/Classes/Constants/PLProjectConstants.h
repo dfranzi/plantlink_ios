@@ -79,4 +79,27 @@
                       Error_NoAuth : @"Invalid login information",\
                       Error_Generic : @"An error occured but could not be specified, we apologize"}
 
+//Settings
+#define SettingsTitle_Notification @"Notifications"
+#define SettingsTitle_Account @"Account"
+#define SettingsTitle_Tutorial @"Tutorial"
+#define SettingsTitle_BugReport @"Bug Report"
+#define SettingsTitle_ContactUs @"Contact Us"
+#define SettingsTitle_Shop @"Shop"
+#define SettingsTitle_Logout @"Logout"
 
+#define SettingsLabel_Notification @"Change the way you are notified"
+#define SettingsLabel_Account @"Change the account email and password"
+#define SettingsLabel_Tutorial @"View the plant link app tutorial"
+#define SettingsLabel_BugReport @"Let us know about a possible bug"
+#define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
+#define SettingsLabel_Shop @"Buy extra plant links"
+#define SettingsLabel_Logout @"Logout of the application"
+
+#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_Tutorial, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
+
+#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_Tutorial, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
+
+#define State_Notifications @"Notifications Expanded"
+#define State_BugReport @"Bug Report Expanded"
+#define State_Account @"Account Expanded"

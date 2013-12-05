@@ -61,12 +61,24 @@
     NSLog(@"Count: %i",[moistureHistory count]);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
+
+    float upperThresholdHieght = ([_plant upperMoistureThreshold] / 0.6);
+    if(upperThresholdHieght > 1.0) upperThresholdHieght = 1.0;
+    if(upperThresholdHieght < 0.0) upperThresholdHieght = 0.0;
+    NSLog(@"%f",upperThresholdHieght);
+    upperThresholdHieght = self.frame.size.height - (int)floorf(upperThresholdHieght*self.frame.size.height);
     
+    float lowerThresholdHeight = ([_plant lowerMoistureThreshold] / 0.6);
+    if(lowerThresholdHeight > 1.0) lowerThresholdHeight = 1.0;
+    if(lowerThresholdHeight < 0.0) lowerThresholdHeight = 0.0;
+    NSLog(@"%f",lowerThresholdHeight);
+    lowerThresholdHeight = self.frame.size.height - (int)floorf(lowerThresholdHeight*self.frame.size.height);
+
     CGContextSetFillColorWithColor(context, RGB(253.0, 233.0, 241.0).CGColor);
-    CGContextFillRect(context, CGRectMake(0, 0, self.frame.size.width, 80));
-    CGContextFillRect(context, CGRectMake(0, self.frame.size.height-80, self.frame.size.width, 80));
+    CGContextFillRect(context, CGRectMake(0, 0, self.frame.size.width, upperThresholdHieght));
+    CGContextFillRect(context, CGRectMake(0, lowerThresholdHeight, self.frame.size.width, self.frame.size.height - lowerThresholdHeight));
     
-    for(NSNumber *num in @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:80],[NSNumber numberWithInt:self.frame.size.height-80],[NSNumber numberWithInt:self.frame.size.height]]) {
+    for(NSNumber *num in @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:upperThresholdHieght],[NSNumber numberWithInt:lowerThresholdHeight],[NSNumber numberWithInt:self.frame.size.height]]) {
         CGContextBeginPath(context);
         CGContextMoveToPoint(context, 0, [num intValue]);
         CGContextAddLineToPoint(context, self.frame.size.width,[num intValue]);
@@ -112,19 +124,11 @@
 }
 
 -(float)heightForMoisture:(float)moisture {
-    float upperThreshold = [_plant upperMoistureThreshold];
-    float lowerThreshold = [_plant lowerMoistureThreshold];
-    float difference = upperThreshold - lowerThreshold;
-    float upperBound = upperThreshold + difference;
-    float lowerBound = lowerThreshold - difference;
+    if(moisture > 0.6) moisture = 0.6;
+    if(moisture < 0.0) moisture = 0.0;
     
-    float newValue = (moisture - lowerBound)/(upperBound - lowerBound);
-    int height = self.frame.size.height - (int)floorf(newValue*self.frame.size.height);
-    
-    if(height < 0) height = 0;
-    if(height > self.frame.size.height) height = self.frame.size.height;
-    
-    
+    moisture = moisture / 0.6;
+    int height = self.frame.size.height - (int)floorf(moisture*self.frame.size.height);
     return height;
 }
 

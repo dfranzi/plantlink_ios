@@ -14,7 +14,8 @@
     if(self = [super init]) {
         _key = dict[DC_Link_Key];
         _serialNumber = dict[DC_Link_SerialNumber];
-        _updated = dict[DC_Link_Updated];
+        _updated = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Link_Updated] intValue]];
+        _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Link_Created] intValue]];
         _plantKeys = dict[DC_Link_PlantKeys];
         _lastSynced = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Link_LastSynced] intValue]];
     }
@@ -41,7 +42,8 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[DC_Link_Key] = [_key copyWithZone:zone];
     dict[DC_Link_SerialNumber] = [_serialNumber copyWithZone:zone];
-    dict[DC_Link_Updated] = [_updated copyWithZone:zone];
+    dict[DC_Link_Updated] = [NSNumber numberWithInt:[_updated timeIntervalSince1970]];
+    dict[DC_Link_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
     dict[DC_Link_PlantKeys] = [_plantKeys copyWithZone:zone];
     dict[DC_Link_LastSynced] = [NSNumber numberWithInt:[_lastSynced timeIntervalSince1970]];
     
@@ -58,6 +60,7 @@
         _key = [aDecoder decodeObjectForKey:DC_Link_Key];
         _serialNumber = [aDecoder decodeObjectForKey:DC_Link_SerialNumber];
         _updated = [aDecoder decodeObjectForKey:DC_Link_Updated];
+        _created = [aDecoder decodeObjectForKey:DC_Link_Created];
         _plantKeys = [aDecoder decodeObjectForKey:DC_Link_PlantKeys];
         _lastSynced = [aDecoder decodeObjectForKey:DC_Link_LastSynced];
     }
@@ -68,6 +71,7 @@
     [aCoder encodeObject:_key forKey:DC_Link_Key];
     [aCoder encodeObject:_serialNumber forKey:DC_Link_SerialNumber];
     [aCoder encodeObject:_updated forKey:DC_Link_Updated];
+    [aCoder encodeObject:_created forKey:DC_Link_Created];
     [aCoder encodeObject:_plantKeys forKey:DC_Link_PlantKeys];
     [aCoder encodeObject:_lastSynced forKey:DC_Link_LastSynced];
 }

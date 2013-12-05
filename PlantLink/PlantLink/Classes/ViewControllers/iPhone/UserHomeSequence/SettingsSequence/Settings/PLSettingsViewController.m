@@ -10,36 +10,16 @@
 
 #import "PLUserManager.h"
 #import "PLSettingsCell.h"
+#import "PLSettingsNotificationCell.h"
+#import "PLSettingsAccountCell.h"
+#import "PLSettingsBugReportCell.h"
 
 @interface PLSettingsViewController() {
 @private
+    NSMutableDictionary *stateDict;
 }
 
 @end
-
-#define SettingsTitle_Notification @"Notifications"
-#define SettingsTitle_Account @"Account"
-#define SettingsTitle_Tutorial @"Tutorial"
-#define SettingsTitle_BugReport @"Bug Report"
-#define SettingsTitle_ContactUs @"Contact Us"
-#define SettingsTitle_Shop @"Shop"
-#define SettingsTitle_Logout @"Logout"
-
-#define SettingsLabel_Notification @"Change the way you are notified"
-#define SettingsLabel_Account @"Change the account email and password"
-#define SettingsLabel_Tutorial @"View the plant link app tutorial"
-#define SettingsLabel_BugReport @"Let us know about a possible bug"
-#define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
-#define SettingsLabel_Shop @"Buy extra plant links"
-#define SettingsLabel_Logout @"Logout of the application"
-
-#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_Tutorial, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
-
-#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_Tutorial, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
-
-#define State_Notifications @"Notifications Expanded"
-#define State_BugReport @"Bug Report Expanded"
-#define State_Contact @"Contact Expanded"
 
 @implementation PLSettingsViewController
 
@@ -50,6 +30,7 @@
     UIImage *settingsHighlighted = [UIImage imageNamed:Image_Tab_SettingsHighlighted];
     [settingsCollectionView setBackgroundColor:Color_ViewBackground];
     
+    stateDict = [NSMutableDictionary dictionary];
     [self.tabBarItem setTitle:@""];
     [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
     
@@ -61,7 +42,11 @@
 #pragma mark Action Methods
 
 -(void)notifications {
-    [self performSegueWithIdentifier:Segue_ToNotifications sender:self];
+    [self expandSection:State_Notifications];
+}
+
+-(void)account {
+    [self expandSection:State_Account];
 }
 
 -(void)tutorial {
@@ -69,7 +54,7 @@
 }
 
 -(void)bugReport {
-    [self performSegueWithIdentifier:Segue_ToBugReport sender:self];
+    [self expandSection:State_BugReport];
 }
 
 -(void)contactUs {
@@ -84,6 +69,12 @@
     [sharedUser logout];
 }
 
+-(void)update {
+    for(PLSettingsCell *cell in settingsCollectionView.visibleCells) {
+        [cell setStateDict:stateDict];
+    }
+}
+
 #pragma mark -
 #pragma mark TableView Methods
 
@@ -92,28 +83,88 @@
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PLSettingsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Settings forIndexPath:indexPath];
+    PLSettingsCell *cell;
+    
+    if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Notification]) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsNotification forIndexPath:indexPath];
+    }
+    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Account]) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsAccount forIndexPath:indexPath];
+    }
+    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_BugReport]) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsBugReport forIndexPath:indexPath];
+    }
+    else cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Settings forIndexPath:indexPath];
+    
+    [cell setStateDict:stateDict];
     [cell setTitle:SettingsCellTitles[indexPath.row]];
     [cell setLabel:SettingsCellLabels[indexPath.row]];
+    [cell setParentViewController:self];
+    
     return cell;
 }
 
 -(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [PLSettingsCell sizeForContent:@{}];
+    if(indexPath.row == 0) return [PLSettingsNotificationCell sizeForContent:stateDict];
+    else if(indexPath.row == 1) return [PLSettingsAccountCell sizeForContent:stateDict];
+    else if(indexPath.row == 3) return [PLSettingsBugReportCell sizeForContent:stateDict];
+    else return [PLSettingsCell sizeForContent:stateDict];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-
+    
     int row = indexPath.row;
     if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification]) [self notifications];
+    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account]) [self account];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Tutorial]) [self tutorial];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport]) [self bugReport];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_ContactUs]) [self contactUs];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Shop]) [self shop];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Logout]) [self logout];
     
+    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+    
+    CGPoint point = collectionView.contentOffset;
+    [collectionView setContentOffset:CGPointMake(point.x, point.y-20) animated:YES];
 }
 
+#pragma mark -
+#pragma mark Update Methods
+
+-(void)closeSection:(NSString*)section {
+    [stateDict removeObjectForKey:section];
+    
+    [self update];
+    [self animateLayoutChanges:YES];
+}
+
+-(void)expandSection:(NSString*)section {
+    stateDict[section] = @"Expand";
+    
+    [self update];
+    [self animateLayoutChanges:YES];
+}
+
+-(void)animateLayoutChanges:(BOOL)animated {
+    [settingsCollectionView performBatchUpdates:^{
+        [settingsCollectionView.collectionViewLayout invalidateLayout];
+        
+//        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//        [layout setItemSize:CGSizeMake(295, 110)];
+//        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//        [layout setSectionInset:UIEdgeInsetsMake(30, 0, 10, 0)];
+//        [settingsCollectionView setCollectionViewLayout:layout animated:animated];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+#pragma mark -
+#pragma mark Touch Methods
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 @end
