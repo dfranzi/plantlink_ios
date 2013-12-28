@@ -11,8 +11,11 @@
 #import "PLRequestConstants.h"
 
 //Warning
-#warning Make sure no internet doesnt screw up the nullification of requests
-#warning Make sure all onging requests are cancelled if view is left
+#warning Switch downloadings plant and soil types to only add plant, use plant model data for plant detail
+#warning Implement account and notification settings
+#warning Add link to edit view
+#warning Add push notificaiton registration and recieving code
+#warning Auto-login, cookie expires in 14 days
 
 //Constants
 #define Constant_LoginType_Login @"LoginType-Login"

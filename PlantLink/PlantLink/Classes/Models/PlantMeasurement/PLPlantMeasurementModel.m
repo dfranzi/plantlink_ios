@@ -15,8 +15,12 @@
         _plantKey =  dict[DC_Measurement_PlantKey];
         _linkSerial = dict[DC_Measurement_LinkSerial];
         
+        NSLog(@"%@",dict);
+        
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
-        _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
+        
+        if([dict[DC_Measurement_PredictedWaterDate] isEqual:[NSNull null]] || ([dict[DC_Measurement_PredictedWaterDate] isKindOfClass:[NSString class]] && [dict[DC_Measurement_PredictedWaterDate] isEqualToString:@"<null>"])) _predictedWaterDate = NULL;
+        else _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
         
         if([dict[DC_Measurement_Moisture] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Moisture] isEqualToString:@"<null>"]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
         else if([dict[DC_Measurement_Moisture] isKindOfClass:[NSNumber class]]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
