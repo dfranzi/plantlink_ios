@@ -188,6 +188,8 @@
         [defaults setObject:email forKey:Defaults_SavedEmail];
         
         [registerRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
+            
+            [sharedUser setLastUsername:email andPassword:password];
             [super nextPushed:nil];
             registerRequest = NULL;
         }];

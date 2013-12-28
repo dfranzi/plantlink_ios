@@ -11,6 +11,15 @@
 #import "TestFlight.h"
 #import "PLUserManager.h"
 
+#import "PLUserRequest.h"
+#import "PLUserModel.h"
+
+@interface PLAppDelegate() {
+@private
+    PLUserRequest *deviceTokenRequest;
+}
+@end
+
 @implementation PLAppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -27,20 +36,42 @@
 #pragma mark Notification Methods
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token = [deviceToken description];
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     
+    deviceTokenRequest = [[PLUserRequest alloc] init];
+    [deviceTokenRequest getUserWithResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        PLUserModel *user = [PLUserModel initWithDictionary:dict];
+        
+        NSArray *tokens = [user deviceTokens];
+        if(![tokens containsObject:token]) {
+            NSArray *array = [tokens arrayByAddingObjectsFromArray:@[token]];
+            [deviceTokenRequest updateUser:@{DC_User_iOSTokens : array} withResponse:^(NSData *data, NSError *error) {}];
+        }
+    }];
+    ZALog(@"Registered for push notifications: %@",token);
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    
-}
-
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-
-    
+    ZALog(@"Error: %@",error);
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    ZALog(@"User info: %@",userInfo);
     
+    NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    if(!message) return;
+    
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
+    
+    //Clears the notifications from the notification center
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 #pragma mark -

@@ -21,6 +21,8 @@
 // The zip code of the user
 @property(nonatomic, strong, readonly) NSString *zip;
 
+// This iOS device tokens registered for the user
+@property(nonatomic, strong) NSArray *deviceTokens;
 
 // Boolean indicating whether or not the user elected to recieve email alerts
 @property(nonatomic, assign, readonly) BOOL emailAlerts;

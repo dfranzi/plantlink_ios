@@ -214,6 +214,7 @@
 		BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */; };
 		BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7096FB1804C0F700520D92 /* libZACodeBase.a */; };
 		BA907DCF18067642004DB5FA /* PLScheduleEditDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA907DCE18067642004DB5FA /* PLScheduleEditDayView.m */; };
+		CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE70EF85186F5EB50077A330 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -494,6 +495,7 @@
 		BA7096FB1804C0F700520D92 /* libZACodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZACodeBase.a; path = "../../../zacodebase/build/Debug-iphoneos/libZACodeBase.a"; sourceTree = "<group>"; };
 		BA907DCD18067642004DB5FA /* PLScheduleEditDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleEditDayView.h; path = Classes/UIElements/View/ScheduleEditDays/PLScheduleEditDayView.h; sourceTree = "<group>"; };
 		BA907DCE18067642004DB5FA /* PLScheduleEditDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleEditDayView.m; path = Classes/UIElements/View/ScheduleEditDays/PLScheduleEditDayView.m; sourceTree = "<group>"; };
+		CE70EF85186F5EB50077A330 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */,
 				6CB828981818D15800349625 /* CoreImage.framework in Frameworks */,
 				BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */,
 				6CE3CEBA179720AF00618892 /* CoreLocation.framework in Frameworks */,
@@ -937,6 +940,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE70EF85186F5EB50077A330 /* Security.framework */,
 				6CB828971818D15800349625 /* CoreImage.framework */,
 				BA7096FB1804C0F700520D92 /* libZACodeBase.a */,
 				6C67E3EC17F7A02E00A226C6 /* libZACodeBase.a */,

@@ -17,6 +17,9 @@
         _phone = dict[DC_User_Phone];
         _zip = dict[DC_User_Zipcode];
         
+        if(![dict[DC_User_iOSTokens] isEqual:[NSNull null]]) _deviceTokens = @[];
+        else _deviceTokens = dict[DC_User_iOSTokens];
+        
         if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
         else _emailAlerts = NO;
         

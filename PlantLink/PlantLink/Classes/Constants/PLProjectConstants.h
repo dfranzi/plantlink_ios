@@ -15,9 +15,10 @@
 #warning Implement account and notification settings
 #warning Add link to edit view
 #warning Add push notificaiton registration and recieving code
-#warning Auto-login, cookie expires in 14 days
 
 //Constants
+#define Constant_KeyChainItem @"Keychain-ZA-Oso"
+
 #define Constant_LoginType_Login @"LoginType-Login"
 #define Constant_LoginType_Setup @"LoginType-Setup"
 

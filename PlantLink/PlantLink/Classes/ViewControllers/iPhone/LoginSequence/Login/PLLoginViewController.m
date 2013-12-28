@@ -180,7 +180,9 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];
         
+        [sharedUser setLastUsername:email andPassword:password];
         [super nextPushed:nil];
+        userRequest = NULL;
     }];
 }
 

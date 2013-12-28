@@ -15,15 +15,21 @@
 
 #import "PLItemRequest.h"
 #import "PLUserRequest.h"
+#import "KeychainItemWrapper.h"
 
 @interface PLUserManager() {
 @private
+    PLUserRequest *autoLoginRequest;
+    
     PLUserRequest *userRequest;
     PLUserRequest *logoutRequest;
     PLItemRequest *plantRequest;
     
     PLItemRequest *soilRequest;
     PLItemRequest *plantTypeRequest;
+    
+    NSString *lastUsername;
+    NSString *lastPassword;
 }
 @end
 
@@ -53,8 +59,57 @@ static PLUserManager *sharedUser = nil;
         
         _addPlantTrigger = NO;
         _plantReloadTrigger = NO;
+        [self refreshAutoLogin];
     }
     return self;
+}
+
+
+#pragma mark -
+#pragma mark Login Methods
+
+-(void)refreshAutoLogin {
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:Constant_KeyChainItem accessGroup:nil];
+    if([keychain objectForKey:(__bridge id)kSecAttrService]) {
+        lastUsername = [keychain objectForKey:(__bridge id)kSecAttrService];
+        lastPassword = [keychain objectForKey:(__bridge id)kSecValueData];
+    }
+    else {
+        [keychain setObject:@"" forKey:(__bridge id)kSecAttrService];
+        [keychain setObject:@"" forKey:(__bridge id)kSecValueData];
+    }
+}
+
+-(BOOL)shouldTryAutoLogin {
+    return ![lastUsername isEqualToString:@""];
+}
+
+-(void)setLastUsername:(NSString*)username andPassword:(NSString*)password {
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:Constant_KeyChainItem accessGroup:nil];
+    [keychain setObject:username forKey:(__bridge id)kSecAttrService];
+    [keychain setObject:password forKey:(__bridge id)kSecValueData];
+    [self registerForPush];
+}
+
+-(void)autoLoginWithCompletion:(void(^) (BOOL successful))completion {
+    autoLoginRequest = [[PLUserRequest alloc] init];
+    [autoLoginRequest loginUserWithEmail:lastUsername andPassword:lastPassword withResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([dict.allKeys containsObject:@"severity"] && [dict[@"severity"] isEqualToString:@"Error"]) {
+                completion(NO);
+            }
+        }
+        else {
+            [self registerForPush];
+            completion(YES);
+        }
+    }];
+}
+
+-(void)registerForPush {
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
 }
 
 #pragma mark -
@@ -98,8 +153,9 @@ static PLUserManager *sharedUser = nil;
     _plants = [NSMutableArray array];
     
     logoutRequest = [[PLUserRequest alloc] init];
-    [logoutRequest logoutWithResponse:^(NSData *data, NSError *error) {
-    }];
+    [logoutRequest logoutWithResponse:^(NSData *data, NSError *error) {}];
+    [self setLastUsername:@"" andPassword:@""];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:Notification_User_Logout object:nil];
 }
 

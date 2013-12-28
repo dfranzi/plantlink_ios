@@ -30,6 +30,14 @@
 +(id)initializeUserManager;
 
 #pragma mark -
+#pragma mark Login Methods
+
+-(void)refreshAutoLogin;
+-(BOOL)shouldTryAutoLogin;
+-(void)setLastUsername:(NSString*)username andPassword:(NSString*)password;
+-(void)autoLoginWithCompletion:(void(^) (BOOL successful))completion;
+
+#pragma mark -
 #pragma mark User Methods
 
 /**

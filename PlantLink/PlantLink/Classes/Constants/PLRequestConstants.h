@@ -67,6 +67,7 @@
 #define DC_User_Phone @"phone"
 #define DC_User_Name @"name"
 #define DC_User_Zipcode @"zip"
+#define DC_User_iOSTokens @"ios_device_tokens"
 #define DC_User_EmailAlerts @"email_alerts"
 #define DC_User_TextAlerts @"text_alerts"
 #define DC_User_PushAlerts @"push_alerts"
