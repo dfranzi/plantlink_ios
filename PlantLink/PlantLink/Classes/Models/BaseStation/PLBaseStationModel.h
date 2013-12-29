@@ -10,7 +10,9 @@
 
 @interface PLBaseStationModel : AbstractModel
 
-// The serial number of the base stations
+/**
+ * The serial number of the base stations
+ */
 @property(nonatomic, strong, readonly) NSString *serialNumber;
 
 @end

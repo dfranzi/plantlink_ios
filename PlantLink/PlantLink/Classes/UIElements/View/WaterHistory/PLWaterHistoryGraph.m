@@ -39,10 +39,12 @@
 
 -(void)create {
     moistureHistory = @[];
-    
     measurementRequest = [[PLItemRequest alloc] init];
 }
 
+/**
+ * Sets the plant and updates the water history graph
+ */
 -(void)setPlant:(PLPlantModel *)plant {
     _plant = plant;
     
@@ -52,47 +54,52 @@
             moistureHistory = [PLPlantMeasurementModel modelsFromArrayOfDictionaries:jsonArray];
             moistureHistory = [[moistureHistory reverseObjectEnumerator] allObjects];
             
+            // Informs the system that this view needs to be redrawn
             [self setNeedsDisplay];
         }];
     }
 }
 
+/**
+ * Draws the view's rect on screen
+ */
 -(void)drawRect:(CGRect)rect {
-    NSLog(@"Count: %i",[moistureHistory count]);
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
 
+    // Sets the threshold heights and adjusts then to the screen
     float upperThresholdHieght = ([_plant upperMoistureThreshold] / 0.6);
     if(upperThresholdHieght > 1.0) upperThresholdHieght = 1.0;
     if(upperThresholdHieght < 0.0) upperThresholdHieght = 0.0;
-    NSLog(@"%f",upperThresholdHieght);
     upperThresholdHieght = self.frame.size.height - (int)floorf(upperThresholdHieght*self.frame.size.height);
     
     float lowerThresholdHeight = ([_plant lowerMoistureThreshold] / 0.6);
     if(lowerThresholdHeight > 1.0) lowerThresholdHeight = 1.0;
     if(lowerThresholdHeight < 0.0) lowerThresholdHeight = 0.0;
-    NSLog(@"%f",lowerThresholdHeight);
     lowerThresholdHeight = self.frame.size.height - (int)floorf(lowerThresholdHeight*self.frame.size.height);
 
+    // Sets the fill color and draws the two red moisture indicator rectangles
     CGContextSetFillColorWithColor(context, RGB(253.0, 233.0, 241.0).CGColor);
     CGContextFillRect(context, CGRectMake(0, 0, self.frame.size.width, upperThresholdHieght));
     CGContextFillRect(context, CGRectMake(0, lowerThresholdHeight, self.frame.size.width, self.frame.size.height - lowerThresholdHeight));
     
+    // Draws all the line indicators on the graph
     for(NSNumber *num in @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:upperThresholdHieght],[NSNumber numberWithInt:lowerThresholdHeight],[NSNumber numberWithInt:self.frame.size.height]]) {
         CGContextBeginPath(context);
         CGContextMoveToPoint(context, 0, [num intValue]);
         CGContextAddLineToPoint(context, self.frame.size.width,[num intValue]);
-        // [...] and so on, for all line segments
+
         CGContextSetLineWidth(context, 1);
         CGContextSetStrokeColorWithColor(context, RGB(192.0, 192.0, 192.0).CGColor);
         CGContextStrokePath(context);
 
     }
     
-    // [...] and so on, for all line segments
+    
+    // Calculates the proper increment based on the number of moisture points
     int increment = self.frame.size.width / [moistureHistory count];
     int half = (int)increment/2.0;
     
+    // Draws the lines to indicate the moisture history
     if([moistureHistory count] > 2) {
         for(int i = 0; i < [moistureHistory count]-1; i++) {
             PLPlantMeasurementModel *measurement = moistureHistory[i];
@@ -103,7 +110,6 @@
             
             CGContextBeginPath(context);
             CGContextMoveToPoint(context, increment*i+half, m1 );
-            //CGContextAddLineToPoint(context, increment*(i+1)+36, m2 );
             CGContextAddCurveToPoint(context, increment*i+half, m1, increment*(i+1)+half, m2, increment*(i+1)+half, m2);
             CGContextSetLineWidth(context, 2);
             CGContextSetStrokeColorWithColor(context, RGB(38.0, 171.0, 220.0).CGColor);
@@ -112,6 +118,7 @@
         }
     }
     
+    // Draws the circles to indicate the moisutre history
     CGContextSetFillColorWithColor(context, RGB(38.0, 171.0, 220.0).CGColor);
     int index = 0;
     for(PLPlantMeasurementModel *measurement in moistureHistory) {
@@ -123,6 +130,9 @@
     
 }
 
+/**
+ * Returns the height on the graph for a moisture level, taking into account graph thresholds
+ */
 -(float)heightForMoisture:(float)moisture {
     if(moisture > 0.6) moisture = 0.6;
     if(moisture < 0.0) moisture = 0.0;

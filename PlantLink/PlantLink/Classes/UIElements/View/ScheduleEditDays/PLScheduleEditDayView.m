@@ -24,6 +24,9 @@
     return self;
 }
 
+/**
+ * Creates the layout programatically
+ */
 -(void)createLayout {
     dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 131, 32)];
     [dayLabel setBackgroundColor:[UIColor blackColor]];

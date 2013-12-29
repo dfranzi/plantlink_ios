@@ -119,38 +119,3 @@
 #define DC_Notification_NotificationTime @"notification_time"
 #define DC_Notification_Severity @"severity"
 #define DC_Notification_LinkedObject @"linked_object"
-
-
-//Requests
-typedef enum RequestTypes {
-    Request_GetAllBaseStations,
-    Request_AddBaseStation,
-    Request_RemoveBaseStation,
-    
-    Request_GetMeasurements,
-    
-    Request_GetSoilTypes,
-    Request_GetPlantTypes,
-    
-    Request_LoginUser,
-    Request_LogoutUser,
-    Request_RegisterUser,
-    Request_UpdateUser,
-    Request_PasswordReset,
-    Request_GetUser,
-    
-    Request_GetAllPlants,
-    Request_AddPlant,
-    Request_EditPlant,
-    Request_RemovePlant,
-    
-    Request_DeleteLink,
-    Request_GetLink,
-    Request_ListLinks,
-    Request_RegisterLink,
-    
-    Request_GetAllValves,
-    Request_AddValve,
-    Request_EditValve,
-    Request_RemoveValve,
-} RequestType;

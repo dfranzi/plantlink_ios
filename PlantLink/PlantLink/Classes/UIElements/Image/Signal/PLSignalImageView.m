@@ -13,6 +13,9 @@
 #pragma mark -
 #pragma mark Setters
 
+/**
+ * Sets the proper signal level image based on the given signalLevel
+ */
 -(void)setSignalLevel:(float)signalLevel {
     _signalLevel = signalLevel;
     

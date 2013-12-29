@@ -19,6 +19,9 @@
 
 @implementation PLMenuButton
 
+/**
+ * Intializes the butth with a 'shadow' to give it a 3D appearance
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [self.layer setCornerRadius:8.0f];
@@ -60,6 +63,9 @@
 #pragma mark -
 #pragma mark Override Methods
 
+/**
+ * Performs the 'push down' animation when the button is pushed
+ */
 -(void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if(highlighted) {

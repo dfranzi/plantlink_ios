@@ -60,7 +60,14 @@
 #pragma mark -
 #pragma mark Type Methods
 
+/**
+ * Returns the name of the plant type given the plant type key
+ */
 -(NSString*)nameForPlantTypeKey:(NSString*)key;
+
+/**
+ * Returns the name of the soil type given the soil type key
+ */
 -(NSString*)nameForSoilTypeKey:(NSString*)key;
 
 @end

@@ -9,10 +9,15 @@
 #import "AbstractModel.h"
 
 @interface PLSoilModel : AbstractModel
-// The server assigned key of the soil type
+
+/**
+ * The server assigned key of the soil type
+ */
 @property(nonatomic, strong, readonly) NSString *key;
 
-// The Oso assigned name of the soil type
+/**
+ * The Oso assigned name of the soil type
+ */
 @property(nonatomic, strong, readonly) NSString *name;
 
 @end

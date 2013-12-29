@@ -9,10 +9,15 @@
 #import "AbstractModel.h"
 
 @interface PLPlantTypeModel : AbstractModel
-// The Oso assigned name of the plant type
+
+/**
+ * The Oso assigned name of the plant type
+ */
 @property(nonatomic, strong, readonly) NSString *name;
 
-// The server assigned key of the plant type
+/**
+ * The server assigned key of the plant type
+ */
 @property(nonatomic, strong, readonly) NSString *key;
 
 @end

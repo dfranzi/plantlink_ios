@@ -13,6 +13,9 @@
 #pragma mark -
 #pragma mark Setters
 
+/**
+ * Sets the battery level image based on the given batteryLevel
+ */
 -(void)setBatteryLevel:(float)batteryLevel {
     _batteryLevel = batteryLevel;
     

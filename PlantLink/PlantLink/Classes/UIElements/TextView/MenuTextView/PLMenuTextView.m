@@ -11,6 +11,9 @@
 
 @implementation PLMenuTextView
 
+/**
+ * Initializes the custom text view
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [self.layer setBorderWidth:1.0f];

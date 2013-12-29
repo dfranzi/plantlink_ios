@@ -9,25 +9,40 @@
 #import "AbstractModel.h"
 
 @interface PLPlantMeasurementModel : AbstractModel
-// The associated plant id that the measurement was taken on
+
+/**
+ * The associated plant id that the measurement was taken on
+ */
 @property(nonatomic, strong, readonly) NSString *plantKey;
 
-// The associated link serial that the measurement was taken from
+/**
+ * The associated link serial that the measurement was taken from
+ */
 @property(nonatomic, strong, readonly) NSString *linkSerial;
 
-// The server assigned created date of the measurement
+/**
+ * The server assigned created date of the measurement
+ */
 @property(nonatomic, strong, readonly) NSDate *created;
 
-// The battery level indication as a float 0 - 100
+/**
+ * The battery level indication as a float 0 - 100
+ */
 @property(nonatomic, assign, readonly) float battery;
 
-// The signal level indication as a float 0 - 100
+/**
+ * The signal level indication as a float 0 - 100
+ */
 @property(nonatomic, assign, readonly) float signal;
 
-// The moisture level indication as a float 0 - 100
+/**
+ * The moisture level indication as a float 0 - 100
+ */
 @property(nonatomic, assign, readonly) float moisture;
 
-// The predicted date the plant needs to be watered
+/**
+ * The predicted date the plant needs to be watered
+ */
 @property(nonatomic, strong, readonly) NSDate *predictedWaterDate;
 
 
