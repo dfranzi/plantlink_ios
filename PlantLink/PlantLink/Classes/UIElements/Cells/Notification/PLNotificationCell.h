@@ -18,7 +18,19 @@
     
     UIView *separatorView;
 }
-@property(nonatomic, strong) PLNotificationModel *notification;
+
+#pragma mark -
+#pragma mark Notification Methods
+
+/**
+ *
+ */
+-(void)setNotificationTitle:(NSString*)title andTime:(NSDate*)time sortOrder:(int)order;
+
+/**
+ *
+ */
++(NSString*)displayTextForNotification:(PLNotificationModel*)notification;
 
 #pragma mark -
 #pragma mark Size Methods

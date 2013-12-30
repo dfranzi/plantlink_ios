@@ -98,6 +98,7 @@ static PLUserManager *sharedUser = nil;
         
         if([dict isKindOfClass:[NSArray class]]) {
             if([dict.allKeys containsObject:@"severity"] && [dict[@"severity"] isEqualToString:@"Error"]) {
+                [self setLastUsername:@"" andPassword:@""];
                 completion(NO);
             }
         }

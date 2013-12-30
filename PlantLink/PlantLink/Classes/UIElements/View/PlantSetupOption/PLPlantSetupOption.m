@@ -15,7 +15,6 @@
     if(self = [super initWithCoder:aDecoder]) {
         [self setBackgroundColor:Color_ViewBackground];
  
-        ZALog(@"asD");
         [numberLabel.layer setCornerRadius:numberLabel.frame.size.width/2.0];
     }
     return self;

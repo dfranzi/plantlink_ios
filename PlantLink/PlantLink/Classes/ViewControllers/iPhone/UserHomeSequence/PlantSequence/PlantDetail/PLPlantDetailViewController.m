@@ -103,7 +103,7 @@
     
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) [(PLPlantNameCell*)cell setEnclosingController:self];
     
-    [cell setInfoText:InfoText_All[indexPath.row]];
+    //[cell setInfoText:InfoText_All[indexPath.row]];
     [cell setModel:_model];
     
     if(_infoMode) [cell showInfo];
@@ -120,7 +120,7 @@
     NSMutableDictionary *infoDict = [NSMutableDictionary dictionary];
     infoDict[PlantInfo_EditMode] = [NSNumber numberWithBool:_editMode];
     infoDict[PlantInfo_InfoMode] = [NSNumber numberWithBool:_infoMode];
-    infoDict[PlantInfo_InfoText] = InfoText_All[indexPath.row];
+    //infoDict[PlantInfo_InfoText] = InfoText_All[indexPath.row];
     
     NSString *cellIdentifier = plantCells[indexPath.row];
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) return [PLPlantNameCell heightForContent:infoDict];

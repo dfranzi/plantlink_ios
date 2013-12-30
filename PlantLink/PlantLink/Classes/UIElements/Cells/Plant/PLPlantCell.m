@@ -29,6 +29,9 @@
 
 @implementation PLPlantCell
 
+/**
+ * Initializes the cell with the proper backdrop to give the 3D push down appearance, also sets initial parameters
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [self setBackgroundColor:[UIColor clearColor]];
@@ -60,63 +63,81 @@
 #pragma mark -
 #pragma mark Setters
 
+/**
+ * Sets the model for the cell, and updates the view to reflect the model change
+ */
 -(void)setModel:(PLPlantModel *)model {
     _model = model;
     
     if(_model) {
         [nameLabel setText:[_model name]];
+        [moistureIndicator setMoistureLevel:[_model status]];
         
         PLPlantMeasurementModel *measurement = [_model lastMeasurement];
         if(measurement && ![measurement isEqual:[NSNull null]]) {
-            [moistureIndicator setMoistureLevel:[_model status]];
-            [batteryImage setBatteryLevel:[measurement battery]];
-            [signalImage setSignalLevel:[measurement signal]];
+            [self updateCellForMeasurement:measurement];
             
-            if([moistureIndicator onLowestMoisture]) {
-                [self updateNotificationToColor:[UIColor redColor] andText:@"WATER NOW!"];
-                
-                [bubble setAlpha:0.0f];
-                [UIView animateWithDuration:0.3 animations:^{
-                    [bubble setAlpha:1.0f];
-                }];
-            }
-            else [bubble setAlpha:0.0];
-            
-            NSString *baseStr = @"";
-            NSString *dateStr = @"";
-            UIColor *dateColor = [UIColor blackColor];
-            NSDate *waterDate = [measurement predictedWaterDate];
-            if([self distanceFromToday:waterDate] == 0) {
-                baseStr = @"Water";
-                dateStr = @"today!";
-                dateColor = [UIColor redColor];
-            }
-            else if([self distanceFromToday:waterDate] < 7) {
-                baseStr = @"Water on";
-                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
-            }
-            else {
-                baseStr = @"Water on";
-                dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"MMM dd"];
-            }
-            
-            NSString *waterOnStr = [NSString stringWithFormat:@"%@ %@",baseStr,dateStr];
-            NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnStr];
-            [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:14.0] range:NSMakeRange(0, [baseStr length])];
-            [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] range:NSMakeRange([baseStr length]+1, [dateStr length])];
-            [attrStr addAttribute:NSForegroundColorAttributeName value:dateColor range:NSMakeRange([baseStr length]+1, [dateStr length])];
-            [waterLabel setAttributedText:attrStr];
         }
-        
-        [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
-        [self.layer setShouldRasterize:YES];
     }
+}
+
+/**
+ * Updates the cell with measurement information
+ */
+-(void)updateCellForMeasurement:(PLPlantMeasurementModel*)measurement {
+    [batteryImage setBatteryLevel:[measurement battery]];
+    [signalImage setSignalLevel:[measurement signal]];
+    
+    if([moistureIndicator onLowestMoisture]) {
+        [self updateNotificationToColor:[UIColor redColor] andText:@"WATER NOW!"];
+        
+        [bubble setAlpha:0.0f];
+        [UIView animateWithDuration:0.3 animations:^{
+            [bubble setAlpha:1.0f];
+        }];
+    }
+    else [bubble setAlpha:0.0];
+    
+    NSString *baseStr = @"";
+    NSString *dateStr = @"";
+    UIColor *dateColor = [UIColor blackColor];
+    NSDate *waterDate = [measurement predictedWaterDate];
+    if([self distanceFromToday:waterDate] == 0) {
+        baseStr = @"Water";
+        dateStr = @"today!";
+        dateColor = [UIColor redColor];
+    }
+    else if([self distanceFromToday:waterDate] < 7) {
+        baseStr = @"Water on";
+        dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
+    }
+    else {
+        baseStr = @"Water on";
+        dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"MMM dd"];
+    }
+    
+    [self updateCellTextWithBaseStr:baseStr dateStr:dateStr andDateTextColor:dateColor];
+}
+
+/**
+ * Updates the cell text with the base string and the date string (with the given color)
+ */
+-(void)updateCellTextWithBaseStr:(NSString*)baseStr dateStr:(NSString*)dateStr andDateTextColor:(UIColor*)dateColor {
+    NSString *waterOnStr = [NSString stringWithFormat:@"%@ %@",baseStr,dateStr];
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:waterOnStr];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:14.0] range:NSMakeRange(0, [baseStr length])];
+    [attrStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0] range:NSMakeRange([baseStr length]+1, [dateStr length])];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:dateColor range:NSMakeRange([baseStr length]+1, [dateStr length])];
+    [waterLabel setAttributedText:attrStr];
 }
 
 #pragma mark -
 #pragma mark Date Methods
 
--(int)distanceFromToday:(NSDate*)date { 
+/**
+ * Returns the distance from today and the given date as an int, 0 if a negative number (descending order of the dates)
+ */
+-(int)distanceFromToday:(NSDate*)date {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
     
@@ -127,6 +148,9 @@
 #pragma mark -
 #pragma mark Override Methods
 
+/**
+ * Overrides the setHighlighted: method to create the 3D push animation
+ */
 -(void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if(highlighted) {
@@ -142,6 +166,9 @@
 #pragma mark -
 #pragma mark Display Methods
 
+/**
+ * Updates the notification bubble to the given color and text
+ */
 -(void)updateNotificationToColor:(UIColor*)color andText:(NSString*)text {
     if(!bubble) [self createBubble];
     [bubble setBackgroundColor:color];
@@ -152,16 +179,21 @@
 #pragma mark -
 #pragma mark Setup Methods
 
+/**
+ * Creates the bubble background and adds the bubble label
+ */
 -(void)createBubble {
     bubble = [[UIView alloc] initWithFrame:CGRectMake(8, -3, 85, 18)];
     [bubble.layer setCornerRadius:3.0];
-    
     [bubble setBackgroundColor:[UIColor redColor]];
 
     [self createBubbleLabel];
     [self addSubview:bubble];
 }
 
+/**
+ * Creates the bubble label
+ */
 -(void)createBubbleLabel {
     bubbleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, bubble.frame.size.width, bubble.frame.size.height)];
     [bubbleLabel setTextColor:[UIColor whiteColor]];
@@ -175,6 +207,9 @@
 #pragma mark -
 #pragma mark Size Methods
 
+/**
+ * Returns the size for the cell
+ */
 +(CGSize)sizeForContent:(NSDictionary*)content {
     return CGSizeMake(295, 179);
 }

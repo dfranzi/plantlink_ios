@@ -10,12 +10,35 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "PLNotificationModel.h"
+#import "PLPlantModel.h"
+
+@interface PLNotificationCell() {
+    
+    UIView *background;
+    UIView *backdrop;
+}
+@end
 
 @implementation PLNotificationCell
 
-
+/**
+ * Initializes the cell with the card like 3D appearnace, adds the necessary labels and sets initial parameters
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
+        CGSize size = [PLNotificationCell sizeForContent:@{}];
+        background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-2)];
+        [background setBackgroundColor:[UIColor whiteColor]];
+        [background.layer setCornerRadius:3.0];
+        [background setClipsToBounds:YES];
+        [self.contentView insertSubview:background atIndex:0];
+        
+        backdrop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height+1)];
+        [backdrop setBackgroundColor:Color_CellBorder];
+        [backdrop.layer setCornerRadius:3.0];
+        [backdrop setClipsToBounds:YES];
+        [self.contentView insertSubview:backdrop belowSubview:background];
+        
         [self setBackgroundColor:[UIColor whiteColor]];
         [self.contentView.layer setBorderColor:Color_CellBorder.CGColor];
         [self setClipsToBounds:NO];
@@ -25,6 +48,9 @@
     return self;
 }
 
+/**
+ * Initializes the required labels for the cell programatically
+ */
 -(void)addLabels {
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(127, 10, 150, 65)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:23.0]];
@@ -55,56 +81,89 @@
 #pragma mark -
 #pragma mark Set Methods
 
--(void)setNotification:(PLNotificationModel *)notification {
-    _notification = notification;
+/**
+ * Updates the notification cell for the given title, time, and sort order
+ */
+-(void)setNotificationTitle:(NSString*)title andTime:(NSDate*)time sortOrder:(int)order {
+    [nameLabel setText:title];
+    NSDate *cellDate = time;
     
-    [nameLabel setText:[_notification kind]];
-    NSDate *cellDate = [_notification notificationTime];
-    
-    if([self distanceFromToday:cellDate] == 0){
-        NSString *dayStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"EEE"];
+    if([self distanceFromToday:cellDate sortOrder:order] == 0){
         NSString *monthStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"MMM dd"];
         
-        [dayLabel setText:dayStr];
         [dateLabel setText:monthStr];
-        
         [dayLabel setText:@"Today"];
-        [self setBackgroundColor:[UIColor redColor]];
-        [nameLabel setTextColor:[UIColor whiteColor]];
-        [dayLabel setTextColor:[UIColor whiteColor]];
-        [dateLabel setTextColor:[UIColor whiteColor]];
-        [separatorView setBackgroundColor:[UIColor whiteColor]];
+        [self setHighlightColors];
         
-    }else{
+    }
+    else {
         NSString *dayStr = [GeneralMethods stringFromDate:cellDate withFormat:@"EEE"];
         NSString *monthStr = [GeneralMethods stringFromDate:cellDate withFormat:@"MMM dd"];
         
         [dayLabel setText:dayStr];
         [dateLabel setText:monthStr];
-        
-        [self setBackgroundColor:[UIColor whiteColor]];
-        [nameLabel setTextColor:[UIColor blackColor]];
-        [dayLabel setTextColor:[UIColor blackColor]];
-        [dateLabel setTextColor:[UIColor blackColor]];
-        [separatorView setBackgroundColor:[UIColor lightGrayColor]];
+        [self setStandardColors];
     }
+}
+
+/**
+ * Updates the view to the standard color scheme
+ */
+-(void)setStandardColors {
+    [background setBackgroundColor:[UIColor whiteColor]];
+    [backdrop setBackgroundColor:Color_CellBorder];
+    
+    [nameLabel setTextColor:[UIColor blackColor]];
+    [dayLabel setTextColor:[UIColor blackColor]];
+    [dateLabel setTextColor:[UIColor blackColor]];
+    [separatorView setBackgroundColor:[UIColor lightGrayColor]];
+}
+
+/**
+ * Updates the cell to the highlighted color scheme
+ */
+-(void)setHighlightColors {
+    [background setBackgroundColor:[UIColor redColor]];
+    [backdrop setBackgroundColor:Color_CellBorder_RedTint];
+    
+    [nameLabel setTextColor:[UIColor whiteColor]];
+    [dayLabel setTextColor:[UIColor whiteColor]];
+    [dateLabel setTextColor:[UIColor whiteColor]];
+    [separatorView setBackgroundColor:[UIColor whiteColor]];
 }
 
 #pragma mark -
 #pragma mark Date Methods
 
--(int)distanceFromToday:(NSDate*)date {
+/**
+ * Returns the distance from today as an int number of days, returning 0 for negative ints based on the sort order
+ */
+-(int)distanceFromToday:(NSDate*)date sortOrder:(int)order {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
     
-    if([[NSDate date] compare:date] == NSOrderedAscending) return 0;
+    if([[NSDate date] compare:date] == order) return 0;
     return [components day];
 }
 
+#pragma mark -
+#pragma mark Notification Methods
+
+/**
+ * Returns the notification text for a notification model
+ */
++(NSString*)displayTextForNotification:(PLNotificationModel*)notification {
+    PLPlantModel *plant = [PLPlantModel initWithDictionary:[notification linkedObjectDictionary]];
+    NSString *format = Notification_DisplayStrDict[[notification kind]];
+    return [NSString stringWithFormat:format,[plant name]];
+}
 
 #pragma mark -
 #pragma mark Size Methods
 
+/**
+ * Returns the size for the cell
+ */
 +(CGSize)sizeForContent:(NSDictionary*)content {
     return CGSizeMake(297, 85);
 }

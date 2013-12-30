@@ -21,9 +21,11 @@
 
 @implementation PLUserHomeViewController
 
+/**
+ * Sets the initial parameters of the view and its subview, registers for the logout notification
+ */
 -(void)viewDidLoad {
     [super viewDidLoad];
-
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_User_Logout object:nil];
     [self.navigationController.navigationItem setLeftBarButtonItem:nil];
@@ -40,9 +42,11 @@
     [self.navigationItem setHidesBackButton:YES];
 }
 
+/**
+ * If the add plant trigger flag is set displays the add plant view
+ */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self removeViewControllerStack];
     
     sharedUserManager = [PLUserManager initializeUserManager];
     if([sharedUserManager addPlantTrigger]) {
@@ -51,30 +55,29 @@
     }
 }
 
+/**
+ * Hides the navigation bar
+ */
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 #pragma mark -
-#pragma mark Navigation Methods
-
--(void)removeViewControllerStack {
-    NSArray *controllers = self.navigationController.viewControllers;
-    if([controllers count] > 2) {
-        [self.navigationController setViewControllers:@[self.navigationController.viewControllers[0],self]];
-    }
-}
-
-#pragma mark -
 #pragma mark Display Methods
 
+/**
+ * Customizes the tab bar interface with a top border
+ */
 -(void)addTopBorder {
     UIView *top = [[UIView alloc] initWithFrame:CGRectMake(0, TabBar_Offset, self.tabBar.frame.size.width, 1)];
     [top setBackgroundColor:SHADE(235.0)];
     [self.tabBar addSubview:top];
 }
 
+/**
+ * Customizes the tab bar interface with a set of separator borders
+ */
 -(void)addSeparatorAtInterval:(float)interval {
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake((int) (interval * self.tabBar.frame.size.width), TabBar_Offset+1, 1, self.tabBar.frame.size.height-TabBar_Offset-1)];
     [separator setBackgroundColor:SHADE(235.0)];
@@ -84,9 +87,11 @@
 #pragma mark -
 #pragma mark Notification Methods
 
+/**
+ * Called when the logout notification is recieved, and transitions to the home view
+ */
 -(void)receivedNotification:(NSNotification*)notification {
     if([[notification name] isEqualToString:Notification_User_Logout]) {
-        ZALog(@"Logout!");
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }

@@ -26,13 +26,10 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *settings = [UIImage imageNamed:Image_Tab_Settings];
-    UIImage *settingsHighlighted = [UIImage imageNamed:Image_Tab_SettingsHighlighted];
-    [settingsCollectionView setBackgroundColor:Color_ViewBackground];
+    [self setTabBarIconActive:Image_Tab_SettingsHighlighted passive:Image_Tab_Settings];
     
+    [settingsCollectionView setBackgroundColor:Color_ViewBackground];
     stateDict = [NSMutableDictionary dictionary];
-    [self.tabBarItem setTitle:@""];
-    [self.tabBarItem setFinishedSelectedImage:settingsHighlighted withFinishedUnselectedImage:settings];
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }

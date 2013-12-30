@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "AbstractRequestProtocol.h"
 
-/*
+/**
  All model tests are in an array with dictionaries of the form
  {
     "class" : "PLBaseStationModel",         * The name of the model class to test

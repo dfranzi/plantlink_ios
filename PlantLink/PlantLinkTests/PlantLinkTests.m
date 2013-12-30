@@ -24,7 +24,7 @@
 #pragma mark -
 #pragma mark Model Tests
 
-/*
+/**
  * Tests all the models specified in ModelTests.strings
  */
 -(void)testModels {

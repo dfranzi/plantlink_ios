@@ -20,6 +20,9 @@
 
 @implementation PLLoginViewController
 
+/**
+ * Loads the view setting the initial parameters to subview objects
+ */
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToSerialInput];
@@ -34,6 +37,9 @@
     [confirmPasswordTextField setTitle:@"Confirm"];
 }
 
+/**
+ * Called every time the view appears, updated the view based on login type and shows the saved username if any
+ */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     userRequest = NULL;
@@ -50,6 +56,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *savedEmail = [defaults objectForKey:Defaults_SavedEmail];
         if(savedEmail) [emailTextField setText:savedEmail];
+        else [emailTextField setText:@""];
     }
     else {
         [self setNextSegueIdentifier:Segue_ToSerialInput];
@@ -63,12 +70,17 @@
     }
 }
 
+/**
+ * Hides the navigation controller bar
+ */
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
+/**
+ * Cancels the user request if any
+ */
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if(userRequest) [userRequest cancel];
@@ -77,6 +89,9 @@
 #pragma mark -
 #pragma mark IBAction Methods
 
+/**
+ * Segues to the next view depending on the type of login
+ */
 -(void)nextPushed:(id)sender {
     if([[sharedUser loginType] isEqual:Constant_LoginType_Login]) [self loginRequest];
     else [self registerRequest];
@@ -85,6 +100,9 @@
 #pragma mark -
 #pragma mark Display Methods
 
+/**
+ * Adjusts the text field location of a set of text fields and a given offset
+ */
 -(void)adjustTextFieldLocations:(NSArray*)fields offset:(int)offset {
     offset += 20;
     for(int i = 0; i < [fields count]; i++) {
@@ -93,22 +111,20 @@
     }
 }
 
+/**
+ * Adjusts the text views for the new responder, animating if necessary
+ */
 -(void)adjustViewToNewResponder:(UIView*)view {
-    
     NSArray *fields = @[];
     if([[sharedUser loginType] isEqual:Constant_LoginType_Login]) fields = @[emailTextField,passwordTextField];
     else fields = @[nameTextField,emailTextField,passwordTextField,confirmPasswordTextField];
     
-    if([view isEqual:confirmPasswordTextField]) {
-        [UIView animateWithDuration:0.3 animations:^{
-            [self adjustTextFieldLocations:fields offset:-48];
-        }];
-    }
-    else {
-        [UIView animateWithDuration:0.3 animations:^{
-            [self adjustTextFieldLocations:fields offset:0];
-        }];
-    }
+    int offset = 0;
+    if([view isEqual:confirmPasswordTextField]) offset = -48;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self adjustTextFieldLocations:fields offset:offset];
+    }];
 }
 
 
@@ -116,32 +132,25 @@
 #pragma mark -
 #pragma mark Text Field Methods
 
+/**
+ * Method called when a text field begins editting
+ */
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     [self adjustViewToNewResponder:textField];
 }
 
+/**
+ * Adjusts the text field responders when the return key is pressed
+ */
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if([textField isEqual:nameTextField]) {
-        [nameTextField resignFirstResponder];
-        [emailTextField becomeFirstResponder];
-    }
-    else if([textField isEqual:emailTextField]) {
-        [emailTextField resignFirstResponder];
-        [passwordTextField becomeFirstResponder];
-    }
-    else if([textField isEqual:passwordTextField]) {
-        [passwordTextField resignFirstResponder];
-        if([[sharedUser loginType] isEqual:Constant_LoginType_Setup]) [confirmPasswordTextField becomeFirstResponder];
-        else {
-            [self adjustViewToNewResponder:nameTextField];
-            [self nextPushed:nil];
-        }
-    }
+    [textField resignFirstResponder];
+    
+    if([textField isEqual:nameTextField]) [emailTextField becomeFirstResponder];
+    else if([textField isEqual:emailTextField]) [passwordTextField becomeFirstResponder];
+    else if([textField isEqual:passwordTextField] && [[sharedUser loginType] isEqual:Constant_LoginType_Setup]) [confirmPasswordTextField becomeFirstResponder];
     else {
-        [textField resignFirstResponder];
         [self adjustViewToNewResponder:nameTextField];
         [self nextPushed:nil];
-    
     }
     return YES;
 }
@@ -149,6 +158,9 @@
 #pragma mark -
 #pragma mark Touch Methods
 
+/**
+ * Dismisses the keyboard is the user touches somewhere outside the text field views
+ */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
@@ -156,10 +168,9 @@
 #pragma mark -
 #pragma mark Request Methods
 
-#warning Confirm password not implemented
-#warning Saved email could change during load
-#warning No email saved after successful registration
-
+/**
+ * Performs the login request, attempts to login the user and moving to the next view if successful
+ */
 -(void)loginRequest {
     if(userRequest) return;
     
@@ -186,6 +197,9 @@
     }];
 }
 
+/**
+ * Performs the register request by validating the user input information and saving it if valid, moving to the next view
+ */
 -(void)registerRequest {
     NSMutableDictionary *setupDict = [NSMutableDictionary dictionary];
     
@@ -193,44 +207,39 @@
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
     NSString *confirm = [confirmPasswordTextField text];
+
+    if([self validName:name email:email password:password confirmation:confirm]) {
+        setupDict[Constant_SetupDict_Name] = name;
+        setupDict[Constant_SetupDict_Email] = email;
+        setupDict[Constant_SetupDict_Password] = password;
+        
+        [sharedUser setSetupDict:setupDict];
+        [super nextPushed:nil];
+    }
+}
+
+#pragma mark -
+#pragma mark Validation Methods
+
+/**
+ * Validates the given name, email, password, and password confirmation showing an error alert is something is wrong
+ */
+-(BOOL)validName:(NSString*)name email:(NSString*)email password:(NSString*)password confirmation:(NSString*)confirmation {
+    NSString *alertMessage = @"";
     
-    if([name isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a name" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    if([email isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter an email" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    if(![GeneralMethods validateEmailFormat:email]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a valid email" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    if([password isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a password" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    if([confirm isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please confirm your password" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    if(![password isEqualToString:confirm]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please make sure your passwords match" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+    if([name isEqualToString:@""]) alertMessage = Error_Registration_NoName;
+    else if([email isEqualToString:@""]) alertMessage = Error_Registration_NoEmail;
+    else if(![GeneralMethods validateEmailFormat:email]) alertMessage = Error_Registration_InvalidEmail;
+    else if([password isEqualToString:@""]) alertMessage = Error_Registration_NoPassword;
+    else if([password length] < 8) alertMessage = Error_Registration_PasswordTooShort;
+    else if([confirmation isEqualToString:@""]) alertMessage = Error_Registration_NoConfirmPassword;
+    else if(![password isEqualToString:confirmation]) alertMessage = Error_Registration_NoPasswordMatch;
     
-    setupDict[Constant_SetupDict_Name] = name;
-    setupDict[Constant_SetupDict_Email] = email;
-    setupDict[Constant_SetupDict_Password] = password;
-    
-    [sharedUser setSetupDict:setupDict];
-    [super nextPushed:nil];
+    if(![alertMessage isEqualToString:@""]) {
+        [self displayErrorAlertWithMessage:alertMessage];
+        return NO;
+    }
+    else return YES;
 }
 
 @end

@@ -15,29 +15,23 @@
         _plantKey =  dict[DC_Measurement_PlantKey];
         _linkSerial = dict[DC_Measurement_LinkSerial];
         
-        NSLog(@"%@",dict);
-        
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_Created] intValue]];
         
         if([dict[DC_Measurement_PredictedWaterDate] isEqual:[NSNull null]] || ([dict[DC_Measurement_PredictedWaterDate] isKindOfClass:[NSString class]] && [dict[DC_Measurement_PredictedWaterDate] isEqualToString:@"<null>"])) _predictedWaterDate = NULL;
         else _predictedWaterDate = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Measurement_PredictedWaterDate] intValue]];
         
-        if([dict[DC_Measurement_Moisture] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Moisture] isEqualToString:@"<null>"]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
-        else if([dict[DC_Measurement_Moisture] isKindOfClass:[NSNumber class]]) _moisture = [dict[DC_Measurement_Moisture] floatValue];
-        else _moisture = 0.0f;
-    
-        ZALog(@"Moisture: %@ and reading %f",dict[DC_Measurement_Moisture],_moisture);
-        
-        if([dict[DC_Measurement_Signal] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Signal] isEqualToString:@"<null>"]) _signal = [dict[DC_Measurement_Signal] floatValue];
-        else if([dict[DC_Measurement_Signal] isKindOfClass:[NSNumber class]]) _signal = [dict[DC_Measurement_Signal] floatValue];
-        else _signal = 0.0f;
-        
-        if([dict[DC_Measurement_Battery] isKindOfClass:[NSString class]] && ![dict[DC_Measurement_Battery] isEqualToString:@"<null>"]) _battery = [dict[DC_Measurement_Battery] floatValue];
-        else if([dict[DC_Measurement_Battery] isKindOfClass:[NSNumber class]]) _battery = [dict[DC_Measurement_Battery] floatValue];
-        else _battery = 0.0f;
+        _moisture = [self adjsutedFloatValueForDictKey:DC_Measurement_Moisture inDict:dict];
+        _signal = [self adjsutedFloatValueForDictKey:DC_Measurement_Signal inDict:dict];
+        _battery = [self adjsutedFloatValueForDictKey:DC_Measurement_Battery inDict:dict];
         
     }
     return self;
+}
+
+-(float)adjsutedFloatValueForDictKey:(NSString*)key inDict:(NSDictionary*)dict {
+    if([dict[key] isKindOfClass:[NSString class]] && ![dict[key] isEqualToString:@"<null>"]) return [dict[key] floatValue];
+    else if([dict[key] isKindOfClass:[NSNumber class]]) return [dict[key] floatValue];
+    else return 0.0f;
 }
 
 +(id)initWithDictionary:(NSDictionary*)dict {

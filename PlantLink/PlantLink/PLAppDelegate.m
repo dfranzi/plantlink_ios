@@ -23,9 +23,10 @@
 @implementation PLAppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Registers the proper test flight token
     [TestFlight takeOff:@"6e791af8-376e-46e2-b170-d4d252fa19d0"];
 
+    //Initializes the shared user and reloads the soil/plant types
     PLUserManager *sharedUser = [PLUserManager initializeUserManager];
     [sharedUser refreshTypes];
     
@@ -35,6 +36,9 @@
 #pragma mark -
 #pragma mark Notification Methods
 
+/**
+ * Method handler for remote notification registration, parses the token and adds it to the current user model
+ */
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [deviceToken description];
     token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
@@ -55,16 +59,21 @@
     ZALog(@"Registered for push notifications: %@",token);
 }
 
+/**
+ * Handler for failure to register remote notifications
+ */
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     ZALog(@"Error: %@",error);
 }
 
+/**
+ * Handler called when a remote notification is recieved, displays an alert with the notification message
+ */
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     ZALog(@"User info: %@",userInfo);
     
     NSString *message = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     if(!message) return;
-    
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
@@ -77,6 +86,9 @@
 #pragma mark -
 #pragma mark URL Methods
 
+/**
+ * URL scheme handler
+ */
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return NO;
 }

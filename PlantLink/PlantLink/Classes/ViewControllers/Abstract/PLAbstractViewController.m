@@ -35,6 +35,15 @@
     }
 }
 
+-(void)setTabBarIconActive:(NSString*)imageNameActive passive:(NSString*)imageNamePassive {
+    UIImage *active = [UIImage imageNamed:imageNameActive];
+    UIImage *passive = [UIImage imageNamed:imageNamePassive];
+    
+    [self.tabBarItem setTitle:@""];
+    [self.tabBarItem setFinishedSelectedImage:active withFinishedUnselectedImage:passive];
+
+}
+
 #pragma mark -
 #pragma mark Display Methods
 
@@ -88,11 +97,15 @@
             if([dict.allKeys containsObject:@"type"] && [dict.allKeys containsObject:@"type_detail"]) TFLog(@"Generic error occured on: (%@, %@) %@",dict[@"type"],dict[@"severity"],dict[@"type_detail"]);
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
+        [self displayErrorAlertWithMessage:message];
         return YES;
     }
     return NO;
+}
+
+-(void)displayErrorAlertWithMessage:(NSString*)errorMessage {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:errorMessage delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

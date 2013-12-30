@@ -14,7 +14,6 @@
 #warning Switch downloadings plant and soil types to only add plant, use plant model data for plant detail
 #warning Implement account and notification settings
 #warning Add link to edit view
-#warning Add push notificaiton registration and recieving code
 
 //Constants
 #define Constant_KeyChainItem @"Keychain-ZA-Oso"
@@ -35,7 +34,6 @@
 #define Segue_ToLogin @"toLoginView"
 #define Segue_ToSerialInput @"toSerialInputView"
 #define Segue_ToLocationInput @"toLocationInputView"
-#define Segue_ToInformation @"toInformationView"
 #define Segue_ToAddFirstPlant @"toAddFirstPlantView"
 #define Segue_ToUserHome @"toUserHomeView"
 
@@ -62,17 +60,31 @@
 //Keys
 #define API_Version @"1.0"
 
-//PLant Info Text
-#define InfoText_PlantName @""
-#define InfoText_PlantDetail @"PlantLink uses these details to predict the appropriate moisture level of your plant"
-#define InfoText_PlantMoisture @"The solid circle represents the current soil moisture level in your plant"
-#define InfoText_PlantHistory @"This graph shows soil moisture level over the past 30 days"
-#define InfoText_PlantSchedule @"This is the suggested date to water your plant"
-#define InfoText_PlantLink @"Estimate battery life remaining and current signal strength of your sensor"
-#define InfoText_PlantHelp @""
+//Notifications
+#define Notification_WaterStressed @"WaterStressedNotificationModel"
+#define Notification_Watered @"WateredNotificationModel"
+#define Notification_WaterLogged @"WaterloggedNotificationModel"
 
-#define InfoText_All @[InfoText_PlantName, InfoText_PlantDetail, InfoText_PlantMoisture, InfoText_PlantHistory, InfoText_PlantSchedule, InfoText_PlantLink, InfoText_PlantHelp]
+#define Notification_WaterStressed_Format @"%@ needs to be watered!"
+#define Notification_Watered_Format @"%@ has been watered."
+#define Notification_WaterLogged_Format @"%@ is overwatered!"
 
+#define Notification_DisplayStrDict @{Notification_WaterStressed : Notification_WaterStressed_Format, Notification_Watered : Notification_Watered_Format, Notification_WaterLogged : Notification_WaterLogged_Format}
+
+//PLant Error Text
+#define Error_Registration_NoName @"Please enter your name."
+#define Error_Registration_NoEmail @"Please enter your email."
+#define Error_Registration_InvalidEmail @"Please enter a valid email."
+#define Error_Registration_NoPassword @"Please enter a password."
+#define Error_Registration_PasswordTooShort @"Please enter a password with more than 8 characters."
+#define Error_Registration_NoConfirmPassword @"Please confirm your password."
+#define Error_Registration_NoPasswordMatch @"Entered passwords do not match."
+
+#define Error_Registration_NoSerial @"Please enter the serial number of your base station."
+
+#define Error_Registration_NoLocation @"Please enter a location."
+#define Error_Registration_LocationNotFound @"Your location could not be found."
+#define Error_Registration_ZipCodeNotFound @"Your zip code could not be identified."
 
 //Errors
 #define Error_Auth @"InvalidBasicAuthParameter"

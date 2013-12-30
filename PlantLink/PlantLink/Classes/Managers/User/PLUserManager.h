@@ -32,9 +32,24 @@
 #pragma mark -
 #pragma mark Login Methods
 
+/**
+ * Refreshes the data associated with login information in the keychain
+ */
 -(void)refreshAutoLogin;
+
+/**
+ * Returns a boolean indicating whether auto login is possible (ie a saved user exists)
+ */
 -(BOOL)shouldTryAutoLogin;
+
+/**
+ * Sets the username and password to save
+ */
 -(void)setLastUsername:(NSString*)username andPassword:(NSString*)password;
+
+/**
+ * Attemps to auto login, calling the completion block if successful
+ */
 -(void)autoLoginWithCompletion:(void(^) (BOOL successful))completion;
 
 #pragma mark -
@@ -52,7 +67,7 @@
  */
 -(void)refreshTypes;
 
-/*
+/**
  * Makes sure the current user is logged out
  */
 -(void)logout;

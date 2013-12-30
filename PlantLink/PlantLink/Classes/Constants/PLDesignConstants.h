@@ -45,6 +45,7 @@
 #define Color_MenuButton_Down RGB(65.0,166.0,217.0)
 
 #define Color_CellBorder SHADE(220.0)
+#define Color_CellBorder_RedTint RGB(220.0,0.0,0.0)
 
 #define Color_Notification_OptionBackground SHADE(59.0)
 #define Color_Notification_SelectedBackground RGB(57.0,182.0,84.0)

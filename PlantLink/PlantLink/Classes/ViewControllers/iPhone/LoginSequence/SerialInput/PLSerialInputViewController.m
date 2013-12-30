@@ -19,6 +19,9 @@
 
 @implementation PLSerialInputViewController
 
+/**
+ * Loads the initial parameters for the view and the subivews
+ */
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setNextSegueIdentifier:Segue_ToLocationInput];
@@ -32,6 +35,9 @@
 #pragma mark -
 #pragma mark Text Field Methods
 
+/**
+ * Dismisses the keyboard upon clicking return and attempts to move to the next view
+ */
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [self nextPushed:nil];
@@ -41,6 +47,9 @@
 #pragma mark -
 #pragma mark Touch Methods
 
+/**
+ * Dismisses the keyboard if the view is touched outside of the text field
+ */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
@@ -48,12 +57,14 @@
 #pragma mark -
 #pragma mark Next Methods
 
+/**
+ * Transitions to the next view if the serial is non-empty, otherwise shows an error alert
+ */
 -(void)nextPushed:(id)sender {
     NSString *serial = serialTextField.text;
-    
+
     if([serial isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Please enter a serial number" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [alert show];
+        [self displayErrorAlertWithMessage:Error_Registration_NoSerial];
         return;
     }
     

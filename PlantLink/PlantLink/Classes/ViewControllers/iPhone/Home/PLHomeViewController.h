@@ -9,7 +9,10 @@
 #import "PLAbstractViewController.h"
 
 
-@interface PLHomeViewController : PLAbstractViewController <UIAlertViewDelegate>
+@interface PLHomeViewController : PLAbstractViewController <UIAlertViewDelegate> {
+    IBOutlet UIButton *loginButton;
+    IBOutlet UIButton *setupButton;
+}
 
 #pragma mark -
 #pragma mark IBAction Methods
