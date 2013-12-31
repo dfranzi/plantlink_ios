@@ -34,10 +34,13 @@
 #pragma mark -
 #pragma mark Override Methods
 
+-(void)setHighlighted:(BOOL)highlighted {
+    if(![[self stateDict].allKeys containsObject:State_Notifications]) [super setHighlighted:highlighted];
+}
+
 -(void)setStateDict:(NSDictionary *)stateDict {
     [super setStateDict:stateDict];
-    NSLog(@"Set dict: %@",stateDict);
-    
+
     if([stateDict.allKeys containsObject:State_Notifications]) {
         [UIView animateWithDuration:0.3 animations:^{
             CGSize size = [PLSettingsNotificationCell sizeForContent:stateDict];
@@ -63,34 +66,22 @@
 
 -(IBAction)morningPushed:(id)sender {
     morningNotifications = !morningNotifications;
-    
-    NSString *imageName = @"checkmarkGray.png";
-    if(morningNotifications) imageName = @"checkmarkBlue.png";
-    [morningButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self changeButton:morningButton withBooleanFlag:morningNotifications];
 }
 
 -(IBAction)middayPushed:(id)sender {
     middayNotifications = !middayNotifications;
-    
-    NSString *imageName = @"checkmarkGray.png";
-    if(middayNotifications) imageName = @"checkmarkBlue.png";
-    [middayButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self changeButton:middayButton withBooleanFlag:middayNotifications];
 }
 
 -(IBAction)afternoonPushed:(id)sender {
     afternoonNotifications = !afternoonNotifications;
-    
-    NSString *imageName = @"checkmarkGray.png";
-    if(afternoonNotifications) imageName = @"checkmarkBlue.png";
-    [afternoonButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self changeButton:afternoonButton withBooleanFlag:afternoonNotifications];
 }
 
 -(IBAction)eveningPushed:(id)sender {
     eveningNotifications = !eveningNotifications;
-    
-    NSString *imageName = @"checkmarkGray.png";
-    if(eveningNotifications) imageName = @"checkmarkBlue.png";
-    [eveningButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [self changeButton:eveningButton withBooleanFlag:eveningNotifications];
 }
 
 -(IBAction)closePushed:(id)sender {
@@ -99,6 +90,16 @@
 
 -(IBAction)morePushed:(id)sender {
     
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)changeButton:(UIButton*)button withBooleanFlag:(BOOL)flag {
+    NSString *imageName = @"checkmarkGray.png";
+    if(flag) imageName = @"checkmarkBlue.png";
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+
 }
 
 #pragma mark -

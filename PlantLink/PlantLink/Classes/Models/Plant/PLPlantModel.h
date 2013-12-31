@@ -9,6 +9,8 @@
 #import "AbstractModel.h"
 
 @class PLPlantMeasurementModel;
+@class PLPlantTypeModel;
+@class PLSoilModel;
 @interface PLPlantModel : AbstractModel
 
 /**
@@ -17,14 +19,19 @@
 @property(nonatomic, strong, readonly) NSString *name;
 
 /**
- * The user assigned color of the plant
+ * The plant type model for the plant
  */
-@property(nonatomic, strong, readonly) UIColor *color;
+@property(nonatomic, strong, readonly) PLPlantTypeModel *plantType;
 
 /**
  * The user assigned plant type key
  */
 @property(nonatomic, strong, readonly) NSString *plantTypeKey;
+
+/**
+ * The soil type model for the plant
+ */
+@property(nonatomic, strong, readonly) PLSoilModel *soilType;
 
 /**
  * The user assigned soil type key

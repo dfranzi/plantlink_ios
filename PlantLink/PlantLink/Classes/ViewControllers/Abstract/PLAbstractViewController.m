@@ -104,7 +104,7 @@
 }
 
 -(void)displayErrorAlertWithMessage:(NSString*)errorMessage {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:errorMessage delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh" message:errorMessage delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
     [alert show];
 }
 

@@ -9,7 +9,8 @@
 #import "PLPlantDetailsCell.h"
 
 #import "PLPlantModel.h"
-#import "PLUserManager.h"
+#import "PLPlantTypeModel.h"
+#import "PLSoilModel.h"
 
 @implementation PLPlantDetailsCell
 
@@ -26,10 +27,11 @@
     
     [super setModel:model];
     if([self model]) {
-        PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+        PLPlantTypeModel *plantType = [[self model] plantType];
+        PLSoilModel *soilType = [[self model] soilType];
         
-        [plantTypeTextField setText:[sharedUser nameForPlantTypeKey:[[self model] plantTypeKey]]];
-        [soilTypeTextField setText:[sharedUser nameForSoilTypeKey:[[self model] soilTypeKey]]];
+        [plantTypeTextField setText:[plantType name]];
+        [soilTypeTextField setText:[soilType name]];
         [locationTextField setText:[[self model] environment]];
     }
 }

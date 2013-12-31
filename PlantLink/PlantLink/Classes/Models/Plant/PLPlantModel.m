@@ -9,14 +9,14 @@
 #import "PLPlantModel.h"
 
 #import "PLPlantMeasurementModel.h"
-#import "PLValveModel.h"
+#import "PLPlantTypeModel.h"
+#import "PLSoilModel.h"
 #import "PLLinkModel.h"
 
 @implementation PLPlantModel
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        
         _name = dict[DC_Plant_Name];
         _plantTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PlantTypeKey] intValue]];
         _soilTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_SoilTypeKey] intValue]];
@@ -37,6 +37,13 @@
         else _links = dict[DC_Plant_Links];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Plant_Created] intValue]];
+        
+        if([dict[DC_Plant_PlantType] isKindOfClass:[NSDictionary class]]) _plantType = [PLPlantTypeModel initWithDictionary:dict[DC_Plant_PlantType]];
+        else _plantType = dict[DC_Plant_PlantType];
+        
+        if([dict[DC_Plant_SoilType] isKindOfClass:[NSDictionary class]]) _soilType = [PLSoilModel initWithDictionary:dict[DC_Plant_SoilType]];
+        else _soilType = dict[DC_Plant_SoilType];
+        
     }
     return self;
 }
@@ -74,7 +81,9 @@
     dict[DC_Plant_Links] = [_links copyWithZone:zone];
     
     dict[DC_Plant_Created] = [NSNumber numberWithInt:[_created timeIntervalSince1970]];
-    dict[DC_Plant_Color] = [_color copyWithZone:zone];
+
+    dict[DC_Plant_PlantType] = [_plantType copyWithZone:zone];
+    dict[DC_Plant_SoilType] = [_soilType copyWithZone:zone];
     
     PLPlantModel *copy = [[PLPlantModel alloc] initWithDictionary:dict];
     if(copy) return copy;
@@ -100,7 +109,8 @@
         _links = [aDecoder decodeObjectForKey:DC_Plant_Links];
         
         _created = [aDecoder decodeObjectForKey:DC_Plant_Created];
-        _color = [aDecoder decodeObjectForKey:DC_Plant_Color];
+        _plantType = [aDecoder decodeObjectForKey:DC_Plant_PlantType];
+        _soilType = [aDecoder decodeObjectForKey:DC_Plant_SoilType];
     }
     return self;
 }
@@ -122,7 +132,8 @@
     [aCoder encodeObject:_links forKey:DC_Plant_Links];
     
     [aCoder encodeObject:_created forKey:DC_Plant_Created];
-    [aCoder encodeObject:_color forKey:DC_Plant_Color];
+    [aCoder encodeObject:_plantType forKey:DC_Plant_PlantType];
+    [aCoder encodeObject:_soilType forKey:DC_Plant_SoilType];
 }
 
 #pragma mark -

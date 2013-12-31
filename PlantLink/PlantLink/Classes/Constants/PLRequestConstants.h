@@ -93,8 +93,9 @@
 #define DC_Link_Key @"key"
 
 #define DC_Plant_Name @"name"
-#define DC_Plant_Color @"color"
+#define DC_Plant_PlantType @"plant_type"
 #define DC_Plant_PlantTypeKey @"plant_type_key"
+#define DC_Plant_SoilType @"soil_type"
 #define DC_Plant_SoilTypeKey @"soil_type_key"
 #define DC_Plant_Created @"created"
 #define DC_Plant_PId @"key"

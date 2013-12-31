@@ -28,6 +28,12 @@
 -(void)setLabel:(NSString*)label;
 
 #pragma mark -
+#pragma mark Request Methods
+
+-(BOOL)errorInRequestResponse:(NSDictionary*)dict;
+-(void)displayAlertWithTitle:(NSString*)title andMessage:(NSString*)message;
+
+#pragma mark -
 #pragma mark Size Methods
 
 +(CGSize)sizeForContent:(NSDictionary*)content;

@@ -11,7 +11,6 @@
 #import "PLRequestConstants.h"
 
 //Warning
-#warning Switch downloadings plant and soil types to only add plant, use plant model data for plant detail
 #warning Implement account and notification settings
 
 //Constants

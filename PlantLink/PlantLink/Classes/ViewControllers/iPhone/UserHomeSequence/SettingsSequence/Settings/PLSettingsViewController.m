@@ -125,9 +125,11 @@
  * Returns the size of the collection view cell
  */
 -(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row == 0) return [PLSettingsNotificationCell sizeForContent:stateDict];
-    else if(indexPath.row == 1) return [PLSettingsAccountCell sizeForContent:stateDict];
-    else if(indexPath.row == 3) return [PLSettingsBugReportCell sizeForContent:stateDict];
+    
+    int row = indexPath.row;
+    if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification]) return [PLSettingsNotificationCell sizeForContent:stateDict];
+    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account]) return [PLSettingsAccountCell sizeForContent:stateDict];
+    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport]) return [PLSettingsBugReportCell sizeForContent:stateDict];
     else return [PLSettingsCell sizeForContent:stateDict];
 }
 
@@ -145,10 +147,14 @@
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Shop]) [self shop];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Logout]) [self logout];
     
-    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-    
-    CGPoint point = collectionView.contentOffset;
-    [collectionView setContentOffset:CGPointMake(point.x, point.y-20) animated:YES];
+    if( !([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification] && [stateDict.allKeys containsObject:State_Notifications]) &&
+       !([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account] && [stateDict.allKeys containsObject:State_Account]) &&
+       !([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport] && [stateDict.allKeys containsObject:State_BugReport]) ) {
+       
+        [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+        CGPoint point = collectionView.contentOffset;
+        [collectionView setContentOffset:CGPointMake(point.x, point.y-20) animated:YES];
+    }
 }
 
 #pragma mark -
@@ -158,6 +164,8 @@
  * Closes a given section
  */
 -(void)closeSection:(NSString*)section {
+    [self.view endEditing:YES];
+    
     [stateDict removeObjectForKey:section];
     
     [self update];
