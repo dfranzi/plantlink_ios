@@ -104,6 +104,7 @@ static PLUserManager *sharedUser = nil;
         }
         else {
             [self registerForPush];
+            [self refreshData];
             completion(YES);
         }
     }];

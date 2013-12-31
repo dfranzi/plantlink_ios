@@ -48,6 +48,10 @@
 #define PostKey_ZipCode @"zip"
 #define PostKey_Password @"password"
 #define PostKey_BaseStationSerial @"serial"
+#define PostKey_Notifications @"notification_time_of_day"
+#define PostKey_EmailEnabled @"email_notifications_enabled"
+#define PostKey_PushEnabled @"push_notifications_enabled"
+#define PostKey_SMSEnabled @"sms_enabled"
 
 #define PostKey_EmailAlerts @"email_alerts"
 #define PostKey_TextAlerts @"text_alerts"
@@ -68,6 +72,7 @@
 #define DC_User_Phone @"phone"
 #define DC_User_Name @"name"
 #define DC_User_Zipcode @"zip"
+#define DC_User_NotificationTimes @"notification_time_of_day"
 #define DC_User_iOSTokens @"ios_device_tokens"
 #define DC_User_EmailAlerts @"email_alerts"
 #define DC_User_TextAlerts @"text_alerts"

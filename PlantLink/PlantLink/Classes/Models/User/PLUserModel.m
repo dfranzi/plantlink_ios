@@ -12,10 +12,14 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
+        ZALog(@"%@",dict);
+        
         _email = dict[DC_User_Email];
         _name = dict[DC_User_Name];
         _phone = dict[DC_User_Phone];
         _zip = dict[DC_User_Zipcode];
+        
+        _notificationTimes = dict[DC_User_NotificationTimes];
         
         if(![dict[DC_User_iOSTokens] isEqual:[NSNull null]]) _deviceTokens = @[];
         else _deviceTokens = dict[DC_User_iOSTokens];
@@ -23,10 +27,10 @@
         if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
         else _emailAlerts = NO;
         
-        if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]])_textAlerts = [dict[DC_User_TextAlerts] boolValue];
+        if(![dict[DC_User_TextAlerts] isEqual:[NSNull null]])_textAlerts = [dict[DC_User_TextAlerts] boolValue];
         else _textAlerts = NO;
         
-        if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
+        if(![dict[DC_User_PushAlerts] isEqual:[NSNull null]]) _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
         else _pushAlerts = NO;
     }
     return self;
@@ -55,6 +59,8 @@
     dict[DC_User_Phone] = [_phone copyWithZone:zone];
     dict[DC_User_Zipcode] = [_zip copyWithZone:zone];
     
+    dict[DC_User_NotificationTimes] = [_notificationTimes copyWithZone:zone];
+    
     dict[DC_User_EmailAlerts] = [NSNumber numberWithBool:_emailAlerts];
     dict[DC_User_TextAlerts] = [NSNumber numberWithBool:_textAlerts];
     dict[DC_User_PushAlerts] = [NSNumber numberWithBool:_pushAlerts];
@@ -74,6 +80,8 @@
         _phone = [aDecoder decodeObjectForKey:DC_User_Phone];
         _zip = [aDecoder decodeObjectForKey:DC_User_Zipcode];
         
+        _notificationTimes = [aDecoder decodeObjectForKey:DC_User_NotificationTimes];
+        
         _emailAlerts = [aDecoder decodeBoolForKey:DC_User_EmailAlerts];
         _textAlerts = [aDecoder decodeBoolForKey:DC_User_TextAlerts];
         _pushAlerts = [aDecoder decodeBoolForKey:DC_User_PushAlerts];
@@ -86,6 +94,8 @@
     [aCoder encodeObject:_name forKey:DC_User_Name];
     [aCoder encodeObject:_phone forKey:DC_User_Phone];
     [aCoder encodeObject:_zip forKey:DC_User_Zipcode];
+    
+    [aCoder encodeObject:_notificationTimes forKey:DC_User_NotificationTimes];
     
     [aCoder encodeBool:_emailAlerts forKey:DC_User_EmailAlerts];
     [aCoder encodeBool:_textAlerts forKey:DC_User_TextAlerts];

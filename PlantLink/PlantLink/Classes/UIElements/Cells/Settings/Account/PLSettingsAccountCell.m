@@ -72,7 +72,12 @@
             if([dict isKindOfClass:[NSArray class]]) {
                 if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}
             }
-            else [self displayAlertWithTitle:Alert_EmailChangeTitle andMessage:Alert_EmailChangeMessage];
+            else {
+                [self displayAlertWithTitle:Alert_EmailChangeTitle andMessage:Alert_EmailChangeMessage];
+                
+                PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+                [sharedUser refreshData];
+            }
         }];
     }
 }

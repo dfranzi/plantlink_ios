@@ -31,6 +31,11 @@
 @property(nonatomic, strong, readonly) NSString *zip;
 
 /**
+ * An array indicating the times of day the user wants to recieve notifications
+ */
+@property(nonatomic, strong, readonly) NSArray *notificationTimes;
+
+/**
  * This iOS device tokens registered for the user
  */
 @property(nonatomic, strong) NSArray *deviceTokens;

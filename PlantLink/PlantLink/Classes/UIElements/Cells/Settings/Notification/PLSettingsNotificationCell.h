@@ -14,6 +14,10 @@
     IBOutlet UIButton *afternoonButton;
     IBOutlet UIButton *eveningButton;
 
+    IBOutlet UIButton *emailButton;
+    IBOutlet UIButton *pushButton;
+    IBOutlet UIButton *smsButton;
+    
     IBOutlet UIButton *closeButton;
     IBOutlet UIButton *moreButton;
 }
@@ -26,6 +30,9 @@
 -(IBAction)afternoonPushed:(id)sender;
 -(IBAction)eveningPushed:(id)sender;
 
+-(IBAction)emailPushed:(id)sender;
+-(IBAction)pushPushed:(id)sender;
+-(IBAction)smsPushed:(id)sender;
 
 -(IBAction)closePushed:(id)sender;
 -(IBAction)morePushed:(id)sender;

@@ -1089,10 +1089,10 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsNotificationCell" id="6by-Iu-WST" customClass="PLSettingsNotificationCell">
-                                        <rect key="frame" x="12" y="539" width="297" height="269"/>
+                                        <rect key="frame" x="12" y="539" width="297" height="378"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="297" height="269"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="297" height="378"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e3x-Pe-d8a">
@@ -1201,8 +1201,8 @@
                                                         <action selector="eveningPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="xud-Ha-303"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghZ-K6-E5I" customClass="PLMenuButton">
-                                                    <rect key="frame" x="164" y="219" width="113" height="40"/>
+                                                <button opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghZ-K6-E5I" customClass="PLMenuButton">
+                                                    <rect key="frame" x="164" y="318" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1218,7 +1218,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f7K-eM-HUl" customClass="PLMenuButton">
-                                                    <rect key="frame" x="20" y="219" width="113" height="40"/>
+                                                    <rect key="frame" x="20" y="318" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.92941176469999998" green="0.12941176469999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1233,24 +1233,88 @@
                                                         <action selector="closePushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="nBG-xp-a9U"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select how to be notified" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kaw-dV-chL">
+                                                    <rect key="frame" x="20" y="218" width="257" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o5L-yl-JrZ">
+                                                    <rect key="frame" x="209" y="274" width="46" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B3h-bs-JMU">
+                                                    <rect key="frame" x="41" y="274" width="46" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PlY-hD-Jkl">
+                                                    <rect key="frame" x="124" y="274" width="49" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dk9-FY-H4l">
+                                                    <rect key="frame" x="47" y="246" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="checkmarkGray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="emailPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="lhr-4i-0PA"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jAY-We-ikm">
+                                                    <rect key="frame" x="132" y="246" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="checkmarkGray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pushPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="Zd2-As-Eng"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sRJ-z3-XdF">
+                                                    <rect key="frame" x="214" y="246" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="checkmarkGray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="smsPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="vIk-nd-Utd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.94662408760000005" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="customSize" width="297" height="269"/>
+                                        <size key="customSize" width="297" height="378"/>
                                         <connections>
                                             <outlet property="afternoonButton" destination="9T7-Bk-bBo" id="rqO-qR-woB"/>
                                             <outlet property="closeButton" destination="f7K-eM-HUl" id="hH8-3j-jYF"/>
+                                            <outlet property="emailButton" destination="Dk9-FY-H4l" id="j8r-7u-bKp"/>
                                             <outlet property="eveningButton" destination="bbh-aQ-JB9" id="yml-g2-Nmv"/>
                                             <outlet property="infoLabel" destination="6u0-Zx-Nyt" id="5zU-f3-MUG"/>
                                             <outlet property="middayButton" destination="KxR-0Q-WJH" id="bn5-Fn-EDg"/>
                                             <outlet property="moreButton" destination="ghZ-K6-E5I" id="GC2-Wm-f95"/>
                                             <outlet property="morningButton" destination="28l-fr-kRe" id="7Gc-I9-3ej"/>
+                                            <outlet property="pushButton" destination="jAY-We-ikm" id="cvd-yv-c0i"/>
+                                            <outlet property="smsButton" destination="sRJ-z3-XdF" id="diO-4T-iHy"/>
                                             <outlet property="titleLabel" destination="e3x-Pe-d8a" id="V0n-NO-PVc"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsAccountCell" id="Syu-fh-Ozv" customClass="PLSettingsAccountCell">
-                                        <rect key="frame" x="12" y="818" width="297" height="434"/>
+                                        <rect key="frame" x="12" y="927" width="297" height="434"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="434"/>
@@ -1361,7 +1425,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsCell" id="uXB-9n-Kc9" customClass="PLSettingsCell">
-                                        <rect key="frame" x="12" y="1262" width="297" height="125"/>
+                                        <rect key="frame" x="12" y="1371" width="297" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="125"/>

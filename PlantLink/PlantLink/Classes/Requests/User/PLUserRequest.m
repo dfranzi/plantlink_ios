@@ -107,10 +107,9 @@
 
 -(void)updateUser:(NSDictionary*)updates withResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_User];
-    [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
+    [self getUrlStr:url withMethod:HTTP_Put withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
         
-        PLUserManager *sharedUser = [PLUserManager initializeUserManager];
         NSData *data = [NSJSONSerialization dataWithJSONObject:updates options:NSJSONWritingPrettyPrinted error:nil];
         [request setHTTPBody:data];
         
