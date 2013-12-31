@@ -13,7 +13,6 @@
 //Warning
 #warning Switch downloadings plant and soil types to only add plant, use plant model data for plant detail
 #warning Implement account and notification settings
-#warning Add link to edit view
 
 //Constants
 #define Constant_KeyChainItem @"Keychain-ZA-Oso"
@@ -86,6 +85,12 @@
 #define Error_Registration_LocationNotFound @"Your location could not be found."
 #define Error_Registration_ZipCodeNotFound @"Your zip code could not be identified."
 
+#define Error_AddPlant_NoPlantType @"Please enter a plant type."
+#define Error_AddPlant_NoSoilType @"Please enter a soil type."
+#define Error_AddPlant_NoNickname @"Please enter a nickname."
+#define Error_AddPlant_InvalidPlantType @"Please choose a plant type from the list."
+#define Error_AddPlant_InvalidSoilType @"Please choose a soil type from the list."
+
 //Errors
 #define Error_Auth @"InvalidBasicAuthParameter"
 #define Error_NoAuth @"NoAuth"
@@ -98,7 +103,6 @@
 //Settings
 #define SettingsTitle_Notification @"Notifications"
 #define SettingsTitle_Account @"Account"
-#define SettingsTitle_Tutorial @"Tutorial"
 #define SettingsTitle_BugReport @"Bug Report"
 #define SettingsTitle_ContactUs @"Contact Us"
 #define SettingsTitle_Shop @"Shop"
@@ -106,15 +110,14 @@
 
 #define SettingsLabel_Notification @"Change the way you are notified"
 #define SettingsLabel_Account @"Change the account email and password"
-#define SettingsLabel_Tutorial @"View the plant link app tutorial"
 #define SettingsLabel_BugReport @"Let us know about a possible bug"
 #define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
 #define SettingsLabel_Shop @"Buy extra plant links"
 #define SettingsLabel_Logout @"Logout of the application"
 
-#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_Tutorial, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
+#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
 
-#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_Tutorial, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
+#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
 
 #define State_Notifications @"Notifications Expanded"
 #define State_BugReport @"Bug Report Expanded"

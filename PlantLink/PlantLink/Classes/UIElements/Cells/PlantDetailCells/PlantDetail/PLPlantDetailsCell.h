@@ -8,11 +8,10 @@
 
 #import "PLAbstractPlantDetailCell.h"
 
-@class PLPlantEditTextField;
 @interface PLPlantDetailsCell : PLAbstractPlantDetailCell <UITextFieldDelegate> {
-    IBOutlet PLPlantEditTextField *plantTypeTextField;
-    IBOutlet PLPlantEditTextField *soilTypeTextField;
-    IBOutlet PLPlantEditTextField *locationTextField;
+    IBOutlet UITextField *plantTypeTextField;
+    IBOutlet UITextField *soilTypeTextField;
+    IBOutlet UITextField *locationTextField;
 }
 
 @end

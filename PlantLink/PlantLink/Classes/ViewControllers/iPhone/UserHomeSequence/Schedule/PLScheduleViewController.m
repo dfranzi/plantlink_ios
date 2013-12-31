@@ -16,6 +16,7 @@
 @private
     NSArray *schedules;
     BOOL reloadSchedule;
+    NSDate *lastRefresh;
     PLItemRequest *plantRequest;
 }
 
@@ -41,22 +42,14 @@
 }
 
 /**
- * Reloads the view when it appears if the boolean flag is raised
+ * Reloads the view when it appears if the boolean flag is raised, or if the view was reloaded more than 60*60 seconds ago
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if(reloadSchedule) {
+    if(reloadSchedule  || [[NSDate date] timeIntervalSinceDate:lastRefresh] > 60*60) {
         reloadSchedule = NO;
         [self refreshData];
     }
-}
-
-/**
- * Resets the boolean flag to reload the data for that view
- */
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    reloadSchedule = YES;
 }
 
 #pragma mark -
@@ -72,6 +65,7 @@
     reloadSchedule = NO;
     plantRequest = [[PLItemRequest alloc] init];
     [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+        lastRefresh = [NSDate date];
         schedules = [self sortedModelsFromScheduleData:data];
         [self addModelsToCollectionView:schedules];
     }];

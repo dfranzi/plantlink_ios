@@ -23,6 +23,9 @@
 
 @implementation PLMoistureIndicator
 
+/**
+ * Called when the view is created explicitely with a frame, sets the intial values
+ */
 -(id)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
         [self nullifyWaterCircles];
@@ -31,6 +34,9 @@
     return self;
 }
 
+/**
+ * Called when the view is created from a NSCoder, sets the intial values
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [self nullifyWaterCircles];
@@ -42,6 +48,9 @@
 #pragma mark -
 #pragma mark Setup Methods
 
+/**
+ * Sets all the circle images to NULL
+ */
 -(void)nullifyWaterCircles {
     leftCircle = NULL;
     leftCenterCircle = NULL;
@@ -50,6 +59,9 @@
     rightCircle = NULL;
 }
 
+/**
+ * Creates the necessary image views and labels, adding them to the view
+ */
 -(void)initialSetup {
     float center = self.frame.size.width/2.0;
     
@@ -66,6 +78,9 @@
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
+/**
+ * Adds a water circle at a given point
+ */
 -(UIImageView*)addWaterCircleAtPoint:(CGPoint)center {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 20)];
     [imageView setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
@@ -75,6 +90,9 @@
     return imageView;
 }
 
+/**
+ * Adds a text field at a given point with the specified text
+ */
 -(void)addText:(NSString*)text atPoint:(CGPoint)center {
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21)];
     [textLabel setBackgroundColor:[UIColor clearColor]];
@@ -91,6 +109,9 @@
 #pragma mark -
 #pragma mark Setters
 
+/**
+ * Updates the moisture level by indicating the moisture with a specific water circle image
+ */
 -(void)setMoistureLevel:(int)moistureLevel {
     _moistureLevel = moistureLevel;
     

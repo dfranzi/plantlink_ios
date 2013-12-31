@@ -15,6 +15,7 @@
 @interface PLNotificationsViewController() {
 @private
     NSArray *notifications;
+    NSDate *lastRefresh;
     PLItemRequest *notificationRequest;
     
     BOOL reloadNotifications;
@@ -42,23 +43,15 @@
 }
 
 /**
- * Reloads the view when it appears, if the boolean flag is set
+ * Reloads the view when it appears, if the boolean flag is set or if the view load reload more than 60*5 seconds ago
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    if(reloadNotifications) {
+    if(reloadNotifications || [[NSDate date] timeIntervalSinceDate:lastRefresh] > 60*5) {
         reloadNotifications = NO;
         [self refreshData];
     }
-}
-
-/**
- * Resets the boolean flag to reload the data for that view
- */
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    reloadNotifications = YES;
 }
 
 #pragma mark -
@@ -73,6 +66,7 @@
     
     notificationRequest = [[PLItemRequest alloc] init];
     [notificationRequest getNotificationsWithResponse:^(NSData *data, NSError *error) {
+        lastRefresh = [NSDate date];
         notifications = [self sortedModelsFromNotificationData:data];
         [self addModelsToCollectionView:notifications];
     }];

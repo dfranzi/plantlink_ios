@@ -14,10 +14,8 @@
 
 @implementation PLPlantModel
 
-#warning Plant model and others have changed, make sure to fix before launch
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        ZALog(@"Dict: %@",dict);
         
         _name = dict[DC_Plant_Name];
         _plantTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_PlantTypeKey] intValue]];
@@ -39,11 +37,6 @@
         else _links = dict[DC_Plant_Links];
         
         _created = [NSDate dateWithTimeIntervalSince1970:[dict[DC_Plant_Created] intValue]];
-        
-
-        //if([dict[DC_Plant_Color] isKindOfClass:[NSString class]]) _color = [GeneralMethods colorFromHexString:dict
-        //else _color = dict[DC_Plant_Color];
-        
     }
     return self;
 }

@@ -17,6 +17,9 @@
 #pragma mark -
 #pragma mark Setters
 
+/**
+ * Updates the moisture level cell for the given plant
+ */
 -(void)setModel:(PLPlantModel *)model {
     [super setModel:model];
     
@@ -29,6 +32,9 @@
 #pragma mark -
 #pragma mark Size Methods
 
+/**
+ * Returns the height for the cell
+ */
 +(CGFloat)heightForContent:(NSDictionary*)content {
     return 127+[super heightForContent:content];
 }

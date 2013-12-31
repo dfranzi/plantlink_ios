@@ -11,6 +11,9 @@
 
 @implementation PLTextField
 
+/**
+ * Sets the intial parameters of the text field
+ */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
         [self setFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
@@ -29,6 +32,9 @@
 #pragma mark -
 #pragma mark Display Methods
 
+/**
+ * Sets a text field title label and adds it as the left view, always showing the left view
+ */
 -(void)setTitle:(NSString*)title {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     [titleLabel setText:title];
@@ -46,10 +52,16 @@
 #pragma mark -
 #pragma mark Bounds Methods
 
+/**
+ * Creates a smaller bounds range on the text field to have some whitespace for a border
+ */
 -(CGRect)textRectForBounds:(CGRect)bounds {
     return CGRectMake(bounds.origin.x+45, bounds.origin.y, bounds.size.width-14-40, bounds.size.height);
 }
 
+/**
+ * Creates a smaller editting range on the text field to have some whitespace for a border
+ */
 -(CGRect)editingRectForBounds:(CGRect)bounds {
     return CGRectMake(bounds.origin.x+45, bounds.origin.y, bounds.size.width-14-40, bounds.size.height);
 }
@@ -57,28 +69,15 @@
 #pragma mark -
 #pragma mark Validation Methods
 
--(void)showValidationError {
-    
-}
-
--(void)resetValidation {
-    
-}
-
+/**
+ * Returns a boolean indicating whether the text field has a valid input
+ */
 -(BOOL)validForValidationType:(NSString*)validationType {
     if([validationType isEqualToString:ValidationType_Email]) {
-        if([GeneralMethods validateEmailFormat:[self text]]) [self resetValidation];
-        else {
-            [self showValidationError];
-            return NO;
-        }
+        if(![GeneralMethods validateEmailFormat:[self text]]) return NO;
     }
     else if([validationType isEqualToString:ValidationType_Empty]) {
-        if([[self text] isEqualToString:@""]) {
-            [self showValidationError];
-            return NO;
-        }
-        else [self resetValidation];
+        if([[self text] isEqualToString:@""]) return NO;
     }
     return YES;
 }

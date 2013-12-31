@@ -23,6 +23,9 @@
 
 @implementation PLSettingsViewController
 
+/**
+ * Sets the intial parameters and adjusts the collection view to the screen size
+ */
 -(void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,34 +41,51 @@
 #pragma mark -
 #pragma mark Action Methods
 
+/**
+ * Expands the notification view
+ */
 -(void)notifications {
     [self expandSection:State_Notifications];
 }
 
+/**
+ * Exapnds the account view
+ */
 -(void)account {
     [self expandSection:State_Account];
 }
 
--(void)tutorial {
-    [self performSegueWithIdentifier:Segue_ToTutorial sender:self];
-}
-
+/**
+ * Shows the bug report view
+ */
 -(void)bugReport {
     [self expandSection:State_BugReport];
 }
 
+/**
+ * Opens the oso contact url
+ */
 -(void)contactUs {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:info@oso.tc"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLStr_Contact]];
 }
 
+/**
+ * Opens the shop url
+ */
 -(void)shop {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLStr_Store]];
 }
 
+/**
+ * Logs the user out
+ */
 -(void)logout {
     [sharedUser logout];
 }
 
+/**
+ * Updates the cells with the current state dictionary
+ */
 -(void)update {
     for(PLSettingsCell *cell in settingsCollectionView.visibleCells) {
         [cell setStateDict:stateDict];
@@ -75,22 +95,22 @@
 #pragma mark -
 #pragma mark TableView Methods
 
+/**
+ * Returns the number of settings cell the display
+ */
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [SettingsCellTitles count];
 }
 
+/**
+ * Returns the collection view cell and sets the cells parameters
+ */
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PLSettingsCell *cell;
     
-    if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Notification]) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsNotification forIndexPath:indexPath];
-    }
-    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Account]) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsAccount forIndexPath:indexPath];
-    }
-    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_BugReport]) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsBugReport forIndexPath:indexPath];
-    }
+    if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Notification]) cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsNotification forIndexPath:indexPath];
+    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_Account]) cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsAccount forIndexPath:indexPath];
+    else if([SettingsCellTitles[indexPath.row] isEqualToString:SettingsTitle_BugReport]) cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_SettingsBugReport forIndexPath:indexPath];
     else cell = [collectionView dequeueReusableCellWithReuseIdentifier:Cell_Settings forIndexPath:indexPath];
     
     [cell setStateDict:stateDict];
@@ -101,6 +121,9 @@
     return cell;
 }
 
+/**
+ * Returns the size of the collection view cell
+ */
 -(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == 0) return [PLSettingsNotificationCell sizeForContent:stateDict];
     else if(indexPath.row == 1) return [PLSettingsAccountCell sizeForContent:stateDict];
@@ -108,13 +131,15 @@
     else return [PLSettingsCell sizeForContent:stateDict];
 }
 
+/**
+ * Performs the correct action when a cell is pressed, updating the collection view if necessary
+ */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     int row = indexPath.row;
     if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification]) [self notifications];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account]) [self account];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Tutorial]) [self tutorial];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport]) [self bugReport];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_ContactUs]) [self contactUs];
     else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Shop]) [self shop];
@@ -129,6 +154,9 @@
 #pragma mark -
 #pragma mark Update Methods
 
+/**
+ * Closes a given section
+ */
 -(void)closeSection:(NSString*)section {
     [stateDict removeObjectForKey:section];
     
@@ -136,6 +164,9 @@
     [self animateLayoutChanges:YES];
 }
 
+/**
+ * Expands a given section
+ */
 -(void)expandSection:(NSString*)section {
     stateDict[section] = @"Expand";
     
@@ -143,23 +174,21 @@
     [self animateLayoutChanges:YES];
 }
 
+/**
+ * Animates a layout change by invalidating the current collection view layout
+ */
 -(void)animateLayoutChanges:(BOOL)animated {
     [settingsCollectionView performBatchUpdates:^{
         [settingsCollectionView.collectionViewLayout invalidateLayout];
-        
-//        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//        [layout setItemSize:CGSizeMake(295, 110)];
-//        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-//        [layout setSectionInset:UIEdgeInsetsMake(30, 0, 10, 0)];
-//        [settingsCollectionView setCollectionViewLayout:layout animated:animated];
-    } completion:^(BOOL finished) {
-        
-    }];
+    } completion:^(BOOL finished) {}];
 }
 
 #pragma mark -
 #pragma mark Touch Methods
 
+/**
+ * Dismisses the keyboard is the view is touched
+ */
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }

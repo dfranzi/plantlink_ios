@@ -13,7 +13,5 @@
     IBOutlet UITableView *plantTableView;
 }
 @property(nonatomic, strong) PLPlantModel *model;
-@property(nonatomic, assign) BOOL editMode;
-@property(nonatomic, assign) BOOL infoMode;
 
 @end

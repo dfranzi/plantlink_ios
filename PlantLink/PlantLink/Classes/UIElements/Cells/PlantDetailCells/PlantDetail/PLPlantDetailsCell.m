@@ -9,32 +9,21 @@
 #import "PLPlantDetailsCell.h"
 
 #import "PLPlantModel.h"
-#import "PLPlantEditTextField.h"
 #import "PLUserManager.h"
 
 @implementation PLPlantDetailsCell
 
 #pragma mark -
-#pragma mark Display Methods
-
--(void)showEdit {
-    [super showEdit];
-    [plantTypeTextField setEditMode:YES];
-    [soilTypeTextField setEditMode:YES];
-    [locationTextField setEditMode:YES];
-}
-
--(void)hideEdit {
-    [super hideEdit];
-    [plantTypeTextField setEditMode:NO];
-    [soilTypeTextField setEditMode:NO];
-    [locationTextField setEditMode:NO];
-}
-
-#pragma mark -
 #pragma mark Setters
 
+/**
+ * Updates the text fields with the set model
+ */
 -(void)setModel:(PLPlantModel *)model {
+    [plantTypeTextField setBackgroundColor:Color_ViewBackground];
+    [soilTypeTextField setBackgroundColor:Color_ViewBackground];
+    [locationTextField setBackgroundColor:Color_ViewBackground];
+    
     [super setModel:model];
     if([self model]) {
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
@@ -46,23 +35,11 @@
 }
 
 #pragma mark -
-#pragma mark Text Field Methods
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self endEditing:YES];
-    return YES;
-}
-
-#pragma mark -
-#pragma mark Touch Methods
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self endEditing:YES];
-}
-
-#pragma mark -
 #pragma mark Size Methods
 
+/**
+ * Returns the height for the cell
+ */
 +(CGFloat)heightForContent:(NSDictionary*)content {
     return 161+[super heightForContent:content];
 }

@@ -38,6 +38,7 @@
 }
 
 -(void)create {
+    [self setBackgroundColor:[UIColor whiteColor]];
     moistureHistory = @[];
     measurementRequest = [[PLItemRequest alloc] init];
 }

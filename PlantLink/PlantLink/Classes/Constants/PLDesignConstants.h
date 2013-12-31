@@ -33,7 +33,7 @@
 #define Cell_SettingsAccount @"settingsAccountCell"
 #define Cell_SettingsBugReport @"settingsBugReportCell"
 
-#define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail, Cell_PlantHelp]
+#define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail]
 
 //Colors
 #define Color_ViewBackground RGB(240.0,245.0,238.0)

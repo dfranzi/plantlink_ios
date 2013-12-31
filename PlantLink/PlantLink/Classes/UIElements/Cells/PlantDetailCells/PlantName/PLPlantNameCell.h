@@ -9,9 +9,6 @@
 #import "PLAbstractPlantDetailCell.h"
 
 @interface PLPlantNameCell : PLAbstractPlantDetailCell {
-    IBOutlet UIButton *editButton;
-    IBOutlet UIButton *infoButton;
-    
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *activeOnLabel;
 }
@@ -21,7 +18,5 @@
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender;
--(IBAction)editPushed:(id)sender;
--(IBAction)infoPushed:(id)sender;
 
 @end

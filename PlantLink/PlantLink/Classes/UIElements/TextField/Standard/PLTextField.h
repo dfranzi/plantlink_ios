@@ -27,16 +27,6 @@
 /**
  *
  */
--(void)showValidationError;
-
-/**
- *
- */
--(void)resetValidation;
-
-/**
- *
- */
 -(BOOL)validForValidationType:(NSString*)validationType;
 
 
