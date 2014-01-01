@@ -204,7 +204,9 @@
 		6CFB28431802116D00C11A10 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB28361802116D00C11A10 /* icon_152.png */; };
 		BA3C1F4717E8FC160000B255 /* PLMenuTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */; };
 		BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7096FB1804C0F700520D92 /* libZACodeBase.a */; };
+		CE1168A51874B3CB00E1D857 /* PLPlantEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1168A41874B3CB00E1D857 /* PLPlantEditButton.m */; };
 		CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE70EF85186F5EB50077A330 /* Security.framework */; };
+		CE9F67ED1874BD93006590CC /* PLPlantItemEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -465,7 +467,11 @@
 		BA3C1F4517E8FC160000B255 /* PLMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLMenuTextView.h; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.h; sourceTree = "<group>"; };
 		BA3C1F4617E8FC160000B255 /* PLMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLMenuTextView.m; path = Classes/UIElements/TextView/MenuTextView/PLMenuTextView.m; sourceTree = "<group>"; };
 		BA7096FB1804C0F700520D92 /* libZACodeBase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZACodeBase.a; path = "../../../zacodebase/build/Debug-iphoneos/libZACodeBase.a"; sourceTree = "<group>"; };
+		CE1168A31874B3CB00E1D857 /* PLPlantEditButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantEditButton.h; path = Classes/UIElements/Buttons/PlantEdit/PLPlantEditButton.h; sourceTree = "<group>"; };
+		CE1168A41874B3CB00E1D857 /* PLPlantEditButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantEditButton.m; path = Classes/UIElements/Buttons/PlantEdit/PLPlantEditButton.m; sourceTree = "<group>"; };
 		CE70EF85186F5EB50077A330 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CE9F67EB1874BD93006590CC /* PLPlantItemEditButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantItemEditButton.h; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.h; sourceTree = "<group>"; };
+		CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantItemEditButton.m; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1096,6 +1102,8 @@
 		6C972BE417555389007234B6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F67EA1874BD47006590CC /* PlantItemEdit */,
+				CE1168A21874B39E00E1D857 /* PlantEdit */,
 				6C7B55FD179EE79A0076B07E /* Menu */,
 			);
 			name = Buttons;
@@ -1372,6 +1380,24 @@
 			name = MenuTextView;
 			sourceTree = "<group>";
 		};
+		CE1168A21874B39E00E1D857 /* PlantEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CE1168A31874B3CB00E1D857 /* PLPlantEditButton.h */,
+				CE1168A41874B3CB00E1D857 /* PLPlantEditButton.m */,
+			);
+			name = PlantEdit;
+			sourceTree = "<group>";
+		};
+		CE9F67EA1874BD47006590CC /* PlantItemEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F67EB1874BD93006590CC /* PLPlantItemEditButton.h */,
+				CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */,
+			);
+			name = PlantItemEdit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1624,6 +1650,7 @@
 				6C8CA3E8175665040019FC4B /* PLUserModel.m in Sources */,
 				6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */,
 				6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */,
+				CE1168A51874B3CB00E1D857 /* PLPlantEditButton.m in Sources */,
 				6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */,
 				6C6099751843EAC100B6AB34 /* PLSettingsNotificationCell.m in Sources */,
 				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,
@@ -1641,6 +1668,7 @@
 				6CE3CE9A1796F9E600618892 /* PLPlantViewController.m in Sources */,
 				6CE3CE9E1796FA6300618892 /* PLPlantCell.m in Sources */,
 				6CE3CEC41797257500618892 /* PLSettingsViewController.m in Sources */,
+				CE9F67ED1874BD93006590CC /* PLPlantItemEditButton.m in Sources */,
 				6C61233C17AE3AAC0048EAFE /* PLScheduleViewController.m in Sources */,
 				6CE3CEC71797258800618892 /* PLNotificationsViewController.m in Sources */,
 				6C7B5600179EE7AB0076B07E /* PLMenuButton.m in Sources */,

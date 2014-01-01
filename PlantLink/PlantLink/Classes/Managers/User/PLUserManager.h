@@ -19,6 +19,7 @@
 
 @property(nonatomic, strong) NSString *loginType;
 @property(nonatomic, strong) NSMutableDictionary *setupDict;
+@property(nonatomic, strong) NSMutableDictionary *plantEditDict;
 
 @property(nonatomic, assign) BOOL addPlantTrigger;
 @property(nonatomic, assign) BOOL plantReloadTrigger;

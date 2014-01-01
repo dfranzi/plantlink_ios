@@ -7,12 +7,7 @@
 //
 
 #import "PLAbstractPlantDetailCell.h"
-
-@interface PLAbstractPlantDetailCell() {
-@private
-}
-
-@end
+#import "PLPlantItemEditButton.h"
 
 #define PlantInfoText_Font @"HelveticaNeue-Italic"
 #define PlantInfoText_Color RGB(141.0,202.0,135.0)
@@ -34,6 +29,7 @@
         
         [self.contentView setBackgroundColor:Color_ViewBackground];
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        _editMode = NO;
         
     }
     return self;
@@ -51,6 +47,19 @@
 
 #pragma mark -
 #pragma mark Display Methods
+
+/**
+ * Sets the edit mode and informs all the plant item edit buttons of the new edit mode flag
+ */
+-(void)setEditMode:(BOOL)editMode {
+    _editMode = editMode;
+    for(UIView *view in self.contentView.subviews) {
+        if([view isKindOfClass:[PLPlantItemEditButton class]]) {
+            PLPlantItemEditButton *button = (PLPlantItemEditButton*)view;
+            [button setEditMode:editMode];
+        }
+    }
+}
 
 /**
  * Updates the border based on the cells height

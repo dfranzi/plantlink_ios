@@ -61,6 +61,7 @@
 #define PostKey_SoilType @"soil_type"
 #define PostKey_PlantTypeKey @"plant_type_key"
 #define PostKey_SoilTypeKey @"soil_type_key"
+#define PostKey_Environment @"environment"
 #define PostKey_LinkName @"link_name"
 #define PostKey_LinkKeys @"links_key"
 #define PostKey_Color @"color"

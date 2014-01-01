@@ -78,6 +78,16 @@
     }];
 }
 
+-(void)getPlant:(NSString*)plantId withResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *ext = [NSString stringWithFormat:URLStr_Plant_Id,plantId];
+    NSString *url = [URLStr_Base stringByAppendingString:ext];
+    [self getUrlStr:url withMethod:HTTP_Get withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
 
 -(void)addPlant:(NSString*)name type:(NSString*)type inSoil:(NSString*)soil withResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_Plant];

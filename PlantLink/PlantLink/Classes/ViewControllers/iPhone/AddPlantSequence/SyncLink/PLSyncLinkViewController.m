@@ -78,8 +78,13 @@
     [linksArray addObject:[link key]];
     
     [plantUpdateRequest editPlant:[_createdPlant pid] paramDict:@{PostKey_LinkKeys : linksArray} withResponse:^(NSData *data, NSError *error) {
-        [sharedUser setPlantReloadTrigger:YES];
-        [self dismissViewControllerAnimated:YES completion:^{}];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+
+        if([dict isKindOfClass:[NSArray class]] && [self errorInRequestResponse:((NSArray*)dict)[0]]) return;
+        else {
+            [sharedUser setPlantReloadTrigger:YES];
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        }
     }];
 }
 

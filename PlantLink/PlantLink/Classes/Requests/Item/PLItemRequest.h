@@ -45,6 +45,11 @@
 -(void)getUserPlantsWithResponse:(void(^) (NSData *data, NSError *error))response;
 
 /**
+ * Get the plant as specified by the plant id
+ */
+-(void)getPlant:(NSString*)plantId withResponse:(void(^) (NSData *data, NSError *error))response;
+
+/**
  * Adds the plant with name, type, and soil to the current user, calling the response block when complete
  */
 -(void)addPlant:(NSString*)name type:(NSString*)type inSoil:(NSString*)soil withResponse:(void(^) (NSData *data, NSError *error))response;

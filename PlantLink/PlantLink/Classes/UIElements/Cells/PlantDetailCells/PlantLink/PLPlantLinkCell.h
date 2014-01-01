@@ -10,12 +10,17 @@
 
 @class PLBatteryImageView;
 @class PLSignalImageView;
-@interface PLPlantLinkCell : PLAbstractPlantDetailCell {
+@interface PLPlantLinkCell : PLAbstractPlantDetailCell <UIAlertViewDelegate> {
     IBOutlet PLBatteryImageView *batteryImage;
     IBOutlet PLSignalImageView *wifiImage;
     
     IBOutlet UILabel *batteryLabel;
     IBOutlet UILabel *wifiLabel;
 }
+
+#pragma mark -
+#pragma mark IBAction Methods
+
+-(IBAction)disconnectLinkPushed:(id)sender;
 
 @end

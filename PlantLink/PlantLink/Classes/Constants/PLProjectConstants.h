@@ -11,7 +11,9 @@
 #import "PLRequestConstants.h"
 
 //Warning
-#warning Implement account and notification settings
+#warning Implement plant cell info
+#warning Implement the plant edit sequence
+#warning Implement the account notification panel
 
 //Constants
 #define Constant_KeyChainItem @"Keychain-ZA-Oso"
@@ -51,9 +53,7 @@
 
 //Notifications
 #define Notification_User_Logout @"User-Logout"
-
 #define Notification_Plant_Edit @"Plant-Edit"
-#define Notification_Plant_Info @"Plant-Info"
 
 //Keys
 #define API_Version @"1.0"
@@ -69,7 +69,7 @@
 
 #define Notification_DisplayStrDict @{Notification_WaterStressed : Notification_WaterStressed_Format, Notification_Watered : Notification_Watered_Format, Notification_WaterLogged : Notification_WaterLogged_Format}
 
-//PLant Error Text
+//Plant Error Text
 #define Error_Registration_NoName @"Please enter your name."
 #define Error_Registration_NoEmail @"Please enter your email."
 #define Error_Registration_InvalidEmail @"Please enter a valid email."
@@ -121,3 +121,8 @@
 #define State_Notifications @"Notifications Expanded"
 #define State_BugReport @"Bug Report Expanded"
 #define State_Account @"Account Expanded"
+
+//Plant Edit Mode State
+#define State_PlantType @"plantTypeSelection"
+#define State_SoilType @"soilTypeSelection"
+#define State_Nickname @"nicknameSelection"

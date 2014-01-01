@@ -14,4 +14,9 @@
 }
 @property(nonatomic, strong) PLPlantModel *model;
 
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)refreshData;
+
 @end

@@ -12,11 +12,11 @@
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *activeOnLabel;
 }
-@property(nonatomic, weak) UIViewController *enclosingController;
 
 #pragma mark -
 #pragma mark IBAction Methods
 
 -(IBAction)backPushed:(id)sender;
+-(IBAction)plantNameEditPushed:(id)sender;
 
 @end

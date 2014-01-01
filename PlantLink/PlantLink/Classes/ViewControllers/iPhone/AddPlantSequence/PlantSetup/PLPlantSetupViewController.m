@@ -16,15 +16,13 @@
 #import "PLPlantModel.h"
 #import "PLSyncLinkViewController.h"
 
-#define State_PlantType @"plantTypeSelection"
-#define State_SoilType @"soilTypeSelection"
-#define State_Nickname @"nicknameSelection"
-
 #define PossibleStates @{ @"0" : State_PlantType, @"1" : State_SoilType, @"2" : State_Nickname}
 
 @interface PLPlantSetupViewController() {
 @private
     PLItemRequest *plantRequest;
+    PLItemRequest *plantUpdateRequest;
+    
     PLPlantModel *createdModel;
     UITableView *itemsTableView;
     
@@ -75,6 +73,42 @@
     state = State_PlantType;
     [self update];
 
+    
+    _initialState = State_PlantType;
+    _updateMode = NO;
+    _skipToSync = NO;
+    _plantToUpdate = NULL;
+}
+
+/**
+ * Updates the plant edit parameters from the user edit plant dict, taking the appriopriate action
+ */
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSMutableDictionary *dict = [sharedUser plantEditDict];
+    _skipToSync = [dict.allKeys containsObject:@"SkipToSync"];
+    _updateMode = [dict.allKeys containsObject:@"UpdateMode"];
+    _initialState = dict[@"InitialState"];
+    _plantToUpdate = dict[@"Plant"];
+    
+    if(_skipToSync) {
+        createdModel = _plantToUpdate;
+        [self performSegueWithIdentifier:Segue_ToSyncLink sender:self];
+    }
+    else if(_updateMode) {
+        [self addLeftNavButtonWithImageNamed:Image_Navigation_DismissButton toNavigationItem:self.navigationItem withSelector:@selector(backPushed:)];
+        [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextUpdatePushed:)];
+        
+        plantName = [[_plantToUpdate plantType] name];
+        plantTypeKey = [_plantToUpdate plantTypeKey];
+        soilName = [[_plantToUpdate soilType] name];
+        soilTypeKey = [_plantToUpdate soilTypeKey];
+        nickname = [_plantToUpdate name];
+        
+        state = _initialState;
+        [self update];
+    }
 }
 
 #pragma mark -
@@ -149,6 +183,30 @@
         if([nickname isEqualToString:@""]) [self displayErrorAlertWithMessage:Error_AddPlant_NoNickname];
         else [self addPlantRequest];
     }
+}
+
+/**
+ * If in update mode, this will perform the update request on the plant, download the new plant, and dismiss the controller
+ */
+-(void)nextUpdatePushed:(id)sender {
+    plantUpdateRequest = [[PLItemRequest alloc] init];
+    
+    NSDictionary *updateDict = @{PostKey_SoilTypeKey : [NSNumber numberWithInt:[soilTypeKey intValue]], PostKey_PlantTypeKey : [NSNumber numberWithInt:[plantTypeKey intValue]], PostKey_Name : nickname};
+    
+    [plantUpdateRequest editPlant:[_plantToUpdate pid] paramDict:updateDict withResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        if([dict isKindOfClass:[NSArray class]] && [self errorInRequestResponse:((NSArray*)dict)[0]]) return;
+        else {
+            _plantToUpdate = [PLPlantModel initWithDictionary:dict];
+            [sharedUser plantEditDict][@"Plant"] = _plantToUpdate;
+            [[sharedUser plantEditDict] removeObjectForKey:@"UpdateMode"];
+            [[sharedUser plantEditDict] removeObjectForKey:@"InitialState"];
+            
+            [sharedUser setPlantReloadTrigger:YES];
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        }
+    }];
 }
 
 /**
@@ -247,11 +305,14 @@
 }
 
 /**
- * Attemps to go to the next view when the return key is pressed
+ * Attemps to go to the next view when the return key is pressed, takes into account the update mode flag
  */
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    [self nextPushed:nil];
+    
+    if(_updateMode) [self nextUpdatePushed:nil];
+    else [self nextPushed:nil];
+    
     return YES;
 }
 

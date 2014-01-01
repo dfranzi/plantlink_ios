@@ -8,6 +8,8 @@
 
 #import "PLPlantDetailViewController.h"
 
+#import "PLUserManager.h"
+#import "PLAbstractPlantDetailCell.h"
 #import "PLPlantNameCell.h"
 #import "PLPlantDetailsCell.h"
 #import "PLPlantSoilCell.h"
@@ -15,9 +17,12 @@
 #import "PLPlantScheduleCell.h"
 #import "PLPlantLinkCell.h"
 
+#import "PLPlantSetupViewController.h"
+
 @interface PLPlantDetailViewController() {
 @private
     NSArray *plantCells;
+    BOOL editMode;
 }
 
 @end
@@ -33,6 +38,7 @@
     plantCells = Cell_PlantsAll;
     [plantTableView setBackgroundColor:Color_ViewBackground];
     [plantTableView reloadData];
+    editMode = NO;
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantTableView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
 }
@@ -42,7 +48,48 @@
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:Notification_Plant_Edit object:nil];
+    
+    [self refreshData];
+}
+
+/**
+ * Unregisters from notifications to avoid a potential memory leak
+ */
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+/**
+ * Refreshes the views data, updating with the plant edit dict if necessary
+ */
+-(void)refreshData {
+    if([sharedUser plantReloadTrigger]) {
+        _model = [sharedUser plantEditDict][@"Plant"];
+    }
     [plantTableView reloadData];
+}
+
+#pragma mark -
+#pragma mark Notification Methods
+
+/**
+ * Handles the notification recieving, updating the edit mode for the edit mode notification 
+ */
+-(void)receivedNotification:(NSNotification*)notification {
+    if([[notification name] isEqualToString:Notification_Plant_Edit]) {
+        NSNumber *editModeIndicator = (NSNumber*)[notification object];
+        editMode = [editModeIndicator boolValue];
+        
+        for(PLAbstractPlantDetailCell *cell in plantTableView.visibleCells) [cell setEditMode:editMode];
+        
+        [plantTableView beginUpdates];
+        [plantTableView endUpdates];
+    }
 }
 
 #pragma mark -
@@ -62,9 +109,10 @@
     NSString *cellIdentifier = plantCells[indexPath.row];
     PLAbstractPlantDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    if([cellIdentifier isEqualToString:Cell_PlantTitle]) [(PLPlantNameCell*)cell setEnclosingController:self];
+    [cell setEnclosingController:self];
     
     [cell setModel:_model];
+    [cell setEditMode:editMode];
     [cell updateBorder];
     
     return cell;
@@ -75,7 +123,8 @@
  */
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *infoDict = [NSMutableDictionary dictionary];
-    
+    if(editMode) infoDict[@"EditMode"] = @YES;
+        
     NSString *cellIdentifier = plantCells[indexPath.row];
     if([cellIdentifier isEqualToString:Cell_PlantTitle]) return [PLPlantNameCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantDetail]) return [PLPlantDetailsCell heightForContent:infoDict];
@@ -84,6 +133,22 @@
     else if([cellIdentifier isEqualToString:Cell_PlantSchedule]) return [PLPlantScheduleCell heightForContent:infoDict];
     else if([cellIdentifier isEqualToString:Cell_PlantLinkDetail]) return [PLPlantLinkCell heightForContent:infoDict];
     return 0;
+}
+
+#pragma mark -
+#pragma mark Segue Methods
+
+/**
+ * Prepares for the add plant segue, updating the user plant edit dict
+ */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:Segue_ToAddPlantSequence]) {
+        NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+        dictionary[@"UpdateMode"] = @YES;
+        dictionary[@"Plant"] = _model;
+        dictionary[@"InitialState"] = (NSString*)sender;
+        [sharedUser setPlantEditDict:dictionary];
+    }
 }
 
 @end

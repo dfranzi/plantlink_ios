@@ -13,10 +13,13 @@
 #define PlantInfo_InfoText @"PlantInfo-InfoText"
 
 @class PLPlantModel;
+@class PLPlantDetailViewController;
 @interface PLAbstractPlantDetailCell : UITableViewCell {
     UIView *bottomBorder;
 }
+@property(nonatomic, weak) PLPlantDetailViewController *enclosingController;
 @property(nonatomic, strong) PLPlantModel *model;
+@property(nonatomic, assign) BOOL editMode;
 
 #pragma mark -
 #pragma mark Display Methods

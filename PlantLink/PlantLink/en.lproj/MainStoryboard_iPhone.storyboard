@@ -251,7 +251,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA3-XM-6xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6314" y="1150"/>
+            <point key="canvasLocation" x="9174" y="277"/>
         </scene>
         <!--Plant Setup View Controller-->
         <scene sceneID="LUU-Zz-Vpj">
@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDY-Gx-2am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6874" y="1150"/>
+            <point key="canvasLocation" x="9734" y="277"/>
         </scene>
         <!--Location Input View Controller-->
         <scene sceneID="OtN-LO-Xvw">
@@ -665,6 +665,23 @@
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygJ-Qu-dUj" customClass="PLPlantEditButton">
+                                                    <rect key="frame" x="261" y="2" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="pencil_gray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gab-hh-D9t" customClass="PLPlantItemEditButton">
+                                                    <rect key="frame" x="18" y="54" width="25" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="pencil_gray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="plantNameEditPushed:" destination="kbB-0i-bmu" eventType="touchUpInside" id="VeJ-wC-MIf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -684,62 +701,83 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ix3-9U-syU">
-                                                    <rect key="frame" x="31" y="55" width="81" height="21"/>
+                                                    <rect key="frame" x="31" y="54" width="81" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Soil Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xtm-95-W8c">
-                                                    <rect key="frame" x="31" y="87" width="81" height="21"/>
+                                                    <rect key="frame" x="31" y="86" width="81" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yuE-RF-Vbf">
-                                                    <rect key="frame" x="31" y="118" width="81" height="21"/>
+                                                    <rect key="frame" x="31" y="117" width="81" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zOO-FQ-x0v" customClass="PLPlantItemEditButton">
+                                                    <rect key="frame" x="17" y="54" width="25" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="pencil_gray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="plantTypeEditPushed:" destination="xUr-QS-no3" eventType="touchUpInside" id="ggk-YN-xEE"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Basil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0vr-O8-XZa">
+                                                    <rect key="frame" x="120" y="54" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basil" minimumFontSize="17" id="ofE-ZN-Ole">
-                                                    <rect key="frame" x="115" y="54" width="175" height="25"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QEX-aD-hfA">
+                                                    <rect key="frame" x="120" y="86" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="xUr-QS-no3" id="yPu-hE-5nm"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basil" minimumFontSize="17" id="eDm-qx-QGg">
-                                                    <rect key="frame" x="115" y="85" width="175" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Outdoors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dtz-Xa-DJy">
+                                                    <rect key="frame" x="120" y="117" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="xUr-QS-no3" id="5KS-fc-JQF"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basil" minimumFontSize="17" id="Qrk-Pf-Rzn">
-                                                    <rect key="frame" x="115" y="116" width="175" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JKW-RG-YXW" customClass="PLPlantItemEditButton">
+                                                    <rect key="frame" x="17" y="87" width="25" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <state key="normal" image="pencil_gray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
-                                                        <outlet property="delegate" destination="xUr-QS-no3" id="W9U-bn-laB"/>
+                                                        <action selector="soilTypeEditPushed:" destination="xUr-QS-no3" eventType="touchUpInside" id="FJC-LA-1Q0"/>
                                                     </connections>
-                                                </textField>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c3G-uq-5b9" customClass="PLPlantItemEditButton">
+                                                    <rect key="frame" x="17" y="117" width="25" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="pencil_gray.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="locationEditPushed:" destination="xUr-QS-no3" eventType="touchUpInside" id="Tfd-5E-zeC"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="locationTextField" destination="Qrk-Pf-Rzn" id="0OF-6C-o5J"/>
-                                            <outlet property="plantTypeTextField" destination="ofE-ZN-Ole" id="lPO-aT-MeR"/>
-                                            <outlet property="soilTypeTextField" destination="eDm-qx-QGg" id="JWE-Tc-H3w"/>
+                                            <outlet property="locationLabel" destination="dtz-Xa-DJy" id="HDp-aT-Epd"/>
+                                            <outlet property="plantTypeLabel" destination="0vr-O8-XZa" id="rYr-Rx-WGL"/>
+                                            <outlet property="soilTypeLabel" destination="QEX-aD-hfA" id="0BE-n1-9lp"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantMoistureCell" rowHeight="127" id="hZk-Jj-ucW" customClass="PLPlantSoilCell">
@@ -844,11 +882,11 @@
                                             <outlet property="waterOnLabel" destination="jtm-gN-TZL" id="6Xi-fg-rcR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="100" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
-                                        <rect key="frame" x="0.0" y="889" width="320" height="100"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="150" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
+                                        <rect key="frame" x="0.0" y="889" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GoN-2R-mU9" id="vWt-iV-MKQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" image="linkdetails.png" id="MEN-LY-E8M">
@@ -875,6 +913,18 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CKH-v0-c8J">
+                                                    <rect key="frame" x="22" y="91" width="277" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                                    <state key="normal" title="   Disconnect Link" image="remove.png">
+                                                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="disconnectLinkPushed:" destination="GoN-2R-mU9" eventType="touchUpInside" id="4Xz-Sf-6we"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -883,28 +933,6 @@
                                             <outlet property="wifiImage" destination="wHT-tV-OsK" id="IHF-zX-Y4o"/>
                                             <outlet property="wifiLabel" destination="c9k-LE-g7y" id="jrc-sZ-RVu"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHelpCell" rowHeight="77" id="4BP-vt-gOk" customClass="PLPlantHelpCell">
-                                        <rect key="frame" x="0.0" y="989" width="320" height="77"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4BP-vt-gOk" id="iAG-dn-U8L">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="m7y-jQ-YqJ">
-                                                    <rect key="frame" x="120" y="28" width="80" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                    <state key="normal" title="Help ?">
-                                                        <color key="titleColor" red="0.27450981740000002" green="0.27450981740000002" blue="0.27450981740000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -918,6 +946,7 @@
                     <navigationItem key="navigationItem" id="IFk-T0-8Yq"/>
                     <connections>
                         <outlet property="plantTableView" destination="Zxa-lc-odh" id="Phf-C2-0I5"/>
+                        <segue destination="Sgy-ES-kN7" kind="modal" identifier="toAddPlantSequence" id="9MB-Mh-ZK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGd-BI-qSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1555,7 +1584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuY-1u-0xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7437" y="1150"/>
+            <point key="canvasLocation" x="10297" y="277"/>
         </scene>
     </scenes>
     <resources>
@@ -1565,8 +1594,10 @@
         <image name="checkmarkGray.png" width="25" height="26"/>
         <image name="linkdetails.png" width="89" height="15"/>
         <image name="moisturehistory.png" width="120" height="15"/>
+        <image name="pencil_gray.png" width="18" height="18"/>
         <image name="plantdetails.png" width="96" height="15"/>
         <image name="plantlinklogo.png" width="239" height="55"/>
+        <image name="remove.png" width="22" height="22"/>
         <image name="soilmoisture.png" width="98" height="15"/>
         <image name="wateringschedule.png" width="136" height="15"/>
         <image name="wifi_0.png" width="24" height="19"/>
@@ -1580,5 +1611,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="OkX-mA-8Vl"/>
+        <segue reference="9MB-Mh-ZK9"/>
     </inferredMetricsTieBreakers>
 </document>
