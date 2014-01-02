@@ -9,7 +9,7 @@
 #import "PLAbstractViewController.h"
 
 @class PLPlantModel;
-@interface PLPlantDetailViewController : PLAbstractViewController <UITableViewDataSource,UITableViewDelegate> {
+@interface PLPlantDetailViewController : PLAbstractViewController <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate> {
     IBOutlet UITableView *plantTableView;
 }
 @property(nonatomic, strong) PLPlantModel *model;

@@ -74,10 +74,11 @@
 #define DC_User_Name @"name"
 #define DC_User_Zipcode @"zip"
 #define DC_User_NotificationTimes @"notification_time_of_day"
+#define DC_User_SmsNumbers @"sms_phone_numbers"
 #define DC_User_iOSTokens @"ios_device_tokens"
-#define DC_User_EmailAlerts @"email_alerts"
-#define DC_User_TextAlerts @"text_alerts"
-#define DC_User_PushAlerts @"push_alerts"
+#define DC_User_EmailAlerts @"email_notifications_enabled"
+#define DC_User_TextAlerts @"sms_enabled"
+#define DC_User_PushAlerts @"push_notifications_enabled"
 
 #define DC_BaseStation_SerialNumber @"serial"
 

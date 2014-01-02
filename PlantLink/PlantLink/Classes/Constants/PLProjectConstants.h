@@ -12,7 +12,6 @@
 
 //Warning
 #warning Implement plant cell info
-#warning Implement the plant edit sequence
 #warning Implement the account notification panel
 
 //Constants

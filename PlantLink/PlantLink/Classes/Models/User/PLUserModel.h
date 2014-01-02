@@ -36,6 +36,11 @@
 @property(nonatomic, strong, readonly) NSArray *notificationTimes;
 
 /**
+ * An array of the sms information for the user
+ */
+@property(nonatomic, strong, readonly) NSArray *smsNumbers;
+
+/**
  * This iOS device tokens registered for the user
  */
 @property(nonatomic, strong) NSArray *deviceTokens;

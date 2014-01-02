@@ -56,7 +56,7 @@
 /**
  * The current moisture status of the plant
  */
-@property(nonatomic, assign, readonly) int status;
+@property(nonatomic, strong, readonly) NSString *status;
 
 /**
  * An array of PLPlantMeasurementModels indicating the most recent measurements

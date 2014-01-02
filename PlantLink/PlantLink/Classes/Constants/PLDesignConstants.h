@@ -97,4 +97,5 @@
 
 #define Image_Icon_Add @"add.png"
 #define Image_Icon_Remove @"remove.png"
+#define Image_Icon_Trash @"trash.png"
 

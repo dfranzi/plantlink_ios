@@ -59,6 +59,7 @@
  * Hides the navigation bar
  */
 -(void)viewWillAppear:(BOOL)animated {
+    [locationMapView setFrame:CGRectMake(0, 20, 320, 269)];
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -106,10 +107,13 @@
 #pragma mark Text Field Methods
 
 /**
- * Moves the text field up when editting so its not covered by the keyboard
+ * Moves the text field up when editting so its not covered by the keyboard, unless the screen is large enough
  */
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     [locationManager stopUpdatingLocation];
+    
+    if([UIScreen mainScreen].bounds.size.height == 568) return;
+    
     [UIView animateWithDuration:0.3 animations:^{
         [locationTextField setCenter:CGPointMake(160, 235)];
     }];

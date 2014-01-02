@@ -22,7 +22,7 @@
         _soilTypeKey = [NSString stringWithFormat:@"%i",[dict[DC_Plant_SoilTypeKey] intValue]];
         _environment = dict[DC_Plant_Environment];
         _pid = [NSString stringWithFormat:@"%lld",[dict[DC_Plant_PId] longLongValue]];
-        _status = [dict[DC_Plant_Status] intValue];
+        _status = dict[DC_Plant_Status];
         
         _upperMoistureThreshold = [dict[DC_Plant_UpperThreshold] floatValue];
         _lowerMoistureThreshold = [dict[DC_Plant_LowerThreshold] floatValue];
@@ -71,7 +71,7 @@
     dict[DC_Plant_SoilTypeKey] = [_soilTypeKey copyWithZone:zone];
     dict[DC_Plant_Environment] = [_environment copyWithZone:zone];
     dict[DC_Plant_PId] = [_pid copyWithZone:zone];
-    dict[DC_Plant_Status] = [NSNumber numberWithInt:_status];
+    dict[DC_Plant_Status] = [_status copyWithZone:zone];
     dict[DC_Plant_LowerThreshold] = [NSNumber numberWithFloat:_lowerMoistureThreshold];
     dict[DC_Plant_UpperThreshold] = [NSNumber numberWithFloat:_upperMoistureThreshold];
     
@@ -100,7 +100,7 @@
         _soilTypeKey = [aDecoder decodeObjectForKey:DC_Plant_SoilTypeKey];
         _environment = [aDecoder decodeObjectForKey:DC_Plant_Environment];
         _pid = [aDecoder decodeObjectForKey:DC_Plant_PId];
-        _status = [aDecoder decodeIntForKey:DC_Plant_Status];
+        _status = [aDecoder decodeObjectForKey:DC_Plant_Status];
         
         _lowerMoistureThreshold = [aDecoder decodeIntForKey:DC_Plant_LowerThreshold];
         _upperMoistureThreshold = [aDecoder decodeIntForKey:DC_Plant_UpperThreshold];
@@ -121,7 +121,7 @@
     [aCoder encodeObject:_soilTypeKey forKey:DC_Plant_SoilTypeKey];
     [aCoder encodeObject:_environment forKey:DC_Plant_Environment];
     [aCoder encodeObject:_pid forKey:DC_Plant_PId];
-    [aCoder encodeInt:_status forKey:DC_Plant_Status];
+    [aCoder encodeObject:_status forKey:DC_Plant_Status];
     
     if(_lastMeasurement) [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];
     else [aCoder encodeObject:_lastMeasurement forKey:DC_Plant_Measurement];

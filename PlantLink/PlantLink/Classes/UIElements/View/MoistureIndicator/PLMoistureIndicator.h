@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PLMoistureIndicator : UIView
-@property(nonatomic, assign) int moistureLevel;
 @property(nonatomic, assign, readonly) BOOL onLowestMoisture;
+@property(nonatomic, strong) NSString *status;
 
 @end

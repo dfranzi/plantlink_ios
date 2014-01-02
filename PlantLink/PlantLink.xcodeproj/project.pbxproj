@@ -207,6 +207,7 @@
 		CE1168A51874B3CB00E1D857 /* PLPlantEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1168A41874B3CB00E1D857 /* PLPlantEditButton.m */; };
 		CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE70EF85186F5EB50077A330 /* Security.framework */; };
 		CE9F67ED1874BD93006590CC /* PLPlantItemEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */; };
+		CE9F67F418751D06006590CC /* PLSmsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F67F318751D06006590CC /* PLSmsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -472,6 +473,8 @@
 		CE70EF85186F5EB50077A330 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE9F67EB1874BD93006590CC /* PLPlantItemEditButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantItemEditButton.h; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.h; sourceTree = "<group>"; };
 		CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantItemEditButton.m; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.m; sourceTree = "<group>"; };
+		CE9F67F218751D06006590CC /* PLSmsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSmsView.h; path = Classes/UIElements/View/SmsView/PLSmsView.h; sourceTree = "<group>"; };
+		CE9F67F318751D06006590CC /* PLSmsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSmsView.m; path = Classes/UIElements/View/SmsView/PLSmsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -564,6 +567,7 @@
 		6C370CDA17B4598B009974D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F67EE18751C17006590CC /* SmsView */,
 				6C17877E182CAA3C00AD772E /* WaterHistory */,
 				6C370CDB17B459BD009974D1 /* MoistureIndicator */,
 			);
@@ -1398,6 +1402,15 @@
 			name = PlantItemEdit;
 			sourceTree = "<group>";
 		};
+		CE9F67EE18751C17006590CC /* SmsView */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F67F218751D06006590CC /* PLSmsView.h */,
+				CE9F67F318751D06006590CC /* PLSmsView.m */,
+			);
+			name = SmsView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1651,6 +1664,7 @@
 				6C8CA3EB1756650F0019FC4B /* PLSoilModel.m in Sources */,
 				6C8CA3F1175667A80019FC4B /* PLUserManager.m in Sources */,
 				CE1168A51874B3CB00E1D857 /* PLPlantEditButton.m in Sources */,
+				CE9F67F418751D06006590CC /* PLSmsView.m in Sources */,
 				6C8CA407175668690019FC4B /* PLUserRequest.m in Sources */,
 				6C6099751843EAC100B6AB34 /* PLSettingsNotificationCell.m in Sources */,
 				6C8CA4101756692C0019FC4B /* PLAbstractViewController.m in Sources */,

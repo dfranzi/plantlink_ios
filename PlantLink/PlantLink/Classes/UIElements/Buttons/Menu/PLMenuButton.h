@@ -10,4 +10,9 @@
 
 @interface PLMenuButton : UIButton
 
+#pragma mark -
+#pragma mark Appearance Methods
+
+-(void)updateButtonAppearance;
+
 @end

@@ -17,5 +17,6 @@
 
 -(void)closeSection:(NSString*)section;
 -(void)expandSection:(NSString*)section;
+-(void)setSection:(NSString*)section toState:(NSString*)state;
 
 @end

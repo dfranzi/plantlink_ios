@@ -121,6 +121,7 @@
     
     int offset = 0;
     if([view isEqual:confirmPasswordTextField]) offset = -48;
+    if([UIScreen mainScreen].bounds.size.height == 568) offset = 0;
     
     [UIView animateWithDuration:0.3 animations:^{
         [self adjustTextFieldLocations:fields offset:offset];

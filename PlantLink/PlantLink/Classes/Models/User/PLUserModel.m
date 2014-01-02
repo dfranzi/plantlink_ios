@@ -27,11 +27,16 @@
         if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
         else _emailAlerts = NO;
         
+        if(_emailAlerts) {ZALog(@"Email on");}
+        else {ZALog(@"Email off");}
+        
         if(![dict[DC_User_TextAlerts] isEqual:[NSNull null]])_textAlerts = [dict[DC_User_TextAlerts] boolValue];
         else _textAlerts = NO;
         
         if(![dict[DC_User_PushAlerts] isEqual:[NSNull null]]) _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
         else _pushAlerts = NO;
+        
+        _smsNumbers = dict[DC_User_SmsNumbers];
     }
     return self;
 }
@@ -60,6 +65,7 @@
     dict[DC_User_Zipcode] = [_zip copyWithZone:zone];
     
     dict[DC_User_NotificationTimes] = [_notificationTimes copyWithZone:zone];
+    dict[DC_User_SmsNumbers] = [_smsNumbers copyWithZone:zone];
     
     dict[DC_User_EmailAlerts] = [NSNumber numberWithBool:_emailAlerts];
     dict[DC_User_TextAlerts] = [NSNumber numberWithBool:_textAlerts];
@@ -81,6 +87,7 @@
         _zip = [aDecoder decodeObjectForKey:DC_User_Zipcode];
         
         _notificationTimes = [aDecoder decodeObjectForKey:DC_User_NotificationTimes];
+        _smsNumbers = [aDecoder decodeObjectForKey:DC_User_SmsNumbers];
         
         _emailAlerts = [aDecoder decodeBoolForKey:DC_User_EmailAlerts];
         _textAlerts = [aDecoder decodeBoolForKey:DC_User_TextAlerts];
@@ -96,6 +103,7 @@
     [aCoder encodeObject:_zip forKey:DC_User_Zipcode];
     
     [aCoder encodeObject:_notificationTimes forKey:DC_User_NotificationTimes];
+    [aCoder encodeObject:_smsNumbers forKey:DC_User_SmsNumbers];
     
     [aCoder encodeBool:_emailAlerts forKey:DC_User_EmailAlerts];
     [aCoder encodeBool:_textAlerts forKey:DC_User_TextAlerts];

@@ -12,6 +12,7 @@
 #import "PLUserManager.h"
 #import "PLUserModel.h"
 #import "PLUserRequest.h"
+#import "PLSmsView.h"
 
 @interface PLSettingsNotificationCell() {
 @private
@@ -26,6 +27,8 @@
     BOOL emailEnabled;
     BOOL pushEnabled;
     BOOL smsEnabled;
+    
+    BOOL smsShown;
 }
 
 @end
@@ -45,6 +48,8 @@
         emailEnabled = NO;
         pushEnabled = NO;
         smsEnabled = NO;
+        
+        smsShown = YES;
     }
     return self;
 }
@@ -73,8 +78,13 @@
             [background setFrame:CGRectMake(0, 0, size.width, size.height-2)];
             [backdrop setFrame:CGRectMake(0, 0, size.width, size.height+1)];
         } completion:^(BOOL finished) {}];
+        
+        if([stateDict[State_Notifications] isEqualToString:@"ExpandMost"]) [self setButtonsToSMSMode];
+        else [self setButtonsToStandardMode];
     }
     else {
+        [self setButtonsToStandardMode];
+        
         CGSize size = [PLSettingsNotificationCell sizeForContent:stateDict];
         [UIView animateWithDuration:0.3 animations:^{
             [background setFrame:CGRectMake(0, 0, size.width, size.height-2)];
@@ -141,7 +151,48 @@
  * Called when the more button is pushed
  */
 -(IBAction)morePushed:(id)sender {
+    if(!smsShown) {
+        [[self parentViewController] setSection:State_Notifications toState:@"ExpandMost"];
+    }
+    else {
+
+    }
+}
+
+#pragma mark -
+#pragma mark Display Methods
+
+-(void)setButtonsToStandardMode {
+    smsShown = NO;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        [closeButton setFrame:CGRectMake(20.0f, 326.0f, 113.0f, 40.0f)];
+        [moreButton setFrame:CGRectMake(164.0f, 326.0f, 113.0f, 40.0f)];
+    }];
     
+    [moreButton setTitle:@"More" forState:UIControlStateNormal];
+    [self hideSmsInfo];
+}
+
+-(void)setButtonsToSMSMode {
+    smsShown = YES;
+    
+    PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+    NSNumber *offset = [NSNumber numberWithInt:40*[[[sharedUser user] smsNumbers] count]];
+    [self performSelector:@selector(adjustButtons:) withObject:offset afterDelay:0.0];
+    
+    [moreButton setTitle:@"Add Number" forState:UIControlStateNormal];
+    [self showSmsInfo];
+}
+
+-(void)adjustButtons:(NSNumber*)offset {
+    int adj = [offset intValue];
+    if(adj > 0) adj += 20;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [closeButton setFrame:CGRectMake(20.0f, 376.0f+adj, 257.0f, 40.0f)];
+        [moreButton setFrame:CGRectMake(20.0f, 326.0f+adj, 257.0f, 40.0f)];
+    }];
 }
 
 #pragma mark -
@@ -153,6 +204,7 @@
 -(void)updateInfo {
     [self updateNotificationTimes];
     [self updateNotificationTypes];
+    [self updateSMSInformation];
 }
 
 /**
@@ -187,6 +239,43 @@
     [self changeTypeButton:emailButton withBooleanFlag:emailEnabled updateServer:NO];
     [self changeTypeButton:pushButton withBooleanFlag:pushEnabled updateServer:NO];
     [self changeTypeButton:smsButton withBooleanFlag:smsEnabled updateServer:NO];
+}
+
+-(void)updateSMSInformation {
+    for(UIView *view in self.contentView.subviews) {
+        if(view.tag == 3) [view removeFromSuperview];
+    }
+
+    PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+    int index = 0;
+    for(NSDictionary *dict in [[sharedUser user] smsNumbers]) {
+        PLSmsView *view = [[PLSmsView alloc] initWithFrame:CGRectMake(20.0f, 326.0f+index*40.0f, 257.0f, 40.0f)];
+        [view setSmsInfoDict:dict];
+        view.tag = 3;
+
+        if(index % 2 == 0) [view setBackgroundColor:SHADE(255.0*0.95)];
+        else [view setBackgroundColor:SHADE(255.0*0.90)];
+        
+        [self.contentView insertSubview:view belowSubview:closeButton];
+        
+        index++;
+    }
+}
+
+-(void)showSmsInfo {
+    [UIView animateWithDuration:0.3 animations:^{
+        for(UIView *view in self.contentView.subviews) {
+            if(view.tag == 3) [view setAlpha:1.0f];
+        }
+    }];
+}
+
+-(void)hideSmsInfo {
+    [UIView animateWithDuration:0.3 animations:^{
+        for(UIView *view in self.contentView.subviews) {
+            if(view.tag == 3) [view setAlpha:0.0f];
+        }
+    }];
 }
 
 #pragma mark -
@@ -234,6 +323,10 @@
     }];
 }
 
+-(void)smsRequest:(NSString*)number add:(BOOL)add {
+    
+}
+
 #pragma mark -
 #pragma mark Display Methods
 
@@ -269,8 +362,9 @@
  * Retunrs the size for the cell in either the compressed or expanded state
  */
 +(CGSize)sizeForContent:(NSDictionary*)content {
-    if([content.allKeys containsObject:State_Notifications]) return CGSizeMake(295, 378);
-    return CGSizeMake(295, 110);
+    if([content.allKeys containsObject:State_Notifications] && [content[State_Notifications] isEqualToString:@"Expand"]) return CGSizeMake(295, 378);
+    else if([content.allKeys containsObject:State_Notifications] && [content[State_Notifications] isEqualToString:@"ExpandMost"]) return CGSizeMake(295, 578);
+    else return CGSizeMake(295, 110);
 }
 
 @end

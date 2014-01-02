@@ -87,6 +87,8 @@
     [super viewWillAppear:animated];
     
     NSMutableDictionary *dict = [sharedUser plantEditDict];
+    NSLog(@"%@",dict);
+    
     _skipToSync = [dict.allKeys containsObject:@"SkipToSync"];
     _updateMode = [dict.allKeys containsObject:@"UpdateMode"];
     _initialState = dict[@"InitialState"];
@@ -482,6 +484,7 @@
     if([[segue identifier] isEqualToString:Segue_ToSyncLink]) {
         PLSyncLinkViewController *destination = [segue destinationViewController];
         [destination setCreatedPlant:createdModel];
+        
     }
 }
 

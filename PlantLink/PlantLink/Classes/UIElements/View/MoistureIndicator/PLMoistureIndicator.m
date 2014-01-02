@@ -15,6 +15,12 @@
     UIImageView *centerCircle;
     UIImageView *rightCenterCircle;
     UIImageView *rightCircle;
+    
+    UILabel *tooDryLabel;
+    UILabel *justRightLabel;
+    UILabel *tooWetLabel;
+    
+    UILabel *messageLabel;
 }
 
 @end
@@ -71,9 +77,17 @@
     rightCenterCircle = [self addWaterCircleAtPoint:CGPointMake(center+MoistureIndicator_Offset, 20)];
     rightCircle = [self addWaterCircleAtPoint:CGPointMake(center+2*MoistureIndicator_Offset, 20)];
     
-    [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 45)];
-    [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 45)];
-    [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 45)];
+    tooDryLabel = [self addText:@"TOO DRY" atPoint:CGPointMake(center-2*MoistureIndicator_Offset, 45)];
+    justRightLabel = [self addText:@"JUST RIGHT" atPoint:CGPointMake(center, 45)];
+    tooWetLabel = [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 45)];
+    
+    messageLabel = [self addText:@"Link Missing" atPoint:CGPointMake(center, 25)];
+    [messageLabel setFrame:CGRectMake(0, 0, 240, 40)];
+    [messageLabel setCenter:CGPointMake(center, 25)];
+    [messageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:22.0]];
+    [messageLabel setTextColor:Color_CellBorder_RedTint];
+    [messageLabel setContentMode:UIViewContentModeCenter];
+    [messageLabel setNumberOfLines:2];
     
     [self setBackgroundColor:[UIColor clearColor]];
 }
@@ -93,7 +107,7 @@
 /**
  * Adds a text field at a given point with the specified text
  */
--(void)addText:(NSString*)text atPoint:(CGPoint)center {
+-(UILabel*)addText:(NSString*)text atPoint:(CGPoint)center {
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21)];
     [textLabel setBackgroundColor:[UIColor clearColor]];
     [textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.0]];
@@ -104,26 +118,61 @@
     [textLabel setCenter:center];
     [self addSubview:textLabel];
     
+    return textLabel;
+    
 }
 
 #pragma mark -
 #pragma mark Setters
 
 /**
+ * Sets the message on the moisture indicator, either a text message or a moisture number
+ */
+-(void)setStatus:(NSString*)status {
+    if([@"012345" rangeOfString:status].location != NSNotFound) {
+        NSNumber *statusNum = (NSNumber*)status;
+        [self setMoistureLevel:[statusNum intValue]];
+    }
+    else {
+        [self setStatusStr:status];
+    }
+}
+
+/**
  * Updates the moisture level by indicating the moisture with a specific water circle image
  */
 -(void)setMoistureLevel:(int)moistureLevel {
-    _moistureLevel = moistureLevel;
+    [messageLabel setAlpha:0.0f];
     
     NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
-    for(UIImageView *view in moistureCircles) [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
+    for(UIImageView *view in moistureCircles) {
+        [view setAlpha:1.0f];
+        [view setImage:[UIImage imageNamed:Image_WaterCircle_Empty]];
+    }
     
-    _onLowestMoisture = _moistureLevel == 0;
+    NSArray *labels = @[tooDryLabel,justRightLabel,tooWetLabel];
+    for(UILabel *label in labels) [label setAlpha:1.0f];
+    
+    _onLowestMoisture = moistureLevel == 0;
     if(_onLowestMoisture) [leftCircle setImage:[UIImage imageNamed:Image_WaterCircle_Red]];
-    else if(_moistureLevel == 1) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel == 2) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
-    else if(_moistureLevel == 3) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(moistureLevel == 1) [leftCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(moistureLevel == 2) [centerCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+    else if(moistureLevel == 3) [rightCenterCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
     else [rightCircle setImage:[UIImage imageNamed:Image_WaterCircle_Full]];
+}
+
+/**
+ * Updates the information on the view to display a status string, showing any options if necessary
+ */
+-(void)setStatusStr:(NSString*)statusStr {
+    [messageLabel setAlpha:1.0f];
+    [messageLabel setText:statusStr];
+    
+    NSArray *moistureSubviews = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle,tooDryLabel,justRightLabel,tooWetLabel];
+    for(UIView *view in moistureSubviews) [view setAlpha:0.0f];
+    
+    if([statusStr isEqualToString:@"Link Missing"]) [messageLabel setTextColor:Color_CellBorder_RedTint];
+    else [messageLabel setTextColor:SHADE(0.25*255.0)];
 }
 
 @end

@@ -140,21 +140,23 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     int row = indexPath.row;
-    if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification]) [self notifications];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account]) [self account];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport]) [self bugReport];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_ContactUs]) [self contactUs];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Shop]) [self shop];
-    else if([SettingsCellTitles[row] isEqualToString:SettingsTitle_Logout]) [self logout];
+    NSString *rowTitle = SettingsCellTitles[row];
     
-    if( !([SettingsCellTitles[row] isEqualToString:SettingsTitle_Notification] && [stateDict.allKeys containsObject:State_Notifications]) &&
-       !([SettingsCellTitles[row] isEqualToString:SettingsTitle_Account] && [stateDict.allKeys containsObject:State_Account]) &&
-       !([SettingsCellTitles[row] isEqualToString:SettingsTitle_BugReport] && [stateDict.allKeys containsObject:State_BugReport]) ) {
-       
+    if( !([rowTitle isEqualToString:SettingsTitle_Notification] && [stateDict.allKeys containsObject:State_Notifications]) &&
+       !([rowTitle isEqualToString:SettingsTitle_Account] && [stateDict.allKeys containsObject:State_Account]) &&
+       !([rowTitle isEqualToString:SettingsTitle_BugReport] && [stateDict.allKeys containsObject:State_BugReport]) ) {
+        
         [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         CGPoint point = collectionView.contentOffset;
         [collectionView setContentOffset:CGPointMake(point.x, point.y-20) animated:YES];
     }
+    
+    if([rowTitle isEqualToString:SettingsTitle_Notification]) [self notifications];
+    else if([rowTitle isEqualToString:SettingsTitle_Account]) [self account];
+    else if([rowTitle isEqualToString:SettingsTitle_BugReport]) [self bugReport];
+    else if([rowTitle isEqualToString:SettingsTitle_ContactUs]) [self contactUs];
+    else if([rowTitle isEqualToString:SettingsTitle_Shop]) [self shop];
+    else if([rowTitle isEqualToString:SettingsTitle_Logout]) [self logout];
 }
 
 #pragma mark -
@@ -176,7 +178,19 @@
  * Expands a given section
  */
 -(void)expandSection:(NSString*)section {
-    stateDict[section] = @"Expand";
+    if(!stateDict[section]) {
+        stateDict[section] = @"Expand";
+    
+        [self update];
+        [self animateLayoutChanges:YES];
+    }
+}
+
+/**
+ * Sets the section to a specific state
+ */
+-(void)setSection:(NSString*)section toState:(NSString*)state {
+    stateDict[section] = state;
     
     [self update];
     [self animateLayoutChanges:YES];

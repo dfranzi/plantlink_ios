@@ -56,6 +56,7 @@ static PLUserManager *sharedUser = nil;
         
         _loginType = Constant_LoginType_Login;
         _setupDict = [NSMutableDictionary dictionary];
+        _plantEditDict = [NSMutableDictionary dictionary];
         
         _addPlantTrigger = NO;
         _plantReloadTrigger = NO;

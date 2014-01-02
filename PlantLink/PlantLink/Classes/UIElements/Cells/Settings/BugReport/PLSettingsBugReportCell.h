@@ -8,7 +8,9 @@
 
 #import "PLSettingsCell.h"
 
-@interface PLSettingsBugReportCell : PLSettingsCell
+@interface PLSettingsBugReportCell : PLSettingsCell <UITextViewDelegate> {
+    IBOutlet UITextView *messageTextView;
+}
 
 #pragma mark -
 #pragma mark IBAction Methods

@@ -23,10 +23,7 @@
 -(void)setModel:(PLPlantModel *)model {
     [super setModel:model];
     
-    if([self model]) {
-        int moisture = [[self model] status];
-        [moistureIndicator setMoistureLevel:moisture];
-    }
+    if([self model]) [moistureIndicator setStatus:[[self model] status]];
 }
 
 #pragma mark -

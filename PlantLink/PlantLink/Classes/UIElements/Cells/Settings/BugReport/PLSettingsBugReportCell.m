@@ -31,7 +31,7 @@
  * Called when the submit button is pushed, attempts to submit the bug report displaying an error if necessary
  */
 -(IBAction)submitPushed:(id)sender {
-    NSString *message = @"";
+    NSString *message = messageTextView.text;
     
     if([message isEqualToString:@""]) [self displayAlertWithTitle:Alert_ErrorTitle andMessage:Alert_NoMessage];
     else {
@@ -43,6 +43,8 @@
             }
             else {
                 [self displayAlertWithTitle:Alert_SuccessTitle andMessage:Alert_SuccessMessage];
+                messageTextView.text = @"";
+                [self closePushed:nil];
             }
         }];
     }

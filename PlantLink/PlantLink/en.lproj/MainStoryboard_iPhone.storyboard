@@ -1106,6 +1106,9 @@
                                                     <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="iip-rk-4EC" id="CzY-CN-V4E"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1114,6 +1117,7 @@
                                         <size key="customSize" width="297" height="364"/>
                                         <connections>
                                             <outlet property="infoLabel" destination="EeK-d2-89q" id="f5t-Ee-74j"/>
+                                            <outlet property="messageTextView" destination="hi0-Ok-jTG" id="aWP-Bv-rAO"/>
                                             <outlet property="titleLabel" destination="KWa-Nz-5fJ" id="KbG-7J-XNa"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1148,6 +1152,11 @@
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="R6m-aP-Pcz">
                                                     <rect key="frame" x="20" y="124" width="257" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" id="Gl4-gG-ZUR">
+                                                    <rect key="frame" x="20" y="313" width="257" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -1230,24 +1239,8 @@
                                                         <action selector="eveningPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="xud-Ha-303"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghZ-K6-E5I" customClass="PLMenuButton">
-                                                    <rect key="frame" x="164" y="318" width="113" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="More">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="morePushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="77j-ar-7Jv"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f7K-eM-HUl" customClass="PLMenuButton">
-                                                    <rect key="frame" x="20" y="318" width="113" height="40"/>
+                                                    <rect key="frame" x="20" y="326" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.92941176469999998" green="0.12941176469999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1323,6 +1316,22 @@
                                                         <action selector="smsPushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="vIk-nd-Utd"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J5J-s0-KKL" customClass="PLMenuButton">
+                                                    <rect key="frame" x="163" y="326" width="113" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="More">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="morePushed:" destination="6by-Iu-WST" eventType="touchUpInside" id="h2O-nT-1Bi"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1335,7 +1344,7 @@
                                             <outlet property="eveningButton" destination="bbh-aQ-JB9" id="yml-g2-Nmv"/>
                                             <outlet property="infoLabel" destination="6u0-Zx-Nyt" id="5zU-f3-MUG"/>
                                             <outlet property="middayButton" destination="KxR-0Q-WJH" id="bn5-Fn-EDg"/>
-                                            <outlet property="moreButton" destination="ghZ-K6-E5I" id="GC2-Wm-f95"/>
+                                            <outlet property="moreButton" destination="J5J-s0-KKL" id="RNV-o9-WOv"/>
                                             <outlet property="morningButton" destination="28l-fr-kRe" id="7Gc-I9-3ej"/>
                                             <outlet property="pushButton" destination="jAY-We-ikm" id="cvd-yv-c0i"/>
                                             <outlet property="smsButton" destination="sRJ-z3-XdF" id="diO-4T-iHy"/>

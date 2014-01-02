@@ -88,7 +88,12 @@
     [nameLabel setText:title];
     NSDate *cellDate = time;
     
-    if([self distanceFromToday:cellDate sortOrder:order] == 0){
+    if(time == NULL) {
+        [self setStandardColors];
+        [dayLabel setText:@"..."];
+        [dateLabel setText:@"Calculating"];
+    }
+    else if([self distanceFromToday:cellDate sortOrder:order] == 0){
         NSString *monthStr = [GeneralMethods stringFromDate:[NSDate date] withFormat:@"MMM dd"];
         
         [dateLabel setText:monthStr];

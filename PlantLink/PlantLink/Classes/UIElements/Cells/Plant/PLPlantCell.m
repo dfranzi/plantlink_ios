@@ -71,7 +71,7 @@
     
     if(_model) {
         [nameLabel setText:[_model name]];
-        [moistureIndicator setMoistureLevel:[_model status]];
+        [moistureIndicator setStatus:[_model status]];
         
         PLPlantMeasurementModel *measurement = [_model lastMeasurement];
         if(measurement && ![measurement isEqual:[NSNull null]]) {
@@ -102,21 +102,25 @@
     NSString *dateStr = @"";
     UIColor *dateColor = [UIColor blackColor];
     NSDate *waterDate = [measurement predictedWaterDate];
-    if([self distanceFromToday:waterDate] == 0) {
-        baseStr = @"Water";
-        dateStr = @"today!";
-        dateColor = [UIColor redColor];
-    }
-    else if([self distanceFromToday:waterDate] < 7) {
-        baseStr = @"Water on";
-        dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
-    }
-    else {
-        baseStr = @"Water on";
-        dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"MMM dd"];
-    }
     
-    [self updateCellTextWithBaseStr:baseStr dateStr:dateStr andDateTextColor:dateColor];
+    if(waterDate == NULL) [waterLabel setText:@"Calculating"];
+    else {
+        if([self distanceFromToday:waterDate] == 0) {
+            baseStr = @"Water";
+            dateStr = @"today!";
+            dateColor = [UIColor redColor];
+        }
+        else if([self distanceFromToday:waterDate] < 7) {
+            baseStr = @"Water on";
+            dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"EEE"];
+        }
+        else {
+            baseStr = @"Water on";
+            dateStr = [GeneralMethods stringFromDate:waterDate withFormat:@"MMM dd"];
+        }
+        
+        [self updateCellTextWithBaseStr:baseStr dateStr:dateStr andDateTextColor:dateColor];
+    }
 }
 
 /**
