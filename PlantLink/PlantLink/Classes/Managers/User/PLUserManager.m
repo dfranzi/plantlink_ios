@@ -103,6 +103,10 @@ static PLUserManager *sharedUser = nil;
                 completion(NO);
             }
         }
+        else if(error) {
+            [self setLastUsername:@"" andPassword:@""];
+            completion(NO);
+        }
         else {
             [self registerForPush];
             [self refreshData];

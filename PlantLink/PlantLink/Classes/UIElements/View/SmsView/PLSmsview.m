@@ -12,6 +12,7 @@
 @interface PLSmsView() {
 @private
     UILabel *smsNumberLabel;
+    UIButton *removeButton;
     PLMenuButton *verifiedIndicatorButton;
 }
 
@@ -32,6 +33,16 @@
 }
 
 #pragma mark -
+#pragma mark Action Methods
+
+/**
+ * Informs the delegate the trash button was pushed, giving the sms info dict as a parameter
+ */
+-(void)trashPushed:(id)sender {
+    [[self delegate] trashPushed:_dict];
+}
+
+#pragma mark -
 #pragma mark Create Methods
 
 /**
@@ -42,7 +53,7 @@
     [smsNumberLabel setBackgroundColor:[UIColor clearColor]];
     [smsNumberLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:16.0]];
     [smsNumberLabel setTextColor:[UIColor blackColor]];
-    [smsNumberLabel setText:@"(224) 766-9663"];
+    [smsNumberLabel setText:@"(xxx) xxx-xxxx"];
     [self addSubview:smsNumberLabel];
 }
 
@@ -50,10 +61,11 @@
  * Creates the remove button
  */
 -(void)createRemoveButton {
-    _removeButton = [[UIButton alloc] initWithFrame:CGRectMake(220.0f, 0.0f, 40.0f, 40.0f)];
-    [_removeButton setContentMode:UIViewContentModeScaleAspectFill];
-    [_removeButton setImage:[UIImage imageNamed:Image_Icon_Trash] forState:UIControlStateNormal];
-    [self addSubview:_removeButton];
+    removeButton = [[UIButton alloc] initWithFrame:CGRectMake(220.0f, 0.0f, 40.0f, 40.0f)];
+    [removeButton setContentMode:UIViewContentModeScaleAspectFill];
+    [removeButton setImage:[UIImage imageNamed:Image_Icon_Trash] forState:UIControlStateNormal];
+    [removeButton addTarget:self action:@selector(trashPushed:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:removeButton];
 }
 
 /**
@@ -75,8 +87,10 @@
 /**
  * Updates the sms view to the information dictionary
  */
--(void)setSmsInfoDict:(NSDictionary*)dict {
-    smsNumberLabel = dict[@"formatted_string"];
+-(void)setDict:(NSDictionary *)dict {
+    _dict = dict;
+    
+    [smsNumberLabel setText:dict[@"formatted_string"]];
     [verifiedIndicatorButton setTitle:dict[@"status"] forState:UIControlStateNormal];
     if(![dict[@"status"] isEqualToString:@"unverified"]) [verifiedIndicatorButton setHighlighted:YES];
 }

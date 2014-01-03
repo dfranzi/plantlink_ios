@@ -12,10 +12,11 @@
 #import "PLUserManager.h"
 #import "PLUserModel.h"
 #import "PLUserRequest.h"
-#import "PLSmsView.h"
+#import "PLMenuButton.h"
 
 @interface PLSettingsNotificationCell() {
 @private
+    PLUserRequest *smsRequest;
     PLUserRequest *notificationTimeRequest;
     PLUserRequest *notificationTypeRequest;
     
@@ -148,43 +149,76 @@
 }
 
 /**
- * Called when the more button is pushed
+ * Called when the more button is pushed, either expanding the view or showing the add number alert
  */
 -(IBAction)morePushed:(id)sender {
-    if(!smsShown) {
-        [[self parentViewController] setSection:State_Notifications toState:@"ExpandMost"];
-    }
+    if(!smsShown) [[self parentViewController] setSection:State_Notifications toState:@"ExpandMost"];
     else {
+        UIAlertView *smsAlert = [[UIAlertView alloc] initWithTitle:@"Add Number" message:@"Please enter your phone number using only numbers." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Submit", nil];
+        [smsAlert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [smsAlert show];
+    }
+}
 
+#pragma mark -
+#pragma mark Alert Methods
+
+/**
+ * Called when a alert button is clicked, trying to add the number if it is all numeric characters
+ */
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if([alertView cancelButtonIndex] != buttonIndex) {
+        NSString *phoneNum = [[alertView textFieldAtIndex:0] text];
+        if([phoneNum rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound) {
+            [self addSmsNumberRequest:phoneNum];
+        }
+        else {
+            UIAlertView *invalidPhoneAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Number:" message:@"The number you have entered is invalid. Please try again." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [invalidPhoneAlert show];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark Display Methods
 
+/**
+ * Sets the buttons and view to the standard view mode
+ */
 -(void)setButtonsToStandardMode {
     smsShown = NO;
 
     [UIView animateWithDuration:0.3 animations:^{
         [closeButton setFrame:CGRectMake(20.0f, 326.0f, 113.0f, 40.0f)];
         [moreButton setFrame:CGRectMake(164.0f, 326.0f, 113.0f, 40.0f)];
+    } completion:^(BOOL finished) {
+        [moreButton updateButtonAppearance];
+        [closeButton updateButtonAppearance];
     }];
     
     [moreButton setTitle:@"More" forState:UIControlStateNormal];
     [self hideSmsInfo];
 }
 
+/**
+ * Sets the buttons and view to the sms view mode
+ */
 -(void)setButtonsToSMSMode {
     smsShown = YES;
     
     PLUserManager *sharedUser = [PLUserManager initializeUserManager];
     NSNumber *offset = [NSNumber numberWithInt:40*[[[sharedUser user] smsNumbers] count]];
+    
+    //No idea why this is needed, more button refused to changed frame without this call....
     [self performSelector:@selector(adjustButtons:) withObject:offset afterDelay:0.0];
     
     [moreButton setTitle:@"Add Number" forState:UIControlStateNormal];
     [self showSmsInfo];
 }
 
+/**
+ * Adjusts the buttons with a given offset for the sms view mode
+ */
 -(void)adjustButtons:(NSNumber*)offset {
     int adj = [offset intValue];
     if(adj > 0) adj += 20;
@@ -192,7 +226,72 @@
     [UIView animateWithDuration:0.3 animations:^{
         [closeButton setFrame:CGRectMake(20.0f, 376.0f+adj, 257.0f, 40.0f)];
         [moreButton setFrame:CGRectMake(20.0f, 326.0f+adj, 257.0f, 40.0f)];
+    } completion:^(BOOL finished) {
+        [moreButton updateButtonAppearance];
+        [closeButton updateButtonAppearance];
     }];
+}
+
+/**
+ * Adds a number with an sms dict to the view, creating the sms view and animating the view change
+ */
+-(void)addNumberWithDict:(NSDictionary*)dict {
+    PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+    [[[sharedUser user] smsNumbers] addObject:dict];
+    
+    int index = 0;
+    for(UIView *smsView in self.contentView.subviews) {
+        if(smsView.tag == 3) index++;
+    }
+    
+    PLSmsView *view = [[PLSmsView alloc] initWithFrame:CGRectMake(20.0f, 326.0f+index*40.0f, 257.0f, 40.0f)];
+    [view setDict:dict];
+    [view setDelegate:self];
+    view.tag = 3;
+    [view setAlpha:0.0f];
+
+    if(index % 2 == 0) [view setBackgroundColor:SHADE(255.0*0.95)];
+    else [view setBackgroundColor:SHADE(255.0*0.90)];
+    
+    [self.contentView insertSubview:view belowSubview:closeButton];
+    
+    //No idea why this is needed, more button refused to changed frame without this call....
+    [self performSelector:@selector(adjustButtons:) withObject:[NSNumber numberWithInt:40*(index+1)] afterDelay:0.0];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [view setAlpha:1.0f];
+    }];
+    
+    [[self parentViewController] setSection:State_Notifications toState:@"ExpandMost"];
+}
+
+/**
+ * Removes a number with a given number key, animating the view updates
+ */
+-(void)removeNumberWithKey:(NSString*)key {
+    PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+    NSMutableArray *newSms = [NSMutableArray array];
+    for(NSDictionary *dict in [[sharedUser user] smsNumbers]) {
+        NSString *dictKey = [NSString stringWithFormat:@"%llu",[dict[@"key"] longLongValue]];
+        if(![dictKey isEqualToString:key]) {
+            [newSms addObject:dict];
+        }
+    }
+
+    [[sharedUser user] setSmsNumbers:newSms];
+    [UIView animateWithDuration:0.3 animations:^{
+        for(UIView *smsView in self.contentView.subviews) {
+            if(smsView.tag == 3) [smsView setAlpha:0.0f];
+        }
+    } completion:^(BOOL finished) {
+        [self updateSMSInformation];
+        for(UIView *smsView in self.contentView.subviews) {
+            if(smsView.tag == 3) [smsView setAlpha:0.0f];
+        }
+        [self showSmsInfo];
+    }];
+    
+    [[self parentViewController] setSection:State_Notifications toState:@"ExpandMost"];
 }
 
 #pragma mark -
@@ -241,6 +340,9 @@
     [self changeTypeButton:smsButton withBooleanFlag:smsEnabled updateServer:NO];
 }
 
+/**
+ * Removes the sms views and adds new ones with the current sms information
+ */
 -(void)updateSMSInformation {
     for(UIView *view in self.contentView.subviews) {
         if(view.tag == 3) [view removeFromSuperview];
@@ -250,7 +352,8 @@
     int index = 0;
     for(NSDictionary *dict in [[sharedUser user] smsNumbers]) {
         PLSmsView *view = [[PLSmsView alloc] initWithFrame:CGRectMake(20.0f, 326.0f+index*40.0f, 257.0f, 40.0f)];
-        [view setSmsInfoDict:dict];
+        [view setDict:dict];
+        [view setDelegate:self];
         view.tag = 3;
 
         if(index % 2 == 0) [view setBackgroundColor:SHADE(255.0*0.95)];
@@ -262,6 +365,9 @@
     }
 }
 
+/**
+ * Animates in the sms information
+ */
 -(void)showSmsInfo {
     [UIView animateWithDuration:0.3 animations:^{
         for(UIView *view in self.contentView.subviews) {
@@ -270,6 +376,9 @@
     }];
 }
 
+/**
+ * Animates out the sms information
+ */
 -(void)hideSmsInfo {
     [UIView animateWithDuration:0.3 animations:^{
         for(UIView *view in self.contentView.subviews) {
@@ -294,7 +403,6 @@
     if(eveningNotifications) [times addObject:@20];
     
     [notificationTimeRequest updateUser:@{PostKey_Notifications : times} withResponse:^(NSData *data, NSError *error) {
-        ZALog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
         [sharedUser refreshData];
     }];
@@ -317,14 +425,52 @@
     else types[PostKey_SMSEnabled] = @NO;
     
     [notificationTypeRequest updateUser:types withResponse:^(NSData *data, NSError *error) {
-        ZALog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
         [sharedUser refreshData];
     }];
 }
 
--(void)smsRequest:(NSString*)number add:(BOOL)add {
-    
+/**
+ * Performs the add sms number request for a given number
+ */
+-(void)addSmsNumberRequest:(NSString*)number {
+    smsRequest = [[PLUserRequest alloc] init];
+    [smsRequest addSmsNumber:number withResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}
+            else [self addNumberWithDict:dict];
+        }
+        else [self addNumberWithDict:dict];
+    }];
+}
+
+/**
+ * Performs the remove sms number request for a given number
+ */
+-(void)removeSmsNumberRequestWithKey:(NSString*)key {
+    smsRequest = [[PLUserRequest alloc] init];
+    [smsRequest removeSmsNumberWithKey:key withResponse:^(NSData *data, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([(NSArray*)dict count] && [self errorInRequestResponse:((NSArray*)dict)[0]]) {}
+            else [self removeNumberWithKey:key];
+        }
+        else [self removeNumberWithKey:key];
+    }];
+}
+
+#pragma mark -
+#pragma mark SMS Delegate Methods
+
+/**
+ * Called when the trash icon was pushed on a sms view, including the numbers sms dict
+ */
+-(void)trashPushed:(NSDictionary *)smsDict {
+    NSString *key = [NSString stringWithFormat:@"%llu",[smsDict[@"key"] longLongValue]];
+    [self removeSmsNumberRequestWithKey:key];
 }
 
 #pragma mark -
@@ -363,7 +509,11 @@
  */
 +(CGSize)sizeForContent:(NSDictionary*)content {
     if([content.allKeys containsObject:State_Notifications] && [content[State_Notifications] isEqualToString:@"Expand"]) return CGSizeMake(295, 378);
-    else if([content.allKeys containsObject:State_Notifications] && [content[State_Notifications] isEqualToString:@"ExpandMost"]) return CGSizeMake(295, 578);
+    else if([content.allKeys containsObject:State_Notifications] && [content[State_Notifications] isEqualToString:@"ExpandMost"]) {
+        PLUserManager *sharedUser = [PLUserManager initializeUserManager];
+        int offset = [[[sharedUser user] smsNumbers] count]*40.0;
+        return CGSizeMake(295, 378+90+offset);
+    }
     else return CGSizeMake(295, 110);
 }
 

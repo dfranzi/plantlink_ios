@@ -38,7 +38,7 @@
 /**
  * An array of the sms information for the user
  */
-@property(nonatomic, strong, readonly) NSArray *smsNumbers;
+@property(nonatomic, strong) NSMutableArray *smsNumbers;
 
 /**
  * This iOS device tokens registered for the user

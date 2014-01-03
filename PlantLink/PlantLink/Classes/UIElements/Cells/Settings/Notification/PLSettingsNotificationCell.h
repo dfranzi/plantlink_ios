@@ -7,8 +7,10 @@
 //
 
 #import "PLSettingsCell.h"
+#import "PLSmsView.h"
 
-@interface PLSettingsNotificationCell : PLSettingsCell {    
+@class PLMenuButton;
+@interface PLSettingsNotificationCell : PLSettingsCell <UIAlertViewDelegate,SmsViewDelegate> {
     IBOutlet UIButton *morningButton;
     IBOutlet UIButton *middayButton;
     IBOutlet UIButton *afternoonButton;
@@ -18,8 +20,8 @@
     IBOutlet UIButton *pushButton;
     IBOutlet UIButton *smsButton;
     
-    IBOutlet UIButton *closeButton;
-    IBOutlet UIButton *moreButton;
+    IBOutlet PLMenuButton *closeButton;
+    IBOutlet PLMenuButton *moreButton;
 }
 
 #pragma mark -

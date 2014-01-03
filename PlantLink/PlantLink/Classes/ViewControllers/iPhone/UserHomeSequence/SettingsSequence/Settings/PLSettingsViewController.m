@@ -93,7 +93,7 @@
 }
 
 #pragma mark -
-#pragma mark TableView Methods
+#pragma mark Collection View Methods
 
 /**
  * Returns the number of settings cell the display

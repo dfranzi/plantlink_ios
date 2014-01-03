@@ -86,12 +86,4 @@
     }
 }
 
-/**
- * Adjusts the view to make sure the frame change perserves the proper corner radii
- */
--(void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    [self updateButtonAppearance];
-}
-
 @end

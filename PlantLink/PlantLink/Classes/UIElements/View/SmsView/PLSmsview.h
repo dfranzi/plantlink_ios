@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SmsViewDelegate <NSObject>
+@required
+-(void)trashPushed:(NSDictionary*)smsDict;
+@end
+
 @interface PLSmsView : UIView
-@property(nonatomic, strong, readonly) UIButton *removeButton;
-
-#pragma mark -
-#pragma mark Information Methods
-
--(void)setSmsInfoDict:(NSDictionary*)dict;
+@property(nonatomic, strong) id <SmsViewDelegate> delegate;
+@property(nonatomic, strong) NSDictionary *dict;
 
 @end

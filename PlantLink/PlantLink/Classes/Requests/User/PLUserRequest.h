@@ -54,4 +54,18 @@
  */
 -(void)updateUser:(NSDictionary*)updates withResponse:(void(^) (NSData *data, NSError *error))response;
 
+#pragma mark -
+#pragma mark SMS Methods
+
+/**
+ * Adds a phone number on the current users account
+ */
+-(void)addSmsNumber:(NSString*)number withResponse:(void(^) (NSData *data, NSError *error))response;
+
+/**
+ * Removes a phone number on the current users account
+ */
+-(void)removeSmsNumberWithKey:(NSString*)key withResponse:(void(^) (NSData *data, NSError *error))response;
+
+
 @end

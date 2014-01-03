@@ -118,4 +118,30 @@
     }];
 }
 
+#pragma mark -
+#pragma mark SMS Methods
+
+-(void)addSmsNumber:(NSString*)number withResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *url = [URLStr_Base stringByAppendingString:URLStr_Phone];
+    [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+        
+        NSData *data = [NSJSONSerialization dataWithJSONObject:@{PostKey_SMSNumber : number} options:NSJSONWritingPrettyPrinted error:nil];
+        [request setHTTPBody:data];
+        
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
+-(void)removeSmsNumberWithKey:(NSString*)key withResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *ext = [NSString stringWithFormat:URLStr_Phone_Id,key];
+    NSString *url = [URLStr_Base stringByAppendingString:ext];
+    [self getUrlStr:url withMethod:HTTP_Delete withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
 @end

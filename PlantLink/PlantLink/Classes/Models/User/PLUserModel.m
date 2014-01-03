@@ -36,7 +36,7 @@
         if(![dict[DC_User_PushAlerts] isEqual:[NSNull null]]) _pushAlerts = [dict[DC_User_PushAlerts] boolValue];
         else _pushAlerts = NO;
         
-        _smsNumbers = dict[DC_User_SmsNumbers];
+        _smsNumbers = [NSMutableArray arrayWithArray:dict[DC_User_SmsNumbers]];
     }
     return self;
 }

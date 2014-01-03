@@ -29,6 +29,8 @@
 #define URLStr_Link @"/links"
 #define URLStr_LinkSerial @"/links/%@"
 
+#define URLStr_Phone @"/smsPhoneNumbers"
+#define URLStr_Phone_Id @"/smsPhoneNumbers/%@"
 #define URLStr_Valve @"/valve"
 
 #define URLStr_Measurement @"/measurement"
@@ -52,6 +54,7 @@
 #define PostKey_EmailEnabled @"email_notifications_enabled"
 #define PostKey_PushEnabled @"push_notifications_enabled"
 #define PostKey_SMSEnabled @"sms_enabled"
+#define PostKey_SMSNumber @"phone_number"
 
 #define PostKey_EmailAlerts @"email_alerts"
 #define PostKey_TextAlerts @"text_alerts"
