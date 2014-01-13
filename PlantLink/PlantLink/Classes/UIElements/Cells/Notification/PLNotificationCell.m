@@ -57,6 +57,7 @@
     [nameLabel setTextColor:[UIColor blackColor]];
     [nameLabel setAdjustsFontSizeToFitWidth:YES];
     [nameLabel setMinimumScaleFactor:0.8];
+    [nameLabel setBackgroundColor:[UIColor clearColor]];
     [nameLabel setNumberOfLines:0];
     [self addSubview:nameLabel];
     
@@ -64,12 +65,14 @@
     [dateLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0]];
     [dateLabel setTextColor:[UIColor blackColor]];
     dateLabel.textAlignment = NSTextAlignmentCenter;
+    [dateLabel setBackgroundColor:[UIColor clearColor]];
     [self addSubview:dateLabel];
     
     dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 14, 91, 34)];
     [dayLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:28.0]];
     [dayLabel setTextColor:[UIColor blackColor]];
     dayLabel.textAlignment = NSTextAlignmentCenter;
+    [dayLabel setBackgroundColor:[UIColor clearColor]];
     [self addSubview:dayLabel];
     
     separatorView = [[UIView alloc] initWithFrame:CGRectMake(110, 14, 1, 57)];
@@ -160,6 +163,8 @@
 +(NSString*)displayTextForNotification:(PLNotificationModel*)notification {
     PLPlantModel *plant = [PLPlantModel initWithDictionary:[notification linkedObjectDictionary]];
     NSString *format = Notification_DisplayStrDict[[notification kind]];
+
+    if(format == NULL || [plant name] == NULL) return @"Unknown notification";
     return [NSString stringWithFormat:format,[plant name]];
 }
 

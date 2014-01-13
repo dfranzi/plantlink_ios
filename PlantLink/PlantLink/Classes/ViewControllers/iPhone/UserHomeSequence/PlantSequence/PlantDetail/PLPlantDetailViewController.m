@@ -57,12 +57,12 @@
     
     if([[_model status] isEqualToString:@"Link Missing"] && !firstAlertFlag) {
         firstAlertFlag = YES;
-        UIAlertView *missingAlert = [[UIAlertView alloc] initWithTitle:@"Check Your Link" message:@"Your link cannot be reached, please make sure it is charged and in range of the base station" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *missingAlert = [[UIAlertView alloc] initWithTitle:@"Check Your Link" message:@"Your Link cannot be reached, please make sure it has battery and in range of the BaseStation" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [missingAlert show];
     }
     else if([[_model status] isEqualToString:@"No Link"] && !firstAlertFlag) {
         firstAlertFlag = YES;
-        UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle:@"Sync your Plant Link?" message:@"This plant is not synced with a Plant Link. Would you like to sync it now?" delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Sync Now", nil];
+        UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle:@"Sync your Link?" message:@"This plant is not synced with a Link. Would you like to sync it now?" delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Sync Now", nil];
         [syncAlert show];
     }
     else if(firstAlertFlag) {
