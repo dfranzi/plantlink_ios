@@ -12,13 +12,6 @@
 #import "PLNotificationModel.h"
 #import "PLPlantModel.h"
 
-@interface PLNotificationCell() {
-    
-    UIView *background;
-    UIView *backdrop;
-}
-@end
-
 @implementation PLNotificationCell
 
 /**
@@ -26,7 +19,8 @@
  */
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]) {
-        CGSize size = [PLNotificationCell sizeForContent:@{}];
+        CGSize size = [[self class] sizeForContent:@{}];
+        
         background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-2)];
         [background setBackgroundColor:[UIColor whiteColor]];
         [background.layer setCornerRadius:3.0];
@@ -131,8 +125,8 @@
  * Updates the cell to the highlighted color scheme
  */
 -(void)setHighlightColors {
-    [background setBackgroundColor:[UIColor redColor]];
-    [backdrop setBackgroundColor:Color_CellBorder_RedTint];
+    [background setBackgroundColor:Color_PlantLinkRed];
+    [backdrop setBackgroundColor:Color_PlantLinkRed_Dark];
     
     [nameLabel setTextColor:[UIColor whiteColor]];
     [dayLabel setTextColor:[UIColor whiteColor]];
@@ -147,11 +141,11 @@
  * Returns the distance from today as an int number of days, returning 0 for negative ints based on the sort order
  */
 -(int)distanceFromToday:(NSDate*)date sortOrder:(int)order {
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit fromDate:[NSDate date] toDate:date options:0];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *todayComponent = [calendar components:NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *dateComponent = [calendar components:NSDayCalendarUnit fromDate:date];
     
-    if([[NSDate date] compare:date] == order) return 0;
-    return [components day];
+    return abs([todayComponent day] - [dateComponent day]);
 }
 
 #pragma mark -

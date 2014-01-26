@@ -36,20 +36,27 @@
 #define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail]
 
 //Colors
-#define Color_ViewBackground RGB(240.0,245.0,238.0)
+#define Color_PlantLinkGreen RGB(12.0,148.0,67.0)
+#define Color_PlantLinkBrown RGB(122.0,93.0,60.0)
+#define Color_PlantLinkBlue RGB(5.0,173.0,239.0)
+#define Color_PlantLinkRed RGB(227.0,23.0,14.0)
+
+#define Color_PlantLinkBlue_Dark RGB(0.0,133.0,199.0)
+#define Color_PlantLinkRed_Dark RGB(187.0,0.0,0.0)
+
+#define Color_PlantLinkTitle SHADE(82.0)
+#define Color_PlantLinkSubtitle SHADE(214.0)
+#define Color_PlantLinkBackground SHADE(242.0)
+
+#define Color_ViewBackground RGB(255.0,255.0,255.0)
 
 #define Color_TabBar_Background SHADE(250.0)
-#define Color_NavBar_Background RGB(0.0,174.0,240.0)
-
 #define Color_MenuButton_Up RGB(75.0,176.0,227.0)
-#define Color_MenuButton_Down RGB(65.0,166.0,217.0)
+#define Color_MenuButton_Down RGB(0.0,166.0,217.0)
 
 #define Color_CellBorder SHADE(220.0)
-#define Color_CellBorder_RedTint RGB(220.0,0.0,0.0)
-
 #define Color_Notification_OptionBackground SHADE(59.0)
 #define Color_Notification_SelectedBackground RGB(57.0,182.0,84.0)
-
 #define Color_TextField_Border RGB(215.0, 230.0, 226.0)
 
 //Images
@@ -71,15 +78,6 @@
 #define Image_WaterCircle_Empty @"plantWaterCircle-Empty@2x.png"
 #define Image_WaterCircle_Full @"plantWaterCircle-Full@2x.png"
 #define Image_WaterCircle_Red @"plantWaterCircle-Red@2x.png"
-
-#define Image_Tab_Leaf @"leafIcon.png"
-#define Image_Tab_LeafHighlighted @"leafIconHighlighted.png"
-#define Image_Tab_Schedule @"scheduleIcon.png"
-#define Image_Tab_ScheduleHighlighted @"scheduleIconHighlighted.png"
-#define Image_Tab_Clock @"clockIcon.png"
-#define Image_Tab_ClockHighlighted @"clockIconHighlighted.png"
-#define Image_Tab_Settings @"settingsIcon.png"
-#define Image_Tab_SettingsHighlighted @"settingsIconHighlighted.png"
 
 #define Image_Info_On @"info-on.png"
 #define Image_Info_Off @"info-off.png"

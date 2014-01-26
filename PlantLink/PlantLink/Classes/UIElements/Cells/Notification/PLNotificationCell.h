@@ -17,18 +17,27 @@
     UILabel *dayLabel;
     
     UIView *separatorView;
+    
+    @protected
+    UIView *background;
+    UIView *backdrop;
 }
+
+/**
+ * Initializes the required labels for the cell programatically
+ */
+-(void)addLabels;
 
 #pragma mark -
 #pragma mark Notification Methods
 
 /**
- *
+ * Sets the notification title, time, and sort order
  */
 -(void)setNotificationTitle:(NSString*)title andTime:(NSDate*)time sortOrder:(int)order;
 
 /**
- *
+ * Sets the display text for the notification
  */
 +(NSString*)displayTextForNotification:(PLNotificationModel*)notification;
 

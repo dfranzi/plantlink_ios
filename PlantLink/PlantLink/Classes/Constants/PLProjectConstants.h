@@ -10,10 +10,6 @@
 #import "PLDesignConstants.h"
 #import "PLRequestConstants.h"
 
-//Warning
-#warning Implement plant cell info
-#warning Implement the account notification panel
-
 //Constants
 #define Constant_KeyChainItem @"Keychain-ZA-Oso"
 
@@ -107,7 +103,7 @@
 #define SettingsTitle_Logout @"Logout"
 
 #define SettingsLabel_Notification @"Change the way you are notified"
-#define SettingsLabel_Account @"Change the account email and password"
+#define SettingsLabel_Account @"Change email and password"
 #define SettingsLabel_BugReport @"Let us know about a possible bug"
 #define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
 #define SettingsLabel_Shop @"Buy extra plant links"

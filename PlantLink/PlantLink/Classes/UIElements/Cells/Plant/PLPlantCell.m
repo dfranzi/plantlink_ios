@@ -56,6 +56,7 @@
         [separatorView setFrame:CGRectMake(18.0, 130.0, 198.0, 1.0)];
         
         originalCenter = self.contentView.center;
+        
     }
     return self;
 }

@@ -50,7 +50,6 @@ static PLUserManager *sharedUser = nil;
         _loggedIn = NO;
         _user = NULL;
         
-        _plants = [NSMutableArray array];
         _soilTypes = [NSMutableArray array];
         _plantTypes = [NSMutableArray array];
         
@@ -98,7 +97,8 @@ static PLUserManager *sharedUser = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([dict isKindOfClass:[NSArray class]]) {
-            if([dict.allKeys containsObject:@"severity"] && [dict[@"severity"] isEqualToString:@"Error"]) {
+            NSDictionary *error = ((NSArray*)dict)[0];
+            if([error.allKeys containsObject:@"severity"] && [error[@"severity"] isEqualToString:@"Error"]) {
                 [self setLastUsername:@"" andPassword:@""];
                 completion(NO);
             }
@@ -109,7 +109,7 @@ static PLUserManager *sharedUser = nil;
         }
         else {
             [self registerForPush];
-            [self refreshData];
+            [self refreshUserData];
             completion(YES);
         }
     }];
@@ -122,20 +122,12 @@ static PLUserManager *sharedUser = nil;
 #pragma mark -
 #pragma mark User Methods
 
--(void)refreshData {
+-(void)refreshUserData {
     userRequest = [[PLUserRequest alloc] init];
     [userRequest getUserWithResponse:^(NSData *data, NSError *error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         _user = [PLUserModel initWithDictionary:dict];
         userRequest = NULL;
-    }];
-    
-    
-    plantRequest = [[PLItemRequest alloc] init];
-    [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        _plants = [PLPlantModel modelsFromArrayOfDictionaries:array];
-        plantRequest = NULL;
     }];
 }
 
@@ -157,8 +149,7 @@ static PLUserManager *sharedUser = nil;
 
 -(void)logout {
     _user = NULL;
-    _plants = [NSMutableArray array];
-    
+
     logoutRequest = [[PLUserRequest alloc] init];
     [logoutRequest logoutWithResponse:^(NSData *data, NSError *error) {}];
     [self setLastUsername:@"" andPassword:@""];

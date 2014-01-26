@@ -29,9 +29,9 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTabBarIconActive:Image_Tab_SettingsHighlighted passive:Image_Tab_Settings];
+    [settingsCollectionView setBackgroundColor:Color_PlantLinkBackground];
+    //[self setTabBarIconActive:Image_Tab_SettingsHighlighted passive:Image_Tab_Settings];
     
-    [settingsCollectionView setBackgroundColor:Color_ViewBackground];
     stateDict = [NSMutableDictionary dictionary];
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];

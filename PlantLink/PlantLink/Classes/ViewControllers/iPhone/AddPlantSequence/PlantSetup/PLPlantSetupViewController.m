@@ -156,11 +156,11 @@
 -(void)backPushed:(id)sender {
     [self.view endEditing:YES];
     
-    if([state isEqualToString:State_Nickname]) {
+    if([state isEqualToString:State_Nickname] && !_updateMode) {
         state = State_SoilType;
         [self update];
     }
-    else if([state isEqualToString:State_SoilType]) {
+    else if([state isEqualToString:State_SoilType] && !_updateMode) {
         state = State_PlantType;
         [self update];
     }
@@ -249,12 +249,14 @@
  * Perfomrs the app plant request
  */
 -(void)addPlantRequest {
+    __block PLPlantSetupViewController *controller = self;
+    
     plantRequest = [[PLItemRequest alloc] init];
     [plantRequest addPlant:nickname type:plantTypeKey inSoil:soilTypeKey withResponse:^(NSData *data, NSError *error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
-        createdModel = [[PLPlantModel alloc] initWithDictionary:dict];
-        [self performSegueWithIdentifier:Segue_ToSyncLink sender:self];
+        controller->createdModel = [[PLPlantModel alloc] initWithDictionary:dict];
+        [controller performSegueWithIdentifier:Segue_ToSyncLink sender:controller];
     }];
 }
 

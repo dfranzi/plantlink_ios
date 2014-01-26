@@ -404,7 +404,7 @@
     
     [notificationTimeRequest updateUser:@{PostKey_Notifications : times} withResponse:^(NSData *data, NSError *error) {
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
-        [sharedUser refreshData];
+        [sharedUser refreshUserData];
     }];
 }
 
@@ -426,7 +426,7 @@
     
     [notificationTypeRequest updateUser:types withResponse:^(NSData *data, NSError *error) {
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
-        [sharedUser refreshData];
+        [sharedUser refreshUserData];
     }];
 }
 
@@ -434,15 +434,17 @@
  * Performs the add sms number request for a given number
  */
 -(void)addSmsNumberRequest:(NSString*)number {
+    __block PLSettingsNotificationCell *cell = self;
+    
     smsRequest = [[PLUserRequest alloc] init];
     [smsRequest addSmsNumber:number withResponse:^(NSData *data, NSError *error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
 
         if([dict isKindOfClass:[NSArray class]]) {
-            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}
-            else [self addNumberWithDict:dict];
+            if([cell errorInRequestResponse:((NSArray*)dict)[0]]) {}
+            else [cell addNumberWithDict:dict];
         }
-        else [self addNumberWithDict:dict];
+        else [cell addNumberWithDict:dict];
     }];
 }
 

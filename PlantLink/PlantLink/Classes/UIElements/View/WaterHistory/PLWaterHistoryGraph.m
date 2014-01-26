@@ -79,7 +79,7 @@
     lowerThresholdHeight = self.frame.size.height - (int)floorf(lowerThresholdHeight*self.frame.size.height);
 
     // Sets the fill color and draws the two red moisture indicator rectangles
-    CGContextSetFillColorWithColor(context, RGB(253.0, 233.0, 241.0).CGColor);
+    CGContextSetFillColorWithColor(context, Color_PlantLinkBackground.CGColor);
     CGContextFillRect(context, CGRectMake(0, 0, self.frame.size.width, upperThresholdHieght));
     CGContextFillRect(context, CGRectMake(0, lowerThresholdHeight, self.frame.size.width, self.frame.size.height - lowerThresholdHeight));
     
@@ -90,7 +90,7 @@
         CGContextAddLineToPoint(context, self.frame.size.width,[num intValue]);
 
         CGContextSetLineWidth(context, 1);
-        CGContextSetStrokeColorWithColor(context, RGB(192.0, 192.0, 192.0).CGColor);
+        CGContextSetStrokeColorWithColor(context, Color_PlantLinkSubtitle.CGColor);
         CGContextStrokePath(context);
 
     }
@@ -113,14 +113,14 @@
             CGContextMoveToPoint(context, increment*i+half, m1 );
             CGContextAddCurveToPoint(context, increment*i+half, m1, increment*(i+1)+half, m2, increment*(i+1)+half, m2);
             CGContextSetLineWidth(context, 2);
-            CGContextSetStrokeColorWithColor(context, RGB(38.0, 171.0, 220.0).CGColor);
+            CGContextSetStrokeColorWithColor(context, Color_PlantLinkSubtitle.CGColor);
             CGContextStrokePath(context);
 
         }
     }
     
     // Draws the circles to indicate the moisutre history
-    CGContextSetFillColorWithColor(context, RGB(38.0, 171.0, 220.0).CGColor);
+    CGContextSetFillColorWithColor(context, Color_PlantLinkBlue.CGColor);
     int index = 0;
     for(PLPlantMeasurementModel *measurement in moistureHistory) {
         index = index + 1;

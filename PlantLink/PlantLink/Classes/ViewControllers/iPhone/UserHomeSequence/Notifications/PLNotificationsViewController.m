@@ -32,9 +32,9 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTabBarIconActive:Image_Tab_ClockHighlighted passive:Image_Tab_Clock];
+    [notificationCollectionView setBackgroundColor:Color_PlantLinkBackground];
+    //[self setTabBarIconActive:Image_Tab_ClockHighlighted passive:Image_Tab_Clock];
     
-    [notificationCollectionView setBackgroundColor:Color_ViewBackground];
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [notificationCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
     
     notifications = @[];

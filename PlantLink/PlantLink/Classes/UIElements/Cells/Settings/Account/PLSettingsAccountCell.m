@@ -76,7 +76,7 @@
                 [self displayAlertWithTitle:Alert_EmailChangeTitle andMessage:Alert_EmailChangeMessage];
                 
                 PLUserManager *sharedUser = [PLUserManager initializeUserManager];
-                [sharedUser refreshData];
+                [sharedUser refreshUserData];
             }
         }];
     }

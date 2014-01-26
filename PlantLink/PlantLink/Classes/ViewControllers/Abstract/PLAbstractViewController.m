@@ -29,7 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[GeneralMethods imageWithColor:Color_NavBar_Background andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[GeneralMethods imageWithColor:Color_PlantLinkGreen andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) {
         [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     }

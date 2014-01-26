@@ -13,7 +13,7 @@
 @property(nonatomic, assign) BOOL loggedIn;
 @property(nonatomic, strong) PLUserModel *user;
 
-@property(nonatomic, strong, readonly) NSArray *plants;
+//@property(nonatomic, strong, readonly) NSArray *plants;
 @property(nonatomic, strong, readonly) NSArray *soilTypes;
 @property(nonatomic, strong, readonly) NSArray *plantTypes;
 
@@ -57,10 +57,9 @@
 #pragma mark User Methods
 
 /**
- * Performs a user request updating all of the current users information (including the
- * plants NSArray)
+ * Performs a user request updating all of the current users account information
  */
--(void)refreshData;
+-(void)refreshUserData;
 
 /**
  * Performs a type request on both Soil and Plant types updating the list of available options

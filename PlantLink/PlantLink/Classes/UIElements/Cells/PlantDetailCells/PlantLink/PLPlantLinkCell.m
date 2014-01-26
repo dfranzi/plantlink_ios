@@ -61,6 +61,8 @@
  */
 -(void)setModel:(PLPlantModel *)model {
     [bottomBorder setAlpha:0.0f];
+    [self setClipsToBounds:YES];
+    
     [super setModel:model];
     
     if([self model]) {

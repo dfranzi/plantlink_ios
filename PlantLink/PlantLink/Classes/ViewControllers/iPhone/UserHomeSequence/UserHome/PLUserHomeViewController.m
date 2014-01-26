@@ -31,14 +31,14 @@
     [self.navigationController.navigationItem setLeftBarButtonItem:nil];
     for(UIViewController *controller in self.viewControllers) [controller viewDidLoad];
     
-    [self addTopBorder];
-    [self addSeparatorAtInterval:0.25];
-    [self addSeparatorAtInterval:0.50];
-    [self addSeparatorAtInterval:0.75];
+//    [self addTopBorder];
+//    [self addSeparatorAtInterval:0.25];
+//    [self addSeparatorAtInterval:0.50];
+//    [self addSeparatorAtInterval:0.75];
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0000) [self.tabBar setBarStyle:UIBarStyleBlack];
-    
-    [self.tabBar setCenter:CGPointMake(self.tabBar.center.x, self.tabBar.center.y+5)];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) {
+        [self.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    }
     [self.navigationItem setHidesBackButton:YES];
 }
 

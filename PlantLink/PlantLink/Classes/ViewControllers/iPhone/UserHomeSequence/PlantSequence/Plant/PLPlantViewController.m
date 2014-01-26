@@ -35,12 +35,12 @@
     [super viewDidLoad];
     lastReload = NULL;
     
-    [plantCollectionView setBackgroundColor:Color_ViewBackground];
+    [plantCollectionView setBackgroundColor:Color_PlantLinkBackground];
     [sharedUser setPlantReloadTrigger:YES];
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
     
-    [self setTabBarIconActive:Image_Tab_LeafHighlighted passive:Image_Tab_Leaf];
+    //[self setTabBarIconActive:Image_Tab_LeafHighlighted passive:Image_Tab_Leaf];
 }
 
 /**

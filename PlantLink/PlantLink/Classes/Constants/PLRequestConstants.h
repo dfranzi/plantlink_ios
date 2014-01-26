@@ -8,7 +8,7 @@
 
 
 //URL Strings
-#define URLStr_Base @"http://oso-tech.appspot.com/api/v1"
+#define URLStr_Base @"https://oso-tech.appspot.com/api/v1"
 #define URLStr_Store @"http://www.trycelery.com/shop/base-station"
 #define URLStr_Contact @"http://myplantlink.com/contact/"
 

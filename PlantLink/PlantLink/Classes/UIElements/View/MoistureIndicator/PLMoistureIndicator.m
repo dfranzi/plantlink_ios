@@ -85,7 +85,7 @@
     [messageLabel setFrame:CGRectMake(0, 0, 240, 40)];
     [messageLabel setCenter:CGPointMake(center, 25)];
     [messageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:22.0]];
-    [messageLabel setTextColor:Color_CellBorder_RedTint];
+    [messageLabel setTextColor:Color_PlantLinkRed];
     [messageLabel setContentMode:UIViewContentModeCenter];
     [messageLabel setNumberOfLines:2];
     
@@ -129,6 +129,8 @@
  * Sets the message on the moisture indicator, either a text message or a moisture number
  */
 -(void)setStatus:(NSString*)status {
+    if(!status) status = @"";
+    
     if([@"012345" rangeOfString:status].location != NSNotFound) {
         NSNumber *statusNum = (NSNumber*)status;
         [self setMoistureLevel:[statusNum intValue]];
@@ -171,7 +173,7 @@
     NSArray *moistureSubviews = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle,tooDryLabel,justRightLabel,tooWetLabel];
     for(UIView *view in moistureSubviews) [view setAlpha:0.0f];
     
-    if([statusStr isEqualToString:@"Link Missing"]) [messageLabel setTextColor:Color_CellBorder_RedTint];
+    if([statusStr isEqualToString:@"Link Missing"]) [messageLabel setTextColor:Color_PlantLinkRed];
     else [messageLabel setTextColor:SHADE(0.25*255.0)];
 }
 
