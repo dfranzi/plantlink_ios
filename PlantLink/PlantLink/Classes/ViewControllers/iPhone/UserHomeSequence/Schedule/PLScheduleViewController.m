@@ -75,6 +75,11 @@
     plantRequest = [[PLItemRequest alloc] init];
     
     [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         lastRefresh = [NSDate date];
         schedules = [self sortedModelsFromScheduleData:data];
         [self addModelsToCollectionView:schedules];

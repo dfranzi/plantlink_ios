@@ -136,6 +136,12 @@
     
     plantRequest = [[PLItemRequest alloc] init];
     [plantRequest getUserPlantsWithResponse:^(NSData *data, NSError *error) {
+
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         plants = [PLPlantModel modelsFromArrayOfDictionaries:array];

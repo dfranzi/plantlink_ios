@@ -88,6 +88,11 @@
 #pragma mark -
 #pragma mark Request Methods
 
+-(void)requestError:(NSError*)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:Nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [alert show];
+}
+
 -(BOOL)errorInRequestResponse:(NSDictionary*)dict {
     if([dict.allKeys containsObject:@"severity"] && [dict[@"severity"] isEqualToString:@"Error"]) {
         NSString *errorKey = dict[@"type_detail"];

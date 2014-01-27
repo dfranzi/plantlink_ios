@@ -51,6 +51,11 @@
     
     linkRequest = [[PLItemRequest alloc] init];
     [linkRequest getUserLinkesWithResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         NSArray *linkData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         NSArray *links = [PLLinkModel modelsFromArrayOfDictionaries:linkData];
 
@@ -78,6 +83,12 @@
     [linksArray addObject:[link key]];
     
     [plantUpdateRequest editPlant:[_createdPlant pid] paramDict:@{PostKey_LinkKeys : linksArray} withResponse:^(NSData *data, NSError *error) {
+        
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
 
         if([dict isKindOfClass:[NSArray class]] && [self errorInRequestResponse:((NSArray*)dict)[0]]) return;

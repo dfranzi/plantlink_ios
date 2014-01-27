@@ -45,6 +45,12 @@
     
     passwordResetRequest = [[PLUserRequest alloc] init];
     [passwordResetRequest resetPasswordForEmail:[user email] withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         if([dict isKindOfClass:[NSArray class]]) {
             if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}
@@ -68,6 +74,13 @@
     else {
         userUpdateRequest = [[PLUserRequest alloc] init];
         [userUpdateRequest updateUser:@{PostKey_Email : email, PostKey_Password : password} withResponse:^(NSData *data, NSError *error) {
+            
+            if(error) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             if([dict isKindOfClass:[NSArray class]]) {
                 if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}

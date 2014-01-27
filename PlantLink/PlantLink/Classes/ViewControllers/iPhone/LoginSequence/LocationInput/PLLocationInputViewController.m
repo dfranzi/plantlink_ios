@@ -219,6 +219,12 @@
     [registerRequest registerUserWithEmail:email name:name password:password zipCode:zip andBaseStationSerial:serial withResponse:^(NSData *data, NSError *error) {
         
         registerRequest = NULL;
+        
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         if(![self checkForRegistrationErrors:data]) {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:email forKey:Defaults_SavedEmail];
@@ -245,6 +251,7 @@
 -(void)loginWithEmail:(NSString*)email andPassword:(NSString*)password {
     [registerRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
         registerRequest = NULL;
+        
         if(![self checkForRegistrationErrors:data]) {
             [sharedUser setLastUsername:email andPassword:password];
             [super nextPushed:nil];

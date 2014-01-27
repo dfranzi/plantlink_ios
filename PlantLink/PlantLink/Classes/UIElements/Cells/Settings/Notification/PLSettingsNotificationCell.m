@@ -403,6 +403,12 @@
     if(eveningNotifications) [times addObject:@20];
     
     [notificationTimeRequest updateUser:@{PostKey_Notifications : times} withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
         [sharedUser refreshUserData];
     }];
@@ -425,6 +431,12 @@
     else types[PostKey_SMSEnabled] = @NO;
     
     [notificationTypeRequest updateUser:types withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
         PLUserManager *sharedUser = [PLUserManager initializeUserManager];
         [sharedUser refreshUserData];
     }];
@@ -438,6 +450,12 @@
     
     smsRequest = [[PLUserRequest alloc] init];
     [smsRequest addSmsNumber:number withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
 
         if([dict isKindOfClass:[NSArray class]]) {
@@ -454,6 +472,12 @@
 -(void)removeSmsNumberRequestWithKey:(NSString*)key {
     smsRequest = [[PLUserRequest alloc] init];
     [smsRequest removeSmsNumberWithKey:key withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
 
         if([dict isKindOfClass:[NSArray class]]) {

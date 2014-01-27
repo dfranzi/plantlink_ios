@@ -182,6 +182,12 @@
     [userRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
+        if(error) {
+            [self requestError:error];
+            userRequest = NULL;
+            return;
+        }
+        
         if([dict isKindOfClass:[NSArray class]]) {
             if([self errorInRequestResponse:((NSArray*)dict)[0]]) {
                 userRequest = NULL;

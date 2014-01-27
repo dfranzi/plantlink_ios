@@ -50,6 +50,11 @@
 #pragma mark Request Methods
 
 /**
+ * The passed in error is the error recieved on a request, and this method handles and general action
+ */
+-(void)requestError:(NSError*)error;
+
+/**
  * Returns a boolean if there is an error in the request and displays an alert with the error if there is one
  */
 -(BOOL)errorInRequestResponse:(NSDictionary*)dict;

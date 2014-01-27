@@ -196,6 +196,11 @@
     NSDictionary *updateDict = @{PostKey_SoilTypeKey : [NSNumber numberWithInt:[soilTypeKey intValue]], PostKey_PlantTypeKey : [NSNumber numberWithInt:[plantTypeKey intValue]], PostKey_Name : nickname};
     
     [plantUpdateRequest editPlant:[_plantToUpdate pid] paramDict:updateDict withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([dict isKindOfClass:[NSArray class]] && [self errorInRequestResponse:((NSArray*)dict)[0]]) return;
@@ -253,6 +258,11 @@
     
     plantRequest = [[PLItemRequest alloc] init];
     [plantRequest addPlant:nickname type:plantTypeKey inSoil:soilTypeKey withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            [controller requestError:error];
+            return;
+        }
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         controller->createdModel = [[PLPlantModel alloc] initWithDictionary:dict];

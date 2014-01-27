@@ -66,6 +66,11 @@
     
     notificationRequest = [[PLItemRequest alloc] init];
     [notificationRequest getNotificationsWithResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
         lastRefresh = [NSDate date];
         notifications = [self sortedModelsFromNotificationData:data];
         [self addModelsToCollectionView:notifications];
