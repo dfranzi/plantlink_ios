@@ -27,7 +27,6 @@
     UITableView *itemsTableView;
     
     NSArray *plantTypes;
-    NSArray *soilTypes;
     NSString *state;
     
     NSMutableArray *drillDownPlants;
@@ -36,8 +35,6 @@
     NSString *nickname;
     NSString *plantName;
     NSString *plantTypeKey;
-    NSString *soilName;
-    NSString *soilTypeKey;
 }
 
 @end
@@ -54,7 +51,6 @@
     [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
     
     plantTypes = [sharedUser plantTypes];
-    soilTypes = [sharedUser soilTypes];
     
     drillDownPlants = [NSMutableArray array];
     drillDownSoils = [NSMutableArray array];
@@ -67,7 +63,6 @@
     [stepLabel setAlpha:0.0f];
     
     plantName = @"";
-    soilName = @"";
     nickname = @"";
     
     state = State_PlantType;
@@ -104,8 +99,6 @@
         
         plantName = [[_plantToUpdate plantType] name];
         plantTypeKey = [_plantToUpdate plantTypeKey];
-        soilName = [[_plantToUpdate soilType] name];
-        soilTypeKey = [_plantToUpdate soilTypeKey];
         nickname = [_plantToUpdate name];
         
         state = _initialState;
@@ -138,15 +131,6 @@
     [inputTextField setText:plantName];
 }
 
-/**
- * Updates the parameters for a new soil model
- */
--(void)updateToSoilTypeModel:(PLSoilModel*)soilModel {
-    soilName = [soilModel name];
-    soilTypeKey = [soilModel key];
-    [inputTextField setText:soilName];
-}
-
 #pragma mark -
 #pragma mark Actions 
 
@@ -157,10 +141,6 @@
     [self.view endEditing:YES];
     
     if([state isEqualToString:State_Nickname] && !_updateMode) {
-        state = State_SoilType;
-        [self update];
-    }
-    else if([state isEqualToString:State_SoilType] && !_updateMode) {
         state = State_PlantType;
         [self update];
     }
@@ -177,10 +157,6 @@
         if([plantName isEqualToString:@""]) [self displayErrorAlertWithMessage:Error_AddPlant_NoPlantType];
         else [self moveNextFromPlantTypeSelect];
     }
-    else if([state isEqualToString:State_SoilType]) {
-        if([soilName isEqualToString:@""]) [self displayErrorAlertWithMessage:Error_AddPlant_NoSoilType];
-        else [self moveNextFromSoilTypeSelect];
-    }
     else {
         if([nickname isEqualToString:@""]) [self displayErrorAlertWithMessage:Error_AddPlant_NoNickname];
         else [self addPlantRequest];
@@ -193,7 +169,7 @@
 -(void)nextUpdatePushed:(id)sender {
     plantUpdateRequest = [[PLItemRequest alloc] init];
     
-    NSDictionary *updateDict = @{PostKey_SoilTypeKey : [NSNumber numberWithInt:[soilTypeKey intValue]], PostKey_PlantTypeKey : [NSNumber numberWithInt:[plantTypeKey intValue]], PostKey_Name : nickname};
+    NSDictionary *updateDict = @{PostKey_PlantTypeKey : [NSNumber numberWithInt:[plantTypeKey intValue]], PostKey_Name : nickname};
     
     [plantUpdateRequest editPlant:[_plantToUpdate pid] paramDict:updateDict withResponse:^(NSData *data, NSError *error) {
         if(error) {
@@ -227,21 +203,6 @@
     
     if(!contains) [self displayErrorAlertWithMessage:Error_AddPlant_InvalidPlantType];
     else {
-        state = State_SoilType;
-        [self update];
-    }
-}
-
-/**
- * Attemps to go to the next step from the soil type select step
- */
--(void)moveNextFromSoilTypeSelect {
-    BOOL contains = false;
-    for(PLSoilModel *model in soilTypes) {
-        if([[[model name] lowercaseString] isEqualToString:[soilName lowercaseString]]) contains = true;
-    }
-    if(!contains) [self displayErrorAlertWithMessage:Error_AddPlant_InvalidSoilType];
-    else {
         state = State_Nickname;
         [self update];
     }
@@ -255,9 +216,10 @@
  */
 -(void)addPlantRequest {
     __block PLPlantSetupViewController *controller = self;
+    __block PLUserManager *sharedManager = sharedUser;
     
     plantRequest = [[PLItemRequest alloc] init];
-    [plantRequest addPlant:nickname type:plantTypeKey inSoil:soilTypeKey withResponse:^(NSData *data, NSError *error) {
+    [plantRequest addPlant:nickname type:plantTypeKey withResponse:^(NSData *data, NSError *error) {
         if(error) {
             [controller requestError:error];
             return;
@@ -267,6 +229,7 @@
         
         controller->createdModel = [[PLPlantModel alloc] initWithDictionary:dict];
         [controller performSegueWithIdentifier:Segue_ToSyncLink sender:controller];
+        [sharedManager setPlantReloadTrigger:YES];
     }];
 }
 
@@ -284,20 +247,10 @@
 }
 
 /**
- * Updates the subviews to display the second add plant step
- */
--(void)showStep2Info {
-    [stepLabel setText:@"2"];
-    [titleLabel setText:@"What type of soil do you have?"];
-    [inputTextField setPlaceholder:@"ex. Loam"];
-    [inputTextField setText:soilName];
-}
-
-/**
  * Updates the subviews to display the third add plant step
  */
 -(void)showStep3Info {
-    [stepLabel setText:@"3"];
+    [stepLabel setText:@"2"];
     [titleLabel setText:@"Give your plant a nickname."];
     [inputTextField setPlaceholder:@"ex. Bedroom Basil"];
     [inputTextField setText:nickname];
@@ -312,7 +265,6 @@
 -(IBAction)valueChanged:(id)sender {
     UITextField *textField = (UITextField*)sender;
     if([state isEqualToString:State_PlantType]) [self updateTableViewWithItemArray:drillDownPlants source:plantTypes fromTextField:textField];
-    else if([state isEqualToString:State_SoilType]) [self updateTableViewWithItemArray:drillDownSoils source:soilTypes fromTextField:textField];
     else nickname = textField.text;
     
     [itemsTableView reloadData];
@@ -364,7 +316,6 @@
         if([itemsTableView numberOfRowsInSection:0] > 0) [itemsTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         
         if([state isEqualToString:State_PlantType]) [self showStep1Info];
-        else if([state isEqualToString:State_SoilType]) [self showStep2Info];
         else if([state isEqualToString:State_Nickname]) [self showStep3Info];
         
         [UIView animateWithDuration:0.3 animations:^{
@@ -426,10 +377,6 @@
         if([drillDownPlants count] > 0) return [[drillDownPlants lastObject] count];
         return [plantTypes count];
     }
-    else if([state isEqualToString:State_SoilType]) {
-        if([drillDownSoils count] > 0) return [[drillDownSoils lastObject] count];
-        return [soilTypes count];
-    }
     else return 0;
 }
 
@@ -447,13 +394,6 @@
         PLPlantTypeModel *plant = plants[indexPath.row];
         [[cell textLabel] setText:[plant name]];
     }
-    else if([state isEqualToString:State_SoilType]) {
-        NSArray *soils = soilTypes;
-        if([drillDownSoils count] > 0) soils = [drillDownSoils lastObject];
-        
-        PLSoilModel *soil = soils[indexPath.row];
-        [[cell textLabel] setText:[soil name]];
-    }
     
     return cell;
 }
@@ -469,13 +409,6 @@
         
         PLPlantTypeModel *plant = plants[indexPath.row];
         [self updateToPlantNameModel:plant];
-    }
-    else if([state isEqualToString:State_SoilType]) {
-        NSArray *soils = soilTypes;
-        if([drillDownSoils count] > 0) soils = [drillDownSoils lastObject];
-        
-        PLSoilModel *soil = soils[indexPath.row];
-        [self updateToSoilTypeModel:soil];
     }
 }
 

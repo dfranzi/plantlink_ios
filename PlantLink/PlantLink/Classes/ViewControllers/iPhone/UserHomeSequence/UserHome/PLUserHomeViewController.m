@@ -39,6 +39,7 @@
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) {
         [self.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
     }
+    
     [self.navigationItem setHidesBackButton:YES];
 }
 
@@ -60,7 +61,7 @@
  */
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark -

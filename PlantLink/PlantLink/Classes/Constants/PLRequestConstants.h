@@ -19,6 +19,7 @@
 
 #define URLStr_BaseStation @"/baseStations"
 #define URLStr_BaseStation_Delete @"/baseStations?serial=%@"
+#define URLStr_BaseStation_Discovery @"/baseStations/%@/discovery"
 
 #define URLStr_SoilType @"/soilTypes"
 #define URLStr_PlantType @"/plantTypes"
@@ -49,7 +50,7 @@
 #define PostKey_Name @"name"
 #define PostKey_ZipCode @"zip"
 #define PostKey_Password @"password"
-#define PostKey_BaseStationSerial @"serial"
+#define PostKey_BaseStationSerial @"base_stations_key"
 #define PostKey_Notifications @"notification_time_of_day"
 #define PostKey_EmailEnabled @"email_notifications_enabled"
 #define PostKey_PushEnabled @"push_notifications_enabled"
@@ -79,6 +80,7 @@
 #define DC_User_NotificationTimes @"notification_time_of_day"
 #define DC_User_SmsNumbers @"sms_phone_numbers"
 #define DC_User_iOSTokens @"ios_device_tokens"
+#define DC_User_BaseStations @"base_stations_key"
 #define DC_User_EmailAlerts @"email_notifications_enabled"
 #define DC_User_TextAlerts @"sms_enabled"
 #define DC_User_PushAlerts @"push_notifications_enabled"

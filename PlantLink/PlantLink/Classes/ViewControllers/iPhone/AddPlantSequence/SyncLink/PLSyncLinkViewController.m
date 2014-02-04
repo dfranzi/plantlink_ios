@@ -11,10 +11,12 @@
 #import "PLPlantModel.h"
 #import "PLLinkModel.h"
 #import "PLUserManager.h"
+#import "PLUserModel.h"
 
 @interface PLSyncLinkViewController() {
 @private
     PLItemRequest *linkRequest;
+    PLItemRequest *baseStationDiscoveryRequest;
     PLItemRequest *plantUpdateRequest;
 }
 
@@ -32,6 +34,43 @@
     [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
 }
 
+/**
+ *
+ */
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    baseStationDiscoveryRequest = [[PLItemRequest alloc] init];
+    [baseStationDiscoveryRequest putBaseStation:sharedUser.user.baseStations[0] intoDiscoveryModeWithResponse:^(NSData *data, NSError *error) {
+        
+        if(error) {
+            [self requestError:error];
+            [self backPushed:nil];
+            return;
+        }
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {
+                [self backPushed:nil];
+                return;
+            }
+        }
+        
+    }];
+}
+
+
+/**
+ * Cancels and still ongoing requests
+ */
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if(linkRequest) [linkRequest cancel];
+    if(baseStationDiscoveryRequest) [baseStationDiscoveryRequest cancel];
+    if(plantUpdateRequest) [plantUpdateRequest cancel];
+}
 
 #pragma mark -
 #pragma mark Actions

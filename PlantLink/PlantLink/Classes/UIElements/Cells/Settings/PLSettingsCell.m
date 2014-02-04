@@ -41,6 +41,10 @@
         [self.contentView insertSubview:backdrop belowSubview:background];
         
         originalCenter = self.contentView.center;
+        
+        [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
+        [self.layer setShouldRasterize:YES];
+        
     }
     return self;
 }

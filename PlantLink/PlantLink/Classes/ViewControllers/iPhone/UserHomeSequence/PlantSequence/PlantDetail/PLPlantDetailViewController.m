@@ -116,11 +116,22 @@
 -(void)receivedNotification:(NSNotification*)notification {
     if([[notification name] isEqualToString:Notification_Plant_Edit]) {
         NSNumber *editModeIndicator = (NSNumber*)[notification object];
+        BOOL previousEdit = editMode;
         editMode = [editModeIndicator boolValue];
         
         for(PLAbstractPlantDetailCell *cell in plantTableView.visibleCells) [cell setEditMode:editMode];
         
         [plantTableView beginUpdates];
+        
+        NSArray *indexes = @[[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:4 inSection:0]];
+        if(editMode && !previousEdit) {
+            plantCells = Cell_PlantsEdit;
+            [plantTableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        else if(!editMode && previousEdit) {
+            plantCells = Cell_PlantsAll;
+            [plantTableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
         [plantTableView endUpdates];
     }
 }

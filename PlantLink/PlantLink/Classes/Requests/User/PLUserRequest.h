@@ -16,9 +16,9 @@
 -(void)loginUserWithEmail:(NSString*)email andPassword:(NSString*)password withResponse:(void(^) (NSData *data, NSError *error))response;
 
 /**
- * Registers a user with an email, name, password, zip, and base station calling the response block when done
+ * Registers a user with an email, name, password, and base station calling the response block when done
  */
--(void)registerUserWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password zipCode:(NSString*)zipCode andBaseStationSerial:(NSString*)baseStationSerial withResponse:(void(^) (NSData *data, NSError *error))response;
+-(void)registerUserWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password withResponse:(void(^) (NSData *data, NSError *error))response;
 
 /**
  * Resets the password for a given email, calling the response block when done

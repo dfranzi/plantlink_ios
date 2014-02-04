@@ -38,6 +38,9 @@
         [self setClipsToBounds:NO];
         [self.layer setCornerRadius:3.0];
         [self addLabels];
+        
+        [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
+        [self.layer setShouldRasterize:YES];
     }
     return self;
 }
@@ -51,7 +54,7 @@
     [nameLabel setTextColor:[UIColor blackColor]];
     [nameLabel setAdjustsFontSizeToFitWidth:YES];
     [nameLabel setMinimumScaleFactor:0.8];
-    [nameLabel setBackgroundColor:[UIColor clearColor]];
+    [nameLabel setBackgroundColor:[UIColor whiteColor]];
     [nameLabel setNumberOfLines:0];
     [self addSubview:nameLabel];
     
@@ -59,14 +62,14 @@
     [dateLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0]];
     [dateLabel setTextColor:[UIColor blackColor]];
     dateLabel.textAlignment = NSTextAlignmentCenter;
-    [dateLabel setBackgroundColor:[UIColor clearColor]];
+    [dateLabel setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:dateLabel];
     
     dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 14, 91, 34)];
     [dayLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:28.0]];
     [dayLabel setTextColor:[UIColor blackColor]];
     dayLabel.textAlignment = NSTextAlignmentCenter;
-    [dayLabel setBackgroundColor:[UIColor clearColor]];
+    [dayLabel setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:dayLabel];
     
     separatorView = [[UIView alloc] initWithFrame:CGRectMake(110, 14, 1, 57)];
@@ -115,6 +118,10 @@
     [background setBackgroundColor:[UIColor whiteColor]];
     [backdrop setBackgroundColor:Color_CellBorder];
     
+    [nameLabel setBackgroundColor:[UIColor whiteColor]];
+    [dayLabel setBackgroundColor:[UIColor whiteColor]];
+    [dateLabel setBackgroundColor:[UIColor whiteColor]];
+    
     [nameLabel setTextColor:[UIColor blackColor]];
     [dayLabel setTextColor:[UIColor blackColor]];
     [dateLabel setTextColor:[UIColor blackColor]];
@@ -127,6 +134,10 @@
 -(void)setHighlightColors {
     [background setBackgroundColor:Color_PlantLinkRed];
     [backdrop setBackgroundColor:Color_PlantLinkRed_Dark];
+    
+    [nameLabel setBackgroundColor:Color_PlantLinkRed];
+    [dayLabel setBackgroundColor:Color_PlantLinkRed];
+    [dateLabel setBackgroundColor:Color_PlantLinkRed];
     
     [nameLabel setTextColor:[UIColor whiteColor]];
     [dayLabel setTextColor:[UIColor whiteColor]];

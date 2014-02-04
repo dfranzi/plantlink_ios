@@ -35,6 +35,10 @@
     [background setBackgroundColor:Color_PlantLinkBlue];
     [backdrop setBackgroundColor:Color_PlantLinkBlue_Dark];
     
+    [nameLabel setBackgroundColor:Color_PlantLinkBlue];
+    [dayLabel setBackgroundColor:Color_PlantLinkBlue];
+    [dateLabel setBackgroundColor:Color_PlantLinkBlue];
+    
     [nameLabel setTextColor:[UIColor whiteColor]];
     [dayLabel setTextColor:[UIColor whiteColor]];
     [dateLabel setTextColor:[UIColor whiteColor]];

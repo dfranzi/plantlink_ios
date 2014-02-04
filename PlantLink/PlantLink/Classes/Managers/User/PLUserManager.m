@@ -50,11 +50,9 @@ static PLUserManager *sharedUser = nil;
         _loggedIn = NO;
         _user = NULL;
         
-        _soilTypes = [NSMutableArray array];
         _plantTypes = [NSMutableArray array];
         
         _loginType = Constant_LoginType_Login;
-        _setupDict = [NSMutableDictionary dictionary];
         _plantEditDict = [NSMutableDictionary dictionary];
         
         _addPlantTrigger = NO;
@@ -86,6 +84,10 @@ static PLUserManager *sharedUser = nil;
 
 -(void)setLastUsername:(NSString*)username andPassword:(NSString*)password {
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:Constant_KeyChainItem accessGroup:nil];
+
+    lastUsername = username;
+    lastPassword = password;
+
     [keychain setObject:username forKey:(__bridge id)kSecAttrService];
     [keychain setObject:password forKey:(__bridge id)kSecValueData];
     [self registerForPush];
@@ -109,8 +111,16 @@ static PLUserManager *sharedUser = nil;
         }
         else {
             [self registerForPush];
-            [self refreshUserData];
-            completion(YES);
+
+            userRequest = [[PLUserRequest alloc] init];
+            [userRequest getUserWithResponse:^(NSData *data, NSError *error) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+                _user = [PLUserModel initWithDictionary:dict];
+                userRequest = NULL;
+                
+                if(error) completion(NO);
+                completion(YES);
+            }];
         }
     }];
 }
@@ -138,13 +148,6 @@ static PLUserManager *sharedUser = nil;
         _plantTypes = [PLPlantTypeModel modelsFromArrayOfDictionaries:array];
         plantTypeRequest = NULL;
     }];
-    
-    soilRequest = [[PLItemRequest alloc] init];
-    [soilRequest getSoilTypesWithResponse:^(NSData *data, NSError *error) {
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        _soilTypes = [PLSoilModel modelsFromArrayOfDictionaries:array];
-        soilRequest = NULL;
-    }];
 }
 
 -(void)logout {
@@ -163,13 +166,6 @@ static PLUserManager *sharedUser = nil;
 -(NSString*)nameForPlantTypeKey:(NSString*)key {
     for(PLPlantTypeModel *plant in _plantTypes) {
         if([key isEqualToString:[plant key]]) return [plant name];
-    }
-    return @"Non standard";
-}
-
--(NSString*)nameForSoilTypeKey:(NSString*)key {
-    for(PLSoilModel *soil in _soilTypes) {
-        if([key isEqualToString:[soil key]]) return [soil name];
     }
     return @"Non standard";
 }

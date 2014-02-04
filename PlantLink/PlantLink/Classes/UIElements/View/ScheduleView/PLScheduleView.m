@@ -62,6 +62,7 @@
             [[item titleLabel] setFont:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
             [item setTitleColor:Color_PlantLinkTitle forState:UIControlStateNormal];
             [item.layer setCornerRadius:2.0];
+            [item setClipsToBounds:YES];
             [item addTarget:self action:@selector(itemPushed:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:item];
             
@@ -90,7 +91,7 @@
         
         NSDateComponents *itemComponent = [calender components:NSDayCalendarUnit fromDate:date];
         [itemButton setTitle:[NSString stringWithFormat:@"%i",[itemComponent day]] forState:UIControlStateNormal];
-        [itemButton setBackgroundColor:Color_PlantLinkSubtitle];
+        [itemButton setBackgroundImage:[GeneralMethods imageWithColor:Color_PlantLinkSubtitle andSize:CGSizeMake(1, 1)] forState:UIControlStateNormal];
         [itemButton setTitleColor:Color_PlantLinkTitle forState:UIControlStateNormal];
         [itemButton setTag:[itemComponent day]];
         
@@ -101,14 +102,16 @@
                 NSDateComponents *plantComponent = [calender components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:plantDate];
                 
                 if([plantComponent day] == [itemComponent day]) {
-                    [itemButton setBackgroundColor:Color_PlantLinkBlue];
+                    [itemButton setBackgroundImage:[GeneralMethods imageWithColor:Color_PlantLinkBlue andSize:CGSizeMake(1, 1)] forState:UIControlStateNormal];
+                    
                     [itemButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 }
             }
         }
     }
+
+    [todayButton setBackgroundImage:[GeneralMethods imageWithColor:Color_PlantLinkRed andSize:CGSizeMake(1, 1)] forState:UIControlStateNormal];
     
-    [todayButton setBackgroundColor:Color_PlantLinkRed];
     [todayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 

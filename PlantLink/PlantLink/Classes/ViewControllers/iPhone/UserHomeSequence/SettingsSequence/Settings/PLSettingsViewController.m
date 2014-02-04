@@ -13,10 +13,12 @@
 #import "PLSettingsNotificationCell.h"
 #import "PLSettingsAccountCell.h"
 #import "PLSettingsBugReportCell.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface PLSettingsViewController() {
 @private
     NSMutableDictionary *stateDict;
+    MPMoviePlayerController *moviePlayer;
 }
 
 @end
@@ -34,12 +36,38 @@
     
     stateDict = [NSMutableDictionary dictionary];
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [settingsCollectionView setFrame:CGRectMake(0, 44, 320, self.view.frame.size.height-44)];
+    else [settingsCollectionView setFrame:CGRectMake(0, 64, 320, self.view.frame.size.height-64-48)];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController.navigationItem setTitle:@"Settings"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recievedNotification:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+}
+
+#pragma mark -
+#pragma mark Notification Methods
+
+-(void)recievedNotification:(NSNotification*)notification {
+    if([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
+        [moviePlayer setFullscreen:NO animated:YES];
+        [moviePlayer stop];
+    }
 }
 
 
 #pragma mark -
 #pragma mark Action Methods
+
+/**
+ * Shows the help video selector
+ */
+-(void)help {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Dismiss" destructiveButtonTitle:nil otherButtonTitles:@"Basestation Setup",@"PlantLink Batteries",@"PlantLink Press",@"Basestation Color Change",@"Insert PlantLink", nil];
+    [actionSheet showInView:self.view];
+}
 
 /**
  * Expands the notification view
@@ -144,14 +172,16 @@
     
     if( !([rowTitle isEqualToString:SettingsTitle_Notification] && [stateDict.allKeys containsObject:State_Notifications]) &&
        !([rowTitle isEqualToString:SettingsTitle_Account] && [stateDict.allKeys containsObject:State_Account]) &&
-       !([rowTitle isEqualToString:SettingsTitle_BugReport] && [stateDict.allKeys containsObject:State_BugReport]) ) {
+       !([rowTitle isEqualToString:SettingsTitle_BugReport] && [stateDict.allKeys containsObject:State_BugReport]) &&
+       !([rowTitle isEqualToString:SettingsTitle_Help])) {
         
         [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
         CGPoint point = collectionView.contentOffset;
         [collectionView setContentOffset:CGPointMake(point.x, point.y-20) animated:YES];
     }
-    
-    if([rowTitle isEqualToString:SettingsTitle_Notification]) [self notifications];
+
+    if([rowTitle isEqualToString:SettingsTitle_Help]) [self help];
+    else if([rowTitle isEqualToString:SettingsTitle_Notification]) [self notifications];
     else if([rowTitle isEqualToString:SettingsTitle_Account]) [self account];
     else if([rowTitle isEqualToString:SettingsTitle_BugReport]) [self bugReport];
     else if([rowTitle isEqualToString:SettingsTitle_ContactUs]) [self contactUs];
@@ -213,6 +243,33 @@
  */
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+#pragma mark -
+#pragma mark Action Sheet Methods
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if([actionSheet cancelButtonIndex] == buttonIndex) return;
+    
+    if(moviePlayer) [moviePlayer.view removeFromSuperview];
+    
+    NSArray *urls = @[@"http://oso.blob.core.windows.net/content/Basestation%20Setup.mp4",
+                      @"http://oso.blob.core.windows.net/content/Batteries.mp4",
+                      @"http://oso.blob.core.windows.net/content/Button%20Press.mp4",
+                      @"http://oso.blob.core.windows.net/content/Green%20to%20Blue.mp4",
+                      @"http://oso.blob.core.windows.net/content/Insert%20Link.mp4"];
+    
+    NSURL *url = [[NSURL alloc] initWithString:urls[buttonIndex]];
+    
+    moviePlayer= [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    moviePlayer.controlStyle = MPMovieControlStyleDefault;
+    moviePlayer.shouldAutoplay = YES;
+    moviePlayer.view.center = self.view.center;
+    
+    moviePlayer.view.alpha = 1.0f;
+    [self.view addSubview:moviePlayer.view];
+    [moviePlayer setFullscreen:YES animated:YES];
 }
 
 @end

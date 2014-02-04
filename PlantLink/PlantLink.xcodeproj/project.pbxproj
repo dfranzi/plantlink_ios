@@ -87,7 +87,6 @@
 		6C487C001795BEFE007EE2B5 /* PLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487BFF1795BEFE007EE2B5 /* PLLoginViewController.m */; };
 		6C487C021795C50E007EE2B5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C487C011795C50E007EE2B5 /* libz.dylib */; };
 		6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C081795DEAA007EE2B5 /* PLSerialInputViewController.m */; };
-		6C487C0C1795DEBD007EE2B5 /* PLLocationInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C0B1795DEBD007EE2B5 /* PLLocationInputViewController.m */; };
 		6C487C141795F0DD007EE2B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C487C131795F0DD007EE2B5 /* MapKit.framework */; };
 		6C487C191795F3FD007EE2B5 /* PLAddFirstPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C181795F3FD007EE2B5 /* PLAddFirstPlantViewController.m */; };
 		6C487C1D1795F882007EE2B5 /* PLUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C487C1C1795F882007EE2B5 /* PLUserHomeViewController.m */; };
@@ -141,7 +140,6 @@
 		6C972B7917550B4B007234B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B7717550B4B007234B6 /* InfoPlist.strings */; };
 		6C972B7B17550B4B007234B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972B7A17550B4B007234B6 /* main.m */; };
 		6C972B7F17550B4B007234B6 /* PLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C972B7E17550B4B007234B6 /* PLAppDelegate.m */; };
-		6C972B8117550B4B007234B6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8017550B4B007234B6 /* Default.png */; };
 		6C972B8317550B4B007234B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8217550B4B007234B6 /* Default@2x.png */; };
 		6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8417550B4B007234B6 /* Default-568h@2x.png */; };
 		6C972B8817550B4B007234B6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C972B8617550B4B007234B6 /* MainStoryboard_iPhone.storyboard */; };
@@ -197,9 +195,13 @@
 		CE34647818947CEC002041B4 /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE34647418947CEC002041B4 /* schedule_icon.png */; };
 		CE34647C18948644002041B4 /* PLScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34647B18948644002041B4 /* PLScheduleCell.m */; };
 		CE34648018948A85002041B4 /* PLScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34647F18948A85002041B4 /* PLScheduleView.m */; };
+		CE53EC0F189DA43300B00939 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE53EC0B189DA43300B00939 /* Default~iphone.png */; };
+		CE57862E18A0A31500B4D6C3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE57862D18A0A31500B4D6C3 /* MediaPlayer.framework */; };
 		CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE70EF85186F5EB50077A330 /* Security.framework */; };
 		CE9F67ED1874BD93006590CC /* PLPlantItemEditButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */; };
 		CE9F67F418751D06006590CC /* PLSmsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F67F318751D06006590CC /* PLSmsView.m */; };
+		CEA4F822189D8BE600526D33 /* checkmarkGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA4F821189D8BE600526D33 /* checkmarkGreen.png */; };
+		CEA4F824189D8BEC00526D33 /* checkmarkGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA4F823189D8BEC00526D33 /* checkmarkGreen@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,8 +306,6 @@
 		6C487C011795C50E007EE2B5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6C487C071795DEAA007EE2B5 /* PLSerialInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSerialInputViewController.h; path = Classes/ViewControllers/iPhone/LoginSequence/SerialInput/PLSerialInputViewController.h; sourceTree = "<group>"; };
 		6C487C081795DEAA007EE2B5 /* PLSerialInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSerialInputViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/SerialInput/PLSerialInputViewController.m; sourceTree = "<group>"; };
-		6C487C0A1795DEBD007EE2B5 /* PLLocationInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLLocationInputViewController.h; path = Classes/ViewControllers/iPhone/LoginSequence/LocationInput/PLLocationInputViewController.h; sourceTree = "<group>"; };
-		6C487C0B1795DEBD007EE2B5 /* PLLocationInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLLocationInputViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/LocationInput/PLLocationInputViewController.m; sourceTree = "<group>"; };
 		6C487C131795F0DD007EE2B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6C487C171795F3FD007EE2B5 /* PLAddFirstPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLAddFirstPlantViewController.h; path = Classes/ViewControllers/iPhone/LoginSequence/AddFirstPlant/PLAddFirstPlantViewController.h; sourceTree = "<group>"; };
 		6C487C181795F3FD007EE2B5 /* PLAddFirstPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLAddFirstPlantViewController.m; path = Classes/ViewControllers/iPhone/LoginSequence/AddFirstPlant/PLAddFirstPlantViewController.m; sourceTree = "<group>"; };
@@ -456,11 +456,18 @@
 		CE34647B18948644002041B4 /* PLScheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleCell.m; path = Classes/UIElements/Cells/ScheduleItem/PLScheduleCell.m; sourceTree = "<group>"; };
 		CE34647E18948A85002041B4 /* PLScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLScheduleView.h; path = Classes/UIElements/View/ScheduleView/PLScheduleView.h; sourceTree = "<group>"; };
 		CE34647F18948A85002041B4 /* PLScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLScheduleView.m; path = Classes/UIElements/View/ScheduleView/PLScheduleView.m; sourceTree = "<group>"; };
+		CE53EC08189DA43300B00939 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = PlantLink/Default.png; sourceTree = "<group>"; };
+		CE53EC09189DA43300B00939 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "PlantLink/Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE53EC0A189DA43300B00939 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "PlantLink/Default@2x.png"; sourceTree = "<group>"; };
+		CE53EC0B189DA43300B00939 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "PlantLink/Default~iphone.png"; sourceTree = "<group>"; };
+		CE57862D18A0A31500B4D6C3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		CE70EF85186F5EB50077A330 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE9F67EB1874BD93006590CC /* PLPlantItemEditButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLPlantItemEditButton.h; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.h; sourceTree = "<group>"; };
 		CE9F67EC1874BD93006590CC /* PLPlantItemEditButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLPlantItemEditButton.m; path = Classes/UIElements/Buttons/PlantItemEdit/PLPlantItemEditButton.m; sourceTree = "<group>"; };
 		CE9F67F218751D06006590CC /* PLSmsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLSmsView.h; path = Classes/UIElements/View/SmsView/PLSmsView.h; sourceTree = "<group>"; };
 		CE9F67F318751D06006590CC /* PLSmsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLSmsView.m; path = Classes/UIElements/View/SmsView/PLSmsView.m; sourceTree = "<group>"; };
+		CEA4F821189D8BE600526D33 /* checkmarkGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmarkGreen.png; path = Images/Standard/checkmarkGreen.png; sourceTree = "<group>"; };
+		CEA4F823189D8BEC00526D33 /* checkmarkGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkmarkGreen@2x.png"; path = "Images/Retina/checkmarkGreen@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +475,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE57862E18A0A31500B4D6C3 /* MediaPlayer.framework in Frameworks */,
 				CE70EF86186F5EB50077A330 /* Security.framework in Frameworks */,
 				6CB828981818D15800349625 /* CoreImage.framework in Frameworks */,
 				BA7096FC1804C0F700520D92 /* libZACodeBase.a in Frameworks */,
@@ -613,15 +621,6 @@
 				6C487C081795DEAA007EE2B5 /* PLSerialInputViewController.m */,
 			);
 			name = SerialInput;
-			sourceTree = "<group>";
-		};
-		6C487C041795DE57007EE2B5 /* LocationInput */ = {
-			isa = PBXGroup;
-			children = (
-				6C487C0A1795DEBD007EE2B5 /* PLLocationInputViewController.h */,
-				6C487C0B1795DEBD007EE2B5 /* PLLocationInputViewController.m */,
-			);
-			name = LocationInput;
 			sourceTree = "<group>";
 		};
 		6C487C161795F3E3007EE2B5 /* AddFirstPlant */ = {
@@ -824,6 +823,7 @@
 		6C972B6D17550B4B007234B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE57862D18A0A31500B4D6C3 /* MediaPlayer.framework */,
 				CE70EF85186F5EB50077A330 /* Security.framework */,
 				6CB828971818D15800349625 /* CoreImage.framework */,
 				BA7096FB1804C0F700520D92 /* libZACodeBase.a */,
@@ -1104,6 +1104,7 @@
 		6CB86FB9175D589200B18213 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				CEA4F823189D8BEC00526D33 /* checkmarkGreen@2x.png */,
 				CE34646F18947BAC002041B4 /* notification_icon@2x.png */,
 				CE34646B18947975002041B4 /* leaf_icon@2x.png */,
 				CE34646C18947975002041B4 /* schedule_icon@2x.png */,
@@ -1158,6 +1159,7 @@
 		6CB86FBA175D589400B18213 /* Standard */ = {
 			isa = PBXGroup;
 			children = (
+				CEA4F821189D8BE600526D33 /* checkmarkGreen.png */,
 				CE34647118947CEC002041B4 /* gear_icon.png */,
 				CE34647218947CEC002041B4 /* leaf_icon.png */,
 				CE34647318947CEC002041B4 /* notification_icon.png */,
@@ -1212,6 +1214,10 @@
 		6CB86FBE175D58FE00B18213 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CE53EC08189DA43300B00939 /* Default.png */,
+				CE53EC09189DA43300B00939 /* Default-568h@2x.png */,
+				CE53EC0A189DA43300B00939 /* Default@2x.png */,
+				CE53EC0B189DA43300B00939 /* Default~iphone.png */,
 				6CFB282A1802116D00C11A10 /* icon_29.png */,
 				6CFB282B1802116D00C11A10 /* icon_40.png */,
 				6CFB282C1802116D00C11A10 /* icon_50.png */,
@@ -1283,7 +1289,6 @@
 			children = (
 				6C487BFD1795BEE5007EE2B5 /* Login */,
 				6C487C031795DE54007EE2B5 /* SerialInput */,
-				6C487C041795DE57007EE2B5 /* LocationInput */,
 				6C487C161795F3E3007EE2B5 /* AddFirstPlant */,
 			);
 			name = LoginSequence;
@@ -1485,7 +1490,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C972B7917550B4B007234B6 /* InfoPlist.strings in Resources */,
-				6C972B8117550B4B007234B6 /* Default.png in Resources */,
 				6CFB28431802116D00C11A10 /* icon_152.png in Resources */,
 				6C972B8317550B4B007234B6 /* Default@2x.png in Resources */,
 				6C972B8517550B4B007234B6 /* Default-568h@2x.png in Resources */,
@@ -1506,11 +1510,13 @@
 				6C61231217AE32780048EAFE /* plantWaterCircle-Full@2x.png in Resources */,
 				CE34646A1894781C002041B4 /* gear_icon@2x.png in Resources */,
 				6C61231317AE32780048EAFE /* plantWaterCircle-Red@2x.png in Resources */,
+				CE53EC0F189DA43300B00939 /* Default~iphone.png in Resources */,
 				CE34647018947BAC002041B4 /* notification_icon@2x.png in Resources */,
 				6C61232617AE327E0048EAFE /* addPlant.png in Resources */,
 				6C61232B17AE327E0048EAFE /* navigation_back.png in Resources */,
 				6CFB28401802116D00C11A10 /* icon_114.png in Resources */,
 				6C61232C17AE327E0048EAFE /* plantlinklogo.png in Resources */,
+				CEA4F822189D8BE600526D33 /* checkmarkGreen.png in Resources */,
 				6C61232D17AE327E0048EAFE /* plantWaterCircle-Empty.png in Resources */,
 				6C61232E17AE327E0048EAFE /* plantWaterCircle-Full.png in Resources */,
 				6C61232F17AE327E0048EAFE /* plantWaterCircle-Red.png in Resources */,
@@ -1549,6 +1555,7 @@
 				CE34646E18947975002041B4 /* schedule_icon@2x.png in Resources */,
 				6C60997E18440CF900B6AB34 /* trash.png in Resources */,
 				6C2FC81517B3650700184FB3 /* info-off@2x.png in Resources */,
+				CEA4F824189D8BEC00526D33 /* checkmarkGreen@2x.png in Resources */,
 				6C2FC81617B3650700184FB3 /* info-on@2x.png in Resources */,
 				6C2FC81717B3650700184FB3 /* xicon@2x.png in Resources */,
 				6C2FC81D17B365F300184FB3 /* linkdetails@2x.png in Resources */,
@@ -1661,7 +1668,6 @@
 				6C178781182CAAA400AD772E /* PLWaterHistoryGraph.m in Sources */,
 				6C6099781843EAE200B6AB34 /* PLSettingsAccountCell.m in Sources */,
 				6C487C091795DEAA007EE2B5 /* PLSerialInputViewController.m in Sources */,
-				6C487C0C1795DEBD007EE2B5 /* PLLocationInputViewController.m in Sources */,
 				6C01ADC8184A6E0200B84F4D /* PLSettingsBugReportCell.m in Sources */,
 				6C487C191795F3FD007EE2B5 /* PLAddFirstPlantViewController.m in Sources */,
 				CE34648018948A85002041B4 /* PLScheduleView.m in Sources */,

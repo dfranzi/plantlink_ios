@@ -31,7 +31,7 @@
     }];
 }
 
--(void)registerUserWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password zipCode:(NSString*)zipCode andBaseStationSerial:(NSString*)baseStationSerial withResponse:(void(^) (NSData *data, NSError *error))response {
+-(void)registerUserWithEmail:(NSString*)email name:(NSString*)name password:(NSString*)password withResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_User];
     [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
@@ -40,8 +40,6 @@
         dict[PostKey_Email] = email;
         dict[PostKey_Name] = name;
         dict[PostKey_Password] = password;
-        dict[PostKey_ZipCode] = zipCode;
-        dict[PostKey_Serial] = baseStationSerial;
         
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         [request setHTTPBody:data];

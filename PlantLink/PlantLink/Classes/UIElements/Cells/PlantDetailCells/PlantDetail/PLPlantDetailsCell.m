@@ -32,22 +32,9 @@
  * Pulls up the edit mode controller set to update the plant type
  */
 -(IBAction)plantTypeEditPushed:(id)sender {
+    if(!self.editMode) return;
+    
     [[self enclosingController] performSegueWithIdentifier:Segue_ToAddPlantSequence sender:State_PlantType];
-}
-
-/**
- * Pulls up the edit mode controller set to update the soil type
- */
--(IBAction)soilTypeEditPushed:(id)sender {
-    [[self enclosingController] performSegueWithIdentifier:Segue_ToAddPlantSequence sender:State_SoilType];
-}
-
-/**
- * Shows an alert with the option to select the inside or the outside
- */
--(IBAction)locationEditPushed:(id)sender {
-    UIAlertView *locationAlert = [[UIAlertView alloc] initWithTitle:@"Update Location" message:@"Select what location this plant is in." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Inside",@"Outside", nil];
-    [locationAlert show];
 }
 
 #pragma mark -
@@ -99,17 +86,12 @@
     [super setModel:model];
     
     [plantTypeLabel setBackgroundColor:Color_ViewBackground];
-    [soilTypeLabel setBackgroundColor:Color_ViewBackground];
-    [locationLabel setBackgroundColor:Color_ViewBackground];
     
     [super setModel:model];
     if([self model]) {
         PLPlantTypeModel *plantType = [[self model] plantType];
-        PLSoilModel *soilType = [[self model] soilType];
         
         [plantTypeLabel setText:[plantType name]];
-        [soilTypeLabel setText:[soilType name]];
-        [locationLabel setText:[[self model] environment]];
     }
 }
 
@@ -139,7 +121,7 @@
  * Returns the height for the cell
  */
 +(CGFloat)heightForContent:(NSDictionary*)content {
-    return 161+[super heightForContent:content];
+    return 89+[super heightForContent:content];
 }
 
 

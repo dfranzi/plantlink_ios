@@ -24,6 +24,14 @@
 
 @implementation PLSettingsBugReportCell
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder]) {
+        [self.layer setShouldRasterize:NO];
+        
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark IBAction Methods
 

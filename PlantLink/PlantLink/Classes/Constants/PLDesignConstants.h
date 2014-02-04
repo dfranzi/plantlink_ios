@@ -34,6 +34,7 @@
 #define Cell_SettingsBugReport @"settingsBugReportCell"
 
 #define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail]
+#define Cell_PlantsEdit @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantHistory, Cell_PlantLinkDetail]
 
 //Colors
 #define Color_PlantLinkGreen RGB(12.0,148.0,67.0)

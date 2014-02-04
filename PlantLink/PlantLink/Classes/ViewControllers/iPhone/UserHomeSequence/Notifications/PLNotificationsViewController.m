@@ -35,7 +35,8 @@
     [notificationCollectionView setBackgroundColor:Color_PlantLinkBackground];
     //[self setTabBarIconActive:Image_Tab_ClockHighlighted passive:Image_Tab_Clock];
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [notificationCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [notificationCollectionView setFrame:CGRectMake(0, 44, 320, self.view.frame.size.height-44)];
+    else [notificationCollectionView setFrame:CGRectMake(0, 64, 320, self.view.frame.size.height-64-48)];
     
     notifications = @[];
     [notificationCollectionView reloadData];
@@ -47,7 +48,8 @@
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [self.tabBarController.navigationItem setTitle:@"Notifications"];
+    
     if(reloadNotifications || [[NSDate date] timeIntervalSinceDate:lastRefresh] > 60*5) {
         reloadNotifications = NO;
         [self refreshData];

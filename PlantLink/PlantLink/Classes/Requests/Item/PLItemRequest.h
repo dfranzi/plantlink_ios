@@ -28,6 +28,12 @@
  */
 -(void)removeBaseStation:(NSString*)serial withResponse:(void(^) (NSData *data, NSError *error))response;
 
+/**
+ * Puts the base station with a given serial into discovery mode
+ */
+-(void)putBaseStation:(NSString*)serial intoDiscoveryModeWithResponse:(void(^) (NSData *data, NSError *error))response;
+
+
 #pragma mark -
 #pragma mark Measurement Methods
 
@@ -52,7 +58,7 @@
 /**
  * Adds the plant with name, type, and soil to the current user, calling the response block when complete
  */
--(void)addPlant:(NSString*)name type:(NSString*)type inSoil:(NSString*)soil withResponse:(void(^) (NSData *data, NSError *error))response;
+-(void)addPlant:(NSString*)name type:(NSString*)type withResponse:(void(^) (NSData *data, NSError *error))response;
 
 /**
  * Removes the plant with the plant id and calls the response block when done

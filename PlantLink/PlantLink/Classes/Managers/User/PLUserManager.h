@@ -13,12 +13,9 @@
 @property(nonatomic, assign) BOOL loggedIn;
 @property(nonatomic, strong) PLUserModel *user;
 
-//@property(nonatomic, strong, readonly) NSArray *plants;
-@property(nonatomic, strong, readonly) NSArray *soilTypes;
 @property(nonatomic, strong, readonly) NSArray *plantTypes;
 
 @property(nonatomic, strong) NSString *loginType;
-@property(nonatomic, strong) NSMutableDictionary *setupDict;
 @property(nonatomic, strong) NSMutableDictionary *plantEditDict;
 
 @property(nonatomic, assign) BOOL addPlantTrigger;
@@ -79,10 +76,5 @@
  * Returns the name of the plant type given the plant type key
  */
 -(NSString*)nameForPlantTypeKey:(NSString*)key;
-
-/**
- * Returns the name of the soil type given the soil type key
- */
--(NSString*)nameForSoilTypeKey:(NSString*)key;
 
 @end

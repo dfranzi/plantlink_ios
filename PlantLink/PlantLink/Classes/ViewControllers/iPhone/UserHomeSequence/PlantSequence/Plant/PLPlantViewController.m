@@ -38,7 +38,7 @@
     [plantCollectionView setBackgroundColor:Color_PlantLinkBackground];
     [sharedUser setPlantReloadTrigger:YES];
     
-    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantCollectionView setFrame:CGRectMake(0, 0, 320, self.view.frame.size.height)];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) [plantCollectionView setFrame:CGRectMake(0, 0+44, 320, self.view.frame.size.height-44)];
     
     //[self setTabBarIconActive:Image_Tab_LeafHighlighted passive:Image_Tab_Leaf];
 }
@@ -47,6 +47,9 @@
  * Reloads the plants if the trigger flag is set, otherwise checks to see if a reload was done more than an hour ago
  */
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController.navigationItem setTitle:@"Plants"];
+    
     if([sharedUser plantReloadTrigger]) [self reloadPlants];
     else if(lastReload) {
         NSDate *interval = [lastReload dateByAddingTimeInterval:60*60];

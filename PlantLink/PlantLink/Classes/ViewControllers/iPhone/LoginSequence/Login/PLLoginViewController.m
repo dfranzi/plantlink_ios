@@ -10,6 +10,7 @@
 
 #import "PLTextField.h"
 #import "PLUserRequest.h"
+#import "PLUserModel.h"
 
 @interface PLLoginViewController() {
 @private
@@ -199,8 +200,12 @@
         [defaults setObject:[emailTextField text] forKey:Defaults_SavedEmail];
         
         [sharedUser setLastUsername:email andPassword:password];
-        [super nextPushed:nil];
         userRequest = NULL;
+        
+        [sharedUser autoLoginWithCompletion:^(BOOL successful) {
+            if([sharedUser.user.baseStations count] == 0) [self setNextSegueIdentifier:Segue_ToSerialInput];
+            [super nextPushed:nil];
+        }];
     }];
 }
 
@@ -208,21 +213,44 @@
  * Performs the register request by validating the user input information and saving it if valid, moving to the next view
  */
 -(void)registerRequest {
-    NSMutableDictionary *setupDict = [NSMutableDictionary dictionary];
+    if(userRequest) return;
     
     NSString *name = [nameTextField text];
     NSString *email = [emailTextField text];
     NSString *password = [passwordTextField text];
     NSString *confirm = [confirmPasswordTextField text];
 
-    if([self validName:name email:email password:password confirmation:confirm]) {
-        setupDict[Constant_SetupDict_Name] = name;
-        setupDict[Constant_SetupDict_Email] = email;
-        setupDict[Constant_SetupDict_Password] = password;
+    if(![self validName:name email:email password:password confirmation:confirm]) return;
+    
+    userRequest = [[PLUserRequest alloc] init];
+    [userRequest registerUserWithEmail:email name:name password:password withResponse:^(NSData *data, NSError *error) {
         
-        [sharedUser setSetupDict:setupDict];
-        [super nextPushed:nil];
+        userRequest = NULL;
+        
+        if(error) {
+            [self requestError:error];
+            return;
+        }
+        
+        if(![self checkForRegistrationErrors:data]) {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:email forKey:Defaults_SavedEmail];
+            //[self loginWithEmail:email andPassword:password];
+            [super nextPushed:nil];
+        }
+        
+    }];
+}
+
+/**
+ * Checks for errors in the response from a request and displays an error if necessary
+ */
+-(BOOL)checkForRegistrationErrors:(NSData*)responseData {
+    NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+    if([response isKindOfClass:[NSArray class]]) {
+        if([self errorInRequestResponse:((NSArray*)response)[0]]) return YES;
     }
+    return NO;
 }
 
 #pragma mark -

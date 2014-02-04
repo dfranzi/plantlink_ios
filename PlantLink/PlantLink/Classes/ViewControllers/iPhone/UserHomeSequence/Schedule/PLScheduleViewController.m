@@ -35,15 +35,15 @@
     [scheduleCollectionView setBackgroundColor:Color_PlantLinkBackground];
     //[self setTabBarIconActive:Image_Tab_ScheduleHighlighted passive:Image_Tab_Schedule];
     
-    scheduleView = [[PLScheduleView alloc] initWithFrame:CGRectMake(0, 0, 320, 140)];
+    scheduleView = [[PLScheduleView alloc] initWithFrame:CGRectMake(0, 44, 320, 140)];
     [scheduleView setDelegate:self];
     [self.view addSubview:scheduleView];
     
     if([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0000) {
         [scheduleView setCenter:CGPointMake(scheduleView.center.x, scheduleView.center.y-20)];
-        [scheduleCollectionView setFrame:CGRectMake(0, 120, 320, self.view.frame.size.height-168+48)];
+        [scheduleCollectionView setFrame:CGRectMake(0, 120+40, 320, self.view.frame.size.height-168+48-40)];
     }
-    else [scheduleCollectionView setFrame:CGRectMake(0, 140, 320, self.view.frame.size.height-188)];
+    else [scheduleCollectionView setFrame:CGRectMake(0, 140+40, 320, self.view.frame.size.height-188-40)];
 
     schedules = @[];
     [scheduleCollectionView reloadData];
@@ -55,6 +55,8 @@
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tabBarController.navigationItem setTitle:@"Schedule"];
+    
     if(reloadSchedule  || [[NSDate date] timeIntervalSinceDate:lastRefresh] > 60*60) {
         reloadSchedule = NO;
         [self refreshData];
@@ -166,6 +168,7 @@
     
     NSIndexPath *path = [NSIndexPath indexPathForRow:selected inSection:0];
     [scheduleCollectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    
 }
 
 @end

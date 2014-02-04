@@ -51,6 +51,8 @@
         smsEnabled = NO;
         
         smsShown = YES;
+        
+        [self.layer setShouldRasterize:NO];
     }
     return self;
 }
@@ -506,8 +508,8 @@
  * Changes the button type for a button depending on the boolean flag
  */
 -(void)updateButton:(UIButton*)button withBooleanFlag:(BOOL)flag {
-    NSString *imageName = @"checkmarkGray.png";
-    if(flag) imageName = @"checkmarkBlue.png";
+    NSString *imageName = @"checkmarkGreen.png";
+    if(flag) imageName = @"checkmarkGray.png";
     [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 

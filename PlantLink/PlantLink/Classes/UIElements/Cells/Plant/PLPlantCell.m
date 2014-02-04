@@ -56,7 +56,9 @@
         [separatorView setFrame:CGRectMake(18.0, 130.0, 198.0, 1.0)];
         
         originalCenter = self.contentView.center;
-        
+
+        [self.layer setRasterizationScale:[UIScreen mainScreen].scale];
+        [self.layer setShouldRasterize:YES];
     }
     return self;
 }
@@ -91,11 +93,7 @@
     
     if([moistureIndicator onLowestMoisture]) {
         [self updateNotificationToColor:[UIColor redColor] andText:@"WATER NOW!"];
-        
-        [bubble setAlpha:0.0f];
-        [UIView animateWithDuration:0.3 animations:^{
-            [bubble setAlpha:1.0f];
-        }];
+        [bubble setAlpha:1.0f];
     }
     else [bubble setAlpha:0.0];
     

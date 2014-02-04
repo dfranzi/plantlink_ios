@@ -12,12 +12,11 @@
 
 -(id)initWithDictionary:(NSDictionary*)dict {
     if(self = [super init]) {
-        ZALog(@"%@",dict);
-        
         _email = dict[DC_User_Email];
         _name = dict[DC_User_Name];
         _phone = dict[DC_User_Phone];
         _zip = dict[DC_User_Zipcode];
+        ZALog(@"%@",dict);
         
         _notificationTimes = dict[DC_User_NotificationTimes];
         
@@ -27,9 +26,6 @@
         if(![dict[DC_User_EmailAlerts] isEqual:[NSNull null]]) _emailAlerts = [dict[DC_User_EmailAlerts] boolValue];
         else _emailAlerts = NO;
         
-        if(_emailAlerts) {ZALog(@"Email on");}
-        else {ZALog(@"Email off");}
-        
         if(![dict[DC_User_TextAlerts] isEqual:[NSNull null]])_textAlerts = [dict[DC_User_TextAlerts] boolValue];
         else _textAlerts = NO;
         
@@ -37,6 +33,8 @@
         else _pushAlerts = NO;
         
         _smsNumbers = [NSMutableArray arrayWithArray:dict[DC_User_SmsNumbers]];
+        
+        _baseStations = dict[DC_User_BaseStations];
     }
     return self;
 }
@@ -66,6 +64,7 @@
     
     dict[DC_User_NotificationTimes] = [_notificationTimes copyWithZone:zone];
     dict[DC_User_SmsNumbers] = [_smsNumbers copyWithZone:zone];
+    dict[DC_User_BaseStations] = [_baseStations copyWithZone:zone];
     
     dict[DC_User_EmailAlerts] = [NSNumber numberWithBool:_emailAlerts];
     dict[DC_User_TextAlerts] = [NSNumber numberWithBool:_textAlerts];
@@ -88,6 +87,7 @@
         
         _notificationTimes = [aDecoder decodeObjectForKey:DC_User_NotificationTimes];
         _smsNumbers = [aDecoder decodeObjectForKey:DC_User_SmsNumbers];
+        _baseStations = [aDecoder decodeObjectForKey:DC_User_BaseStations];
         
         _emailAlerts = [aDecoder decodeBoolForKey:DC_User_EmailAlerts];
         _textAlerts = [aDecoder decodeBoolForKey:DC_User_TextAlerts];
@@ -104,6 +104,7 @@
     
     [aCoder encodeObject:_notificationTimes forKey:DC_User_NotificationTimes];
     [aCoder encodeObject:_smsNumbers forKey:DC_User_SmsNumbers];
+    [aCoder encodeObject:_baseStations forKey:DC_User_BaseStations];
     
     [aCoder encodeBool:_emailAlerts forKey:DC_User_EmailAlerts];
     [aCoder encodeBool:_textAlerts forKey:DC_User_TextAlerts];

@@ -28,7 +28,6 @@
 //Segue
 #define Segue_ToLogin @"toLoginView"
 #define Segue_ToSerialInput @"toSerialInputView"
-#define Segue_ToLocationInput @"toLocationInputView"
 #define Segue_ToAddFirstPlant @"toAddFirstPlantView"
 #define Segue_ToUserHome @"toUserHomeView"
 
@@ -74,6 +73,7 @@
 #define Error_Registration_NoPasswordMatch @"Entered passwords do not match."
 
 #define Error_Registration_NoSerial @"Please enter the serial number of your base station."
+#define Error_Registration_IncorrectSerial @"Please enter your 12 character serial code"
 
 #define Error_Registration_NoLocation @"Please enter a location."
 #define Error_Registration_LocationNotFound @"Your location could not be found."
@@ -95,23 +95,25 @@
                       Error_Generic : @"An error occured but could not be specified, we apologize"}
 
 //Settings
+#define SettingsTitle_Help @"Help"
 #define SettingsTitle_Notification @"Notifications"
 #define SettingsTitle_Account @"Account"
 #define SettingsTitle_BugReport @"Bug Report"
-#define SettingsTitle_ContactUs @"Contact Us"
-#define SettingsTitle_Shop @"Shop"
+#define SettingsTitle_ContactUs @"Contact"
+#define SettingsTitle_Shop @"Shop for PlantLink"
 #define SettingsTitle_Logout @"Logout"
 
+#define SettingsLabel_Help @"Intructional videos about PlantLink"
 #define SettingsLabel_Notification @"Change the way you are notified"
 #define SettingsLabel_Account @"Change email and password"
 #define SettingsLabel_BugReport @"Let us know about a possible bug"
-#define SettingsLabel_ContactUs @"Contact Oso Simple Technologies"
-#define SettingsLabel_Shop @"Buy extra plant links"
+#define SettingsLabel_ContactUs @"Contact Oso Technologies"
+#define SettingsLabel_Shop @"Shop for PlantLink"
 #define SettingsLabel_Logout @"Logout of the application"
 
-#define SettingsCellTitles @[SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
+#define SettingsCellTitles @[SettingsTitle_Help, SettingsTitle_Notification, SettingsTitle_Account, SettingsTitle_BugReport, SettingsTitle_ContactUs, SettingsTitle_Shop, SettingsTitle_Logout]
 
-#define SettingsCellLabels @[SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
+#define SettingsCellLabels @[SettingsLabel_Help, SettingsLabel_Notification, SettingsLabel_Account, SettingsLabel_BugReport, SettingsLabel_ContactUs, SettingsLabel_Shop, SettingsLabel_Logout]
 
 #define State_Notifications @"Notifications Expanded"
 #define State_BugReport @"Bug Report Expanded"
@@ -119,5 +121,4 @@
 
 //Plant Edit Mode State
 #define State_PlantType @"plantTypeSelection"
-#define State_SoilType @"soilTypeSelection"
 #define State_Nickname @"nicknameSelection"

@@ -10,9 +10,12 @@
 
 #import "PLTextField.h"
 #import "PLUserManager.h"
+#import "PLUserRequest.h"
 
 @interface PLSerialInputViewController() {
 @private
+    PLUserRequest *stationRequest;
+    
 }
 
 @end
@@ -24,12 +27,18 @@
  */
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [self setNextSegueIdentifier:Segue_ToLocationInput];
+    [self setNextSegueIdentifier:Segue_ToAddFirstPlant];
     [self addLeftNavButtonWithImageNamed:Image_Navigation_BackButton toNavigationItem:self.navigationItem withSelector:@selector(popView:)];
     [self addRightNavButtonWithImageNamed:Image_Navigation_NextButton toNavigationItem:self.navigationItem withSelector:@selector(nextPushed:)];
     
     [self.navigationItem setTitle:@"Serial Number"];
     [serialTextField setTitle:@"Serial #"];
+    serialTextField.placeholder = @"####-####-####";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark -
@@ -61,15 +70,42 @@
  * Transitions to the next view if the serial is non-empty, otherwise shows an error alert
  */
 -(void)nextPushed:(id)sender {
+    if(stationRequest) return;
+    
     NSString *serial = serialTextField.text;
-
+    serial = [serial stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
     if([serial isEqualToString:@""]) {
         [self displayErrorAlertWithMessage:Error_Registration_NoSerial];
         return;
     }
+    else if([serial length] != 12) {
+        [self displayErrorAlertWithMessage:Error_Registration_IncorrectSerial];
+        return;
+    }
     
-    [[sharedUser setupDict] setObject:serial forKey:Constant_SetupDict_SerialNumber];
-    [super nextPushed:sender];
+    stationRequest = [[PLUserRequest alloc] init];
+    [stationRequest updateUser:@{PostKey_BaseStationSerial : @[serial]} withResponse:^(NSData *data, NSError *error) {
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            stationRequest = NULL;
+            return;
+        }
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        if([dict isKindOfClass:[NSArray class]]) {
+            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {
+                stationRequest = NULL;
+                return;
+            }
+        }
+        
+        [sharedUser refreshUserData];
+        stationRequest = NULL;
+        [super nextPushed:sender];
+        
+    }];
 }
 
 @end

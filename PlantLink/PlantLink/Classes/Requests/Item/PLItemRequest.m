@@ -52,6 +52,17 @@
     }];
 }
 
+-(void)putBaseStation:(NSString*)serial intoDiscoveryModeWithResponse:(void(^) (NSData *data, NSError *error))response {
+    NSString *param = [NSString stringWithFormat:URLStr_BaseStation_Discovery,serial];
+    NSString *url = [URLStr_Base stringByAppendingString:param];
+    
+    [self getUrlStr:url withMethod:HTTP_Put withEdit:^(NSMutableURLRequest *request) {
+        [self addApiVersionToRequest:request];
+    } andResponse:^(NSData *data, NSError *error) {
+        response(data,error);
+    }];
+}
+
 #pragma mark -
 #pragma mark Measurement Methods
 
@@ -89,7 +100,7 @@
 }
 
 
--(void)addPlant:(NSString*)name type:(NSString*)type inSoil:(NSString*)soil withResponse:(void(^) (NSData *data, NSError *error))response {
+-(void)addPlant:(NSString*)name type:(NSString*)type withResponse:(void(^) (NSData *data, NSError *error))response {
     NSString *url = [URLStr_Base stringByAppendingString:URLStr_Plant];
     [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
@@ -97,7 +108,7 @@
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[PostKey_Name] = name;
         dict[PostKey_PlantTypeKey] = [NSNumber numberWithInt:[type intValue]];
-        dict[PostKey_SoilTypeKey] = [NSNumber numberWithInt:[soil intValue]];
+        dict[PostKey_SoilTypeKey] = @1000005;
         
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
         [request setHTTPBody:data];

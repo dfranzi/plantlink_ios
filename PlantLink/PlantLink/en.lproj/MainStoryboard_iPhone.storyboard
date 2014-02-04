@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUg-nC-J69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3512" y="277"/>
+            <point key="canvasLocation" x="4012" y="269"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="GeX-0S-Lq8">
@@ -80,11 +80,12 @@
                         <outlet property="setupButton" destination="SV4-ma-TZL" id="kgK-bY-D2Z"/>
                         <segue destination="Ms2-GX-xOL" kind="push" identifier="toLoginView" id="GdK-bD-xVZ"/>
                         <segue destination="lIF-P5-j99" kind="push" identifier="toUserHomeView" id="xYB-LV-hx8"/>
+                        <segue destination="EB4-ah-6an" kind="push" identifier="toSerialInputView" id="LA0-TV-uPM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Sp-eR-ini" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4072" y="-12"/>
+            <point key="canvasLocation" x="4572" y="-20"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gbB-bl-4AP">
@@ -185,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqa-AO-mpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4635" y="149"/>
+            <point key="canvasLocation" x="5135" y="141"/>
         </scene>
         <!--Serial Input View Controller-->
         <scene sceneID="610-gq-nVc">
@@ -229,12 +230,12 @@
                     <navigationItem key="navigationItem" id="s7z-Ip-uM8"/>
                     <connections>
                         <outlet property="serialTextField" destination="m63-Pc-gbl" id="4of-Eh-Buv"/>
-                        <segue destination="XmO-8R-qih" kind="push" identifier="toLocationInputView" id="Wk0-Nl-Yxf"/>
+                        <segue destination="nWk-wm-dS0" kind="push" identifier="toAddFirstPlantView" id="nnl-LB-oIY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aC-gA-lxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5194" y="303"/>
+            <point key="canvasLocation" x="5694" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f8M-JH-ydd">
@@ -323,60 +324,6 @@
             </objects>
             <point key="canvasLocation" x="9734" y="277"/>
         </scene>
-        <!--Location Input View Controller-->
-        <scene sceneID="OtN-LO-Xvw">
-            <objects>
-                <viewController id="XmO-8R-qih" customClass="PLLocationInputViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ucL-Cp-8bW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="m4a-i8-UwN">
-                                <rect key="frame" x="0.0" y="20" width="320" height="269"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XmO-8R-qih" id="8eD-w4-sRC"/>
-                                </connections>
-                            </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search your location" textAlignment="right" minimumFontSize="17" id="4ns-va-QAY" customClass="PLTextField">
-                                <rect key="frame" x="20" y="282" width="280" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.96632641549999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XmO-8R-qih" id="Req-HV-OJJ"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wfd-Ma-LdX">
-                                <rect key="frame" x="20" y="330" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Use current location?">
-                                    <color key="titleColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="useCurrentLocationPushed:" destination="XmO-8R-qih" eventType="touchUpInside" id="xJT-yB-a4O"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="wXl-Rb-0rG"/>
-                    <connections>
-                        <outlet property="locationMapView" destination="m4a-i8-UwN" id="ahu-zU-BMV"/>
-                        <outlet property="locationTextField" destination="4ns-va-QAY" id="WVp-h1-fP7"/>
-                        <segue destination="nWk-wm-dS0" kind="push" identifier="toAddFirstPlantView" id="fOM-g0-Q0N"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DF7-UJ-mOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5809" y="303"/>
-        </scene>
         <!--Add First Plant View Controller-->
         <scene sceneID="rLu-QN-lU7">
             <objects>
@@ -395,7 +342,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cNq-5F-m7R" customClass="PLMenuButton">
                                 <rect key="frame" x="34" y="273" width="107" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.019607843140000001" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Yes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -442,22 +389,22 @@
             <objects>
                 <viewController id="Sbh-Q0-NXF" customClass="PLScheduleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TSx-PC-ZhO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="gfN-aG-fAC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QwW-hC-zdM">
                                     <size key="itemSize" width="297" height="69"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="30" maxX="0.0" maxY="10"/>
+                                    <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notificationCell" id="nzs-vJ-EOW" customClass="PLScheduleCell">
-                                        <rect key="frame" x="12" y="30" width="297" height="85"/>
+                                        <rect key="frame" x="12" y="15" width="297" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="85"/>
@@ -490,11 +437,11 @@
             <objects>
                 <viewController id="q2w-Uy-gVH" customClass="PLPlantViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L9p-Lq-xfc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="rz1-pd-gSP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HTB-wJ-m2q">
@@ -628,6 +575,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantTitleCell" rowHeight="120" id="kbB-0i-bmu" customClass="PLPlantNameCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="120"/>
@@ -637,7 +585,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lfq-3a-obr">
-                                                    <rect key="frame" x="13" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="11" y="2" width="39" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="xicon.png">
@@ -666,7 +614,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygJ-Qu-dUj" customClass="PLPlantEditButton">
-                                                    <rect key="frame" x="261" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="265" y="2" width="39" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="pencil_gray.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -689,11 +637,11 @@
                                             <outlet property="nameLabel" destination="Byh-PT-LWX" id="XOL-wf-Qx6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantDetailCell" rowHeight="161" id="xUr-QS-no3" customClass="PLPlantDetailsCell">
-                                        <rect key="frame" x="0.0" y="142" width="320" height="161"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantDetailCell" rowHeight="89" id="xUr-QS-no3" customClass="PLPlantDetailsCell">
+                                        <rect key="frame" x="0.0" y="142" width="320" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xUr-QS-no3" id="ymZ-eC-zzD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" image="plantdetails.png" id="1yf-ms-jhh">
@@ -702,20 +650,6 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Plant Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ix3-9U-syU">
                                                     <rect key="frame" x="31" y="54" width="81" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Soil Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xtm-95-W8c">
-                                                    <rect key="frame" x="31" y="86" width="81" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yuE-RF-Vbf">
-                                                    <rect key="frame" x="31" y="117" width="81" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -738,50 +672,14 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QEX-aD-hfA">
-                                                    <rect key="frame" x="120" y="86" width="180" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Outdoors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dtz-Xa-DJy">
-                                                    <rect key="frame" x="120" y="117" width="180" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JKW-RG-YXW" customClass="PLPlantItemEditButton">
-                                                    <rect key="frame" x="17" y="87" width="25" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="pencil_gray.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="soilTypeEditPushed:" destination="xUr-QS-no3" eventType="touchUpInside" id="FJC-LA-1Q0"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c3G-uq-5b9" customClass="PLPlantItemEditButton">
-                                                    <rect key="frame" x="17" y="117" width="25" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="pencil_gray.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="locationEditPushed:" destination="xUr-QS-no3" eventType="touchUpInside" id="Tfd-5E-zeC"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="locationLabel" destination="dtz-Xa-DJy" id="HDp-aT-Epd"/>
                                             <outlet property="plantTypeLabel" destination="0vr-O8-XZa" id="rYr-Rx-WGL"/>
-                                            <outlet property="soilTypeLabel" destination="QEX-aD-hfA" id="0BE-n1-9lp"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantMoistureCell" rowHeight="127" id="hZk-Jj-ucW" customClass="PLPlantSoilCell">
-                                        <rect key="frame" x="0.0" y="303" width="320" height="127"/>
+                                        <rect key="frame" x="0.0" y="231" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hZk-Jj-ucW" id="rbQ-mf-zkK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
@@ -803,7 +701,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantHistoryCell" rowHeight="336" id="RLY-KZ-gip" customClass="PLPlantHistoryCell">
-                                        <rect key="frame" x="0.0" y="430" width="320" height="336"/>
+                                        <rect key="frame" x="0.0" y="358" width="320" height="336"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RLY-KZ-gip" id="KFW-NG-Xt0">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
@@ -845,7 +743,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantScheduleCell" rowHeight="123" id="iYj-Sx-36p" customClass="PLPlantScheduleCell">
-                                        <rect key="frame" x="0.0" y="766" width="320" height="123"/>
+                                        <rect key="frame" x="0.0" y="694" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYj-Sx-36p" id="6sg-bz-xmj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
@@ -882,11 +780,11 @@
                                             <outlet property="waterOnLabel" destination="jtm-gN-TZL" id="6Xi-fg-rcR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="150" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
-                                        <rect key="frame" x="0.0" y="889" width="320" height="150"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantLinkDetailsCell" rowHeight="186" id="GoN-2R-mU9" customClass="PLPlantLinkCell">
+                                        <rect key="frame" x="0.0" y="817" width="320" height="186"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GoN-2R-mU9" id="vWt-iV-MKQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" image="linkdetails.png" id="MEN-LY-E8M">
@@ -925,6 +823,18 @@
                                                         <action selector="disconnectLinkPushed:" destination="GoN-2R-mU9" eventType="touchUpInside" id="4Xz-Sf-6we"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0pF-NQ-0IG">
+                                                    <rect key="frame" x="22" y="140" width="277" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                                    <state key="normal" title="   Delete Plant" image="remove.png">
+                                                        <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletePlantPushed:" destination="GoN-2R-mU9" eventType="touchUpInside" id="lPe-gZ-xd0"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -953,11 +863,12 @@
             </objects>
             <point key="canvasLocation" x="8555" y="-589"/>
         </scene>
-        <!--User Home View Controller-->
+        <!--User Home View Controller - Plants-->
         <scene sceneID="HEF-Cc-Buj">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="lIF-P5-j99" customClass="PLUserHomeViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="9ui-nZ-dps"/>
+                    <navigationItem key="navigationItem" title="Plants" id="9ui-nZ-dps"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Otl-M3-S8S">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -982,22 +893,22 @@
             <objects>
                 <viewController id="hyj-JF-cLi" customClass="PLSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NsE-9u-D19">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="b6R-pz-YeI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IFC-yQ-Wwh">
                                     <size key="itemSize" width="297" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="30" maxX="0.0" maxY="20"/>
+                                    <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsCell" id="mhe-RF-3Ks" customClass="PLSettingsCell">
-                                        <rect key="frame" x="12" y="30" width="297" height="125"/>
+                                        <rect key="frame" x="12" y="15" width="297" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="125"/>
@@ -1036,7 +947,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsBugReportCell" id="iip-rk-4EC" customClass="PLSettingsBugReportCell">
-                                        <rect key="frame" x="12" y="165" width="297" height="364"/>
+                                        <rect key="frame" x="12" y="150" width="297" height="364"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="364"/>
@@ -1072,7 +983,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ejJ-MS-kXG" customClass="PLMenuButton">
                                                     <rect key="frame" x="164" y="304" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.019607843140000001" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Submit">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1123,7 +1034,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsNotificationCell" id="6by-Iu-WST" customClass="PLSettingsNotificationCell">
-                                        <rect key="frame" x="12" y="539" width="297" height="378"/>
+                                        <rect key="frame" x="12" y="524" width="297" height="378"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="378"/>
@@ -1143,7 +1054,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change the way you are notified" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6u0-Zx-Nyt">
                                                     <rect key="frame" x="20" y="60" width="257" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1172,7 +1083,7 @@
                                                     <rect key="frame" x="26" y="155" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1211,7 +1122,7 @@
                                                     <rect key="frame" x="97" y="155" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1222,7 +1133,7 @@
                                                     <rect key="frame" x="167" y="155" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1233,7 +1144,7 @@
                                                     <rect key="frame" x="236" y="155" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1288,7 +1199,7 @@
                                                     <rect key="frame" x="47" y="246" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1299,7 +1210,7 @@
                                                     <rect key="frame" x="132" y="246" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1310,7 +1221,7 @@
                                                     <rect key="frame" x="214" y="246" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="checkmarkGray.png">
+                                                    <state key="normal" image="checkmarkGreen.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1320,7 +1231,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J5J-s0-KKL" customClass="PLMenuButton">
                                                     <rect key="frame" x="163" y="326" width="113" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.019607843140000001" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="More">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1353,7 +1264,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsAccountCell" id="Syu-fh-Ozv" customClass="PLSettingsAccountCell">
-                                        <rect key="frame" x="12" y="927" width="297" height="434"/>
+                                        <rect key="frame" x="12" y="912" width="297" height="434"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="434"/>
@@ -1373,7 +1284,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change the email or password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S0Y-T4-PT0">
                                                     <rect key="frame" x="20" y="60" width="257" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1389,7 +1300,7 @@
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L20-Tp-Q6W" customClass="PLMenuButton">
                                                     <rect key="frame" x="62" y="144" width="173" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.019607843140000001" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Reset Password">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1438,7 +1349,7 @@
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TMk-BH-4Xy" customClass="PLMenuButton">
                                                     <rect key="frame" x="20" y="324" width="257" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.019607843140000001" green="0.67843137249999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.047058823530000002" green="0.58039215690000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Change Email">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1464,7 +1375,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="settingsCell" id="uXB-9n-Kc9" customClass="PLSettingsCell">
-                                        <rect key="frame" x="12" y="1371" width="297" height="125"/>
+                                        <rect key="frame" x="12" y="1356" width="297" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="125"/>
@@ -1525,22 +1436,22 @@
             <objects>
                 <viewController id="GkL-BH-b05" customClass="PLNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n7T-Uv-j5Q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WNs-oJ-nH1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cSH-b6-nL8">
                                     <size key="itemSize" width="297" height="69"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="30" maxX="0.0" maxY="10"/>
+                                    <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notificationCell" id="zkb-aL-Gls" customClass="PLNotificationCell">
-                                        <rect key="frame" x="12" y="30" width="297" height="85"/>
+                                        <rect key="frame" x="12" y="15" width="297" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="297" height="85"/>
@@ -1601,7 +1512,7 @@
         <image name="addPlant.png" width="92" height="18"/>
         <image name="battery_0.png" width="28" height="15"/>
         <image name="battery_1.png" width="28" height="15"/>
-        <image name="checkmarkGray.png" width="25" height="26"/>
+        <image name="checkmarkGreen.png" width="25" height="26"/>
         <image name="gear_icon.png" width="25" height="25"/>
         <image name="leaf_icon.png" width="25" height="25"/>
         <image name="linkdetails.png" width="89" height="15"/>
@@ -1624,6 +1535,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="LA0-TV-uPM"/>
         <segue reference="OkX-mA-8Vl"/>
         <segue reference="9MB-Mh-ZK9"/>
     </inferredMetricsTieBreakers>

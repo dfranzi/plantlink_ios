@@ -15,6 +15,7 @@
 #import "PLBatteryImageView.h"
 #import "PLSignalImageView.h"
 #import "PLItemRequest.h"
+#import "PLUserManager.h"
 
 @interface PLPlantLinkCell() {
 @private
@@ -36,6 +37,11 @@
     [linkAlert show];
 }
 
+-(IBAction)deletePlantPushed:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Are You Sure?" delegate:self cancelButtonTitle:@"Dismiss" destructiveButtonTitle:@"Delete Plant" otherButtonTitles:nil];
+    [sheet showInView:self.enclosingController.view];
+}
+
 #pragma mark -
 #pragma mark Alert Methods
 
@@ -49,6 +55,19 @@
             PLUserManager *userManager = [PLUserManager initializeUserManager];
             [userManager setPlantReloadTrigger:YES];
             [[self enclosingController] dismissViewControllerAnimated:YES completion:^{}];
+        }];
+    }
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex != [actionSheet cancelButtonIndex]) {
+        linkRequest = [[PLItemRequest alloc] init];
+        [linkRequest removePlant:self.model.pid withResponse:^(NSData *data, NSError *error) {
+            
+            PLUserManager *manager = [PLUserManager initializeUserManager];
+            [manager setPlantReloadTrigger:YES];
+            
+            [self.enclosingController dismissViewControllerAnimated:YES completion:^{}];
         }];
     }
 }
@@ -86,7 +105,7 @@
  * Returns the height for the cell
  */
 +(CGFloat)heightForContent:(NSDictionary*)content {
-    if([content.allKeys containsObject:@"EditMode"]) return 150+[super heightForContent:content];
+    if([content.allKeys containsObject:@"EditMode"]) return 186+[super heightForContent:content];
     return 100+[super heightForContent:content];
 }
 

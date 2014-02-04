@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreImage/CoreImage.h>
+#import "PLUserModel.h"
 
 @interface PLHomeViewController() {
 @private
@@ -37,6 +38,7 @@
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [sharedUser setPlantReloadTrigger:YES];
 }
 
@@ -45,7 +47,6 @@
  */
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 #pragma mark -
@@ -69,7 +70,8 @@
 -(void)autoLogin {
     [sharedUser autoLoginWithCompletion:^(BOOL successful) {
         if(successful) {
-            [self performSegueWithIdentifier:Segue_ToUserHome sender:self];
+            if([sharedUser.user.baseStations count] == 0) [self performSegueWithIdentifier:Segue_ToSerialInput sender:self];
+            else [self performSegueWithIdentifier:Segue_ToUserHome sender:self];
         }
         [self fadeInButtons];
     }];
@@ -101,7 +103,7 @@
  * Fades in the login and setup button
  */
 -(void)fadeInButtons {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.45 animations:^{
         [loginButton setAlpha:1.0f];
         [setupButton setAlpha:1.0f];
     }];
