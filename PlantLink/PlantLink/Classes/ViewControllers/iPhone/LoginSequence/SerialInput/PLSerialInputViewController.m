@@ -10,12 +10,13 @@
 
 #import "PLTextField.h"
 #import "PLUserManager.h"
-#import "PLUserRequest.h"
+#import "PLItemRequest.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface PLSerialInputViewController() {
 @private
-    PLUserRequest *stationRequest;
-    
+    PLItemRequest *stationRequest;
+    MPMoviePlayerController *moviePlayer;
 }
 
 @end
@@ -34,11 +35,22 @@
     [self.navigationItem setTitle:@"Serial Number"];
     [serialTextField setTitle:@"Serial #"];
     serialTextField.placeholder = @"####-####-####";
+    
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://oso.blob.core.windows.net/content/Basestation%20Setup.mp4"];
+    moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    moviePlayer.shouldAutoplay = YES;
+    moviePlayer.view.alpha = 1.0f;
+    [self.view insertSubview:moviePlayer.view belowSubview:serialTextField];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    [moviePlayer setFullscreen:NO animated:NO];
+    moviePlayer.view.frame = CGRectMake(0, 64, 320, 160);
 }
 
 #pragma mark -
@@ -84,25 +96,30 @@
         return;
     }
     
-    stationRequest = [[PLUserRequest alloc] init];
-    [stationRequest updateUser:@{PostKey_BaseStationSerial : @[serial]} withResponse:^(NSData *data, NSError *error) {
+    stationRequest = [[PLItemRequest alloc] init];
+    __block PLItemRequest *request = stationRequest;
+    __block PLSerialInputViewController *controller = self;
+    __block PLUserManager *userManager = sharedUser;
+    __block PLItemRequest *itemRequest = stationRequest;
+    
+    [stationRequest addBaseStation:serial withResponse:^(NSData *data, NSError *error) {
         if(error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [alert show];
-            stationRequest = NULL;
+            request = NULL;
             return;
         }
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         if([dict isKindOfClass:[NSArray class]]) {
-            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {
-                stationRequest = NULL;
+            if([controller errorInRequestResponse:((NSArray*)dict)[0]]) {
+                request = NULL;
                 return;
             }
         }
         
-        [sharedUser refreshUserData];
-        stationRequest = NULL;
+        [userManager refreshUserData];
+        itemRequest = NULL;
         [super nextPushed:sender];
         
     }];

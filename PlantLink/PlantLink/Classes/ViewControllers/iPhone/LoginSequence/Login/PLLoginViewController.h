@@ -19,4 +19,10 @@
     IBOutlet UILabel *disclaimerTextField;
 }
 
+#pragma mark -
+#pragma mark Action Methods
+
+-(IBAction)termsPushed:(id)sender;
+-(IBAction)privacyPushed:(id)sender;
+
 @end

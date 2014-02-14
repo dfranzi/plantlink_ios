@@ -22,6 +22,13 @@
 -(void)setEditMode:(BOOL)editMode {
     [super setEditMode:editMode];
     
+    nameLabel.userInteractionEnabled = YES;
+    for(UIGestureRecognizer *recognizer in nameLabel.gestureRecognizers) [nameLabel removeGestureRecognizer:recognizer];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(plantNameEditPushed:)];
+    [nameLabel addGestureRecognizer:tapGesture];
+    
+    
     [UIView animateWithDuration:0.3 animations:^{
         if(editMode && nameLabel.tag == 0) {
             [nameLabel setCenter:CGPointMake(nameLabel.center.x+15, nameLabel.center.y)];
@@ -62,6 +69,8 @@
  * Pulls up the edit mode controller set to update the nickname
  */
 -(IBAction)plantNameEditPushed:(id)sender {
+    if(!self.editMode) return;
+    
     [[self enclosingController] performSegueWithIdentifier:Segue_ToAddPlantSequence sender:State_Nickname];
 }
 

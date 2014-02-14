@@ -89,10 +89,12 @@
 #define Error_Auth @"InvalidBasicAuthParameter"
 #define Error_NoAuth @"NoAuth"
 #define Error_Generic @"GeneralError"
+#define Error_DuplicateEmail @"DuplicateUnique-PlantlinkUser-auth_ids"
 
 #define Error_Dict @{ Error_Auth : @"Invalid login information",\
                       Error_NoAuth : @"Invalid login information",\
-                      Error_Generic : @"An error occured but could not be specified, we apologize"}
+                      Error_Generic : @"An error occured but could not be specified, we apologize",\
+                      Error_DuplicateEmail : @"This email already has an account in PlantLink"}
 
 //Settings
 #define SettingsTitle_Help @"Help"
@@ -122,3 +124,17 @@
 //Plant Edit Mode State
 #define State_PlantType @"plantTypeSelection"
 #define State_Nickname @"nicknameSelection"
+
+// Plant Link Status
+#define Link_Status_HardwareError @"Hardware Error"
+#define Link_Status_LowBattery @"Low Battery"
+#define Link_Status_Missing @"Link Missing"
+#define Link_Status_NoSoil @"No Soil"
+#define Link_Status_Waiting @"Waiting on First Measurement"
+#define Link_Status_Watered @"Recently Watered"
+
+#define Link_Statuses @[Link_Status_HardwareError, Link_Status_LowBattery, Link_Status_Missing, Link_Status_NoSoil, Link_Status_Waiting, Link_Status_Watered]
+
+
+
+

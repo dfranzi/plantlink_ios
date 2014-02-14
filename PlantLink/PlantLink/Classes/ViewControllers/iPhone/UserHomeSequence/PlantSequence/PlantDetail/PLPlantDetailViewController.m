@@ -17,12 +17,19 @@
 #import "PLPlantHistoryCell.h"
 #import "PLPlantScheduleCell.h"
 #import "PLPlantLinkCell.h"
+#import "PLItemRequest.h"
 
 #import "PLPlantSetupViewController.h"
 
 @interface PLPlantDetailViewController() {
 @private
     NSArray *plantCells;
+    
+    NSArray *originalCells;
+    NSArray *editCells;
+    
+    PLItemRequest *deleteRequest;
+    
     BOOL editMode;
     BOOL firstAlertFlag;
 }
@@ -37,7 +44,11 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    plantCells = Cell_PlantsAll;
+    originalCells = Cell_PlantsAll;
+    
+    if([Link_Statuses containsObject:self.model.status]) originalCells = Cell_Plants_NoWaterDate;
+    plantCells = originalCells;
+    
     [plantTableView setBackgroundColor:Color_ViewBackground];
     [plantTableView reloadData];
     editMode = NO;
@@ -55,14 +66,9 @@
     
     [self refreshData];
     
-    if([[_model status] isEqualToString:@"Link Missing"] && !firstAlertFlag) {
+    if([[_model status] isEqualToString:@"No Link"] && !firstAlertFlag) {
         firstAlertFlag = YES;
-        UIAlertView *missingAlert = [[UIAlertView alloc] initWithTitle:@"Check Your Link" message:@"Your Link cannot be reached, please make sure it has battery and in range of the BaseStation" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [missingAlert show];
-    }
-    else if([[_model status] isEqualToString:@"No Link"] && !firstAlertFlag) {
-        firstAlertFlag = YES;
-        UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle:@"Sync your Link?" message:@"This plant is not synced with a Link. Would you like to sync it now?" delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Sync Now", nil];
+        UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle:@"Sync your Link?" message:@"This plant is not synced with a Link. Would you like to sync it now?" delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Sync Now", @"Delete", nil];
         [syncAlert show];
     }
     else if(firstAlertFlag) {
@@ -88,9 +94,16 @@
     if(buttonIndex == [alertView cancelButtonIndex]) {
         [self dismissViewControllerAnimated:YES completion:^{}];
     }
-    else {
+    else if(buttonIndex == 1) {
         [sharedUser plantEditDict][@"SkipToSync"] = @YES;
         [self performSegueWithIdentifier:Segue_ToAddPlantSequence sender:@""];
+    }
+    else if(buttonIndex == 2) {
+        deleteRequest = [[PLItemRequest alloc] init];
+        [deleteRequest removePlant:self.model.pid withResponse:^(NSData *data, NSError *error) {
+            sharedUser.plantReloadTrigger = YES;
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        }];
     }
 }
 
@@ -129,7 +142,7 @@
             [plantTableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         else if(!editMode && previousEdit) {
-            plantCells = Cell_PlantsAll;
+            plantCells = originalCells;
             [plantTableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         [plantTableView endUpdates];

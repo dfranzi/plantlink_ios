@@ -34,6 +34,7 @@
 #define Cell_SettingsBugReport @"settingsBugReportCell"
 
 #define Cell_PlantsAll @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantSchedule, Cell_PlantLinkDetail]
+#define Cell_Plants_NoWaterDate @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantMoisture, Cell_PlantHistory, Cell_PlantLinkDetail]
 #define Cell_PlantsEdit @[Cell_PlantTitle, Cell_PlantDetail, Cell_PlantHistory, Cell_PlantLinkDetail]
 
 //Colors
@@ -97,4 +98,13 @@
 #define Image_Icon_Add @"add.png"
 #define Image_Icon_Remove @"remove.png"
 #define Image_Icon_Trash @"trash.png"
+
+#define Image_Link_HardwareError @"link_hardware_error.png"
+#define Image_Link_Low_Battery @"link_low_battery.png"
+#define Image_Link_Missing @"link_missing.png"
+#define Image_Link_NoSoil @"link_no_soil.png"
+#define Image_Link_Waiting @"link_waiting.png"
+#define Image_Link_Watered @"link_watered.png"
+#define Image_Link_No_Link @"link_not_added.png"
+
 

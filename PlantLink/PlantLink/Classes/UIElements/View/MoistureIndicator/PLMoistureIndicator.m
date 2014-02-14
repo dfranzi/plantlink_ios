@@ -21,6 +21,7 @@
     UILabel *tooWetLabel;
     
     UILabel *messageLabel;
+    UIImageView *iconImageView;
 }
 
 @end
@@ -82,14 +83,21 @@
     tooWetLabel = [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 45)];
     
     messageLabel = [self addText:@"Link Missing" atPoint:CGPointMake(center, 25)];
-    [messageLabel setFrame:CGRectMake(0, 0, 240, 40)];
-    [messageLabel setCenter:CGPointMake(center, 25)];
+    [messageLabel setFrame:CGRectMake(80, 0, 160, 40)];
+    [messageLabel setCenter:CGPointMake(center+35, 25)];
     [messageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:22.0]];
-    [messageLabel setTextColor:Color_PlantLinkRed];
-    [messageLabel setContentMode:UIViewContentModeCenter];
+    [messageLabel setTextColor:[UIColor blackColor]];
+    [messageLabel setTextAlignment:NSTextAlignmentLeft];
     [messageLabel setNumberOfLines:2];
     
+    iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"link_hardware_error.png"]];
+    iconImageView.contentMode = UIViewContentModeScaleAspectFit;
+    iconImageView.frame = CGRectMake(0, 0, 40, 42);
+    iconImageView.center = CGPointMake(center-40-45, 25);
+    [self addSubview:iconImageView];
+    
     [self setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 /**
@@ -145,6 +153,7 @@
  */
 -(void)setMoistureLevel:(int)moistureLevel {
     [messageLabel setAlpha:0.0f];
+    [iconImageView setAlpha:0.0f];
     
     NSArray *moistureCircles = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle];
     for(UIImageView *view in moistureCircles) {
@@ -168,13 +177,22 @@
  */
 -(void)setStatusStr:(NSString*)statusStr {
     [messageLabel setAlpha:1.0f];
+    [iconImageView setAlpha:1.0f];
     [messageLabel setText:statusStr];
+    
+    NSString *imageName = Image_Link_Waiting;
+    if([statusStr isEqualToString:@"Recently Watered"]) imageName = Image_Link_Watered;
+    else if([statusStr isEqualToString:@"No Link"]) imageName = Image_Link_No_Link;
+    else if([statusStr isEqualToString:@"No Soil"]) imageName = Image_Link_NoSoil;
+    else if([statusStr isEqualToString:@"Low Battery"]) imageName = Image_Link_Low_Battery;
+    else if([statusStr isEqualToString:@"Waiting on First Measurement"]) imageName = Image_Link_Waiting;
+    else if([statusStr isEqualToString:@"Hardware Error"]) imageName = Image_Link_HardwareError;
+    else if([statusStr isEqualToString:@"Link Missing"]) imageName = Image_Link_Missing;
+    
+    iconImageView.image = [UIImage imageNamed:imageName];
     
     NSArray *moistureSubviews = @[leftCircle,leftCenterCircle,centerCircle,rightCenterCircle,rightCircle,tooDryLabel,justRightLabel,tooWetLabel];
     for(UIView *view in moistureSubviews) [view setAlpha:0.0f];
-    
-    if([statusStr isEqualToString:@"Link Missing"]) [messageLabel setTextColor:Color_PlantLinkRed];
-    else [messageLabel setTextColor:SHADE(0.25*255.0)];
 }
 
 @end

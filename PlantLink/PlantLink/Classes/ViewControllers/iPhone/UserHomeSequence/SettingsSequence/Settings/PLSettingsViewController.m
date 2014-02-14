@@ -249,7 +249,9 @@
 #pragma mark Action Sheet Methods
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
     if([actionSheet cancelButtonIndex] == buttonIndex) return;
+    
     
     if(moviePlayer) [moviePlayer.view removeFromSuperview];
     
@@ -261,12 +263,12 @@
     
     NSURL *url = [[NSURL alloc] initWithString:urls[buttonIndex]];
     
-    moviePlayer= [[MPMoviePlayerController alloc] initWithContentURL:url];
+    moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     
     moviePlayer.controlStyle = MPMovieControlStyleDefault;
     moviePlayer.shouldAutoplay = YES;
     moviePlayer.view.center = self.view.center;
-    
+
     moviePlayer.view.alpha = 1.0f;
     [self.view addSubview:moviePlayer.view];
     [moviePlayer setFullscreen:YES animated:YES];

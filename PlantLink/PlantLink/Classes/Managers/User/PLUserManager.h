@@ -62,7 +62,7 @@
  * Performs a type request on both Soil and Plant types updating the list of available options
  * from the server
  */
--(void)refreshTypes;
+-(void)refreshTypes:(void(^)())completion;
 
 /**
  * Makes sure the current user is logged out

@@ -58,6 +58,7 @@
     
     [self getUrlStr:url withMethod:HTTP_Put withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
+        [request setHTTPBody:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]];
     } andResponse:^(NSData *data, NSError *error) {
         response(data,error);
     }];

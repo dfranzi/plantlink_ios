@@ -28,7 +28,7 @@
 
     //Initializes the shared user and reloads the soil/plant types
     PLUserManager *sharedUser = [PLUserManager initializeUserManager];
-    [sharedUser refreshTypes];
+    [sharedUser refreshTypes:^{}];
     
     return YES;
 }

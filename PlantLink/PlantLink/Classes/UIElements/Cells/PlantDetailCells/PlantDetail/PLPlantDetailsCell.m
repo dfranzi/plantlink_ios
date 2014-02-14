@@ -61,6 +61,12 @@
 -(void)setEditMode:(BOOL)editMode {
     [super setEditMode:editMode];
     
+    plantTypeLabel.userInteractionEnabled = YES;
+    for(UIGestureRecognizer *recognizer in plantTypeLabel.gestureRecognizers) [plantTypeLabel removeGestureRecognizer:recognizer];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(plantTypeEditPushed:)];
+    [plantTypeLabel addGestureRecognizer:tapGesture];
+    
     [UIView animateWithDuration:0.3 animations:^{
         for(UIView *view in self.contentView.subviews) {
             if([view isKindOfClass:[UILabel class]]) {

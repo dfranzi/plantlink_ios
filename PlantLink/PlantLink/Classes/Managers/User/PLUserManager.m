@@ -17,6 +17,8 @@
 #import "PLUserRequest.h"
 #import "KeychainItemWrapper.h"
 
+#import "Reachability.h"
+
 @interface PLUserManager() {
 @private
     PLUserRequest *autoLoginRequest;
@@ -141,12 +143,27 @@ static PLUserManager *sharedUser = nil;
     }];
 }
 
--(void)refreshTypes {
+-(void)refreshTypes:(void (^)())completion {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:@"No internet connection found" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
     plantTypeRequest = [[PLItemRequest alloc] init];
     [plantTypeRequest getPlantTypesWithResponse:^(NSData *data, NSError *error) {
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        _plantTypes = [PLPlantTypeModel modelsFromArrayOfDictionaries:array];
-        plantTypeRequest = NULL;
+        if(error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"uh oh" message:error.localizedDescription delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+        }
+        else {
+            NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            _plantTypes = [PLPlantTypeModel modelsFromArrayOfDictionaries:array];
+            plantTypeRequest = NULL;
+            completion();
+        }
     }];
 }
 

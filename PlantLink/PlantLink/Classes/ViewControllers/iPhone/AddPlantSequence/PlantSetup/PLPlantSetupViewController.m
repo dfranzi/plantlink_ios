@@ -104,6 +104,12 @@
         state = _initialState;
         [self update];
     }
+    
+    if(sharedUser.plantTypes && [sharedUser.plantTypes count] == 0) {
+        [sharedUser refreshTypes:^{
+            [itemsTableView reloadData];
+        }];
+    }
 }
 
 #pragma mark -

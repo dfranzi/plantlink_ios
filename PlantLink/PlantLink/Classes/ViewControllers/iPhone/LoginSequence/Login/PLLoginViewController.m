@@ -88,7 +88,15 @@
 }
 
 #pragma mark -
-#pragma mark IBAction Methods
+#pragma mark Action Methods
+
+-(IBAction)termsPushed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://myplantlink.com/terms/"]];
+}
+
+-(IBAction)privacyPushed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://myplantlink.com/privacy/"]];
+}
 
 /**
  * Segues to the next view depending on the type of login
@@ -236,7 +244,13 @@
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:email forKey:Defaults_SavedEmail];
             //[self loginWithEmail:email andPassword:password];
-            [super nextPushed:nil];
+            
+            userRequest = [[PLUserRequest alloc] init];
+            [userRequest loginUserWithEmail:email andPassword:password withResponse:^(NSData *data, NSError *error) {
+                [sharedUser setLastUsername:email andPassword:password];
+                userRequest = NULL;
+                [super nextPushed:nil];
+            }];
         }
         
     }];
