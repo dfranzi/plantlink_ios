@@ -45,6 +45,9 @@
     [self.view insertSubview:moviePlayer.view belowSubview:serialTextField];
 }
 
+/*
+ * Setups up the movie player parameters to player when the view appears
+ */
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];

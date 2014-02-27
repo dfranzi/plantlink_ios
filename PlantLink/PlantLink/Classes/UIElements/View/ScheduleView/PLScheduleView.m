@@ -20,6 +20,9 @@
 
 @implementation PLScheduleView
 
+/**
+ * Initializes the frame and sets up the intial views
+ */
 -(id)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]) {
         [self setBackgroundColor:Color_PlantLinkBackground];
@@ -36,6 +39,9 @@
 #pragma mark -
 #pragma mark Layout Methods
 
+/**
+ * ADds day labels for the days of the week
+ */
 -(void)addLabels {
     int index = 0;
     for(NSString *day in @[@"Sun",@"Mon",@"Tue",@"Wed",@"Thur",@"Fri",@"Sat"]) {
@@ -50,6 +56,9 @@
     }
 }
 
+/**
+ * Creates two rows of pushable schedule buttons to indicate days
+ */
 -(void)addItemBoxes {
     for(UIView *item in items) [item removeFromSuperview];
     [items removeAllObjects];
@@ -74,6 +83,9 @@
 #pragma mark -
 #pragma mark Model Methods
 
+/**
+ * Sets the plant array, iterating through the days and setting background colors to indicate when items should be watered
+ */
 -(void)setPlants:(NSArray *)plants {
     _plants = plants;
     
@@ -118,6 +130,9 @@
 #pragma mark -
 #pragma mark Action Methods
 
+/**
+ * Called when a schedule item is pushed, informing the delegate with the day of the selected item
+ */
 -(void)itemPushed:(id)sender {
     UIButton *button = (UIButton*)sender;
     if([[button backgroundColor] isEqual:Color_PlantLinkBlue] || [[button backgroundColor] isEqual:Color_PlantLinkRed]) {

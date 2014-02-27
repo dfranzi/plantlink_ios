@@ -27,6 +27,7 @@
     
     NSArray *originalCells;
     NSArray *editCells;
+    NSArray *editRemoveIndexes;
     
     PLItemRequest *deleteRequest;
     
@@ -45,8 +46,12 @@
     [super viewDidLoad];
     
     originalCells = Cell_PlantsAll;
+    editRemoveIndexes = @[[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:4 inSection:0]];
     
-    if([Link_Statuses containsObject:self.model.status]) originalCells = Cell_Plants_NoWaterDate;
+    if([Link_Statuses containsObject:self.model.status]) {
+        editRemoveIndexes = @[[NSIndexPath indexPathForRow:2 inSection:0]];
+        originalCells = Cell_Plants_NoWaterDate;
+    }
     plantCells = originalCells;
     
     [plantTableView setBackgroundColor:Color_ViewBackground];
@@ -136,14 +141,13 @@
         
         [plantTableView beginUpdates];
         
-        NSArray *indexes = @[[NSIndexPath indexPathForRow:2 inSection:0],[NSIndexPath indexPathForRow:4 inSection:0]];
         if(editMode && !previousEdit) {
             plantCells = Cell_PlantsEdit;
-            [plantTableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+            [plantTableView deleteRowsAtIndexPaths:editRemoveIndexes withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         else if(!editMode && previousEdit) {
             plantCells = originalCells;
-            [plantTableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+            [plantTableView insertRowsAtIndexPaths:editRemoveIndexes withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         [plantTableView endUpdates];
     }

@@ -83,7 +83,7 @@
     tooWetLabel = [self addText:@"TOO WET" atPoint:CGPointMake(center+2*MoistureIndicator_Offset, 45)];
     
     messageLabel = [self addText:@"Link Missing" atPoint:CGPointMake(center, 25)];
-    [messageLabel setFrame:CGRectMake(80, 0, 160, 40)];
+    [messageLabel setFrame:CGRectMake(80, 0, 160, 55)];
     [messageLabel setCenter:CGPointMake(center+35, 25)];
     [messageLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:22.0]];
     [messageLabel setTextColor:[UIColor blackColor]];
@@ -179,6 +179,7 @@
     [messageLabel setAlpha:1.0f];
     [iconImageView setAlpha:1.0f];
     [messageLabel setText:statusStr];
+    [messageLabel setText:@"Recently Watered"];
     
     NSString *imageName = Image_Link_Waiting;
     if([statusStr isEqualToString:@"Recently Watered"]) imageName = Image_Link_Watered;

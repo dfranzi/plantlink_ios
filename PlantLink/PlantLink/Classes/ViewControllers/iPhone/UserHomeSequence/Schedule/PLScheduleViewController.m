@@ -148,6 +148,10 @@
 #pragma mark -
 #pragma mark ScheduleView Delegate Methods
 
+/*
+ * Updates the schedule collection view for a tapped day button, scrolling to that index
+ */
+
 -(void)daySelected:(int)day {
     int index = 0;
     int selected = 0;

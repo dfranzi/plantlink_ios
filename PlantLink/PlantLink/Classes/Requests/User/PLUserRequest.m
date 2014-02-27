@@ -49,10 +49,15 @@
 }
 
 -(void)resetPasswordForEmail:(NSString*)email withResponse:(void(^) (NSData *data, NSError *error))response {
-    NSString *param = [NSString stringWithFormat:URLStr_PasswordReset,email];
-    NSString *url = [URLStr_Base stringByAppendingString:param];
-    [self getUrlStr:url withMethod:HTTP_Get withEdit:^(NSMutableURLRequest *request) {
+    NSString *url = [URLStr_Base stringByAppendingString:URLStr_PasswordReset];
+    [self getUrlStr:url withMethod:HTTP_Post withEdit:^(NSMutableURLRequest *request) {
         [self addApiVersionToRequest:request];
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[PostKey_Email] = email;
+        
+        NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+        [request setHTTPBody:data];
     } andResponse:^(NSData *data, NSError *error) {
         response(data,error);
     }];

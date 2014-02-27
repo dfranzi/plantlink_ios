@@ -59,9 +59,9 @@
             return;
         }
         
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        if([dict isKindOfClass:[NSArray class]]) {
-            if([self errorInRequestResponse:((NSArray*)dict)[0]]) {}
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        if([array count] > 0) {
+            if([self errorInRequestResponse:array[0]]) {}
         }
         else {
             [self displayAlertWithTitle:Alert_PasswordResetTitle andMessage:Alert_PasswordResetMessage];

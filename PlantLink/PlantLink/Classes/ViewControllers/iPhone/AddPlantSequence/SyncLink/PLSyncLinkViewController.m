@@ -48,7 +48,7 @@
 }
 
 /**
- *
+ * Starts the base station discovery when the view appears
  */
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

@@ -50,6 +50,9 @@
 #pragma mark -
 #pragma mark Notification Methods
 
+/*
+ * Removes the movie player from the view when the movie is finished
+ */
 -(void)recievedNotification:(NSNotification*)notification {
     if([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
         [moviePlayer setFullscreen:NO animated:YES];
@@ -247,6 +250,10 @@
 
 #pragma mark -
 #pragma mark Action Sheet Methods
+
+/*
+ * Called when an item is selected on the action sheet, and starts the movie the button represents
+ */
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];

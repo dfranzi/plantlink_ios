@@ -15,7 +15,7 @@
 #define URLStr_User @"/user"
 #define URLStr_Authentication @"/auth"
 #define URLStr_Logout @"/logout"
-#define URLStr_PasswordReset @"/passwordReset?email=%@"
+#define URLStr_PasswordReset @"/passwordReset"
 
 #define URLStr_BaseStation @"/baseStations"
 #define URLStr_BaseStation_Delete @"/baseStations?serial=%@"

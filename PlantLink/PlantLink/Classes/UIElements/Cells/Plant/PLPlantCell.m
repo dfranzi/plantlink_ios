@@ -79,8 +79,12 @@
         PLPlantMeasurementModel *measurement = [_model lastMeasurement];
         if(measurement && ![measurement isEqual:[NSNull null]]) {
             [self updateCellForMeasurement:measurement];
-            
         }
+        
+        if([@[Link_Status_Missing, Link_Status_NoSoil, Link_Status_Waiting] containsObject:_model.status]) {
+            waterLabel.alpha = 0.0f;
+        }
+        else waterLabel.alpha = 1.0f;
     }
 }
 
@@ -102,7 +106,7 @@
     UIColor *dateColor = [UIColor blackColor];
     NSDate *waterDate = [measurement predictedWaterDate];
     
-    if(waterDate == NULL) [waterLabel setText:@"Calculating"];
+    if(waterDate == NULL) [waterLabel setText:@""];
     else {
         if([self distanceFromToday:waterDate] == 0) {
             baseStr = @"Water";

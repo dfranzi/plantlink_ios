@@ -10,6 +10,9 @@
 
 @implementation PLScheduleCell
 
+/**
+ * Adjusts labels to schedule cells extending from the notification cell class
+ */
 -(void)addLabels {
     [super addLabels];
     
@@ -31,6 +34,9 @@
 #pragma mark -
 #pragma mark Set Methods
 
+/*
+ * Sets the standard colors for the schedule cell so it can be reset
+ */
 -(void)setStandardColors {
     [background setBackgroundColor:Color_PlantLinkBlue];
     [backdrop setBackgroundColor:Color_PlantLinkBlue_Dark];

@@ -90,10 +90,16 @@
 #pragma mark -
 #pragma mark Action Methods
 
+/*
+ * Opens the plant link terms when the text button is pushed
+ */
 -(IBAction)termsPushed:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://myplantlink.com/terms/"]];
 }
 
+/*
+ * Opens the plant link privacy policy when the text button is pushed
+ */
 -(IBAction)privacyPushed:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://myplantlink.com/privacy/"]];
 }
